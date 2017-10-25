@@ -1,3 +1,64 @@
+body {
+  overflow-x: hidden;
+  font-family: Helvetica, sans-serif;
+}
+p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+p.large {
+  font-size: 16px;
+}
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  outline: none;
+}
+a {
+  color: #fed136;
+}
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: #fec503;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+  color: white;
+}
+section {
+  padding: 100px 0;
+}
+
+.header
+{
+  overflow: hidden;
+  background-color: rgb(46, 117, 181);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.main
+{
+  margin-top: 48px;
+}
+
+
 /* The side navigation menu */
 .sidebar {
     height: 100%; 
@@ -46,91 +107,4 @@
 @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
-}
-
-
-body {
-  overflow-x: hidden;
-  font-family: Helvetica, sans-serif;
-}
-p {
-  font-size: 14px;
-  line-height: 1.75;
-}
-p.large {
-  font-size: 16px;
-}
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-  outline: none;
-}
-a {
-  color: #fed136;
-}
-a:hover,
-a:focus,
-a:active,
-a.active {
-  color: #fec503;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Helvetica, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-header {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  text-align: center;
-  color: white;
-}
-section {
-  padding: 100px 0;
-}
-
-img::selection {
-  background: transparent;
-}
-img::-moz-selection {
-  background: transparent;
-}
-body {
-  webkit-tap-highlight-color: #fed136;
-}
-
-/*---------------------------------------------------------*/
-
-.header
-{
-  overflow: hidden;
-  background-color: rgb(46, 117, 181);
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a
-{
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: right;
-  padding: 48px 48px;
-  text-decoration: none;
-}
-
-.main
-{
-  margin-top: 48px;
 }
