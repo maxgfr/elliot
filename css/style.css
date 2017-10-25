@@ -53,9 +53,16 @@ section {
   width: 100%;
 }
 
+.footer
+{
+  height: 30px;
+  background: rgb(46, 117, 181);
+}
+
 .main
 {
   margin-top: 48px;
+  margin-bottom: 48px;
 }
 
 
@@ -108,3 +115,4 @@ section {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
 }
+
