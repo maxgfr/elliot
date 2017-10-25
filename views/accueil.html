@@ -8,27 +8,35 @@
     
 
 	<body>
-		<!-- Menu à gauche -->
-		<nav>
-        	<ul>
-            	<li> <a href="dashboard.html"> Dashboard </a> </li>
-                <li> <a href="gestion_capteurs_actionneurs.html"> Gestion Capteurs/Actionneurs </a> </li>
-                <li> <a href="support.html"> Support </a> </li>
-            </ul>  
-        </nav>
 
         <!-- Header -->
-        <a href="accueil.html"> ellIoT </a>
-        <img src="../img/menu.png" alt="icone du menu" />
-        <a href ="notification.html"> <img src="../img/cloche.png" alt="icone de cloche" /> </a>
-        <img src="../img/notification.png" alt="icone de notification" />
-        <a href="profile.html"> <img src="../img/user.png" alt="icone du user" /> Name Lastname </a>
-        <a href="deconnexion.html"> <img src="../img/porte.png" alt="icone de deco" /> </a>
+        <div id="header">
+            <span style="font-size:30px;cursor:pointer" onclick="openSideBar()"><img src="../img/menu.png" alt="icone du menu" /></span>
+            <a href="accueil.html"> ellIoT </a>
+            <a href ="notification.html"> <img src="../img/cloche.png" alt="icone de cloche" /> </a>
+            <img src="../img/notification.png" alt="icone de notification" />
+            <a href="profile.html"> <img src="../img/user.png" alt="icone du user" /> Name Lastname </a>
+            <a href="deconnexion.html"> <img src="../img/porte.png" alt="icone de deco" /> </a>
+        </div>
 
-	</body>
 
-    
-    <footer>
-    	<p> Copyright Elliot 2017-2018 </p>
-    </footer>
+		<!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
+            <a href="dashboard.html"> Dashboard </a> </li>
+            <a href="gestion_capteurs_actionneurs.html"> Gestion Capteurs/Actionneurs </a> 
+            <a href="support.html"> Support </a> </li>
+        </div>
+        
+
+        <footer>
+            <div id="static_footer">
+        	   <p> Copyright Elliot 2017-2018 </p>
+            </div>
+        </footer>
+
+    <script type="text/javascript" src="../js/app.js"></script>
+
+    </body>
+
 </html>
