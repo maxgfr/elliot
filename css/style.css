@@ -30,27 +30,29 @@ h1,h2,h3,h4,h5,h6 {
 header {
   text-align: center;
   color: white;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: visible;
+  background: rgb(46, 117, 181);
 }
+
 section {
   padding: 100px 0;
 }
 
-
-/*********CLASS*********/
-.header
-{
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
-  background: rgb(46, 117, 181);
-}
-
-.footer
+footer
 {
   height: 30px;
   background: rgb(46, 117, 181);
+}
+
+/*********CLASS*********/
+.header_right
+{
+  position: fixed;
+  right: 0px;
 }
 
 .main

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>white
         <meta charset="utf-8" />
         <title>Page d'accueil</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -9,21 +9,27 @@
     <body>
 
         <!-- Header -->
-        <div class="header">
-            <span style="font-size:30px;cursor:pointer" onclick="openSideBar()"><img src="../img/menu.png" alt="icone du menu" /></span>
-            <a href="accueil.html"> <img src="../img/elliot.png" alt="icon elliot" /></a>       
-            <a href ="notification.html"> <img src="../img/notification.png" alt="icone de notification" /> </a>
-            <a href="profile.html"> <img src="../img/user.png" alt="icone du user" />Name Lastname</a>
-            <a href="deconnexion.html"> <img src="../img/porte.png" alt="icone de deco" /> </a>
-        </div>
+        <header>
+            <span style="font-size:30px;cursor:pointer" onclick="openSideBar()"><img src="../img/menu.png" alt="Menu icon" /></span>
+            <a href="home.html"> <img src="../img/elliot.png" alt="Elliot icon" /></a>
+
+            <div class="header_right">
+            <a href ="notification.html"> <img src="../img/notification.png" alt="Notification icon" /> </a>
+            <a href="profile.html"> <img src="../img/user.png" alt="User icon" /> Name Lastname </a>
+            <a href="deconnexion.html"> <img src="../img/porte.png" alt="Deconnexion icon" /> </a>
+            </div>
+        </header>
 
 
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
+
             <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
-            <a href="dashboard.html"> Dashboard </a> </li>
-            <a href="gestion_capteurs_actionneurs.html"> Gestion Capteurs/Actionneurs </a> 
-            <a href="support.html"> Support </a> </li>
+            <a href="home.html"> <img src="../img/elliot.png" alt="Elliot icon" /></a></li>
+            <a href="dashboard.html"> <img src="../img/dashboard.png" alt="Dashboard icon"> Dashboard </a> </li>
+            <a href="house.html"> <img src="../img/house.png" alt="House icon"> Plan du domicile </a> </li>
+            <a href="gestion_capteurs_actionneurs.html"> <img src="../img/slider.png" alt="Slider icon"> Gestion Capteurs/Actionneurs </a> 
+            <a href="support.html"> <img src="../img/support.png" alt="Support icon">Support </a> </li>
         </div>
 
 
@@ -82,9 +88,8 @@
         </div>
         
 
-        <footer class="footer">
+        <footer>
                <p> Copyright Elliot 2017-2018 </p>
-        </div>
         </footer>
 
     <script type="text/javascript" src="../js/app.js"></script>
