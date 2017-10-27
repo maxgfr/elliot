@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>white
         <meta charset="utf-8" />
@@ -11,50 +11,34 @@
         <!-- Header -->
         <header>
             <span style="font-size:30px;cursor:pointer" onclick="openSideBar()"><img src="../img/menu.png" alt="Menu icon" /></span>
-            <a href="home.html"> <img src="../img/elliot.png" alt="Elliot icon" title="Page d'accueil"/></a>
+            <a href="home.html"> <img src="../img/elliot.png" title="Page d'accueil"/></a>
 
             <div class="header_right">
-            <a class="tooltip" href="notification.html"> 
+	    <a class="tooltip" href="notification.html"> 
                 <img src="../img/notification.png" title="Notification"/>
-   		        <span><img src="../img/barnotif.png">
-   		         <h3>dernier notification</h3>
-    		     il y a de la merde dans le chauffage
-   		        </span>
-	        </a>
-            <a href="profile.html"> <img src="../img/user.png" alt="User icon" title="Page de profil"/> <button class="name_button" type="button" title="Page de profil">Name Lastname</button> </a>
-            <a href="deconnexion.html"> <img src="../img/porte.png" alt="Deconnexion icon" title="Déconnexion"/> </a>
+   		<span><img src="../img/barnotif.png">
+   		<h3>dernier notification</h3>
+    		il y a de la merde dans le chauffage
+   		</span>
+	    </a>
+            <!-- <a href ="notification.html"> <img src="../img/notification.png" title="Notification"/> </a> -->
+            <a href="profile.html"> <img src="../img/user.png" title="Page de profil"/> <button class="name_button" type="button" title="Page de profil">Name Lastname</button> </a>
+            <a href="deconnexion.html"> <img src="../img/porte.png" title="Déconnexion"/> </a>
             </div>
         </header>
 
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div id="sidebar" class="sidebar">
+
             <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
             <a href="home.html"> <img src="../img/big_elliot.png" alt="Elliot icon" title="Page d'accueil"/></a></li>
-
-            	<button class="menu_button" type="button">	
-            		<a href="dashboard.html"> <img src="../img/dashboard.png" alt="Dashboard icon" title="Dashboard"> Dashboard </a> </li> 
-            	</button>
-
-            	<button class="menu_button" type="button">	
-            	<a href="house.html"> <img src="../img/house.png" alt="House icon" title="Plan de la maison"> Plan du domicile </a> </li>
-            	</button>
-
-            	<button class="menu_button" type="button">	
-            	<a href="gestion_capteurs_actionneurs.html"> <img src="../img/slider.png" id="img_slider" alt="Slider icon" title="Gestionnaire des tâches"> Gestion Capteurs Actionneurs </a> 
-            	</button>
-
-            	<button class="menu_button" type="button">	
-            	<a href="support.html"> <img src="../img/support.png" alt="Support icon" title="Page du support">Support </a> </li>
-            	</button>
+            <a href="dashboard.html"> <img src="../img/dashboard.png" alt="Dashboard icon" title="Dashboard"> Dashboard </a> </li>
+            <a href="house.html"> <img src="../img/house.png" alt="House icon" title="Plan de la maison"> Plan du domicile </a> </li>
+            <a href="gestion_capteurs_actionneurs.html"> <img src="../img/slider.png" alt="Slider icon" title="Gestionnaire des tâches"> Gestion Capteurs/Actionneurs </a> 
+            <a href="support.html"> <img src="../img/support.png" alt="Support icon" title="Page du support">Support </a> </li>
         </div>
-
-
-        <!-- Fixed nav-->
-
-
-
-
+	
         <div class="main">
             <p> DES GRAPHIQUES ET ENCORE DES GRAPHIQUES</p>
             <p>
