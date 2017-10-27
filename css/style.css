@@ -32,10 +32,14 @@ header {
   color: white;
   display: flex;
   position: fixed;
-  top: 0;
+  top: 0px;
   width: 100%;
   overflow: visible;
   background: rgb(46, 117, 181);
+  height: 48px;
+  padding-top: 1%;
+  padding-bottom: 2%;
+
 }
 
 section {
@@ -85,6 +89,16 @@ footer
     transition: 0.3s
 }
 
+/* The navigation menu links */
+.sidebar a:hover {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s
+}
+
 /* Position and style the close button (top right corner) */
 .sidebar .closebtn {
     position: absolute;
@@ -92,6 +106,33 @@ footer
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+button
+{
+  background-color: rgb(46, 117, 181);
+  border: white solid;
+  color: white;    
+  padding: 15px 32px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 15px;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  box-shadow: 4px 4px #999;
+}
+
+button:active
+{
+  box-shadow: 2px 2px #666;
+}
+
+.name_button:hover
+{
+  color: white;
+  background-color: rgb(37, 67, 119);
+
 }
 
 /*********ID*********/
