@@ -1,9 +1,9 @@
 function openSideBar() {
-    document.getElementById("sidebar").style.width = "300px";
+	document.getElementById("sidebar").style.width = "300px";
 }
-
+  
 function closeSideBar() {
-    document.getElementById("sidebar").style.width = "0";
+	document.getElementById("sidebar").style.width = "0";
 }
 
 $(window).scroll(function(){
