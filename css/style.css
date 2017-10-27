@@ -187,3 +187,50 @@ img
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
 }
+
+
+.tooltip /*bulle de notifications*/
+{
+  text-decoration:none;
+  position:relative;
+}
+ 
+ 
+.tooltip span
+{
+  display:none;
+ 
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  color:white;
+  background:rgb(46, 117, 181); 
+}
+ 
+.tooltip span img
+{
+  float:left;
+  position:absolute;
+  top:-40px;
+  margin:0px 0px 0px 0;
+}
+ 
+ 
+
+ 
+.tooltip:hover span
+{
+  display:block;
+  position:absolute;
+  top:-10;
+  left:-140px;
+  z-index:1000;
+  width:auto;
+  max-width:320px;
+  min-height:128px;
+  border:1px white;
+  margin-top:12px;
+  margin-left:32px;
+  overflow:hidden;
+  padding:8px;
+}
