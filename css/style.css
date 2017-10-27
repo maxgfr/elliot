@@ -1,33 +1,47 @@
 /*********ELEMENT*********/
-body {
+body 
+{
   overflow-x: hidden;
   font-family: Helvetica, sans-serif;
   margin:0px;
   padding:0px;
 }
-p {
+
+p 
+{
   font-size: 14px;
   line-height: 1.75;
 }
-p.large {
+
+p.large 
+{
   font-size: 16px;
 }
-a,a:hover,a:focus,a:active,a.active {
+
+a,a:hover,a:focus,a:active,a.active 
+{
   outline: none;
 }
-a {
+
+a 
+{
   color: #ffffff
 }
-a:hover,a:focus,a:active,a.active {
+
+a:hover,a:focus,a:active,a.active 
+{
   color: #fec503;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1,h2,h3,h4,h5,h6 
+{
   font-family: Helvetica, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
 }
 
-header {
+header 
+{
   text-align: center;
   color: white;
   display: flex;
@@ -42,7 +56,8 @@ header {
   box-shadow: 0px 2px #999;
 }
 
-section {
+section 
+{
   padding: 100px 0;
 }
 
@@ -50,6 +65,18 @@ footer
 {
   height: 30px;
   background: rgb(46, 117, 181);
+}
+
+button
+{
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+img
+{
+  vertical-align: middle;
 }
 
 /*********CLASS*********/
@@ -66,7 +93,8 @@ footer
 }
 
 /* The side navigation menu */
-.sidebar {
+.sidebar 
+{
     height: 100%; 
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
@@ -80,27 +108,20 @@ footer
 }
 
 /* The navigation menu links */
-.sidebar a {
+.sidebar a 
+{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #f1f1f1;
     display: block;
-    transition: 0.3s
+    transition: 0.2s
 }
 
-/* The navigation menu links */
-.sidebar a:hover {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: 0.3s
-}
 
 /* Position and style the close button (top right corner) */
-.sidebar .closebtn {
+.sidebar .closebtn 
+{
     position: absolute;
     top: 0;
     right: 25px;
@@ -108,40 +129,57 @@ footer
     margin-left: 50px;
 }
 
-button
+.name_button
 {
   background-color: rgb(46, 117, 181);
-  border: white solid;
-  color: white;    
-  padding: 15px 32px;
-  display: inline-block;
-  vertical-align: top;
-  font-size: 15px;
+  color: white;
   border-radius: 15px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+  vertical-align: top;
   box-shadow: 2px 3px #999;
+  padding: 15px 32px;
+  font-size: 15px;
 }
 
-button:active
+.name_button:active
 {
-  box-shadow: 1px 1px #666;
+    box-shadow: 1px 1px #666;
 }
 
 .name_button:hover
 {
-  color: white;
   background-color: rgb(37, 67, 119);
+  border: white solid;
+  color: white;
+}
 
+.menu_button
+{
+  display: inline-block
+  width: 100%;
+  border: none;
+  background-color: rgb(37, 67, 119);
+  vertical-align: middle;
+}
+
+.menu_button:hover
+{
+  background-color: rgb(46, 117, 181);
+  display: flex;
+  width:100%;
 }
 
 /*********ID*********/
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
+#main 
+{
     transition: margin-left .5s;
     padding: 20px;
 }
 
+#img_slider
+{
+  float: left;
+}
 
 /*********MOBILE FRIENDLY*********/
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
