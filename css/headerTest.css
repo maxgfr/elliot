@@ -227,7 +227,7 @@ header img {
     display: inline-block;
     width: 40px;  height: 50px;
     content: "";
-    background: url("smallellIoT.png");
+    background: url("../img/smallellIoT.png");
     background-size: 100%;
     vertical-align: middle;
 }
@@ -236,7 +236,7 @@ header img {
     display: inline-block;
     width: 40px;  height: 40px;
     content: "";
-    background: url("dashboardIcon.png") no-repeat 0 0;
+    background: url("../img/dashboardIcon.png") no-repeat 0 0;
     background-size: 100%;
 }
 
@@ -244,7 +244,7 @@ header img {
     display: inline-block;
     width: 40px;  height: 40px;
     content: "";
-    background: url("homeplanIcon.png") no-repeat 0 0;
+    background: url("../img/homeplanIcon.png") no-repeat 0 0;
     background-size: 100%;
 }
 
@@ -252,7 +252,7 @@ header img {
     display: inline-block;
     width: 40px;  height: 40px;
     content: "";
-    background: url("sensorIcon.png") no-repeat 0 0;
+    background: url("../img/sensorIcon.png") no-repeat 0 0;
     background-size: 100%;
 }
 
@@ -260,7 +260,7 @@ header img {
     display: inline-block;
     width: 40px;  height: 40px;
     content: "";
-    background: url("supportIcon.png") no-repeat 0 0;
+    background: url("../img/supportIcon.png") no-repeat 0 0;
     background-size: 100%;
 }
 
