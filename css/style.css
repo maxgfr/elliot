@@ -1,0 +1,249 @@
+/*********ELEMENT*********/
+body 
+{
+  overflow-x: hidden;
+  font-family: Helvetica, sans-serif;
+  margin:0px;
+  padding:0px;
+}
+
+p 
+{
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+p.large 
+{
+  font-size: 16px;
+}
+
+a,a:hover,a:focus,a:active,a.active 
+{
+  outline: none;
+}
+
+a 
+{
+  color: #ffffff
+}
+
+a:hover,a:focus,a:active,a.active 
+{
+  color: #fec503;
+}
+
+h1,h2,h3,h4,h5,h6 
+{
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+header 
+{
+  text-align: center;
+  color: white;
+  display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  overflow: visible;
+  background: rgb(46, 117, 181);
+  height: 30px;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  box-shadow: 0px 2px #999;
+}
+
+section 
+{
+  padding: 100px 0;
+}
+
+footer
+{
+  height: 30px;
+  background: rgb(46, 117, 181);
+}
+
+button
+{
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+img
+{
+  vertical-align: middle;
+}
+
+/*********CLASS*********/
+.header_right
+{
+  position: fixed;
+  right: 0px;
+}
+
+.main
+{
+  margin-top: 68px;
+  margin-bottom: 20px;
+}
+
+/* The side navigation menu */
+.sidebar 
+{
+    height: 100%; 
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgb(37, 67, 119);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The navigation menu links */
+.sidebar a 
+{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.2s
+}
+
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn 
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.name_button
+{
+  background-color: rgb(46, 117, 181);
+  color: white;
+  border-radius: 15px;
+  vertical-align: top;
+  box-shadow: 2px 3px #999;
+  padding: 15px 32px;
+  font-size: 15px;
+}
+
+.name_button:active
+{
+    box-shadow: 1px 1px #666;
+}
+
+.name_button:hover
+{
+  background-color: rgb(37, 67, 119);
+  border: white solid;
+  color: white;
+}
+
+.menu_button
+{
+  display: inline-block
+  width: 100%;
+  border: none;
+  background-color: rgb(37, 67, 119);
+  vertical-align: middle;
+}
+
+.menu_button:hover
+{
+  background-color: rgb(46, 117, 181);
+  display: flex;
+  width:100%;
+}
+
+
+/*********ID*********/
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main 
+{
+    margin-left: 75%;
+    padding: 20px;
+}
+
+#img_slider
+{
+  float: left;
+}
+
+/*********MOBILE FRIENDLY*********/
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+
+
+
+
+
+.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
+.w3-bar-block .w3-dropdown-hover,.w3-bar-block .w3-dropdown-click{width:100%}
+.w3-bar-block .w3-dropdown-hover .w3-dropdown-content,.w3-bar-block .w3-dropdown-click .w3-dropdown-content{min-width:100%}
+.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
+.w3-bar-block .w3-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;outline:none;white-space:normal;float:none}
+.w3-bar-block.w3-center .w3-bar-item{text-align:center}.w3-block{display:block;width:100%}
+
+.tooltip /*bulle de notifications*/
+{
+  text-decoration:none;
+  position:relative;
+}
+ 
+ 
+.tooltip span
+{
+  display:none;
+ 
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  color:white;
+  background:rgb(46, 117, 181); 
+}
+ 
+.tooltip span img
+{
+  float:left;
+  position:absolute;
+  top:-40px;
+  margin:0px 0px 0px 0;
+}
+ 
+ 
+
+ 
+.tooltip:hover span
+{
+  display:block;
+  position:absolute;
+  top:-10;
+  left:-140px;
+  z-index:1000;
+  width:auto;
+  max-width:320px;
+  min-height:128px;
+  border:1px white;
+  margin-top:12px;
+  margin-left:32px;
+  overflow:hidden;
+  padding:8px;
+}
+
