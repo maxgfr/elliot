@@ -1,21 +1,12 @@
 <div id="mySideBar" class="sidebar">
 
-			  <img id="bigIcon" src="../img/ellIoT2.png">
+			  <a href="Homeplan.php"> <img id="bigIcon" src="../img/ellIoT2.png"> </a>
 
 			  <p></p>
 
 			  <button>
 				<div class="menu-image">
-					<img src="../img/dashboardIcon.png"/>
-				</div>
-				<div class="menu-name">
-					Tableau de bord
-				</div>
-			  </button>
-
-			  <button>
-				<div class="menu-image">
-					<img src="../img/homeplanIcon.png"/>
+					<a href="Homeplan.php"> <img src="../img/homeplanIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Plan du domicile	
@@ -24,7 +15,16 @@
 
 			  <button>
 				<div class="menu-image">
-					<img src="../img/sensorIcon.png"/>
+					<a href="Dashboard.php"> <img src="../img/dashboardIcon.png"/> </a>
+				</div>
+				<div class="menu-name">
+					Tableau de bord
+				</div>
+			  </button>
+
+			  <button>
+				<div class="menu-image">
+					<a href="Sensor.php"> <img src="../img/sensorIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Capteurs/actionneurs
@@ -33,7 +33,7 @@
 
 			  <button>
 				<div class="menu-image">
-					<img src="../img/supportIcon.png"/>
+					<a href="Support.php"> <img src="../img/supportIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Support

@@ -21,6 +21,10 @@
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
+
+          <?php echo "Ceci est du texte"; ?>
+
+          
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
@@ -29,7 +33,10 @@
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
-          <p>SOMETHING COOL WILL HAPPEN NEXT</p>
+          <p>SOMETHING COOL WILL HAPPEN NEXT</p>*
+
+          
+
       </div>
 
 

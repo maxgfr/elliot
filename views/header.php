@@ -6,7 +6,7 @@
           <ul class="notificationPopup">
               <li>
                   <span class="howManyNotif">2</span>
-                  <img src="../img/notificationIcon.png" alt="Notification icon" title="Notifications"/>
+                  <a href="Notification.php"> <img src="../img/notificationIcon.png" alt="Notification icon" title="Notifications"/> </a>
                   <ul>
                       <li class="title">Notifications</li>
                       <li>
@@ -16,17 +16,17 @@
                           <a href="#">Lorem ipsum dolor sit amet</a>
                       </li>s
                       <li class="seeAll">
-                          <a href="#">See all notifications</a>
+                          <a href="Notification.php">See all notifications</a>
                       </li>
                   </ul>
               </li>
           </ul>
-          <!--img src="../img/notificationIcon.png" alt="Notification icon" title="Notifications"/-->
+
           <button class="buttonHeader" type="button" title="Profile">
-            <img src="../img/userIcon.png" alt="User icon" title="Page de profil"/>
+            <a href="Profile.php"> <img src="../img/userIcon.png" alt="User icon" title="Page de profil"/> </a>
             <a> DomISEP </a>
           </button>
-          <img src="../img/logoutIcon.png" alt="Logout icon" title="Logout"/>
+          <a href="Deconnection.php"> <img src="../img/logoutIcon.png" alt="Logout icon" title="Logout"/> </a>
         </div>
       </header>
 
