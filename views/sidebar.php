@@ -1,25 +1,42 @@
 <div id="mySideBar" class="sidebar">
-          <img id="bigIcon" src="../img/ellIoT2.png">
 
-          <p></p>
+			  <img id="bigIcon" src="../img/ellIoT2.png">
 
-          <button>
-            <img src="../img/dashboardIcon.png"/>
-            Dashboard
-          </button>
+			  <p></p>
 
-          <button>
-            <img src="../img/homeplanIcon.png"/>
-            Plan du domicile	
-          </button>
+			  <button>
+				<div class="menu-image">
+					<img src="../img/dashboardIcon.png"/>
+				</div>
+				<div class="menu-name">
+					Tableau de bord
+				</div>
+			  </button>
 
-          <button>
-            <img src="../img/sensorIcon.png"/>
-            Capteurs / Actionneurs
-          </button>
+			  <button>
+				<div class="menu-image">
+					<img src="../img/homeplanIcon.png"/>
+				</div>
+				<div class="menu-name">
+					Plan du domicile	
+				</div>
+			  </button>
 
-          <button>
-            <img src="../img/supportIcon.png"/>
-            Support
-          </button>
-</div>
+			  <button>
+				<div class="menu-image">
+					<img src="../img/sensorIcon.png"/>
+				</div>
+				<div class="menu-name">
+					Capteurs/actionneurs
+				</div>
+			  </button>
+
+			  <button>
+				<div class="menu-image">
+					<img src="../img/supportIcon.png"/>
+				</div>
+				<div class="menu-name">
+					Support
+				</div>
+			  </button>
+	</div>

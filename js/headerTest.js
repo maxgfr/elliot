@@ -10,11 +10,11 @@ function setSideBarStatus(){
 }
 
 function openSideBar() {
-  document.getElementById("mainHeader").style.marginLeft = "150px";
+  document.getElementById("mainHeader").style.marginLeft = "190px";
 
   document.getElementById("main").style.transform = "scale(0.9,1)";
 
-  document.getElementById("mySideBar").style.width = "220px";
+  document.getElementById("mySideBar").style.width = "260px";
   document.getElementById("mySideBar").style.display = "block";
   document.getElementById("bigIcon").style.display = "block";
 
