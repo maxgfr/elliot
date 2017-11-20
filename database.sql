@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  lun. 13 nov. 2017 à 11:12
+-- Généré le :  lun. 20 nov. 2017 à 11:29
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -59,6 +59,19 @@ CREATE TABLE `datasensors` (
 CREATE TABLE `familysensor` (
   `id_familysensor` int(9) NOT NULL,
   `name` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `message`
+--
+
+CREATE TABLE `message` (
+  `id_message` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `contenu` text NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -157,6 +170,13 @@ ALTER TABLE `familysensor`
   ADD PRIMARY KEY (`id_familysensor`);
 
 --
+-- Index pour la table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id_message`),
+  ADD KEY `fk_message_user` (`id_user`);
+
+--
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -206,6 +226,12 @@ ALTER TABLE `accomodation`
 --
 ALTER TABLE `datasensors`
   ADD CONSTRAINT `foreign_key_datasensors` FOREIGN KEY (`id_sensor`) REFERENCES `sensors` (`id_sensor`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `fk_message_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `roles_users`
