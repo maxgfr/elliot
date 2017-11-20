@@ -14,7 +14,7 @@
                       </li>
                       <li>
                           <a href="#">Lorem ipsum dolor sit amet</a>
-                      </li>
+                      </li>s
                       <li class="seeAll">
                           <a href="#">See all notifications</a>
                       </li>
