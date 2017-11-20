@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/headerTest.css">
-    <script src="../../js/headerTest.js"></script>
+    <link rel="stylesheet" href="css/headerTest.css">
+    <script src="js/headerTest.js"></script>
     <title>Test for the header</title>
   </head>
 
@@ -15,7 +15,7 @@
           <ul class="notificationPopup">
               <li>
                   <span class="howManyNotif">2</span>
-                  <img src="../img/notificationIcon.png" alt="Notification icon" title="Notifications"/>
+                  <img src="img/notificationIcon.png" alt="Notification icon" title="Notifications"/>
                   <ul>
                       <li class="title">Notifications</li>
                       <li>
@@ -32,10 +32,10 @@
           </ul>
           <!--img src="../img/notificationIcon.png" alt="Notification icon" title="Notifications"/-->
           <button class="buttonHeader" type="button" title="Profile">
-            <img src="../../img/userIcon.png" alt="User icon" title="Page de profil"/>
+            <img src="img/userIcon.png" alt="User icon" title="Page de profil"/>
             <a> DomISEP </a>
           </button>
-          <img src="../../img/logoutIcon.png" alt="Logout icon" title="Logout"/>
+          <img src="img/logoutIcon.png" alt="Logout icon" title="Logout"/>
         </div>
       </header>
 
@@ -54,27 +54,27 @@
   <body>
 
       <div id="mySideBar" class="sidebar">
-          <img id="bigIcon" src="../../img/ellIoT2.png">
+          <img id="bigIcon" src="img/ellIoT2.png">
 
           <p></p>
 
           <button>
-            <img src="../img/dashboardIcon.png"/>
+            <img src="img/dashboardIcon.png"/>
             Dashboard
           </button>
 
           <button>
-            <img src="../img/homeplanIcon.png"/>
+            <img src="img/homeplanIcon.png"/>
             Plan du domicile
           </button>
 
           <button>
-            <img src="../img/sensorIcon.png"/>
+            <img src="img/sensorIcon.png"/>
             Capteurs / Actionneurs
           </button>
 
           <button>
-            <img src="../img/supportIcon.png"/>
+            <img src="img/supportIcon.png"/>
             Support
           </button>
 
