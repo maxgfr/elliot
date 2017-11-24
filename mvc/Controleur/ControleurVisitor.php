@@ -1,10 +1,10 @@
 <?php
-
-
     /** @brief ControleurVisitor identifie l'action et appelle la méthode pour construire le modèle correspondant à l'action avec le rôle "visitor". Le controleur appelle aussi la Vue correspondante. Il ne gère pas les exceptions, qui remontent au Front Controller. */
     class ControleurVisitor {
 
-        function __construct ($action){
+        function __construct (){
+            //Récupération de l'action
+            $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
             ///On distingue des cas d’utilisation, suivant l’action
             switch($action) {
                 case "auth" :
