@@ -1,6 +1,4 @@
 <?php
-
-
 	/** @brief Classe de configuration : Elle donne accès aux paramères spécifiques contenat l'application tellles que les chemins vers les vues, les vues d'erreur, les hash pour les ID de sessions, etc... */
 	class Config {
 
@@ -29,10 +27,7 @@
 		{
 			global $rootDirectory;  //racine du site
 			$vueDirectory = $rootDirectory."Vue/vues/"; //répertoire contenant les vues d'erreur
- 			return array("default" => $vueDirectory."vueErreurDefault.php",
- 						 "authentification" => $vueDirectory."vueConnexionErreur.php",
- 						 "saisieTitreCreate" => $vueDirectory."vueSaisieTitreCreateErreur.php",
- 						 "saisieTitreUpdate" => $vueDirectory."vueSaisieTitreUpdateErreur.php");
+ 			return array("default" => $vueDirectory."vueErreurDefault.php");
 		}
 
 
