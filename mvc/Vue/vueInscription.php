@@ -95,12 +95,11 @@
 				</div>
 			  </button>
 	</div>
-  id_user	last_name	first_name	mail	password	birthday	phone_number
 
       <div id="main">
 
         <h2>Create an Account</h2>
-        <form id="RegisterUserForm" action="" method="post">
+        <form id="RegisterUserForm" method="post">
           <label for="last_name">Nom de famille</label>
           <input class="text" id="last_name" type="text" name="last_name" value="" />
           <label for="first_name">Prénom</label>
@@ -117,6 +116,12 @@
         </form>
       </div>
 
+
+      <?php
+          if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password'])) ) {
+                  $ctrl = new ControleurVisitor('inscription');
+          }
+      ?>
 
   </body>
 
