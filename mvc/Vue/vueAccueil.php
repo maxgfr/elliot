@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/headerTest.css">
-    <script src="js/headerTest.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/animation.js"></script>
     <title>Test for the header</title>
   </head>
 
