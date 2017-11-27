@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/animation.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/animation.js"></script>
     <title>Test for the header</title>
   </head>
 
@@ -98,21 +98,21 @@
 
       <div id="main">
 
-        <h2>Create an Account</h2>
+        <h2>Créer un compte</h2>
         <form id="RegisterUserForm" method="post">
-          <label for="last_name">Nom de famille</label>
+          <label for="last_name">Nom</label>
           <input class="text" id="last_name" type="text" name="last_name" value="" />
           <label for="first_name">Prénom</label>
           <input class="text" id="first_name" type="text" name="first_name" value="" />
           <label for="phone_number">Téléphone</label>
           <input class="text" id="phone_number" type="tel" name="phone_number" value="" />
-          <label for="birthday">Jour de naissance</label>
+          <label for="birthday">Date de naissance</label>
           <input class="text" id="birthday" type="text" name="birthday" value="" />
-          <label for="mail">Email</label>
+          <label for="mail">E-mail</label>
           <input class="text" id="mail" type="email" name="mail" value="" />
-          <label for="password">Password</label>
+          <label for="password">Mot de passe</label>
           <input class="text" id="password" type="password" name="password" />
-          <button id="registerNew" type="submit">Register</button>
+          <button id="registerNew" type="submit">Ajouter</button>
         </form>
       </div>
 
