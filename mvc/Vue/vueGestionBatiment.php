@@ -98,7 +98,7 @@
 
       <div id="main">
 
-        <h2>Ajouter un bâtiment</h2>
+        <h2>Gérer les bâtiments</h2>
         <form id="BuildingAddingForm" method="post">
           <label for="building_name">Nom du bâtiment</label>
           <input class="text" id="last_name" type="text" name="building_name" value="" />
