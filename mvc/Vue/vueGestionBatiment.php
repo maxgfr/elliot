@@ -102,13 +102,7 @@
         <form id="BuildingAddingForm" method="post">
           <label for="building_name">Nom du bâtiment</label>
           <input class="text" id="last_name" type="text" name="building_name" value="" />
-          <label for="street_number">Numéro</label>
-          <input class="text" id="street_number" type="smallint" name="street_number" value="" />
-          <label for="street_name">Nom de la rue</label>
-          <input class="text" id="street_name" type="text" name="street_name" value="" />
-          <label for="postal_code">Code postal/label>
-          <input class="text" id="postal_code" type="mediumint" name="postal_code" value="" />
-          <button id="buildingAdd" type="submit">Ajouter</button>
+          <button id="registerNew" type="submit">Ajouter</button>
         </form>
       </div>
 
