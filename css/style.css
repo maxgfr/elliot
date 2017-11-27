@@ -36,7 +36,7 @@ a:hover,a:focus,a:active,a.active
 h1,h2,h3,h4,h5,h6
 {
   font-family: Helvetica, sans-serif;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 700;
 }
 
@@ -605,6 +605,26 @@ header img {
 	font-family : arial;
 	text-indent: 12px;
 
+}
+
+/**********FORMULAIRES**********/
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border: 1px solid rgb(46, 117, 181);
+    border-radius: 3px; 
+}
+
+input[type=button] {
+    background-color: rgb(46, 117, 181);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 /**********MAIN PART OF THE WEBSITE**********/
