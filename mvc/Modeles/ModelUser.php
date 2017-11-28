@@ -34,27 +34,6 @@
         return $model;
     }
 
-    public static function createUser(&$dataError, $inputArray)
-    {
-        //Tentative de construction d'une instance ( et filtrage )
-        $user = UserFabrique::getValidInstance($dataErrorAttributes, $inputArray);
-        //Si la forme des attributs sont corrects ( expressions régulières - setters )
-        $inputArray['nbAvertissements'] = 0;
-        $inputArray['etatCompte'] = "activé";
-        if (empty($dataErrorAttributes)) {
-            // Execution de la requête d'insertion' :
-            $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("REPLACE INTO user(prenom,nom,dateNaissance,pays,ville,username,mdp,email,tel,role,nbAvertissements,etatCompte) VALUES (:prenom,:nom,:dateNaissance,:pays,:ville,:username,:mdp,:email,:tel,:role,:nbAvertissements,:etatCompte)", $inputArray);
-            if ($queryResults === false) {
-                $dataError["persistance"] = "Probleme d'execution de la requête";
-            }
-        } else {
-            $dataError = array_merge($dataError, $dataErrorAttributes); // fusion
-        }
-        $user->setUsername($inputArray['username']); // pour la valeur retournée
-        return $user;
-    }
-
-
 
     }
 	}
