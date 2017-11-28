@@ -7,9 +7,9 @@
     background-color: rgb(38,67,120) ;
 }
 
-button {background-color: rgb(46, 117, 181); width: 100px;  height: 30px; color: white;}
-button:hover {filter:contrast(100%);}
-img {width: 20%; height: auto; filter:invert(90%);}
+#Butto_support {background-color: rgb(46, 117, 181); width: 100px;  height: 30px; color: white;}
+#Butto_support:hover {filter:contrast(100%);}
+#Envoyer {width: 20%; height: auto; filter:invert(90%);}
 div.centre {
     position:absolute;
     left: 10%;
