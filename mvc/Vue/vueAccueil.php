@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style.css">
-    <script src="../../js/animation.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/animation.js"></script>
     <title>Test for the header</title>
   </head>
 
@@ -17,7 +17,7 @@
 
       <div id="main">
 
-          <img style="width:95%;" src="../../img/internet_of_things.png" alt="Dashboard example">
+          <img style="width:95%;" src="img/internet_of_things.png" alt="Dashboard example">
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>
           <p>SOMETHING COOL WILL HAPPEN NEXT</p>

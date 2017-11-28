@@ -13,8 +13,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <?php include("header.php"); ?>
-    <?php include("iconBar.php"); ?>
+    <?php include("layouts/header.php"); ?>
+    <?php include("layouts/iconBar.php"); ?>
 
     <title>Notification</title>
 
