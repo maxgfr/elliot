@@ -19,17 +19,17 @@
 
         /** @brief Inscription d'un utilisateur */
         private function actionInscription(){
-          ValidationRequest::validationLogin($dataError, $email, $password);
-          $model=Authentication::checkAndInitiateSession($email, $password, $dataError);
-          if($model->getError()===false){
-              require(Config::getVues()["defaultAdmin"]);
-          }else{
-              require(Config::getVues()["authentification"]);
-          }
-            $model=new Model(array());
-            require(Config::getVues()["authentification"]);
-        }
-
-
+          $model = ModelUser::getModelUserCreate($_POST);
+            if ( $model->getError ( ) === false ) {
+                require(Config::getVues()["default"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
      }
 ?>
