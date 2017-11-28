@@ -16,19 +16,20 @@
     <meta charset="utf-8">
     <title> Support </title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link href="../../css/Support.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
     <script src="../../js/animation.js"></script>
 
 </head>
 
-<?php include ('layouts/header.php'); ?>
-<?php include ('layouts/iconBar.php'); ?>
+    <?php include ('layouts/header.php'); ?>
 
-<div id="Support" class="centre">
-    <body>
+    <?php include ('layouts/iconBar.php'); ?>
+<body>
+    <div id="Support" class="centre">
+
     <?php include ('layouts/sidebar.php'); ?>
 
-    <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="30" />
+    <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="25" />
     <br />
     <br />
     <label>Description detaillée de votre problème</label>
@@ -40,6 +41,7 @@
         <img src="../../img/Envoyer_Support.png">
         Envoyer
     </button>
+    </div>
 
     </body>
 </html>
