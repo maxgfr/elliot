@@ -33,7 +33,7 @@
     <br />
     <label>Description detaillée de votre problème</label>
     <br />
-    <textarea name="Description" id="Description" rows="10" cols="65    " placeholder="Merci de décrire votre problème dans les moindres détails !"></textarea>
+    <textarea name="Description" id="Description" rows="10" cols="65" placeholder="Merci de décrire votre problème dans les moindres détails !"></textarea>
     <br />
     <br />
     <button>

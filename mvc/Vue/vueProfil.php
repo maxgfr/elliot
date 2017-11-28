@@ -13,13 +13,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <?php include("header.php"); ?>
-    <?php include("iconBar.php"); ?>
+    <?php include("layouts/header.php"); ?>
+    <?php include("layouts/iconBar.php"); ?>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/animation.js"></script>
 
     <title>UserPage</title>
 </head>
 <body>
-    <?php include("sidebar.php"); ?>
+    <?php include("layouts/sidebar.php"); ?>
     <p>Utilisateur</p>
     <label for="Name">Nom : </label><input type="text" name="Name" id="Name">
     <label for="Prenom">Prénom : </label><input type="text" name="Prenom" id="Prenom">
