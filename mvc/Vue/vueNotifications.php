@@ -15,7 +15,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/animation.js"></script>
+
     <?php include("layouts/header.php"); ?>
     <?php include("layouts/iconBar.php"); ?>
 
@@ -32,7 +35,7 @@
     </style>
 </head>
 <body>
-<?php include("sidebar.php"); ?>
+<?php include("layouts/sidebar.php"); ?>
 <p> Vous avez <?php $notfi; ?> notifications</p>
 <table>
     <tr>
