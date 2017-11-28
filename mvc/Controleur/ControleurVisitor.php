@@ -12,7 +12,7 @@
                     break;
 
                 default : // L'action indéfinie ( page par défaut , ici accueil )
-                    require(Config::getVues()["default"]);
+                    require(Config::getVues()["connexion"]);
                     break;
             }
         }

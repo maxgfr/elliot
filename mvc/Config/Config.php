@@ -18,7 +18,7 @@
 			global $rootDirectory; //racine du site
 			$vueDirectory = $rootDirectory."Vue/"; //répertoire contenant les vues
 			return array("default" => $vueDirectory."vueAccueil.php",
-						 "defaultAdmin" => $vueDirectory."vueAdmin.php");
+						 "connexion" => $vueDirectory."vueConnexion.php");
 		}
 
 
@@ -26,8 +26,8 @@
 		public static function getVuesErreur()
 		{
 			global $rootDirectory;  //racine du site
-			$vueDirectory = $rootDirectory."Vue/vues/"; //répertoire contenant les vues d'erreur
- 			return array("default" => $vueDirectory."vueErreurDefault.php");
+			$vueDirectory = $rootDirectory."Vue/"; //répertoire contenant les vues d'erreur
+ 			return array("default" => $vueDirectory."vueError.php");
 		}
 
 
