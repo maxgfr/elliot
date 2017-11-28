@@ -14,38 +14,43 @@
 <head>
     <meta   charset="UTF-8" />
     <title>Connexion</title>
-    <link href="../../css/login-box.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-<div style="padding: 100px 0 0 250px;">
-    <div id="login-box">
-        <H2>Login</H2>
-        <br />
-        <br />
-        <div id="login-box-field" style="margin-top:20px;">
-            <input name="email" class="form-login" title="Username" value="" placeholder="Email" size="30" maxlength="2048" style="background-color: white; border-radius: 2px;"/>
-            <br />
-            <br />
-            <input name="Password" type="password" class="form-login" title="Password" value="" placeholder="Password" size="30" maxlength="2048" style="background-color: white ; border-radius: 2px" />
-            <br />
-            <br />
-        </div>
-        <div id="form-footer">
-            <div id="Remember-me">
-            <span class="login-box-options"><input type="checkbox" name="1" value="1"> Remember Me</span>
+    <div id="container_login">
+        <div id="login_box" class="box">
+            <div id="login_box_textandicon" class="box_textandicon">
+                <div id="login_box_text">
+                    <h2>AUTHENTIFICATION</h2>
+                </div>
+                <div id="login_box_icon" class="iconImage">
+                    <img src="../../img/register_icon.png" alt="Register Icon">
+                </div>
             </div>
-            <br />
-            <div id="Forget-pwd">
-            <a href="#" style="color: white;">Forgot password?</a></span>
+            <div id="login_box_input" style="margin-top:20px;">
+                <div id="login_box_input_email" class="inputText">
+                    <input name="email" title="Username" placeholder="Email" />
+                </div>
+                <div id="login_box_input_password" class="inputText">
+                    <input name="password" type="password" title="Password" placeholder="Mot de passe" />
+                </div>
+                <div id="login_box_input_suggestion">
+                    <div id="login_box_input_suggestion_checkbox">
+                        <input type="checkbox" name="1" value="1">
+                    </div>
+                    <div id="login_box_input_suggestion_text">
+                        Se souvenir de moi
+                    </div>
+                    <div id="login_box_input_suggestion_forgotPassword">
+                        <a href="#"> Mot de passe oublié? </a>
+                    </div>
+                </div>
             </div>
-            <br />
-            <br />
-            <div id="Buton">
-            <a href="#"><img src="../../img/userIcon.png" width="50" height="50" style="margin-left:90px;" /></a>
+            <div id="login_box_authentification" class="confirmButton">
+                <button type="button" name="button">S'authentifier</button>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
