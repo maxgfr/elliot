@@ -6,7 +6,7 @@
           <ul class="notificationPopup">
               <li>
                   <span class="howManyNotif">2</span>
-                  <a href="Notification.php"> <img src="../../img/notificationIcon.png" alt="Notification icon" title="Notifications"/> </a>
+                  <a href="../vueNotifications.php"> <img src="../../img/notificationIcon.png" alt="Notification icon" title="Notifications"/> </a>
                   <ul>
                       <li class="title">Notifications</li>
                       <li>

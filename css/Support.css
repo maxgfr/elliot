@@ -1,0 +1,17 @@
+#Support {
+    width: 500px;
+    height: 325px;
+    padding: 20px 30px 0 30px;
+    color: white;
+    font: 12px Arial, Helvetica, sans-serif;
+    background-color: rgb(38,67,120) ;
+}
+
+button {background-color: rgb(46, 117, 181); width: 100px;  height: 30px; color: white;}
+button:hover {filter:contrast(100%);}
+img {width: 20%; height: auto; filter:invert(90%);}
+div.centre {
+    position:absolute;
+    left: 10%;
+    top: 30%;
+}
