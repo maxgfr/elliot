@@ -1,0 +1,103 @@
+.global_container {
+    display: flex;
+    horizontal-align: middle;
+}
+
+#container_register {
+    background-image: linear-gradient(rgb(38, 67, 120), rgb(65,108,186));
+    width: 400px;
+    height:600px;
+    padding-bottom: 3%;  padding-top: 0.2%;
+}
+
+#container_login {
+    background-image: linear-gradient(rgb(38, 67, 120), rgb(65,108,186));
+    width: 500px;
+    height: 450px;
+    margin-left: 20px;
+    padding-bottom: 3%;  padding-top: 0.2%;
+}
+
+.box {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.box_textandicon {
+    display: flex;
+    width: 100%;
+}
+
+.iconImage img {
+    right: 0;
+    width: 30px;
+    height: auto;
+    margin-top:20px;
+}
+
+#login_box_text, #register_box_text {
+    color: white;
+    font-size: 20px;
+}
+
+#login_box_input, #register_box_input {
+    width:100%;
+    padding-top: 50px;
+}
+
+.inputText input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+}
+
+#login_box_input_suggestion {
+    width: 100%;
+    position: relative;
+}
+#login_box_input_suggestion > * {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 10px;  padding-bottom: 10px;
+}
+
+#login_box_input_suggestion_text {
+    color: white;
+    font-size: 13px;
+}
+
+#login_box_input_suggestion_forgotPassword {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+}
+
+#login_box_input_suggestion_forgotPassword  a, a:link, a:visited {
+    text-decoration: none;
+    color: white;
+    outline: 0; /*remove the dotlines*/
+}
+
+
+.confirmButton button {
+    width: 100%;
+    margin: 8px 0;
+    padding-top: 10px; padding-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.confirmButton button::-moz-focus-inner {
+    border: 0; /*remove dotlines in Mozilla*/
+}
+
+.confirmButton button:hover {
+    background-color: #D3D3D3;
+    transition: 1s;
+}
