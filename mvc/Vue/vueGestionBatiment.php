@@ -28,7 +28,7 @@
 
       <?php
           if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password']))  {
-                  $ctrl = new ControleurVisitor('inscription');
+              $ctrl = new ControleurVisitor('inscription');
           }
       ?>
 
