@@ -33,7 +33,7 @@
 		private static function autoloadCallback($class){
 			global $rootDirectory;
 			$sourceFileName = $class.".php";
-			$directoryList= array("", "Auth/","Config/", "Modeles/", "Metier/", "Controleur/", "Persistance/", "Vue/", "../../../mvc/Config/");
+			$directoryList= array("","Config/", "Modeles/", "Controleur/", "Vue/");
 			foreach($directoryList as $subDir){
 				$filePath = $rootDirectory.$subDir.$sourceFileName;
 				if(file_exists($filePath)){
