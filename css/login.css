@@ -39,8 +39,13 @@
     width: 100%;
 }
 
+#register_box_text {
+    width: 90%;
+}
+.iconImage {
+    right:0;
+}
 .iconImage img {
-    right: 0;
     width: 30px;
     height: auto;
     margin-top:20px;
