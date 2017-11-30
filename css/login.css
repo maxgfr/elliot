@@ -1,17 +1,28 @@
+/***********************************COLOR GLOSSARY************************************\
+|*                                                                                   *|
+|*    #Red (weakest strength) : rgb(192, 0, 0) or #C00000                            *|
+|*    #Red (weak strength) : rgb(199, 85, 102) or #C75566                            *|
+|*    #Yellow (medium strength) : rgb(221, 172, 38) or #DDAC26                       *|
+|*    #Green (good strength) : rgb(33, 155, 117) or #219D75                          *|
+|*    #Green (excellent strength) : rgb(84, 130, 53) or #548235                      *|
+|*    #Grey (default color for strength bar) : rgb(211, 211, 211) or #D3D3D3         *|                                                                            *|
+|*                                                                                   *|
+\*************************************************************************************/
+
+
 .global_container {
     display: flex;
-    horizontal-align: middle;
 }
 
 #container_register {
-    background-image: linear-gradient(rgb(38, 67, 120), rgb(65,108,186));
+    background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
     width: 400px;
     height:600px;
     padding-bottom: 3%;  padding-top: 0.2%;
 }
 
 #container_login {
-    background-image: linear-gradient(rgb(38, 67, 120), rgb(65,108,186));
+    background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
     width: 500px;
     height: 450px;
     margin-left: 20px;
@@ -100,4 +111,47 @@
 .confirmButton button:hover {
     background-color: #D3D3D3;
     transition: 1s;
+}
+
+/**********STRENGTH OF PASSWORD**********/
+#show_strength_box {
+    display: none; /*Set the divs to be side by side*/
+}
+
+#text_type_of_strength {
+    width: 170px;
+    color: white;
+}
+
+#show_strength_bar {
+    margin-right: 0;
+}
+#show_strength_bar > div {
+    display: inline-block;
+    width: 25px;
+    height: 10px;
+    margin-top: 5px;
+    background-color: #D3D3D3;
+}
+
+#show_warning {
+    display: none;
+    height: 30px;
+    width: 100%;
+}
+
+
+#warning_image > img {
+    height: 30px;
+}
+
+#warning_message_box {
+    width: 100%;
+    position: relative;
+}
+
+#warning_message {
+    position: absolute;
+    bottom: 0;
+    color: white;
 }
