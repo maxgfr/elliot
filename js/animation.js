@@ -36,8 +36,8 @@ function closeSideBar() {
 
 
 /*************************PART OF CHECKING STRENGTH OF PASSWORD**************************/
-/* SOME BUGS : THE USER MUSTN'T TYPE FAST
-               MESSAGE FOR SPACE CHARACTERS IS NOT SHOWN */
+/* To be improved : when longpress on key the strength bar is not modified.
+   The goal is to make it in live */
 
 var counter_space = 0;
 var counter_normal = 0;
@@ -146,17 +146,17 @@ function setStrength() {
     passwordText = document.getElementById("password").value;
     lengthText = document.createTextNode(passwordText).length;
 
-    var add_character = lengthText >= initial_lengthText; /*returns True if the user adds a character*/
+    var add_character = lengthText > initial_lengthText; /*returns True if the user adds a character*/
+    var remove_character = lengthText < initial_lengthText;
 
     if (add_character) {
         number_of_character_added = lengthText - initial_lengthText;
         text_added = passwordText.slice(-number_of_character_added);
-        console.log("text_added=", text_added);
         for (var i = 0; i < text_added.length; i++) {
             setCounters(add_character, text_added[i]);
         }
     }
-    else {
+    else if (remove_character) {
         number_of_character_removed = initial_lengthText - lengthText;
         text_removed = last_text.slice(-number_of_character_removed);
         for (var i = 0; i < text_removed.length; i++) {
@@ -164,16 +164,23 @@ function setStrength() {
         }
     }
 
-    console.log("counter_space=", counter_space);
-    console.log("counter_normal=", counter_normal);
-    console.log("counter_numbers=", counter_numbers);
-    console.log("counter_capitalize=", counter_capitalize);
-    console.log("counter_special=", counter_special);
-
     initial_lengthText = lengthText;
     last_text = passwordText;
 
-    /**********DETERMINE THE STRENGTH OF THE PASSWORD**********/
+    /*console.log("counter_space=", counter_space);
+    console.log("counter_normal=", counter_normal);
+    console.log("counter_numbers=", counter_numbers);
+    console.log("counter_capitalize=", counter_capitalize);
+    console.log("counter_special=", counter_special);*/
+
+
+
+    /**********DETERMINE THE STRENGTH OF THE PASSWORD**********\
+    |*                                                        *|
+    |*    Put here how you want the password to be strong.    *|
+    |*                                                        *|
+    \**********************************************************/
+
     if (lengthText==0) {
         strength = 0;
     }
@@ -218,51 +225,54 @@ function setBackgroundColorBar(strength) {
     var strengthBox = document.getElementById("show_strength_box");
     var warning = document.getElementById("show_warning");
 
-
-    if (strength==0) {
-        strengthBox.style.display="none";
-
-        /*displayText.innerHTML="";
-        firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
-        = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";*/
+    if (counter_space >= 1) {
+        warning.style.display = "flex";
+        strengthBox.style.display = "none";
     }
-    else if (strength==1) {
-        strengthBox.style.display="flex";
-        displayText.innerHTML="Médiocre";
+    else {
+        strengthBox.style.display = "flex";
+        warning.style.display = "none";
+        if (strength==0) {
+            strengthBox.style.display="none";
+        }
+        else if (strength==1) {
+            strengthBox.style.display="flex";
+            displayText.innerHTML="Médiocre";
 
-        firstBarColor.style.backgroundColor = "#C00000";
-        secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor
-        = fifthBarColor.style.backgroundColor = "#D3D3D3";
-        /* This line forces the other bars to be grey because, when a color is set,
-           it stays at its previous color.
-           Example : The password is medium, so the first three bars are set yellow. Now the user
-                     removes the password and it becomes a weak password. At this moment, the first
-                     two bars are set to red but the third bar is still set to yellow and not grey.
-        */
-    }
-    else if (strength==2) {
-        displayText.innerHTML="Mauvaise";
+            firstBarColor.style.backgroundColor = "#C00000";
+            secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor
+            = fifthBarColor.style.backgroundColor = "#D3D3D3";
+            /* This line forces the other bars to be grey because, when a color is set,
+               it stays at its previous color.
+               Example : The password is medium, so the first three bars are set yellow. Now the user
+                         removes the password and it becomes a weak password. At this moment, the first
+                         two bars are set to red but the third bar is still set to yellow and not grey.
+            */
+        }
+        else if (strength==2) {
+            displayText.innerHTML="Mauvaise";
 
-        firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = "#C75566";
-        thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
-    }
-    else if (strength==3) {
-        displayText.innerHTML="Moyenne";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = "#C75566";
+            thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
+        }
+        else if (strength==3) {
+            displayText.innerHTML="Moyenne";
 
-        firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = "#DDAC26";
-        fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
-    }
-    else if (strength==4) {
-        displayText.innerHTML="Elevée";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = "#DDAC26";
+            fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
+        }
+        else if (strength==4) {
+            displayText.innerHTML="Elevée";
 
-        firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
-        = fourthBarColor.style.backgroundColor = "#219D75";
-        fifthBarColor.style.backgroundColor = "#D3D3D3";
-    }
-    else if (strength==5) {
-        displayText.innerHTML="Excellente";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
+            = fourthBarColor.style.backgroundColor = "#219D75";
+            fifthBarColor.style.backgroundColor = "#D3D3D3";
+        }
+        else if (strength==5) {
+            displayText.innerHTML="Excellente";
 
-        firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
-        = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#548235";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
+            = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#548235";
+        }
     }
 }
