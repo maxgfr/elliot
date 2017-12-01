@@ -20,6 +20,7 @@
 	    /** @brief Insère un user en créant un nouvel ID dans la BD. */
 	    public static function getModelUserCreate($inputArray) {
 	        $model = new self(array());
+			$inputArray['password'] = hash("sha1",$inputArray['password']);
 	         //Vérification des erreurs si une vérification a été exigée
 	         if (empty($model->dataError)) {
 	             // Execution de la requête d'insertion' :
@@ -48,6 +49,7 @@
 	            else{
 	                return false ;
 	            }
+				SessionUtils::checkAndInitiateSession($model);
 	            return $model;
 	        } else {
 	            $model->dataError['connexion'] = "Impossible d'acceder a la table des utilisateurs";
