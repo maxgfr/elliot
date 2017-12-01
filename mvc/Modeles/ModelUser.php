@@ -23,7 +23,7 @@
          //Vérification des erreurs si une vérification a été exigée
          if (empty($model->dataError)) {
              // Execution de la requête d'insertion' :
-             $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("REPLACE INTO user(last_name,first_name,phone_number,birthday,mail,password) VALUES (:last_name,:first_name,:phone_number,:birthday,:mail,:password)", $inputArray);
+             $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("REPLACE INTO users(last_name,first_name,phone_number,birthday,mail,mail) VALUES (:last_name,:first_name,:phone_number,:birthday,:mail,:password)", $inputArray);
              if ($queryResults === false) {
                  $model->dataError["persistance"] = "Probleme d'execution de la requête";
              }
@@ -34,7 +34,27 @@
         return $model;
     }
 
+	/** @brief Connexion d'un user */
+    public static function getModelConnexion($mail, $hashedPassword) {
+		$model = new self(array());
+		// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
+        $args = array($mail, $hashedPassword);
+        $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT * FROM users WHERE mail=? AND password=?', $args);
+        //Si la requête a fonctionné
+        if ($queryResults !== false) {
+            if (count($queryResults) == 1) {
+                $row = $queryResults[0];
+            }
+            else{
+                return false ;
+            }
+            return $row;
+        } else {
+            $model->dataError['login'] = "Impossible d'acceder a la table des utilisateurs";
+            return $model;
+        }
+    }
+
 
     }
-	}
 ?>

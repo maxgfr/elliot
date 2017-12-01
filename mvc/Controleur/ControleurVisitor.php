@@ -10,6 +10,9 @@
                 case "inscription" :
                     $this->actionInscription();
                     break;
+                case "connexion" :
+                    $this->actionConnexion();
+                    break;
 
                 default : // L'action indéfinie ( page par défaut , ici accueil )
                     require(Config::getVues()["connexion"]);
@@ -21,7 +24,7 @@
         private function actionInscription(){
           $model = ModelUser::getModelUserCreate($_POST);
             if ( $model->getError ( ) === false ) {
-                require(Config::getVues()["default"]);
+                require(Config::getVues()["connexion"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
@@ -32,5 +35,21 @@
                 }
             }
           }
+
+          /** @brief Inscription d'un utilisateur */
+          private function actionConnexion(){
+            $model = ModelUser::getModelConnexion($_POST);
+              if ( $model->getError ( ) === false ) {
+                  require(Config::getVues()["default"]);
+              } else {
+                  if (!empty($model->getError()['persistance'])){
+                      // Erreur d'accès à la base de donnée
+                      require(Config::getVuesErreur()["default"]);
+                  } else {
+                      // Erreur de saisie
+                      require(Config::getVuesErreur()["default"]);
+                  }
+              }
+            }
      }
 ?>
