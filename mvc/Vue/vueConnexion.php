@@ -11,10 +11,7 @@
         <div id="login_box" class="box">
             <div id="login_box_textandicon" class="box_textandicon">
                 <div id="login_box_text">
-                    <h2 align="center">Authentifier-vous pour accèder à votre espace</h2>
-                </div>
-                <div id="login_box_icon" class="iconImage">
-                    <img src="img/register_icon.png" alt="Register Icon">
+                    <h2 align="center" >Authentifiez-vous pour accèder à votre espace</h2>
                 </div>
             </div>
             <div id="login_box_input" style="margin-top:20px;">
