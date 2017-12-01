@@ -31,7 +31,7 @@
                     <h2 align="center">Inscrivez-vous dès maintenant !</h2>
                 </div>
                 <div id="register_box_icon" class="iconImage">
-                    <img src="../../img/login_icon.png" alt="Login Icon">
+                    <img src="../../img/register_icon.png" alt="Login Icon">
                 </div>
             </div>
             <div id="register_box_input" class="inputText">
