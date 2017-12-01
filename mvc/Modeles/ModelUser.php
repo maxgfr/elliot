@@ -43,17 +43,28 @@
         //Si la requête a fonctionné
         if ($queryResults !== false) {
             if (count($queryResults) == 1) {
-                $row = $queryResults[0];
+                $model = $queryResults[0];
             }
             else{
                 return false ;
             }
-            return $row;
+            return $model;
         } else {
-            $model->dataError['login'] = "Impossible d'acceder a la table des utilisateurs";
+            $model->dataError['connexion'] = "Impossible d'acceder a la table des utilisateurs";
             return $model;
         }
     }
+
+
+   /** @brief Remplie des données de l'utilisateur à partir de la session
+	* @param $email email de l'utilisateur servant d'ID unique
+	* @param $role Rôle de l'utilisateur */
+   public static function getModelUserFromSession ($email , $role) {
+	   $model=new self(array());
+	   $model->role = $role;
+	   return $model;
+	}
+
 
 
     }
