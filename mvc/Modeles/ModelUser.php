@@ -20,7 +20,7 @@
 	    /** @brief Insère un user en créant un nouvel ID dans la BD. */
 	    public static function getModelUserCreate($inputArray) {
 	        $model = new self(array());
-			$inputArray['password'] = hash("sha1",$inputArray['password']);
+			$inputArray['password'] = hash("sha1", $inputArray['password']);
 	         //Vérification des erreurs si une vérification a été exigée
 	         if (empty($model->dataError)) {
 	             // Execution de la requête d'insertion' :

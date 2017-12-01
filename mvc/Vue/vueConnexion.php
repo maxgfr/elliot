@@ -17,10 +17,10 @@
             <form method="post">
                 <div id="login_box_input" style="margin-top:20px;">
                     <div id="login_box_input_email" class="inputText">
-                        <input name="email" title="Username" placeholder="Email" />
+                        <input name="mail" id="mail" title="Username" placeholder="Email" />
                     </div>
                     <div id="login_box_input_password" class="inputText">
-                        <input name="password" type="password" title="Password" placeholder="Mot de passe" />
+                        <input name="password" id="password" type="password" title="Password" placeholder="Mot de passe" />
                     </div>
                     <div id="login_box_input_suggestion">
                         <div id="login_box_input_suggestion_checkbox">
@@ -43,6 +43,12 @@
                 </div>
             </form>
         </div>
+
+        <?php
+            if (isset($_POST['mail']) && isset($_POST['password']))  {
+                $ctrl = new ControleurVisitor('connexion');
+            }
+        ?>
     </div>
 </body>
 </html>
