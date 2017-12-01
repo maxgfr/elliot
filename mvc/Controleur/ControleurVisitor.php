@@ -51,6 +51,6 @@
                       require(Config::getVuesErreur()["default"]);
                   }
               }
-            }
+        }
      }
 ?>

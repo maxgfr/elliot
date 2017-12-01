@@ -20,16 +20,16 @@
 		* @throws exception personnalisée en cas d'exception PDO */
 		private function __construct(){
 			try {
-			  Config::getAuthData($db_host, $db_name, $db_user, $db_password);
-			  // Création de l'instance de PDO (database handler).
-			  $this->dbh = new \PDO($db_host.$db_name, $db_user, $db_password);
-					      // Rendre les erreurs PDO détectables et gérables par exceptions :
-			  $this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			  $this->dbh->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND,'SET NAMES UTF8');
+				Config::getAuthData($db_host, $db_name, $db_user, $db_password);
+				// Création de l'instance de PDO (database handler).
+				$this->dbh = new \PDO($db_host.$db_name, $db_user, $db_password);
+
+				// Rendre les erreurs PDO détectables et gérables par exceptions :
+				$this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+				$this->dbh->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND,'SET NAMES UTF8');
 
 			}catch (\PDOException $e){
-			  throw new \Exception("Erreur de connexion à la base de données. "
-					  ."Vous n'avez pas besoin d'en savoir plus...");
+				throw new \Exception("Erreur de connexion à la base de données.");
 			}
 		}
 

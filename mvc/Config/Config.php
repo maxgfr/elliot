@@ -6,10 +6,10 @@
 		/** @brief Données nécessaires à la connexion à la base de données. Les valeurs pourraient être initialisées à partir d'un fichier de configuration  séparé (require('configuration.php')) pour faciliter la maintenance */
 		public static function getAuthData(&$db_host , &$db_name , &$db_user , &$db_password )
 		{
-			$db_host="mysql:host=localhost:8889;";
-			$db_name="dbname=elliot";
+			$db_host="mysql:host=localhost;port=8888;";
+			$db_name="dbname=elliot_db";
 			$db_user ="root" ;
-			$db_password="root" ;
+			$db_password="root";
 		}
 
 		/** @brief retourne le tableau des chemins vers les vues */
