@@ -24,8 +24,8 @@
         /** @brief Inscription d'un utilisateur */
         private function actionInscription(){
           $model = ModelUser::getModelUserCreate($_POST);
-            if ( $model->getError ( ) === false ) {
-                require(Config::getVues()["connexion"]);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["default"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
@@ -39,7 +39,7 @@
 
           /** @brief Inscription d'un utilisateur */
           private function actionConnexion(){
-            $model = ModelUser::getModelConnexion($_POST);
+            $model = ModelUser::getModelUserConnexion($_POST);
               if ( $model->getError ( ) === false ) {
                   require(Config::getVues()["default"]);
               } else {

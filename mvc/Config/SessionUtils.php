@@ -65,7 +65,7 @@
 				// Le démarage de session
 				session_start();
 				// Test sur les données de session et contrôle par IP
-				if ( !isset ($_SESSION['mail']) !isset ($_SESSION['ipAddress']) || ($_SESSION ['ipAddress'] != $_SERVER['REMOTE_ADDR'])) {
+				if ( !isset ($_SESSION['mail']) || !isset ($_SESSION['ipAddress']) || ($_SESSION ['ipAddress'] != $_SERVER['REMOTE_ADDR'])) {
 					$dataError ['session'] = "Impossible de retrouver la session.";
 					$userModel = new Model($dataError);
 				} else {

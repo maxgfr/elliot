@@ -18,7 +18,8 @@
 			global $rootDirectory; //racine du site
 			$vueDirectory = $rootDirectory."Vue/"; //répertoire contenant les vues
 			return array("default" => $vueDirectory."vueAccueil.php",
-						 "connexion" => $vueDirectory."vueConnexion.php");
+						 "connexion" => $vueDirectory."vueConnexion.php",
+					 	"inscription" => $vueDirectory."vueInscription.php");
 		}
 
 
