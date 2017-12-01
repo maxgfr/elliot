@@ -35,40 +35,42 @@
                 </div>
             </div>
             <div id="register_box_input" class="inputText">
-                <input class="text" id="last_name" type="text" name="last_name" value="" placeholder="Nom de famille"/>
-                <input class="text" id="first_name" type="text" name="first_name" value="" placeholder="Prénom"/>
-                <input class="text" id="phone_number" type="tel" name="phone_number" value="" placeholder="Téléphone"/>
-                <input class="text" id="birthday" type="text" name="birthday" value="" placeholder="Date de naissance"/>
-                <input class="text" id="mail" type="email" name="mail" value="" placeholder="Email"/>
-                <div class="testSecurityPassword">
-                    <div id="input_box">
-                        <input onkeyup="setBackgroundColorBar(setStrength())"
-                               class="text" id="password" type="password" name="password" placeholder="Mot de passe"/>
-                    </div>
-                    <div id="show_strength_box">
-                        <div id="text_type_of_strength">
-                            Sûreté : <span id="type_of_strength"></span>
+                <form method="post">
+                    <input class="text" id="last_name" type="text" name="last_name" value="" placeholder="Nom de famille"/>
+                    <input class="text" id="first_name" type="text" name="first_name" value="" placeholder="Prénom"/>
+                    <input class="text" id="phone_number" type="tel" name="phone_number" value="" placeholder="Téléphone"/>
+                    <input class="text" id="birthday" type="text" name="birthday" value="" placeholder="Date de naissance"/>
+                    <input class="text" id="mail" type="email" name="mail" value="" placeholder="Email"/>
+                    <div class="testSecurityPassword">
+                        <div id="input_box">
+                            <input onkeyup="setBackgroundColorBar(setStrength())"
+                                   class="text" id="password" type="password" name="password" placeholder="Mot de passe"/>
                         </div>
-                        <div id="show_strength_bar">
-                            <div id="show_strength_bar_weakest"></div>
-                            <div id="show_strength_bar_weak"></div>
-                            <div id="show_strength_bar_medium"></div>
-                            <div id="show_strength_bar_good"></div>
-                            <div id="show_strength_bar_excellent"></div>
+                        <div id="show_strength_box">
+                            <div id="text_type_of_strength">
+                                Sûreté : <span id="type_of_strength"></span>
+                            </div>
+                            <div id="show_strength_bar">
+                                <div id="show_strength_bar_weakest"></div>
+                                <div id="show_strength_bar_weak"></div>
+                                <div id="show_strength_bar_medium"></div>
+                                <div id="show_strength_bar_good"></div>
+                                <div id="show_strength_bar_excellent"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="show_warning">
-                        <div id="warning_image">
-                            <img src="../../img/warning.png" alt="warning">
+                        <div id="show_warning">
+                            <div id="warning_image">
+                                <img src="../../img/warning.png" alt="warning">
+                            </div>
+                            <div id="warning_message_box">
+                                <div id="warning_message">Les espaces ne sont pas autorisés.</div>
+                            </div>
                         </div>
-                        <div id="warning_message_box">
-                            <div id="warning_message">Les espaces ne sont pas autorisés.</div>
-                        </div>
-                    </div>
-                </div>            </div>
-            <div id="register_box_register" class="confirmButton">
-                <button type="button" name="button">S'enregistrer</button>
-            </div>
+                    </div>            </div>
+                <div id="register_box_register" class="confirmButton">
+                    <button type="submit" name="button">S'enregistrer</button>
+                </div>
+            </form>
         </div>
     </div>
 
