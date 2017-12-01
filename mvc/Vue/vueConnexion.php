@@ -7,11 +7,11 @@
 </head>
 <body>
 
-    <div id="container_login">
+    <div id="container_login" style="width:800px; margin:0 auto;">
         <div id="login_box" class="box">
             <div id="login_box_textandicon" class="box_textandicon">
                 <div id="login_box_text">
-                    <h2>AUTHENTIFICATION</h2>
+                    <h2 align="center">Authentifier-vous pour accèder à votre espace</h2>
                 </div>
                 <div id="login_box_icon" class="iconImage">
                     <img src="img/register_icon.png" alt="Register Icon">
@@ -33,7 +33,7 @@
                     </div>
                     <br>
                     <div>
-                        <a href="mvc/Vue/vueAccueil.php">J'ai pas de compte</a>
+                        <a href="mvc/Vue/vueInscription.php">J'ai pas de compte</a>
                     </div>
                     <div id="login_box_input_suggestion_forgotPassword">
                         <a href="#"> Mot de passe oublié? </a>

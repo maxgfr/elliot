@@ -17,23 +17,18 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/animation.js"></script>
-    <title>Test for the header</title>
+    <title>Inscription</title>
   </head>
-
-  <?php include ('layouts/header.php'); ?>
-
-  <?php include ('layouts/iconBar.php'); ?>
 
   <body>
 
-	<?php include ('layouts/sidebar.php'); ?>
-
-    <div id="container_register">
+      <div id="container_register" style="width:800px; margin:0 auto;">
         <div id="register_box" class="box">
             <div id="register_box_textandicon" class="box_textandicon">
                 <div id="register_box_text">
-                    <h2>INSCRIPTION</h2>
+                    <h2 align="center">Inscrivez-vous dès maintenant !</h2>
                 </div>
                 <div id="register_box_icon" class="iconImage">
                     <img src="../../img/login_icon.png" alt="Login Icon">
@@ -76,7 +71,6 @@
             </div>
         </div>
     </div>
-
 
       <?php
           if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password']))  {
