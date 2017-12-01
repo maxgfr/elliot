@@ -25,19 +25,25 @@
 		     //Vérification des erreurs si une vérification a été exigée
 		     if (empty($model->dataError)) {
 		         // Execution de la requête d'insertion' :
-		         $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (:id_user,:last_name,:first_name,:mail,:password,:birthday,:phone_number)", $inputArray);
-		         if ($queryResults === false) {
-		             $model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray).uniqid();
-		         }
+				$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
+				$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
+				if ($queryResults === false) {
+					$model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray);
+				}
 		     } else {
 		         $model->dataError = array_merge($model->dataError, $dataErrorAttributes); // fusion
 		     }
 		    $model->nom = "L'utilisateur a été ajouté à la BDD !";
+			if ($queryResults === true) {
+				$model->dataError["persistance"] = "ça a marché l'insertion bg";
+			}
 		    return $model;
 	    }
 
 		/** @brief Connexion d'un user */
-	    public static function getModelUserConnexion($mail, $hashedPassword) {
+	    public static function getModelUserConnexion($inputArray) {
+			$mail = $inputArray["mail"];
+			$hashedPassword = $inputArray["password"];
 			$model = new self(array());
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
 	        $args = array($mail, $hashedPassword);

@@ -5,7 +5,7 @@
         function __construct ($action){
             if ($action == "index") {
                 //s'il est pas connecté
-                $action = "connexion";
+                $action = "";
             }
             ///On distingue des cas d’utilisation, suivant l’action
             switch($action) {

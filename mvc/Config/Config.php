@@ -38,16 +38,7 @@
 			global $rootURI ;
 			return $rootURI ;
 		}
-
-		/** @brief retourne le tableau des URLS vers les feuilles de style CSS */
-		public static function getStyleSheetsURL()
-		{
-			//Répertoire contenant les styles css
-			//Le nettoyage par filter_var évite tout risque d'injection XSS
-			$cssDirectoryURL = filter_var("http://".$_SERVER['SERVER_NAME'].self::getRootURI()."css/", FILTER_SANITIZE_URL) ;
-			return array("default" => $cssDirectoryURL."bootstrap.css");
- 		}
-
+		
  		/** @brief Génère 10 chiffres hexa aléatoires (soit 5 octets) : */
  		public static function generateRandomId ()
 		{
