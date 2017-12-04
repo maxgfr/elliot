@@ -34,9 +34,6 @@
 		         $model->dataError = array_merge($model->dataError, $dataErrorAttributes); // fusion
 		     }
 		    $model->nom = "L'utilisateur a été ajouté à la BDD !";
-			if ($queryResults === true) {
-				$model->dataError["persistance"] = "ça a marché l'insertion bg";
-			}
 		    return $model;
 	    }
 

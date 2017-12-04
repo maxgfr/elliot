@@ -3,12 +3,11 @@
     class ControleurVisitor {
 
         function __construct ($action){
-            if ($action == "index") {
-                //s'il est pas connecté
-                $action = "";
-            }
             ///On distingue des cas d’utilisation, suivant l’action
             switch($action) {
+                case "index" :
+                    require(Config::getVues()["index"]);
+                    break;
                 case "inscription" :
                     $this->actionInscription();
                     break;
@@ -25,7 +24,7 @@
         private function actionInscription(){
           $model = ModelUser::getModelUserCreate($_POST);
             if ($model->getError ( ) === false ) {
-                require(Config::getVues()["default"]);
+                Config::movePage('vueConnexion.php');
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
