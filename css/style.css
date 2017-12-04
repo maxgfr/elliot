@@ -347,139 +347,84 @@ header img {
 
 
 /**********NOTIFICATION POPUP**********/
-*:before,*:after {
-  -webkit-box-sizing: border-box;
+.notificationPopup {
+    position: relative;
 }
 
-.notificationPopup a {
-  text-decoration: none;
+#how_many_notif {
+    position: absolute;
+    display: block;
+    top: 2px;  right: 2px;
+    width: 20px;  height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
 }
 
-.notificationPopup, .notificationPopup ul {
-  margin: 0;  padding: 0;
-  list-style: none;
-  float: left;
+#container_notification {
+    display: none;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: thin;
+    border-color: #D3D3D3;
+    border-top: none;
+    width:400px;
+    position: fixed;
+    margin-top: 70px;
+    right: 245px;
 }
 
-.notificationPopup li {
-  display: block;
-  float: left;
-  clear: both;
+#container_notification div {
+    border-top-style: solid;
+    border-top-width: thin;
+    border-top-color: #D3D3D3;
 }
 
-.notificationPopup > li {
-  position: relative;
-  cursor: pointer;
-  padding: 0px; /*15px*/
-  font-size: 20px;
+#container_notification button {
+    text-decoration: none;
+    width: 100%;
+    padding: 12px 0 12px 0;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: transparent;
+    border: none;
 }
 
-/*Setting the style of the popup number*/
-.notificationPopup > li .howManyNotif {
-  position: absolute;
-  display: block;
-  top: 2px;  right: 2px;
-  width: 20px;  height: 20px;
-  font-size: 14px;
-  line-height: 20px;
-  border-radius: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
+#container_notification button:hover{
+    background-color: #F0F8FF;
 }
 
-.notificationPopup > li > ul {
-  position: absolute;
-  left: -150px;
-  display: none;
-  width: 350px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  background-color: white;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+#notification_title, #notification_footer button {
+    text-align: center;
 }
 
-.notificationPopup > li:hover > ul {
-  display: block;
+#notification_title {
+    padding: 10px 0 10px 0;
+    background-color: white;
 }
-
 
 /*Setting of the popup arrow*/
-.notificationPopup > li > ul:before, .notificationPopup > li > ul:after {
-  display: block;
+#container_notification:before{
   position: absolute;
-  top: -10px; left: 165px; /*Position of the triangle*/
-  content: '';
-  width: 8px; height: 8px;
-  border-style: solid;
+  bottom: 100%;
+  height: 0;
+  width: 0;
+  right: 2%;
+  border: 10px solid transparent;
+  border-bottom-color: white;
+  content: "";
 }
 
-.notificationPopup > li > ul:before {
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent white transparent;
-  z-index: 1px;
+.notificationDate {
+    text-align: bottom;
+    font-size: 8px;
+    color: #7D7D7D;
 }
-
-.notificationPopup > li > ul:after {
-  top: -9.5px;
-  left: 165px; /*Position of the triangle*/
-  border-width: 0 9px 9px 9px;
-  border-color: transparent transparent white transparent;
-  z-index: 2px;
-}
-
-/*Setting of the text and background of the text*/
-.notificationPopup > li > ul > li {
-  width: 100%;
-  font-size: 14px;
-  border-top: 1px solid #ccc;
-  padding: 15px;
-}
-
-.notificationPopup > li > ul > li.title {
-  font-size: 16px;
-  font-widght: bold;
-  color: black;
-  padding: 8px 15px;
-  background-color: white;
-}
-
-.notificationPopup > li > ul > li.seeAll {
-  font-size: 14px;
-  font-widght: bold;
-  color: #000;
-  background-color: #eee;
-  text-align: center;
-  padding: 8px;
-}
-
-.notificationPopup > li > ul > li:first-child {
-  border-top: 0;
-}
-
-.notificationPopup > li > ul > li:last-child {
-  border-bottom: 0;
-}
-
-.notificationPopup > li > ul > li a {
-  display: block;
-  color: black;
-}
-
-
-/*Setting the hover effects*/
-.notificationPopup > li > ul > li:hover {
-  background-color: #ccc;
-}
-
-.notificationPopup > li > ul > li.title:hover,
-.notificationPopup > li > ul > li.seeAll:hover {
-  background-color: white;
-}
-
-
-
 /**********ICONBAR**********/
 #iconBar {
     width: 70px;
@@ -614,7 +559,7 @@ input{
     margin: 8px 0;
     box-sizing: border-box;
 	border: 1px solid rgb(46, 117, 181);
-    border-radius: 3px; 
+    border-radius: 3px;
 }
 
 input[type=button] {
