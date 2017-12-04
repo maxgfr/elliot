@@ -11,7 +11,7 @@
         <div id="login_box" class="box">
             <div id="login_box_textandicon" class="box_textandicon">
                 <div id="login_box_text">
-                    <h2 align="center" >Authentifiez-vous pour accèder à votre espace</h2>
+                    <h2 align="center" >Authentifiez-vous pour accéder à votre espace</h2>
                 </div>
             </div>
             <form method="post">
