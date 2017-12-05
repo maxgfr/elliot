@@ -39,8 +39,8 @@
           /** @brief Inscription d'un utilisateur */
           private function actionConnexion(){
             $model = ModelUser::getModelUserConnexion($_POST);
-              if ( $model->getError ( ) === false ) {
-                  require(Config::getVues()["default"]);
+              if ($model->getError() === false ) {
+                  Config::movePage('vueAccueil.php');
               } else {
                   if (!empty($model->getError()['persistance'])){
                       // Erreur d'accès à la base de donnée

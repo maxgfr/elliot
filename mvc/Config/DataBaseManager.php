@@ -51,6 +51,7 @@
 		*         ou résultats du SELECT dans un array à double entrée PHP standard
 		* @throws exception personnalisée en cas d'exception PDO */
 		public function prepareAndLaunchQuery($requete, $data) {
+			
 			// Une requête préparée ne doit pas contenir de guillemets !!!
 			if (empty($requete) || !is_string($requete) || preg_match('/(\"|\')+/', $requete) !== 0){
 				throw new \Exception("Erreur concernant la sécurité. Requête incomplètement préparée.");

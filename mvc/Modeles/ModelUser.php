@@ -22,41 +22,35 @@
 		    $model = new self(array());
 			$inputArray['password'] = hash("sha1", $inputArray['password']);
 			$inputArray['id_user'] = substr(abs(crc32(uniqid())), 0, 8);
-		     //Vérification des erreurs si une vérification a été exigée
-		     if (empty($model->dataError)) {
-		         // Execution de la requête d'insertion' :
-				$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
-				$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
-				if ($queryResults === false) {
-					$model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray);
-				}
-		     } else {
-		         $model->dataError = array_merge($model->dataError, $dataErrorAttributes); // fusion
-		     }
+			// Execution de la requête d'insertion' :
+			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
+			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
+			if ($queryResults === false) {
+			   $model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray);
+			}
 		    $model->nom = "L'utilisateur a été ajouté à la BDD !";
 		    return $model;
 	    }
 
 		/** @brief Connexion d'un user */
 	    public static function getModelUserConnexion($inputArray) {
-			$mail = $inputArray["mail"];
-			$hashedPassword = $inputArray["password"];
 			$model = new self(array());
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
-	        $args = array($mail, $hashedPassword);
-	        $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT * FROM users WHERE mail=? AND password=?', $args);
+	        $args = array($inputArray["mail"], $inputArray["password"]);
+	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM users WHERE mail=? AND password=?', $args);
 	        //Si la requête a fonctionné
 	        if ($queryResults !== false) {
 	            if (count($queryResults) == 1) {
 	                $model = $queryResults[0];
 	            }
 	            else{
+					$model->dataError['persistance'] = "Erreur d'idenditifiant/mot de passe, réessayer";
 	                return false ;
 	            }
 				SessionUtils::checkAndInitiateSession($model);
 	            return $model;
 	        } else {
-	            $model->dataError['connexion'] = "Impossible d'acceder a la table des utilisateurs";
+	            $model->dataError['persistance'] = "Impossible d'acceder a la table des utilisateurs";
 	            return $model;
 	        }
 	    }
