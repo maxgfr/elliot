@@ -1,4 +1,6 @@
 var sideBarIsOpen = 0;
+var elements_text_of_sidebar = document.getElementsByClassName("textOfSidebar");
+var elements_sidebar_container = document.getElementsByClassName("sidebarContainer");
 
 function setSideBarStatus(){
   if(sideBarIsOpen==0){
@@ -10,28 +12,68 @@ function setSideBarStatus(){
 }
 
 function openSideBar() {
-  document.getElementById("mainHeader").style.marginLeft = "190px";
+  document.getElementById("small_icon").style.display = "none";
+  document.getElementById("big_icon").style.display = "block";
+  document.getElementById("hamburger_button").style.marginLeft = "9em";
+  document.getElementById("main").style.transform = "scale(0.85,0.85)";
 
-  document.getElementById("main").style.transform = "scale(0.9,1)";
+  document.getElementById("container_notification").style.marginTop = "2em";
 
-  document.getElementById("mySideBar").style.width = "260px";
-  document.getElementById("mySideBar").style.display = "block";
-  document.getElementById("bigIcon").style.display = "block";
 
-  document.getElementById("iconBar").style.width = "0px";
+  for(var i = 0; i < elements_text_of_sidebar.length; i++) {
+    elements_text_of_sidebar[i].style.transitionDelay = "0.5s";
+    elements_text_of_sidebar[i].style.display = "block";
+  }
+
+  for(var i = 0; i<elements_sidebar_container.length; i++) {
+      elements_sidebar_container[i].style.width = "16em";
+  }
+
   sideBarIsOpen = 1;
 }
 function closeSideBar() {
-  document.getElementById("mainHeader").style.marginLeft = "0%";
 
+  document.getElementById("small_icon").style.display = "block";
+  document.getElementById("big_icon").style.display = "none";
+  document.getElementById("hamburger_button").style.marginLeft = "3em";
   document.getElementById("main").style.transform = "scale(1,1)";
 
-  document.getElementById("mySideBar").style.width = "0px";
-  document.getElementById("mySideBar").style.display = "none";
-  document.getElementById("bigIcon").style.display = "none";
 
-  document.getElementById("iconBar").style.width = "70px";
+  document.getElementById("container_notification").style.marginTop = "0";
+
+
+  for(var i = 0; i < elements_text_of_sidebar.length; i++) {
+    elements_text_of_sidebar[i].style.display = "none";
+  }
+
+  for(var i = 0; i<elements_sidebar_container.length; i++) {
+      elements_sidebar_container[i].style.width = "4.5em";
+  }
+
   sideBarIsOpen = 0;
+}
+
+
+var notificationIsOpen = 0;
+
+function setNotificationPopupStatus(){
+  if(notificationIsOpen==0){
+    showNotifications();
+  }
+  else{
+    hideNotifications();
+  }
+}
+
+function showNotifications() {
+    document.getElementById("container_notification").style.display = "block";
+    document.getElementById("how_many_notif").style.display = "none";
+    notificationIsOpen = 1;
+}
+
+function hideNotifications() {
+    document.getElementById("container_notification").style.display = "none";
+    notificationIsOpen = 0;
 }
 
 

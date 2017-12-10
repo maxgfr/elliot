@@ -17,6 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script src="../../js/animation.js"></script>
 
     <title>UserPage</title>
@@ -24,14 +25,16 @@
 
     <?php include("layouts/header.php"); ?>
 
-    <?php include("layouts/iconBar.php"); ?>
-
 <body>
-    <?php include("layouts/sidebar.php"); ?>
-    <p>Utilisateur</p>
-    <label for="Name">Nom : </label><input type="text" name="Name" id="Name">
-    <label for="Prenom">Prénom : </label><input type="text" name="Prenom" id="Prenom">
-    <label for="Telephone">Numéro de téléphone : </label><input type="text" name="Telephone" id="Telephone">
-    <input type="image" name="modification" value="modification" src="../../img/Enregistrer_les_modifications.png">
+    <div id="main">
+
+        <p>Utilisateur</p>
+        <label for="Name">Nom : </label><input type="text" name="Name" id="Name">
+        <label for="Prenom">Prénom : </label><input type="text" name="Prenom" id="Prenom">
+        <label for="Telephone">Numéro de téléphone : </label><input type="text" name="Telephone" id="Telephone">
+        <input type="image" name="modification" value="modification" src="../../img/Enregistrer_les_modifications.png">
+
+    </div>
 </body>
+
 </html>
