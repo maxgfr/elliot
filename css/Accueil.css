@@ -1,0 +1,12 @@
+#table_capteur{
+    margin-top: 10%;
+}
+
+#Table_capteur_table{
+    width: 50%;
+    vertical-align: center;
+    text-align: center;
+    border: 2em green;
+    border-collapse: collapse;
+    display: table;
+}
