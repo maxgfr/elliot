@@ -43,7 +43,6 @@
 
 <button onclick="myFunction()">create</button>
 <button onclick="myDeleteFunction()">delete</button>
-<button onclick="ouvre_popup()">create formulaire</button>
 <input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
 
 

@@ -12,10 +12,7 @@ function myDeleteFunction() {
   	var rowCount = table.rows.length;
   	if (rowCount > 1) {
   		table.deleteRow(rowCount -1);
-  	} else {
-  		window.open('sensor.html','nom_de_ma_popup','menubar=no, scrollbars=no, top=100, left=100, width=300, height=200');
   	} 
-
 	}	
 
  
