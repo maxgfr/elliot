@@ -1,12 +1,38 @@
-#table_capteur{
-    margin-top: 10%;
-}
+
 
 #Table_capteur_table{
-    width: 50%;
+    width: 100%;
+    font-size: 3em;
     vertical-align: center;
     text-align: center;
-    border: 2em green;
-    border-collapse: collapse;
     display: table;
+
+}
+
+
+td{
+    border: 1px solid black;
+    height: 4em;
+}
+
+th{
+    border: 1px solid black;
+}
+
+
+.auto_top_margin{
+    margin-top: 3%;
+    width: 100%;
+    border-collapse: collapse;
+}
+#img_bedroom{
+    float: left;
+}
+.img_perso{
+    height: auto;
+    width: 50px;
+    background-color: #1e4f8a;
+}
+#table_bedroom_div{
+    display: flex;
 }

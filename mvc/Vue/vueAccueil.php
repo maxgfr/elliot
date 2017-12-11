@@ -29,49 +29,75 @@ try {
 
 
 <div id="main">
-    <div id="table_capteur">
-        <table id="Table_capteur_table">
-            <tr>
-                <th>
-                    Salle
-                </th>
-                <th>
-                    Etat
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    Chambre
-                </td>
-                <td>
-                    Température / luminosité
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Salle de bain
-                </td>
-                <td>
-                    Température / luminosité
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Salon
-                </td>
-                <td>
-                    Température / luminosité
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Cuisine
-                </td>
-                <td>
-                    Température / luminosité
-                </td>
-            </tr>
+    <div>
 
+        <div id="table_capteur">
+            <div id="img_bedroom">
+                <img src="../../img/bedroomIcon.png" class="img_perso"/>
+            </div>
+            <div id="table_bedroom_div">
+                <table id="Table_chambre" class="auto_top_margin">
+                    <tr>
+                        <th colspan="3">
+                            Chambre
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Capteur
+                        </td>
+                        <td>
+                            Température / luminosité
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <table id="Table_Salle" class="auto_top_margin">
+            <tr>
+                <th colspan="2">
+                    Salle de bain
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Capteur
+                </td>
+                <td>
+                    Température / luminosité
+                </td>
+            </tr>
+        </table>
+        <table id="Table_Salon" class="auto_top_margin">
+            <tr>
+                <th colspan="2">
+                    Salon
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Capteur
+                </td>
+                <td>
+                    Température / luminosité
+                </td>
+            </tr>
+        </table>
+        <table id="Table_Cuisine" class="auto_top_margin">
+            <tr>
+                <th colspan="2">
+                    Cuisine
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Capteur
+                </td>
+                <td>
+                    Température / luminosité
+                </td>
+            </tr>
         </table>
     </div>
 </div>
@@ -79,8 +105,3 @@ try {
 </body>
 
 </html>
-
-
-<script>
-    var list_room = ["Chambre", "Salle de bain", "Salon", "Cuisine"]
-</script>
