@@ -40,6 +40,7 @@ th {
 </head>
 <body>
 
+
 <p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
 
 <table id="sensor">
