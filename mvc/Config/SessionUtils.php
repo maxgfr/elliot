@@ -36,15 +36,7 @@
 			// On échappe, même si on sait qu'on a validé le username....
 			$_SESSION['mail'] = htmlentities($email, ENT_QUOTES, "UTF-8");
 			$_SESSION['ipAddress'] = $_SERVER['REMOTE_ADDR'];
-		}
-
-		/** @brief Test du login/password dans la table User et création d'une session
-		 * @return Un modèle avec les données de l'utilisateur pour gestion des rôles Le modèle contient un tableau d'erreur non vide si l'identification échoue **/
-		public static function checkAndInitiateSession ($userModel) {
-			// On crée une session avec les données de l'utilisateur :
-			self::createSession($userModel['username']);
 			session_write_close();
-			return $userModel ;
 		}
 
 		/** @brief Restore la session si l'identificateur a déjà été identifié*/

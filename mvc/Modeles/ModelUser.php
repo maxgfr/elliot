@@ -4,7 +4,8 @@
 	* Les données peuvent venir d'une session ou d'un accès à la BD. */
 	class ModelUser extends Model
 	{
-		//adresse email de l'utilisateur
+		private $nom;
+
 		private $email;
 
 		/** Constructeur par défaut (Init. du tableau d'erreurs à vide) */
@@ -12,9 +13,14 @@
 			parent::__construct ($dataError);
 		}
 
+		/** Permet d' obtenir le nom */
+		public function getNom(){
+			return $this->nom;
+		}
+
 		/** Permet d' obtenir l'adresse email (email) */
-		public function getEmail(){
-			return $this->email;
+		public function getMail(){
+			return $this->mail;
 		}
 
 	    /** @brief Insère un user en créant un nouvel ID dans la BD. */
@@ -25,8 +31,8 @@
 			$inputArray['id_user'] = substr(abs(crc32(uniqid())), 0, 8);
 			// Execution de la requête d'insertion' :
 			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
-			$result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT count(email) FROM users WHERE mail=?",array($inputArray["mail"]));
-			if (count($result) != 1) {
+			$result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT * FROM users WHERE mail=?",array($inputArray["mail"]));
+			if (count($result) > 0) {
 				$model->dataError["persistance"] = "Utilisateur déjà inscrit avec cette adresse";
 				return $model;
 			}
@@ -43,22 +49,31 @@
 			$model = new self(array());
 			$model->nom = "Connexion à la BDD !";
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
-	        $args = array($inputArray["mail"], $inputArray["password"]);
-	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM users WHERE mail=? AND password=?', $args);
+	        $args = array($inputArray["mail"]);
+			$hashedPassword = hash("sha1", $inputArray['password']);
+	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM users WHERE mail=?', $args);
 	        //Si la requête a fonctionné
 	        if ($queryResults !== false) {
 	            if (count($queryResults) == 1) {
-	                $model = $queryResults[0];
+					$model->email = $queryResults[0]['mail'];
+					if ($hashedPassword == $queryResults[0]['password']) {
+						SessionUtils::createSession($model->email);
+						return $model;
+					} else {
+						$model->dataError["persistance"] = "Erreur de mot de passe, réessayer";
+						return $model;
+					}
 	            }
-	            else{
-					$model->dataError['persistance'] = "Erreur d'idenditifiant/mot de passe, réessayer";
-	                return false ;
-	            }
-	            return $model;
+				else {
+					$model->dataError["persistance"] = "Erreur d'idenditifiant, réessayer";
+					return $model;
+				}
 	        } else {
 	            $model->dataError['persistance'] = "Impossible d'acceder a la table des utilisateurs";
 	            return $model;
 	        }
+
+
 	    }
 
     }
