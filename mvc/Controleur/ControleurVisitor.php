@@ -39,7 +39,7 @@
           /** @brief Inscription d'un utilisateur */
           private function actionConnexion(){
             $model = ModelUser::getModelUserConnexion($_POST);
-              if ($model->getError() === false ) {
+              if ($model->getError ( ) === false ) {
                   Config::movePage('vueAccueil.php');
               } else {
                   if (!empty($model->getError()['persistance'])){
