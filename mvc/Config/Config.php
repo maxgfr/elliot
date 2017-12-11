@@ -8,7 +8,11 @@
 		{
 			$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
+<<<<<<< HEAD
+			$db_user ="root";
+=======
 			$db_user ="root" ;
+>>>>>>> origin/master
 			$db_password="";
 		}
 
