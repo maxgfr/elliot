@@ -1,19 +1,29 @@
+<?php
+  // Répertoire racine du MVC
+  $rootDirectory = dirname(__FILE__)."/../../mvc/";
+  // chargement de la classe Autoload pour autochargement des classes
+  require_once($rootDirectory.'Config\Autoload.php');
+  try {
+      Autoload::load();
+  } catch(Exception $e){
+      require (Config::getVues()["default"]) ;
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script src="../../js/animation.js"></script>
-    <title>Test for the header</title>
+    <title>Ajout bâtiments</title>
   </head>
 
   <?php include ('layouts/header.php'); ?>
 
-  <?php include ('layouts/iconBar.php'); ?>
 
   <body>
 
-  <?php include ('layouts/sidebar.php'); ?>
 
       <div id="main">
 
@@ -25,7 +35,7 @@
           <input class="text" id="street_number" type="smallint" name="street_number" value="" />
           <label for="street_name">Nom de la rue</label>
           <input class="text" id="street_name" type="text" name="street_name" value="" />
-          <label for="postal_code">Code postal/label>
+          <label for="postal_code">Code postal</label>
           <input class="text" id="postal_code" type="mediumint" name="postal_code" value="" />
           <button id="buildingAdd" type="submit">Ajouter</button>
         </form>

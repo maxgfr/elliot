@@ -2,34 +2,54 @@
     /** @brief ControleurVisitor identifie l'action et appelle la méthode pour construire le modèle correspondant à l'action avec le rôle "visitor". Le controleur appelle aussi la Vue correspondante. */
     class ControleurVisitor {
 
-        function __construct (){
-            //Récupération de l'action
-            $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
+        function __construct ($action){
             ///On distingue des cas d’utilisation, suivant l’action
             switch($action) {
+                case "index" :
+                    require(Config::getVues()["index"]);
+                    break;
                 case "inscription" :
                     $this->actionInscription();
                     break;
-
+                case "connexion" :
+                    $this->actionConnexion();
+                    break;
                 default : // L'action indéfinie ( page par défaut , ici accueil )
-                    require(Config::getVues()["default"]);
+                    require(Config::getVues()["connexion"]);
                     break;
             }
         }
 
         /** @brief Inscription d'un utilisateur */
         private function actionInscription(){
-          ValidationRequest::validationLogin($dataError, $email, $password);
-          $model=Authentication::checkAndInitiateSession($email, $password, $dataError);
-          if($model->getError()===false){
-              require(Config::getVues()["defaultAdmin"]);
-          }else{
-              require(Config::getVues()["authentification"]);
+          $model = ModelUser::getModelUserCreate($_POST);
+            if ($model->getError ( ) === false ) {
+                Config::movePage('vueConnexion.php');
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
           }
-            $model=new Model(array());
-            require(Config::getVues()["authentification"]);
+
+          /** @brief Inscription d'un utilisateur */
+          private function actionConnexion(){
+            $model = ModelUser::getModelUserConnexion($_POST);
+              if ($model->getError() === false ) {
+                  Config::movePage('vueAccueil.php');
+              } else {
+                  if (!empty($model->getError()['persistance'])){
+                      // Erreur d'accès à la base de donnée
+                      require(Config::getVuesErreur()["default"]);
+                  } else {
+                      // Erreur de saisie
+                      require(Config::getVuesErreur()["default"]);
+                  }
+              }
         }
-
-
      }
 ?>

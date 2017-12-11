@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  lun. 20 nov. 2017 à 11:29
+-- Généré le :  mar. 28 nov. 2017 à 09:22
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -24,6 +24,20 @@ CREATE TABLE `accomodation` (
   `id_accomodation` int(9) NOT NULL,
   `name` varchar(250) NOT NULL,
   `id_building` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `actuators`
+--
+
+CREATE TABLE `actuators` (
+  `id_actuator` int(9) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `state` tinyint(1) NOT NULL,
+  `id_user` int(9) NOT NULL,
+  `id_room` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -151,6 +165,14 @@ ALTER TABLE `accomodation`
   ADD KEY `foreign_key_accomodation` (`id_building`);
 
 --
+-- Index pour la table `actuators`
+--
+ALTER TABLE `actuators`
+  ADD PRIMARY KEY (`id_actuator`),
+  ADD KEY `fk_2` (`id_room`),
+  ADD KEY `fk_1` (`id_user`);
+
+--
 -- Index pour la table `building`
 --
 ALTER TABLE `building`
@@ -220,6 +242,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `accomodation`
   ADD CONSTRAINT `foreign_key_accomodation` FOREIGN KEY (`id_building`) REFERENCES `building` (`id_building`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `actuators`
+--
+ALTER TABLE `actuators`
+  ADD CONSTRAINT `fk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
 -- Contraintes pour la table `datasensors`

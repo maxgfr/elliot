@@ -18,5 +18,5 @@
 		require (Config::getVues()["default"]) ;
 	}
 
-	$ctrl = new ControleurVisitor();
+	$ctrl = new ControleurVisitor('index');
 ?>

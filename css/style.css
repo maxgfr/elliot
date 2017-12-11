@@ -1,644 +1,236 @@
-/*********ELEMENT*********/
-body
-{
-  overflow-x: hidden;
-  font-family: Helvetica, sans-serif;
-  margin:0px;
-  padding:0px;
-}
+/*************************************COLOR GLOSSARY**********************************\
+|*                                                                                   *|
+|*    #Blue (header) : rgb(46, 117, 181) or #2E75B5                                  *|
+|*    #Dark blue (hover on header, sidebar, iconbar) : rgb(38, 67, 120) or #264378   *|
+|*    #Darker dark blue (hover on icon and side bar) : rgb(25, 50, 100) or #193264   *|
+|*    #Grey (notification) : rgb(211, 211, 211) or #D3D3D3                           *|
+|*    #Grey (date in notifcation) : rgb(125, 125, 125) or #7D7D7D                    *|
+|*                                                                                   *|
+\*************************************************************************************/
 
-p
-{
-  font-size: 14px;
-  line-height: 1.75;
-}
-
-p.large
-{
-  font-size: 16px;
-}
-
-a,a:hover,a:focus,a:active,a.active
-{
-  outline: none;
-}
-
-a
-{
-  color: #ffffff
-}
-
-a:hover,a:focus,a:active,a.active
-{
-  color: #fec503;
-}
-
-h1,h2,h3,h4,h5,h6
-{
-  font-family: Helvetica, sans-serif;
-  /* text-transform: uppercase; */
-  font-weight: 700;
-}
-
-header
-{
-  text-align: center;
-  color: white;
-  display: flex;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  overflow: visible;
-  background: rgb(46, 117, 181);
-  height: 30px;
-  padding-top: 1%;
-  padding-bottom: 2%;
-  box-shadow: 0px 2px #999;
-}
-
-section
-{
-  padding: 100px 0;
-}
-
-footer
-{
-  height: 30px;
-  background: rgb(46, 117, 181);
-}
-
-button
-{
-  display: inline-block;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-img
-{
-  vertical-align: middle;
-}
-
-/*********CLASS*********/
-.header_right
-{
-  position: fixed;
-  right: 0px;
-}
-
-.main
-{
-  margin-top: 68px;
-  margin-bottom: 20px;
-}
-
-/**********SIDEBAR**********/
-.sidebar
-{
-  	display: none;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0px;
-    background-color: rgb(38, 67, 120);
-}
-
-.sidebar button {
-    top: 0;   right: 2%;
-    width: 100%;  height: 50pt;
-    border: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-}
-
-.sidebar button:hover {
-    background-color: rgb(25, 50, 100);
-}
-
-.sidebar button img {
-    width: 40px;  height: 40px;
-    margin-left: 4%;
-    vertical-align: middle;
-    float: left;
-}
-
-.sidebar p {
-    padding-bottom: 35px;
-    display: block;
-}
-
-#bigIcon {
-    position: relative;
-    width: 75%;
-    margin-left: 10%;
-    padding-top: 3%;
-    cursor: pointer;
-}
-
-.sidebar .menu-image{
-
-}
-
-.sidebar .menu-name{
-	padding: 10px 0;
-	font-size: 17px;  font-weight: bold;
-    text-align: left;
-	font-family : arial;
-	text-indent: 12px;
-
-}
-}
-
-.name_button
-{
-  background-color: rgb(46, 117, 181);
-  color: white;
-  border-radius: 15px;
-  vertical-align: top;
-  box-shadow: 2px 3px #999;
-  padding: 15px 32px;
-  font-size: 15px;
-}
-
-.name_button:active
-{
-    box-shadow: 1px 1px #666;
-}
-
-.name_button:hover
-{
-  background-color: rgb(37, 67, 119);
-  border: white solid;
-  color: white;
-}
-
-.menu_button
-{
-  display: inline-block
-  width: 100%;
-  border: none;
-  background-color: rgb(37, 67, 119);
-  vertical-align: middle;
-}
-
-.menu_button:hover
-{
-  background-color: rgb(46, 117, 181);
-  display: flex;
-  width:100%;
-}
-
-
-/*********ID*********/
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main
-{
-    margin-left: 75%;
-    padding: 20px;
-}
-
-#img_slider
-{
-  float: left;
-}
-
-/*********MOBILE FRIENDLY*********/
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
-}
-
-
-
-
-
-
-.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
-.w3-bar-block .w3-dropdown-hover,.w3-bar-block .w3-dropdown-click{width:100%}
-.w3-bar-block .w3-dropdown-hover .w3-dropdown-content,.w3-bar-block .w3-dropdown-click .w3-dropdown-content{min-width:100%}
-.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
-.w3-bar-block .w3-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;outline:none;white-space:normal;float:none}
-.w3-bar-block.w3-center .w3-bar-item{text-align:center}.w3-block{display:block;width:100%}
-
-.tooltip /*bulle de notifications*/
-{
-  text-decoration:none;
-  position:relative;
-}
-
-
-.tooltip span
-{
-  display:none;
-
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  color:white;
-  background:rgb(46, 117, 181);
-}
-
-.tooltip span img
-{
-  float:left;
-  position:absolute;
-  top:-40px;
-  margin:0px 0px 0px 0;
-}
-
-
-
-
-.tooltip:hover span
-{
-  display:block;
-  position:absolute;
-  top:-10;
-  left:-140px;
-  z-index:1000;
-  width:auto;
-  max-width:320px;
-  min-height:128px;
-  border:1px white;
-  margin-top:12px;
-  margin-left:32px;
-  overflow:hidden;
-  padding:8px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**********COLOR GLOSSARY**********/
-/*
-    #Blue (header) : rgb(46, 117, 181)
-    #Dark blue (hover on header, sidebar, iconbar) : rgb(38, 67, 120)
-    #Darker dark blue (hover on icon and side bar) : rgb(25, 50, 100)
-*/
 
 
 /**********HEADER**********/
-header {
+
+.header {
+    z-index:1;
     text-align: center;
     background: rgb(46, 117, 181);
-    display: flex;
-    position: fixed; z-index: 1;
-    top: 0px;
-    width: 100%;  height: 48px;
-    overflow: visible;
-    padding-top: 1%;  padding-bottom: 2%;
-    margin-left: 70px;
-}
-
-#mainHeader {
-  transition: 0s;
-}
-
-header img {
-    vertical-align: middle;
-    width: 50px;
-    cursor: pointer;
-}
-
-.header_right {
     position: fixed;
-    right: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;  height: 5em;
 }
 
-#hamburgerIcon {
+.header_container {
+    position: relative;
+    display: flex;
+}
+
+#hamburger_button {
     background-color: white;
+    margin-left: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 2em;
     color: rgb(46, 117, 181);
-    border-radius: 5px;
-    font-size: 200%;
-	margin-left: 3%;
-    padding-right: 1%;  padding-left: 1%;
+    border-radius: 0.1em;
     cursor: pointer;
 }
 
-.buttonHeader {
-    top: 0;   right: 2%;
-    width: 160px;
-    border: none;
-    background-color: transparent;
+#header_right {
     color: white;
+    display: flex;
+    position:absolute;
+    right:0;
+    width: 20em;
+    height: 100%;
+}
+
+#header_right > div {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
     cursor: pointer;
+}
+
+#header_right > div:hover {
+    opacity: 0.7;
+}
+
+#header_right img {
+    width: 3.5em;
+    height: auto;
+}
+
+#profile {
+    display: flex;
+}
+
+#profile_text {
+    margin-top: 1em;
+    margin-left: 0.3em;
+    vertical-align: center;
+}
+
+
+/*************SETTING OF THE NOTIFICATION POPUP*******************/
+#notification {
+    position: relative;
+}
+
+#how_many_notif {
+    position: absolute;
+    display: block;
+    top: 2px;  right: 2px;
+    width: 20px;  height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 100%;
+    background-color: red;
+    color: white;
     text-align: center;
-    font-size: 20px;
 }
 
-.buttonHeader:hover {
-    background-color: rgb(38, 67, 120);
-    transition: 1s;
-    border-radius: 5px;
+#container_notification {
+    z-index: 2;
+    display: none;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: thin;
+    border-color: #D3D3D3;
+    border-top: none;
+    width:400px;
+    position: fixed;
+    right: 17em;
 }
 
-
-/**********NOTIFICATION POPUP**********/
-*:before,*:after {
-  -webkit-box-sizing: border-box;
+#container_notification div {
+    border-top-style: solid;
+    border-top-width: thin;
+    border-top-color: #D3D3D3;
 }
 
-.notificationPopup a {
-  text-decoration: none;
+#container_notification button {
+    text-decoration: none;
+    width: 100%;
+    padding: 12px 0 12px 0;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border: none;
 }
 
-.notificationPopup, .notificationPopup ul {
-  margin: 0;  padding: 0;
-  list-style: none;
-  float: left;
+#container_notification button:hover{
+    background-color: #F0F8FF;
 }
 
-.notificationPopup li {
-  display: block;
-  float: left;
-  clear: both;
+#notification_title, #notification_footer button {
+    text-align: center;
 }
 
-.notificationPopup > li {
-  position: relative;
-  cursor: pointer;
-  padding: 0px; /*15px*/
-  font-size: 20px;
+#notification_title {
+    padding: 10px 0 10px 0;
+    background-color: white;
 }
-
-/*Setting the style of the popup number*/
-.notificationPopup > li .howManyNotif {
-  position: absolute;
-  display: block;
-  top: 2px;  right: 2px;
-  width: 20px;  height: 20px;
-  font-size: 14px;
-  line-height: 20px;
-  border-radius: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-}
-
-.notificationPopup > li > ul {
-  position: absolute;
-  left: -150px;
-  display: none;
-  width: 350px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  background-color: white;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-}
-
-.notificationPopup > li:hover > ul {
-  display: block;
-}
-
 
 /*Setting of the popup arrow*/
-.notificationPopup > li > ul:before, .notificationPopup > li > ul:after {
-  display: block;
+#container_notification:before{
   position: absolute;
-  top: -10px; left: 165px; /*Position of the triangle*/
-  content: '';
-  width: 8px; height: 8px;
-  border-style: solid;
+  bottom: 100%;
+  height: 0;
+  width: 0;
+  right: 2%;
+  border: 10px solid transparent;
+  border-bottom-color: white;
+  content: "";
 }
 
-.notificationPopup > li > ul:before {
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent white transparent;
-  z-index: 1px;
-}
-
-.notificationPopup > li > ul:after {
-  top: -9.5px;
-  left: 165px; /*Position of the triangle*/
-  border-width: 0 9px 9px 9px;
-  border-color: transparent transparent white transparent;
-  z-index: 2px;
-}
-
-/*Setting of the text and background of the text*/
-.notificationPopup > li > ul > li {
-  width: 100%;
-  font-size: 14px;
-  border-top: 1px solid #ccc;
-  padding: 15px;
-}
-
-.notificationPopup > li > ul > li.title {
-  font-size: 16px;
-  font-widght: bold;
-  color: black;
-  padding: 8px 15px;
-  background-color: white;
-}
-
-.notificationPopup > li > ul > li.seeAll {
-  font-size: 14px;
-  font-widght: bold;
-  color: #000;
-  background-color: #eee;
-  text-align: center;
-  padding: 8px;
-}
-
-.notificationPopup > li > ul > li:first-child {
-  border-top: 0;
-}
-
-.notificationPopup > li > ul > li:last-child {
-  border-bottom: 0;
-}
-
-.notificationPopup > li > ul > li a {
-  display: block;
-  color: black;
+.notificationDate {
+    text-align: bottom;
+    font-size: 8px;
+    color: #7D7D7D;
 }
 
 
-/*Setting the hover effects*/
-.notificationPopup > li > ul > li:hover {
-  background-color: #ccc;
-}
+/*************************SIDEBAR***************************/
 
-.notificationPopup > li > ul > li.title:hover,
-.notificationPopup > li > ul > li.seeAll:hover {
-  background-color: white;
-}
-
-
-
-/**********ICONBAR**********/
-#iconBar {
-    width: 70px;
-    background-color: rgb(38, 67, 120);
+.sidebarContainer {
+    z-index:2;
+    width: 4.5em;
+    background: rgb(38, 67, 120);
+    left: 0;
     top: 0;
-    padding-bottom: 15%;
+    bottom: 0;
     position: fixed;
 }
-#iconBar p{
-    /*Just to set the length of the space*/
-    padding-bottom: 20px;
+
+#elliot_icon {
+    cursor: pointer;
+}
+
+#small_icon {
     display: block;
 }
 
-#iconBar a {
-    display: block;
-    text-align: center;
-    padding: 16px;
-    transition: all 0.3s ease;
+#small_icon img {
+    width: auto;
+    height: 4.5em;
+    margin-top: 0.5em;
+    margin-left: 0.7em;
+    margin-bottom: 1.5em;
+}
+
+#big_icon {
+    display: none;
+}
+
+#big_icon img {
+    width: auto;
+    height: 6em;
+    margin-top: 0.5em;
+    margin-left: 2em;
+}
+
+#main_sidebar {
+    margin-top: 4em;
     color: white;
-    font-size: 10px;
 }
 
-#iconBar a:hover {
-    background-color: rgb(25, 50, 100);
+.elementsOfSidebar {
+    display: flex;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    cursor: pointer;
 }
 
-.smallelliot::before{
-    display: inline-block;
-    width: 40px;  height: 50px;
-    content: "";
-    background: url("../img/smallellIoT.png");
-    background-size: 100%;
+.elementsOfSidebar:hover {
+    background: rgb(25, 50, 100);
+    transition: 0.5s;
+}
+
+.iconOfSidebar img {
+    width: 2.7em;
+    height: auto;
+    margin-right: 0.8em;
+    margin-left: 0.8em;
+}
+
+
+.textOfSidebar {
+    display: none;
     vertical-align: middle;
-}
-
-.dashboard::before{
-    display: inline-block;
-    width: 40px;  height: 40px;
-    content: "";
-    background: url("../img/dashboardIcon.png") no-repeat 0 0;
-    background-size: 100%;
-}
-
-.homeplan::before{
-    display: inline-block;
-    width: 40px;  height: 40px;
-    content: "";
-    background: url("../img/homeplanIcon.png") no-repeat 0 0;
-    background-size: 100%;
-}
-
-.sensor::before{
-    display: inline-block;
-    width: 40px;  height: 40px;
-    content: "";
-    background: url("../img/sensorIcon.png") no-repeat 0 0;
-    background-size: 100%;
-}
-
-.support::before{
-    display: inline-block;
-    width: 40px;  height: 40px;
-    content: "";
-    background: url("../img/supportIcon.png") no-repeat 0 0;
-    background-size: 100%;
-}
-
-
-/**********SIDEBAR**********/
-.sidebar
-{
-  	display: none;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0px;
-    background-color: rgb(38, 67, 120);
-}
-
-.sidebar button {
-    top: 0;   right: 2%;
-    width: 100%;  height: 50pt;
-    border: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-}
-
-.sidebar button:hover {
-    background-color: rgb(25, 50, 100);
-}
-
-.sidebar button img {
-    width: 40px;  height: 40px;
-    margin-left: 4%;
-    vertical-align: middle;
-    float: left;
-}
-
-.sidebar p {
-    padding-bottom: 35px;
-    display: block;
-}
-
-#bigIcon {
-    position: relative;
-    width: 75%;
-    margin-left: 10%;
-    padding-top: 3%;
-    cursor: pointer;
-}
-
-.sidebar .menu-image{
-
-}
-
-.sidebar .menu-name{
-	padding: 10px 0;
-	font-size: 17px;  font-weight: bold;
-    text-align: left;
-	font-family : arial;
-	text-indent: 12px;
-
-}
-
-/**********FORMULAIRES**********/
-input{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-	border: 1px solid rgb(46, 117, 181);
-    border-radius: 3px; 
-}
-
-input[type=button] {
-    background-color: rgb(46, 117, 181);
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+    line-height: 2.7em; /*Same as width of .iconOfSidebar img to put it in the middle*/
 }
 
 /**********MAIN PART OF THE WEBSITE**********/
-body {
-    overflow-x: hidden;
-    font-family: Helvetica, sans-serif;
-    margin:0;
-    padding:0;
-}
-
 #main {
-    margin-left: 150px;
-    margin-top: 100px;
-    transform-origin: right;
-    position: inherit;
-    z-index: 0;
+    margin-left: 5em;
+    margin-top: 5em;
+    transform-origin: right; /*when transforming, the right side will stay fixed*/
+    z-index:0;
 }

@@ -17,45 +17,43 @@
 			return $this->email;
 		}
 
-    /** @brief Insère un user en créant un nouvel ID dans la BD. */
-    public static function getModelUserCreate($inputArray) {
-        $model = new self(array());
-         //Vérification des erreurs si une vérification a été exigée
-         if (empty($model->dataError)) {
-             // Execution de la requête d'insertion' :
-             $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("REPLACE INTO user(last_name,first_name,phone_number,birthday,mail,password) VALUES (:last_name,:first_name,:phone_number,:birthday,:mail,:password)", $inputArray);
-             if ($queryResults === false) {
-                 $model->dataError["persistance"] = "Probleme d'execution de la requête";
-             }
-         } else {
-             $model->dataError = array_merge($model->dataError, $dataErrorAttributes); // fusion
-         }
-        $model->nom = "L'utilisateur a été ajouté à la BDD !";
-        return $model;
+	    /** @brief Insère un user en créant un nouvel ID dans la BD. */
+	    public static function getModelUserCreate($inputArray) {
+		    $model = new self(array());
+			$inputArray['password'] = hash("sha1", $inputArray['password']);
+			$inputArray['id_user'] = substr(abs(crc32(uniqid())), 0, 8);
+			// Execution de la requête d'insertion' :
+			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
+			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
+			if ($queryResults === false) {
+			   $model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray);
+			}
+		    $model->nom = "L'utilisateur a été ajouté à la BDD !";
+		    return $model;
+	    }
+
+		/** @brief Connexion d'un user */
+	    public static function getModelUserConnexion($inputArray) {
+			$model = new self(array());
+			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
+	        $args = array($inputArray["mail"], $inputArray["password"]);
+	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM users WHERE mail=? AND password=?', $args);
+	        //Si la requête a fonctionné
+	        if ($queryResults !== false) {
+	            if (count($queryResults) == 1) {
+	                $model = $queryResults[0];
+	            }
+	            else{
+					$model->dataError['persistance'] = "Erreur d'idenditifiant/mot de passe, réessayer";
+	                return false ;
+	            }
+				SessionUtils::checkAndInitiateSession($model);
+	            return $model;
+	        } else {
+	            $model->dataError['persistance'] = "Impossible d'acceder a la table des utilisateurs";
+	            return $model;
+	        }
+	    }
+
     }
-
-    public static function createUser(&$dataError, $inputArray)
-    {
-        //Tentative de construction d'une instance ( et filtrage )
-        $user = UserFabrique::getValidInstance($dataErrorAttributes, $inputArray);
-        //Si la forme des attributs sont corrects ( expressions régulières - setters )
-        $inputArray['nbAvertissements'] = 0;
-        $inputArray['etatCompte'] = "activé";
-        if (empty($dataErrorAttributes)) {
-            // Execution de la requête d'insertion' :
-            $queryResults = DataBaseManager::getInstance()->prepareAndExecuteQueryAssoc("REPLACE INTO user(prenom,nom,dateNaissance,pays,ville,username,mdp,email,tel,role,nbAvertissements,etatCompte) VALUES (:prenom,:nom,:dateNaissance,:pays,:ville,:username,:mdp,:email,:tel,:role,:nbAvertissements,:etatCompte)", $inputArray);
-            if ($queryResults === false) {
-                $dataError["persistance"] = "Probleme d'execution de la requête";
-            }
-        } else {
-            $dataError = array_merge($dataError, $dataErrorAttributes); // fusion
-        }
-        $user->setUsername($inputArray['username']); // pour la valeur retournée
-        return $user;
-    }
-
-
-
-    }
-	}
 ?>

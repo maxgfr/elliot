@@ -1,0 +1,162 @@
+/***********************************COLOR GLOSSARY************************************\
+|*                                                                                   *|
+|*    #Red (weakest strength) : rgb(192, 0, 0) or #C00000                            *|
+|*    #Red (weak strength) : rgb(199, 85, 102) or #C75566                            *|
+|*    #Yellow (medium strength) : rgb(221, 172, 38) or #DDAC26                       *|
+|*    #Green (good strength) : rgb(33, 155, 117) or #219D75                          *|
+|*    #Green (excellent strength) : rgb(84, 130, 53) or #548235                      *|
+|*    #Grey (default color for strength bar) : rgb(211, 211, 211) or #D3D3D3         *|
+|*                                                                                   *|
+\*************************************************************************************/
+
+
+.global_container {
+    display: flex;
+}
+
+#container_register {
+    background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
+    width: 400px;
+    height:600px;
+    padding-bottom: 3%;  padding-top: 0.2%;
+}
+
+#container_login {
+    background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
+    width: 500px;
+    height: 450px;
+    margin-left: 20px;
+    padding-bottom: 3%;  padding-top: 0.2%;
+}
+
+.box {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.box_textandicon {
+    display: flex;
+    width: 100%;
+}
+
+#register_box_text {
+    width: 90%;
+}
+.iconImage {
+    right:0;
+}
+.iconImage img {
+    width: 40px;
+    height: auto;
+    margin-top:20px;
+}
+
+#login_box_text, #register_box_text {
+    color: white;
+    font-size: 20px;
+}
+
+#login_box_input, #register_box_input {
+    width:100%;
+    padding-top: 50px;
+}
+
+.inputText input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+}
+
+#login_box_input_suggestion {
+    width: 100%;
+    position: relative;
+}
+#login_box_input_suggestion > * {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 10px;  padding-bottom: 10px;
+}
+
+#login_box_input_suggestion_text {
+    color: white;
+    font-size: 13px;
+}
+
+#login_box_input_suggestion_forgotPassword {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+}
+
+#login_box_input_suggestion_forgotPassword  a, a:link, a:visited {
+    text-decoration: none;
+    color: white;
+    outline: 0; /*remove the dotlines*/
+}
+
+
+.confirmButton button {
+    width: 100%;
+    margin: 8px 0;
+    padding-top: 10px; padding-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.confirmButton button::-moz-focus-inner {
+    border: 0; /*remove dotlines in Mozilla*/
+}
+
+.confirmButton button:hover {
+    background-color: #D3D3D3;
+    transition: 1s;
+}
+
+/**********STRENGTH OF PASSWORD**********/
+#show_strength_box {
+    display: none; /*Set the divs to be side by side*/
+}
+
+#text_type_of_strength {
+    width: 170px;
+    color: white;
+}
+
+#show_strength_bar {
+    margin-right: 0;
+}
+#show_strength_bar > div {
+    display: inline-block;
+    width: 25px;
+    height: 10px;
+    margin-top: 5px;
+    background-color: #D3D3D3;
+}
+
+#show_warning {
+    display: none;
+    height: 30px;
+    width: 100%;
+}
+
+
+#warning_image > img {
+    height: 30px;
+}
+
+#warning_message_box {
+    width: 100%;
+    position: relative;
+}
+
+#warning_message {
+    position: absolute;
+    bottom: 0;
+    color: white;
+}

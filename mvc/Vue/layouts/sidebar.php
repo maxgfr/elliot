@@ -1,12 +1,12 @@
 <div id="mySideBar" class="sidebar">
 
-			  <a href="Homeplan.php"> <img id="bigIcon" src="../../img/ellIoT2.png"> </a>
+			  <a href="vueAccueil.php"> <img id="bigIcon" src="../../img/ellIoT2.png"> </a>
 
 			  <p></p>
 
 			  <button>
 				<div class="menu-image">
-					<a href="Homeplan.php"> <img src="../../img/homeplanIcon.png"/> </a>
+					<a href="vueAccueil.php"> <img src="../../img/homeplanIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Plan du domicile	
@@ -15,7 +15,7 @@
 
 			  <button>
 				<div class="menu-image">
-					<a href="Dashboard.php"> <img src="../../img/dashboardIcon.png"/> </a>
+					<a href="vueGestionBatiment.php"> <img src="../../img/dashboardIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Tableau de bord
@@ -24,7 +24,7 @@
 
 			  <button>
 				<div class="menu-image">
-					<a href="Sensor.php"> <img src="../../img/sensorIcon.png"/> </a>
+					<a href="vueSensor.php"> <img src="../../img/sensorIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Capteurs/actionneurs
@@ -33,7 +33,7 @@
 
 			  <button>
 				<div class="menu-image">
-					<a href="Support.php"> <img src="../../img/supportIcon.png"/> </a>
+					<a href="vueSupport.php"> <img src="../../img/supportIcon.png"/> </a>
 				</div>
 				<div class="menu-name">
 					Support
