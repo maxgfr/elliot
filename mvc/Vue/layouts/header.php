@@ -80,7 +80,7 @@
                 <img src="../../img/homeplanIcon.png" alt="Home Plan Icon">
             </div>
             <div class="textOfSidebar">
-                Plan de la maison
+                Habitation
             </div>
         </div>
         <div class="elementsOfSidebar" onclick="window.location.href='vueGestionBatiment.php'">
@@ -104,7 +104,7 @@
                 <img src="../../img/supportIcon.png" alt="Support Icon">
             </div>
             <div class="textOfSidebar">
-                Support
+                Support technique
             </div>
         </div>
     </div>
