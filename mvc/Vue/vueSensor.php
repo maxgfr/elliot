@@ -42,7 +42,7 @@
 <br>
 
 <button onclick="myFunction()">Créer</button>
-<button onclick="myDeleteFunction()">Supperimer</button>
+<button onclick="myDeleteFunction()">Supprimer</button>
 <input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
 
 
