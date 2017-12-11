@@ -27,6 +27,8 @@
 
 </head>
 
+  <?php include("layouts/header.php"); ?>
+
 <body>
 
     <div id="main">
