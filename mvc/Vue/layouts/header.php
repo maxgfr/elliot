@@ -16,7 +16,7 @@
                     <span>DomISEP</span>
                 </div>
             </div>
-            <div id="logout">
+            <div id="logout" onclick="window.location.href='vueConnexion.php'">
                 <img src="../../img/logoutIcon.png" alt="Logout Icon">
             </div>
         </div>
@@ -68,14 +68,14 @@
 <div class="sidebarContainer">
     <div id="elliot_icon" onclick="window.location.href='vueAccueil.php'">
         <div id="small_icon">
-            <img src="../../img/smallelliot.png" alt="Small ellIoT Icon">
+            <img src="../../img/smallellIoT.png" alt="Small ellIoT Icon">
         </div>
         <div id="big_icon" onclick="window.location.href='vueAccueil.php'">
             <img src="../../img/ellIoT.png" alt="Big ellIoT Icon">
         </div>
     </div>
     <div id="main_sidebar">
-        <div class="elementsOfSidebar">
+        <div class="elementsOfSidebar" onclick="window.location.href='vueAccueil.php'">
             <div class="iconOfSidebar">
                 <img src="../../img/homeplanIcon.png" alt="Home Plan Icon">
             </div>
@@ -83,7 +83,7 @@
                 Habitation
             </div>
         </div>
-        <div class="elementsOfSidebar">
+        <div class="elementsOfSidebar" onclick="window.location.href='vueGestionBatiment.php'">
             <div class="iconOfSidebar">
                 <img src="../../img/dashboardIcon.png" alt="Dashboard Icon">
             </div>
@@ -91,7 +91,7 @@
                 Tableau de bord
             </div>
         </div>
-        <div class="elementsOfSidebar">
+        <div class="elementsOfSidebar" onclick="window.location.href='vueSensor.php'">
             <div class="iconOfSidebar">
                 <img src="../../img/sensorIcon.png" alt="Sensor Icon">
             </div>
