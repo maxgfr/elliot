@@ -19,14 +19,14 @@
 
 <table id="sensor">
 	<tr>
-    	<th>sensor name</th>
-    	<th>localisation</th> 
-    	<th>temperature</th>
+    	<th>Nom du capteur</th>
+    	<th>Localisation</th> 
+    	<th>Valeur</th>
   </tr>
   <tr>
-		<td>chambre parent</td>
+		<td>Température lit</td>
     	<td>chambre parent</td> 
-    	<td>10 Csssss</td>
+    	<td>10 °C</td>
   </tr>
  <tr>
 		<td>chambre parent</td>
@@ -41,8 +41,8 @@
 </table>
 <br>
 
-<button onclick="myFunction()">create</button>
-<button onclick="myDeleteFunction()">delete</button>
+<button onclick="myFunction()">Créer</button>
+<button onclick="myDeleteFunction()">Supperimer</button>
 <input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
 
 
@@ -52,13 +52,13 @@
       <legend>Nom</legend>
         <label for="Nom">Nom</label>
         <input id="Nom" placeholder="Cuissine" autofocus="" required="">  
-        <label for="lieu">lieu</label>
+        <label for="lieu">Localisation</label>
         <input id="lieu" placeholder="Cuissine" autofocus="" required=""><br><br>
-        <label for="type">le sensor est ? </label>
+        <label for="type">Quel type de capteur ? </label>
         <select name="type" id="type">
-              <option value="temperature"> temperature</option>
-                <option value="luminosite"> luminosite</option>
-                <option value="temperature-infra"> temperature infrarouge</option>
+              <option value="temperature">Température</option>
+                <option value="luminosite">Luminosité</option>
+                <option value="temperature-infra">Infrarouge</option>
           </select>
     </fieldset>
    </div> 
