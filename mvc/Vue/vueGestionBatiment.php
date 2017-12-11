@@ -18,16 +18,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/animation.js"></script>
-    <title>Test for the header</title>
+    <title>Gestion bâtiments</title>
   </head>
 
   <?php include ('layouts/header.php'); ?>
 
-  <?php include ('layouts/iconBar.php'); ?>
 
   <body>
 
-  <?php include ('layouts/sidebar.php'); ?>
 
       <div id="main">
 

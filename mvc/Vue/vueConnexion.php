@@ -18,6 +18,7 @@
     <meta   charset="UTF-8" />
     <title>Connexion</title>
     <link href="../../css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
 </head>
 <body>
 
