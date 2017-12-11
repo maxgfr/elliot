@@ -8,7 +8,7 @@
                 <span id="how_many_notif">5</span>
                 <img src="../../img/notificationIcon.png" alt="Notification Icon">
             </div>
-            <div id="profile">
+            <div id="profile" onclick="window.location.href='vueProfil.php'">
                 <div id="profile_image">
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
@@ -61,16 +61,16 @@
     </div>
 
     <div id="notification_footer">
-        <button onclick="window.location.href='../../Documents/login.html'">Voir toutes les notifications</button>
+        <button onclick="window.location.href='vueNotifications.php'">Voir toutes les notifications</button>
     </div>
 </div>
 
 <div class="sidebarContainer">
-    <div id="elliot_icon">
+    <div id="elliot_icon" onclick="window.location.href='vueAccueil.php'">
         <div id="small_icon">
             <img src="../../img/smallelliot.png" alt="Small ellIoT Icon">
         </div>
-        <div id="big_icon">
+        <div id="big_icon" onclick="window.location.href='vueAccueil.php'">
             <img src="../../img/ellIoT.png" alt="Big ellIoT Icon">
         </div>
     </div>
@@ -99,7 +99,7 @@
                 Capteurs/actionneurs
             </div>
         </div>
-        <div class="elementsOfSidebar">
+        <div class="elementsOfSidebar" onclick="window.location.href='vueSupport.php'">
             <div class="iconOfSidebar">
                 <img src="../../img/supportIcon.png" alt="Support Icon">
             </div>
