@@ -26,7 +26,7 @@
 			// Execution de la requête d'insertion' :
 			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
 			$result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT count(email) FROM users WHERE mail=?",array($inputArray["mail"]));
-			if($result > 0){
+			if (count($result) != 1) {
 				$model->dataError["persistance"] = "Utilisateur déjà inscrit avec cette adresse";
 				return $model;
 			}

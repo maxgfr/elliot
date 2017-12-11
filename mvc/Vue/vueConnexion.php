@@ -46,7 +46,7 @@
                         </div>
                         <br>
                         <div>
-                            <a href="mvc/Vue/vueInscription.php">J'ai pas de compte</a>
+                            <a href="/elliot/mvc/Vue/vueInscription.php">J'ai pas de compte</a>
                         </div>
                         <div id="login_box_input_suggestion_forgotPassword">
                             <a href="#"> Mot de passe oublié? </a>
