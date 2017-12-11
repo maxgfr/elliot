@@ -3,6 +3,9 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
+	//creer la session
+	session_start();
+
 	// Répertoire racine du MVC
 	$rootDirectory = dirname(__FILE__)."/mvc/";
 
@@ -18,5 +21,10 @@
 		require (Config::getVues()["default"]) ;
 	}
 
-	$ctrl = new ControleurVisitor('index');
+	if (isset($_SESSION['mail'])) {
+	   $ctrl = new ControleurAuth('home');
+	 } else {
+	   $ctrl = new ControleurVisitor('index');
+	 }
+
 ?>
