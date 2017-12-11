@@ -23,13 +23,13 @@ function myDeleteFunction() {
 
 
 function setVisibility(id) {
-if(document.getElementById('formulaire').value=='cree un capteur'){
-document.getElementById('formulaire').value = 'pas cree un capteur';
+if(document.getElementById('formulaire').value=='Créer un capteur'){
+document.getElementById('formulaire').value = 'Ne pas créer un capteur';
 document.getElementById(id).style.display = 'inline';
 }else{
-document.getElementById('formulaire').value = 'pas cree un capteur';
+document.getElementById('formulaire').value = 'Ne pas créer un capteur';
 document.getElementById(id).style.display = 'none';
-document.getElementById('formulaire').value = 'cree un capteur';
+document.getElementById('formulaire').value = 'Créer un capteur';
 }
 
 }

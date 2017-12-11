@@ -43,7 +43,7 @@
 
 <button onclick="myFunction()">Créer</button>
 <button onclick="myDeleteFunction()">Supprimer</button>
-<input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
+<input type=button name=type id='formulaire' value='Créer un capteur' onclick="setVisibility('nom');";> 
 
 
   <div id="nom" style = 'display:none'>
@@ -51,9 +51,9 @@
     <fieldset>
       <legend>Nom</legend>
         <label for="Nom">Nom</label>
-        <input id="Nom" placeholder="Cuissine" autofocus="" required="">  
+        <input id="Nom" placeholder="Cuisine" autofocus="" required="">  
         <label for="lieu">Localisation</label>
-        <input id="lieu" placeholder="Cuissine" autofocus="" required=""><br><br>
+        <input id="lieu" placeholder="Cuisine" autofocus="" required=""><br><br>
         <label for="type">Quel type de capteur ? </label>
         <select name="type" id="type">
               <option value="temperature">Température</option>
