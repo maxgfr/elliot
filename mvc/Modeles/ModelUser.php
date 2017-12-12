@@ -33,7 +33,7 @@
 			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
 			$result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT * FROM users WHERE mail=?",array($inputArray["mail"]));
 			if (count($result) > 0) {
-				$model->dataError["persistance"] = "Utilisateur déjà inscrit avec cette adresse";
+				$model->dataError["doublon"] = "Utilisateur déjà inscrit avec cette adresse";
 				return $model;
 			}
 
@@ -57,7 +57,21 @@
 	            if (count($queryResults) == 1) {
 					$model->email = $queryResults[0]['mail'];
 					if ($hashedPassword == $queryResults[0]['password']) {
-						SessionUtils::createSession($model->email);
+
+						// Le numéro de session aléatoire
+						$mySid =  self::generateSessionId();
+						session_id($mySid);
+						// Destruction du coockie avant de le recréer
+						setcookie("session-id", "", time()-60, '/');
+						// Création du cookie avec SID aléatoire. Validité du cookie : 2mn
+						// Un pirate aura besoin de temps pour voler le cookie...
+						setcookie("session-id", $mySid, time()+self::DUREE_COOKIE, '/');
+						// On échappe, même si on sait qu'on a validé le username....
+						$_SESSION['mail'] = htmlentities($model->email, ENT_QUOTES, "UTF-8");
+						$_SESSION['ipAddress'] = $_SERVER['REMOTE_ADDR'];
+						session_write_close();
+
+
 						return $model;
 					} else {
 						$model->dataError["persistance"] = "Mot de passe incorrect. Réessayez ou cliquez sur \"Mot de passe oublié pour le réinitialiser\"";
