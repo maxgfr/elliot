@@ -25,6 +25,7 @@
           $model = ModelUser::getModelUserCreate($_POST);
             if ($model->getError ( ) === false ) {
                 Config::movePage('vueConnexion.php');
+                SessionUtils::createSession($model->email);
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
@@ -40,7 +41,7 @@
           private function actionConnexion(){
             $model = ModelUser::getModelUserConnexion($_POST);
               if ($model->getError ( ) === false ) {
-                  Config::movePage('vueAccueil.php');
+                  Config::movePage('/elliot/mvc/vue/vueAccueil.php');
               } else {
                   if (!empty($model->getError()['persistance'])){
                       // Erreur d'accès à la base de donnée

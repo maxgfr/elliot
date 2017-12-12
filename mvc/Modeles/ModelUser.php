@@ -8,6 +8,9 @@
 
 		private $email;
 
+		/** Durée du cookie en secondes */
+		private const DUREE_COOKIE = 120;
+
 		/** Constructeur par défaut (Init. du tableau d'erreurs à vide) */
 		public function __construct ($dataError) {
 			parent::__construct ($dataError);
@@ -21,6 +24,15 @@
 		/** Permet d' obtenir l'adresse email (email) */
 		public function getMail(){
 			return $this->mail;
+		}
+
+		/** @brief fonction de génération de l'ID de session aléatoire */
+		public static function generateSessionId(){
+			// Génération de 10 octets (pseudo-)aléatoires codés en hexa
+			$cryptoStrong = false; // Variable pour passage par référence
+			$octets = openssl_random_pseudo_bytes(10, $cryptoStrong);
+			$mySid = bin2hex($octets);
+			return $mySid;
 		}
 
 	    /** @brief Insère un user en créant un nouvel ID dans la BD. */
@@ -55,26 +67,11 @@
 	        //Si la requête a fonctionné
 	        if ($queryResults !== false) {
 	            if (count($queryResults) == 1) {
-					$model->email = $queryResults[0]['mail'];
 					if ($hashedPassword == $queryResults[0]['password']) {
-
-						// Le numéro de session aléatoire
-						$mySid =  self::generateSessionId();
-						session_id($mySid);
-						// Destruction du coockie avant de le recréer
-						setcookie("session-id", "", time()-60, '/');
-						// Création du cookie avec SID aléatoire. Validité du cookie : 2mn
-						// Un pirate aura besoin de temps pour voler le cookie...
-						setcookie("session-id", $mySid, time()+self::DUREE_COOKIE, '/');
-						// On échappe, même si on sait qu'on a validé le username....
-						$_SESSION['mail'] = htmlentities($model->email, ENT_QUOTES, "UTF-8");
-						$_SESSION['ipAddress'] = $_SERVER['REMOTE_ADDR'];
-						session_write_close();
-
-
+						$model->email = $queryResults[0]['mail'];
 						return $model;
 					} else {
-						$model->dataError["persistance"] = "Mot de passe incorrect. Réessayez ou cliquez sur \"Mot de passe oublié pour le réinitialiser\"";
+						$model->dataError["persistance"] = "Mot de passe incorrect. Réessayez";
 						return $model;
 					}
 	            }

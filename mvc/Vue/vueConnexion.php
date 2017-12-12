@@ -38,10 +38,6 @@
                         <input name="password" id="password" type="password" title="Password" placeholder="Mot de passe" />
                     </div>
                     <div id="login_box_input_suggestion">
-                        <div id="login_box_input_suggestion_checkbox">
-                            <input type="checkbox" name="1" value="1">
-                        </div>
-                        <br>
                         <div>
                             <a href="/elliot/mvc/Vue/vueInscription.php">Je n'ai pas de compte</a>
                         </div>

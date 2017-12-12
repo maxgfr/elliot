@@ -3,9 +3,6 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 
-	//creer la session
-	session_start();
-
 	// Répertoire racine du MVC
 	$rootDirectory = dirname(__FILE__)."/mvc/";
 
@@ -14,6 +11,9 @@
 
 	// chargement de la classe Autoload pour autochargement des classes
 	require_once($rootDirectory.'Config/Autoload.php');
+
+	//header
+	header("Location:./mvc/Vue/vueConnexion.php");
 
 	try {
 		Autoload::load();
