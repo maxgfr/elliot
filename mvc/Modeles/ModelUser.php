@@ -39,7 +39,7 @@
 
 			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
 			if ($queryResults === false) {
-			   $model->dataError["persistance"] = "Probleme d'execution de la requête avec ces paramètres: ".implode(',', $inputArray);
+			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
 			}
 		    return $model;
 	    }
@@ -60,16 +60,16 @@
 						SessionUtils::createSession($model->email);
 						return $model;
 					} else {
-						$model->dataError["persistance"] = "Erreur de mot de passe, réessayer";
+						$model->dataError["persistance"] = "Mot de passe incorrect. Réessayez ou cliquez sur \"Mot de passe oublié pour le réinitialiser\"";
 						return $model;
 					}
 	            }
 				else {
-					$model->dataError["persistance"] = "Erreur d'idenditifiant, réessayer";
+					$model->dataError["persistance"] = "Identifiant incorrect. Réessayez";
 					return $model;
 				}
 	        } else {
-	            $model->dataError['persistance'] = "Impossible d'acceder a la table des utilisateurs";
+	            $model->dataError['persistance'] = "Impossible d'accéder a la table des utilisateurs";
 	            return $model;
 	        }
 
