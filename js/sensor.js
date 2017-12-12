@@ -20,7 +20,10 @@ function fakedb(Nom,lieu,type) {
     cell1.innerHTML = Nom.value;
     cell2.innerHTML = lieu.value;
     cell3.innerHTML = type1;
+    Nom.value=null;
+    lieu.value=null;
 }
+
 
 
 
