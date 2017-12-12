@@ -5,8 +5,11 @@
 		function __construct($action){
 			//On distingue des cas d’utilisation suivant l’action
 			switch($action){
+				case "home":
+					require(Config::getVues()["default"]);
+					break;
 				default://L’action indéfinie (page par défaut, ici accueil)
-					require(Config::getVues()["defaultAuth"]);
+					require(Config::getVues()["default"]);
 					break;
 			}
 		}

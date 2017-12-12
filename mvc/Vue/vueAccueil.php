@@ -1,4 +1,19 @@
 <?php
+<<<<<<< HEAD
+  //Voir les erreurs
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+  session_start();
+  // Répertoire racine du MVC
+  $rootDirectory = dirname(__FILE__)."/../../mvc/";
+  // chargement de la classe Autoload pour autochargement des classes
+  require_once($rootDirectory.'Config/Autoload.php');
+  try {
+      Autoload::load();
+  } catch(Exception $e){
+      require (Config::getVues()["default"]) ;
+  }
+=======
 //Voir les erreurs
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
@@ -11,6 +26,7 @@ try {
 } catch (Exception $e) {
     require(Config::getVues()["default"]);
 }
+>>>>>>> fb088643bd4430f4621a97dc6ad51bcc03d93b2d
 ?>
 <!DOCTYPE html>
 <html>

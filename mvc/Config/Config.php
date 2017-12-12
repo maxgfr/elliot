@@ -14,7 +14,7 @@
 >>>>>>> origin/master
 =======
 			$db_user ="root" ;
-			$db_user ="root";
+			$db_password ="root";
 
 >>>>>>> origin/master
 		}

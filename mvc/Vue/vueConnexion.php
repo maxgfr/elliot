@@ -41,9 +41,6 @@
                         <div id="login_box_input_suggestion_checkbox">
                             <input type="checkbox" name="1" value="1">
                         </div>
-                        <div id="login_box_input_suggestion_text">
-                            Se souvenir de moi
-                        </div>
                         <br>
                         <div>
                             <a href="/elliot/mvc/Vue/vueInscription.php">J'ai pas de compte</a>
