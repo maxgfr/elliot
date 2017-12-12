@@ -8,15 +8,8 @@
 		{
 			$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
-<<<<<<< HEAD
 			$db_user ="root";
 			$db_password="";
->>>>>>> origin/master
-=======
-			$db_user ="root" ;
-			$db_password ="root";
-
->>>>>>> origin/master
 		}
 
 		/** @brief retourne le tableau des chemins vers les vues */
