@@ -33,7 +33,7 @@
 
     <div id="main">
         <div id="Support" class="centre">
-            <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="25" />
+            <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="70" />
             <br />
             <br />
             <label>Description detaillée de votre problème</label>
