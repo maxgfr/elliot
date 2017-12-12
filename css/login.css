@@ -17,21 +17,30 @@
 #container_register {
     background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
     width: 400px;
-    height:600px;
+    height:550px;
     padding-bottom: 3%;  padding-top: 0.2%;
+	font-family: sans-serif;
+	border-radius: 11px;
 }
 
 #container_login {
     background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
     width: 500px;
-    height: 450px;
+    height: 500px;
     margin-left: 20px;
     padding-bottom: 3%;  padding-top: 0.2%;
+	border-radius: 11px;
+	font-family: sans-serif;
 }
 
 .box {
     width: 80%;
     margin: 0 auto;
+}
+
+h3, p {
+    text-align: center;
+    color: white;
 }
 
 .box_textandicon {
@@ -82,13 +91,11 @@
 
 #login_box_input_suggestion_text {
     color: white;
-    font-size: 13px;
 }
 
 #login_box_input_suggestion_forgotPassword {
     position: absolute;
     right: 0;
-    font-size: 13px;
 }
 
 #login_box_input_suggestion_forgotPassword  a, a:link, a:visited {
