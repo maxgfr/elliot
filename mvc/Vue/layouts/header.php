@@ -13,7 +13,8 @@
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <span><?php $_SESSION['mail']; ?></span>
+                    <!--span><?php $_SESSION['mail']; ?></span-->
+                    <span>DomISEP</span>
                 </div>
             </div>
             <div id="logout" onclick="window.location.href='vueConnexion.php'">
@@ -105,6 +106,14 @@
             </div>
             <div class="textOfSidebar">
                 Support technique
+            </div>
+        </div>
+        <div class="elementsOfSidebar" onclick="window.location.href='vueAdmin.php'">
+            <div class="iconOfSidebar">
+                <img src="../../img/adminIcon.png" alt="Admin Icon">
+            </div>
+            <div class="textOfSidebar">
+                Administrateur
             </div>
         </div>
     </div>

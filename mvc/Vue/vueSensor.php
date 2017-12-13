@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/Sensor.css">
     <script type="text/javascript" src="../../js/sensor.js"></script>
+    <script type="text/javascript"src="../../js/animation.js">
+
+    </script>
 
 </head>
 
@@ -20,22 +23,22 @@
 <table id="sensor">
 	<tr>
     	<th>sensor name</th>
-    	<th>localisation</th> 
+    	<th>localisation</th>
     	<th>type de capteur</th>
   </tr>
   <tr>
 		<td>chambre parent</td>
-    	<td>chambre parent</td> 
+    	<td>chambre parent</td>
     	<td>temperature</td>
   </tr>
  <tr>
 		<td>chambre parent</td>
-    	<td>chambre parent</td> 
+    	<td>chambre parent</td>
     	<td>luminosite</td>
   </tr>
  <tr>
 		<td>chambre parent</td>
-    	<td>chambre parent</td> 
+    	<td>chambre parent</td>
     	<td>temperature infrarouge</td>
   </tr>
 </table>
@@ -43,7 +46,7 @@
 
 <button onclick="myFunction()">create</button>
 <button onclick="myDeleteFunction()">delete</button>
-<input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
+<input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";>
 
 
 
@@ -53,7 +56,7 @@
     <fieldset>
       <legend>Nom</legend>
         <label for="Nom">Nom</label>
-        <input id="Nom" placeholder="Cuisine" autofocus="" required="">  
+        <input id="Nom" placeholder="Cuisine" autofocus="" required="">
         <label for="lieu">lieu</label>
         <input id="lieu" placeholder="Cuisine" autofocus="" required=""><br><br>
         <label for="type">le capteur est</label>
@@ -64,7 +67,7 @@
           </select>
     </fieldset>
     <button id="test" onclick="fakedb(Nom,lieu,type)">create</button>
-   </div> 
+   </div>
 
  </div>
 

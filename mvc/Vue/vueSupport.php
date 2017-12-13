@@ -23,7 +23,6 @@
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script src="../../js/animation.js"></script>
 
-    <?php include ('layouts/header.php'); ?>
 
 </head>
 

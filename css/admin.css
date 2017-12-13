@@ -1,0 +1,116 @@
+.containerListClients {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 10px;
+    background: #F3F3F3;
+}
+
+.selectionBox {
+    display: flex;
+}
+
+.selectionBox > div {
+    margin-right: 2%;
+}
+
+.listClients > div {
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    list-style-type: none;
+}
+
+.listClients li {
+    height: 20px;
+    width: 100%;
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+#test:hover {
+    color: #C3C3C3;
+    cursor: pointer;
+}
+
+#show_notification_clients {
+    margin-top: 10%;
+    margin-bottom: 2%;
+    padding: 10px;
+    background: rgb(38, 67, 120);
+    width: 40%;
+    color: white;
+    border-radius: 2px;
+}
+
+#show_notification_clients:hover {
+    cursor: pointer;
+    color: rgb(211, 211, 211);
+}
+
+#header_list_clients {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#list1, #list2, #list3 {
+    height: 30px;
+}
+
+#footer_list_clients{
+    border-right: none;
+}
+
+
+/***********CLIENT PAGE**************/
+
+.clientID {
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.mainPart {
+    display: flex;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.rightSide {
+    margin-left: 10%;
+}
+
+.headerTable {
+    text-align: center;
+}
+
+.rightSide, .leftSide {
+    background: #F3F3F3;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.tabletable > div {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-bottom: 1px solid black;
+}
+
+#footer_table {
+    border-bottom: none;
+}
+
+.sendEmail button {
+    width: 100%;
+    background: transparent;
+    color: black;
+    border: 1px solid black;
+    height: 30px;
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.sendEmail button:hover {
+    background: #C3C3C3;
+}
