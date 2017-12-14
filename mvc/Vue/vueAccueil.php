@@ -28,24 +28,26 @@
 <div id="main">
     <div>
         <div id="Bedroom_div">
-            <div id="img_bedroom">
-                <img src="../../img/bedroomIcon.png" class="img_perso"/>
+            <div class="iconPart" id="bedroom_icon">
+                <img src="../../img/bedroomIcon.png"/>
             </div>
-            <div id="table_bedroom_div">
+            <div class="tablePart">
+                Température : 20°C
+                Humditié : 45%
             </div>
         </div>
         <div id="Kitchen_div">
-            <div id="img_kitchen">
-                <img src="../../img/kitchenIcon.png" class="img_perso"/>
+            <div class="iconPart" id="kitchen_icon">
+                <img src="../../img/kitchenIcon.png"/>
             </div>
-            <div id="table_kitchen_div">
+            <div class="tablePart">
             </div>
         </div>
         <div id="Bathroom_div">
-            <div id="img_bathroom">
-                <img src="../../img/showerIcon.png" class="img_perso"/>
+            <div class="iconPart" id="bathroom_icon">
+                <img src="../../img/showerIcon.png"/>
             </div>
-            <div id="table_bathroom_div">
+            <div class="tablePart">
             </div>
         </div>
     </div>

@@ -17,8 +17,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
     <script src="../../js/animation.js"></script>
-    <title>Gestion bâtiments</title>
+    <title>Tableau de bord</title>
   </head>
 
   <?php include ('layouts/header.php'); ?>

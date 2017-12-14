@@ -19,20 +19,46 @@ th{
     border: 1px solid black;
 }
 
+#main > div > div {
+    display: flex;
+    margin-right: 0;
+    margin-bottom: 2%;
+}
+
+
 
 .auto_top_margin{
     margin-top: 3%;
     width: 100%;
     border-collapse: collapse;
 }
-#img_bedroom{
-    float: left;
-}
 .img_perso{
-    height: auto;
-    width: 50px;
     background-color: #1e4f8a;
 }
-#table_bedroom_div{
-    display: flex;
+
+.iconPart {
+    width: 10%;
+    height: auto;
+}
+
+.iconPart img {
+    width: 100%;
+    height: auto;
+}
+
+#bedroom_icon {
+    background: rgb(38, 67, 120);
+}
+
+#kitchen_icon {
+    background: rgb(199,85,102);
+}
+
+#bathroom_icon {
+    background: rgb(33,155,117);
+}
+
+.tablePart {
+    width: 60%;
+    background: #F3F3F3;
 }
