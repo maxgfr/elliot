@@ -35,6 +35,7 @@
                 <div class="tablePartCells tablePartCellsColorBlue" style="margin-left:5%">
                     <div class="tablePartCellsImage">
                         <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
+
                     </div>
                     <div class="tablePartCellsText">
                         20°C

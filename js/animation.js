@@ -1,4 +1,4 @@
-var sideBarIsOpen = 0;
+var sideBarIsOpen = 1;
 var elements_text_of_sidebar = document.getElementsByClassName("textOfSidebar");
 var elements_sidebar_container = document.getElementsByClassName("sidebarContainer");
 
@@ -15,9 +15,9 @@ function openSideBar() {
   document.getElementById("small_icon").style.display = "none";
   document.getElementById("big_icon").style.display = "block";
   document.getElementById("hamburger_button").style.marginLeft = "9em";
-  document.getElementById("main").style.transform = "scale(0.85,0.85)";
+  document.getElementById("main").style.transform = "scale(1,1)";
+  document.getElementById("main").style.paddingLeft = "17em";
 
-  document.getElementById("container_notification").style.marginTop = "2em";
 
 
   for(var i = 0; i < elements_text_of_sidebar.length; i++) {
@@ -36,10 +36,9 @@ function closeSideBar() {
   document.getElementById("small_icon").style.display = "block";
   document.getElementById("big_icon").style.display = "none";
   document.getElementById("hamburger_button").style.marginLeft = "3em";
-  document.getElementById("main").style.transform = "scale(1,1)";
+  document.getElementById("main").style.transform = "scale(1.1,1.1)";
+  document.getElementById("main").style.paddingLeft = "12em";
 
-
-  document.getElementById("container_notification").style.marginTop = "0";
 
 
   for(var i = 0; i < elements_text_of_sidebar.length; i++) {

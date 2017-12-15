@@ -32,8 +32,8 @@
         <label for="Name">Nom : </label><input type="text" name="Name" id="Name">
         <label for="Prenom">Prénom : </label><input type="text" name="Prenom" id="Prenom">
         <label for="Telephone">Numéro de téléphone : </label><input type="text" name="Telephone" id="Telephone">
-        <input type="image" name="modification" value="modification" src="../../img/Enregistrer_les_modifications.png">
-
+        <button type="button" name="button">Enregistrer les modifications</button>
+        
     </div>
 </body>
 

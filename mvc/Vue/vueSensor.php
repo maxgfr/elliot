@@ -7,7 +7,9 @@
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
     <title>Capteurs/actionneurs</title>
     <script type="text/javascript" src="../../js/sensor.js"></script>
-    <script type="text/javascript"src="../../js/animation.js"></script>
+
+    <script type="text/javascript" src="../../js/animation.js"></script>
+
 
 </head>
 
@@ -18,35 +20,44 @@
   <div id="main">
 
 
-<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+<h2>Tableau des capteurs</h2>
 
 <table id="sensor">
-	<tr>
-    	<th>sensor name</th>
-    	<th>localisation</th>
-    	<th>type de capteur</th>
+	<tr id = 'header'>
+    	<th>Nom du capteur</th>
+    	<th>Pièce</th>
+    	<th>Type de capteur</th>
+      <th>Supprimer</th>
   </tr>
   <tr>
-		<td>chambre parent</td>
-    	<td>chambre parent</td>
-    	<td>temperature</td>
+		<td>Chambre parents</td>
+    	<td>Chambre parents</td>
+    	<td>Température</td>
+      <td>
+        <input type="checkbox" id="chk_1"/>
+      </td>
+
+
   </tr>
  <tr>
-		<td>chambre parent</td>
-    	<td>chambre parent</td>
-    	<td>luminosite</td>
+		<td>Chambre parents</td>
+    	<td>Chambre parents</td>
+    	<td>Luminosité</td>
+      <TD><INPUT type="checkbox" id="chk_2"/></TD>
+
   </tr>
  <tr>
-		<td>chambre parent</td>
-    	<td>chambre parent</td>
-    	<td>temperature infrarouge</td>
+		<td>Chambre parents</td>
+    	<td>Chambre parents</td>
+    	<td>Température infrarouge</td>
+      <TD><INPUT type="checkbox" id="chk_3"/></TD>
   </tr>
 </table>
 <br>
 
-<button onclick="myFunction()">create</button>
-<button onclick="myDeleteFunction()">delete</button>
-<input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";>
+
+<input type=button name=type id='formulaire' value='Créer un capteur' onclick="setVisibility('nom');";> 
+<button onclick="myDelete1Function()">Supprimer</button>
 
 
 
@@ -55,18 +66,18 @@
 
     <fieldset>
       <legend>Nom</legend>
-        <label for="Nom">Nom</label>
-        <input id="Nom" placeholder="Cuisine" autofocus="" required="">
-        <label for="lieu">lieu</label>
-        <input id="lieu" placeholder="Cuisine" autofocus="" required=""><br><br>
-        <label for="type">le capteur est</label>
+        <label for="Nom">Nom du capteur :</label>
+        <input id="Nom" placeholder="" autofocus="" required="">
+        <label for="lieu">Pièce :</label>
+        <input id="lieu" placeholder="" autofocus="" required=""><br><br>
+        <label for="type">Type du capteur :</label>
         <select name="type" id="type">
-                <option value="temperature"> temperature</option>
-                <option value="luminosite"> luminosite</option>
-                <option value="temperature-infra"> temperature infrarouge</option>
+                <option value="temperature">Température</option>
+                <option value="luminosite">Luminosité</option>
+                <option value="temperature-infra">Température infrarouge</option>
           </select>
     </fieldset>
-    <button id="test" onclick="fakedb(Nom,lieu,type)">create</button>
+    <button id="test" onclick="fakedb(Nom,lieu,type)">Créer un capteur</button>
    </div>
 
  </div>

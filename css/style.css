@@ -29,7 +29,7 @@
 
 #hamburger_button {
     background-color: white;
-    margin-left: 3em;
+    margin-left: 9em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding-left: 0.3em;
@@ -103,8 +103,9 @@
     border-color: #D3D3D3;
     border-top: none;
     width:400px;
-    position: fixed;
     right: 17em;
+    margin-top: 4.5em;
+    position: absolute;
 }
 
 #container_notification div {
@@ -161,7 +162,7 @@
 
 .sidebarContainer {
     z-index:2;
-    width: 4.5em;
+    width: 16em;
     background: rgb(38, 67, 120);
     left: 0;
     top: 0;
@@ -174,7 +175,7 @@
 }
 
 #small_icon {
-    display: block;
+    display: none;
 }
 
 #small_icon img {
@@ -186,7 +187,7 @@
 }
 
 #big_icon {
-    display: none;
+    display: block;
 }
 
 #big_icon img {
@@ -222,15 +223,15 @@
 
 
 .textOfSidebar {
-    display: none;
+    display: block;
     vertical-align: middle;
     line-height: 2.7em; /*Same as width of .iconOfSidebar img to put it in the middle*/
 }
 
 /**********MAIN PART OF THE WEBSITE**********/
 #main {
-    margin-left: 5em;
-    margin-top: 5em;
+    padding-left: 17em;
+    padding-top: 6em;
     transform-origin: right; /*when transforming, the right side will stay fixed*/
     z-index:0;
 }

@@ -31,8 +31,10 @@
 <body>
 
     <div id="main">
-        <a href="vueTicket.php"><img src="../../img/ticket_support.png" alt="image du ticket support"></a>
-        <a href="vueFAQ.php"><img src="../../img/FAQ.png" alt="image du FAQ"></a>
+        <a href="vueTicket.php"><img src="../../img/ticket_support.png" alt="image du ticket support"
+                                      style="width:200px;height:auto;margin-left:30%"></a>
+        <a href="vueFAQ.php"><img src="../../img/FAQ.png" alt="image du FAQ"
+                                   style="width:200px;height:auto"></a>
     </div>
 </body>
 </html>
