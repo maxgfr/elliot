@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/Sensor.css">
     <script type="text/javascript" src="../../js/sensor.js"></script>
+    <script src="../../js/animation.js"></script>
+
 
 </head>
 
@@ -15,36 +17,43 @@
   <div id="main">
 
 
-<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+<p>Tableau des capteurs</p>
 
 <table id="sensor">
-	<tr>
+	<tr id = 'header'>
     	<th>sensor name</th>
     	<th>localisation</th> 
     	<th>type de capteur</th>
+      <th>deleted</th>
   </tr>
   <tr>
 		<td>chambre parent</td>
     	<td>chambre parent</td> 
     	<td>temperature</td>
+      <td>
+        <input type="checkbox" id="chk_1"/>
+      </td>
+
+
   </tr>
  <tr>
 		<td>chambre parent</td>
     	<td>chambre parent</td> 
     	<td>luminosite</td>
+      <TD><INPUT type="checkbox" id="chk_2"/></TD>
+
   </tr>
  <tr>
 		<td>chambre parent</td>
     	<td>chambre parent</td> 
     	<td>temperature infrarouge</td>
+      <TD><INPUT type="checkbox" id="chk_3"/></TD>
   </tr>
 </table>
 <br>
 
-<button onclick="myFunction()">create</button>
-<button onclick="myDeleteFunction()">delete</button>
 <input type=button name=type id='formulaire' value='cree un capteur' onclick="setVisibility('nom');";> 
-
+<button onclick="myDelete1Function()">delete</button>
 
 
 
