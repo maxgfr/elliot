@@ -17,12 +17,11 @@
 			$db_user ="root";
 			$db_password="root";
 			*/
-			/* CONFIG 2*/
-			$db_host="mysql:host=localhost;port=3306;";
+			/* CONFIG 2*			$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
 			$db_password="";
-
+			*/
 
 		}
 
