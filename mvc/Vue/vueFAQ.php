@@ -19,6 +19,7 @@
     <meta charset="utf-8">
     <title> Support </title>
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/FAQ.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script src="../../js/animation.js"></script>
@@ -31,30 +32,37 @@
 <body>
 
     <div id="main">
-        
+
         <h1> FAQ </h1>
         <h4>Numéro du support : 08 99 12 34 56 (appel gratuit)</h4>
         <h4>Mail du support : support.domisep@elliot.com</h4>
-        <br>  
+        <br>
 
-        <h3>I. Je souhaite connaître l'avancement de ma commande.</h3>  
-        <p>
+          <details>
+            <summary class="summary_FAQ" style=""><strong>I. Je souhaite connaître l'avancement de ma commande.</strong></summary>
+            <p>
           Merci d'avoir choisi Domisep pour équiper votre domicile !
           <br> N'hésitez pas à appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Commande</em>.
           <br> Nos conseillers vous informeront précisémennt  l'état de votre commande.
         </p>
+        </details>
         <br>
 
-        <h3>II. Mon capteur/HAGbox est cassé !</h3>  
+
+
+          <details>
+            <summary class="summary_FAQ"><strong>II. Mon capteur/HAGbox est cassé !</strong></summary>  
         <p>
           Si vous détenez un appareil défaillant, nous vous prions de nous le renvoyer à l'adresse suivante :
           <br> <strong>17 avenue de l'arnaque, 77700 Bailly-Romainvilliers.</strong>
           <br> Veuillez joindre à votre colis une lettre décrivant votre situation ainsi que votre numéro client. Nous vous recontacterons dès réception de votre colis.
         </p>
+        </details>
         <br>
 
 
-        <h3>III. Je ne reçois plus d'information venant de "tel capteur" !</h3>
+          <details>
+            <summary class="summary_FAQ"><strong>III. Je ne reçois plus d'information venant de "tel capteur" !</strong></summary>
         <p>
           Si vous ne recevez plus aucune donnée venant d'un capteur, il se peut qu'il soit défaillant ou alors que la connexion du capteur au système général de Domisep soit brisée :
         <ul>
@@ -75,22 +83,27 @@
           <br>Il faut alors REBOOT la HAGbox en la redémarrant et reconnecter les différents capteurs en effectuant la procédure précédente.
           <br>Si le problème persiste, votre appareil peut être défaillant : veuillez vous référer à la question numéro II.
         </p>  
+        </details>
         <br>
 
-        <h3>IV. Je déménage et souhaite ré-aménager le système de capteurs à mon nouveau domicile.</h3>  
+          <details>
+            <summary class="summary_FAQ"><strong>IV. Je déménage et souhaite ré-aménager le système de capteurs à mon nouveau domicile.</strong></summary>  
         <p>
           Le système général HAN a été conçu afin d'être facilement déployable : vous avez donc la possibilité de ré-aménager votre système à votre guise.
           <br> Si vous souhaitez optimiser votre architecture en fonction du plan de votre nouveau domicile, nous serons ravi de vous envoyer un expert Domisep afin de déployer votre système dans les meilleures configurations et recevoir des suggestions supplémentaires pour votre confort. Dans le cas échéant, veuillez appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Architecture</em>.
         </p>
+        </details>
         <br>
 
-        <h3>V. Je souhaite me désabonner de Domisep.</h3>  
+          <details>
+            <summary class="summary_FAQ"><strong>V. Je souhaite me désabonner de Domisep.</strong></summary>
         <p>
           Nous sommes désolés de l'apprendre ... 
           <br>Si vous souhaitez rompre votre contrat, veuillez appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Abonnement</em>.
           <br>Afin de nous améliorer, nous souhaitons connaître la raison de votre départ en ouvrant un ticket de support via la page dédiée en mentionnant la section <em>Amélioration</em>.
           <br>Nous vous remercions pour la confiance que vous nous avez apporté.
         </p>
+        </details>
         <br>
 
     </div>
