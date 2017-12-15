@@ -31,20 +31,8 @@
 <body>
 
     <div id="main">
-        <div id="Support" class="centre">
-            <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="70" />
-            <br />
-            <br />
-            <label>Description detaillée de votre problème</label>
-            <br />
-            <textarea name="Description" id="Description" rows="10" cols="65" placeholder="Merci de décrire votre problème dans les moindres détails !"></textarea>
-            <br />
-            <br />
-            <button id="Butto_support">
-                <img id="Envoyer" src="../../img/Envoyer_Support.png">
-                Envoyer
-            </button>
-        </div>
+        <a href="vueTicket.php"><img src="../../img/ticket_support.png" alt="image du ticket support"></a>
+        <a href="vueFAQ.php"><img src="../../img/FAQ.png" alt="image du FAQ"></a>
     </div>
 </body>
 </html>
