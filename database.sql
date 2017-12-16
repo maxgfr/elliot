@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mar. 28 nov. 2017 à 09:22
+-- Généré le :  sam. 16 déc. 2017 à 17:45
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -26,6 +26,14 @@ CREATE TABLE `accomodation` (
   `id_building` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `accomodation`
+--
+
+INSERT INTO `accomodation` (`id_accomodation`, `name`, `id_building`) VALUES
+(1, 'Appartement 52', 1),
+(2, 'Appartement 324', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -40,6 +48,13 @@ CREATE TABLE `actuators` (
   `id_room` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `actuators`
+--
+
+INSERT INTO `actuators` (`id_actuator`, `name`, `state`, `id_user`, `id_room`) VALUES
+(1, 'Actuator A', 0, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +65,14 @@ CREATE TABLE `building` (
   `id_building` int(9) NOT NULL,
   `name` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `building`
+--
+
+INSERT INTO `building` (`id_building`, `name`) VALUES
+(1, 'Building Champs-Elysées'),
+(2, 'Building Issy-les-Moulineaux');
 
 -- --------------------------------------------------------
 
@@ -64,6 +87,13 @@ CREATE TABLE `datasensors` (
   `id_sensor` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `datasensors`
+--
+
+INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) VALUES
+(1, '2017-12-16', 10, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +104,14 @@ CREATE TABLE `familysensor` (
   `id_familysensor` int(9) NOT NULL,
   `name` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `familysensor`
+--
+
+INSERT INTO `familysensor` (`id_familysensor`, `name`) VALUES
+(1, 'Accéléromètres'),
+(2, 'Gyroscope');
 
 -- --------------------------------------------------------
 
@@ -88,27 +126,12 @@ CREATE TABLE `message` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `roles`
+-- Déchargement des données de la table `message`
 --
 
-CREATE TABLE `roles` (
-  `id_role` int(9) NOT NULL,
-  `name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `roles_users`
---
-
-CREATE TABLE `roles_users` (
-  `id_user` int(9) NOT NULL,
-  `id_role` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `message` (`id_message`, `date`, `contenu`, `id_user`) VALUES
+(1, '2017-12-01', 'La température est mal réglée', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +144,15 @@ CREATE TABLE `room` (
   `name` varchar(250) NOT NULL,
   `id_accomodation` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `room`
+--
+
+INSERT INTO `room` (`id_room`, `name`, `id_accomodation`) VALUES
+(1, 'Salon', 1),
+(2, 'Cuisine', 1),
+(3, 'Salon', 2);
 
 -- --------------------------------------------------------
 
@@ -137,6 +169,13 @@ CREATE TABLE `sensors` (
   `id_room` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `sensors`
+--
+
+INSERT INTO `sensors` (`id_sensor`, `name`, `state`, `id_familysensor`, `id_user`, `id_room`) VALUES
+(1, 'Sensor A', 0, 1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -149,9 +188,19 @@ CREATE TABLE `users` (
   `first_name` varchar(250) NOT NULL,
   `mail` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `birthday` date NOT NULL,
-  `phone_number` int(10) NOT NULL
+  `birthday` varchar(250) NOT NULL,
+  `phone_number` int(10) DEFAULT NULL,
+  `roles` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
+(1, 'Elliot', '', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
+(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1),
+(3, 'Admin', 'Admin', 'admin@admin.com', 'passw0rd', '1997-01-01', NULL, 2);
 
 --
 -- Index pour les tables déchargées
@@ -169,8 +218,8 @@ ALTER TABLE `accomodation`
 --
 ALTER TABLE `actuators`
   ADD PRIMARY KEY (`id_actuator`),
-  ADD KEY `fk_2` (`id_room`),
-  ADD KEY `fk_1` (`id_user`);
+  ADD KEY `fk_1` (`id_user`),
+  ADD KEY `fk_2` (`id_room`);
 
 --
 -- Index pour la table `building`
@@ -197,19 +246,6 @@ ALTER TABLE `familysensor`
 ALTER TABLE `message`
   ADD PRIMARY KEY (`id_message`),
   ADD KEY `fk_message_user` (`id_user`);
-
---
--- Index pour la table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id_role`);
-
---
--- Index pour la table `roles_users`
---
-ALTER TABLE `roles_users`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `foreign_key_role` (`id_role`);
 
 --
 -- Index pour la table `room`
@@ -247,7 +283,8 @@ ALTER TABLE `accomodation`
 -- Contraintes pour la table `actuators`
 --
 ALTER TABLE `actuators`
-  ADD CONSTRAINT `fk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `fk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_2` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `datasensors`
@@ -260,13 +297,6 @@ ALTER TABLE `datasensors`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `fk_message_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `roles_users`
---
-ALTER TABLE `roles_users`
-  ADD CONSTRAINT `foreign_key_role` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`) ON DELETE CASCADE,
-  ADD CONSTRAINT `foreign_key_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `room`
