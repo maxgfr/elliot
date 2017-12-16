@@ -10,7 +10,7 @@
 
 
 
-/**********HEADER**********/
+/**********************HEADER*********************/
 
 .header {
     z-index:1;
@@ -87,7 +87,7 @@
     top: 2px;  right: 2px;
     width: 20px;  height: 20px;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 20px; /*put the number at the middle of the circle*/
     border-radius: 100%;
     background-color: red;
     color: white;
@@ -160,6 +160,8 @@
 
 /*************************SIDEBAR***************************/
 
+/*The sidebar is open by default (client's recommendation) */
+
 .sidebarContainer {
     z-index:2;
     width: 16em;
@@ -211,7 +213,7 @@
 
 .elementsOfSidebar:hover {
     background: rgb(25, 50, 100);
-    transition: 0.5s;
+    transition: 0.5s; /*smooth display*/
 }
 
 .iconOfSidebar img {

@@ -1,80 +1,99 @@
+/*********************************COLOR GLOSSARY**************************************\
+|*                                                                                   *|
+|*    #Blue (header) : rgb(46, 117, 181) or #2E75B5                                  *|
+|*    #Dark blue (hover on header, sidebar, iconbar) : rgb(38, 67, 120) or #264378   *|
+|*    #Darker dark blue (hover on icon and side bar) : rgb(25, 50, 100) or #193264   *|
+|*    #Grey (notification) : rgb(211, 211, 211) or #D3D3D3                           *|
+|*    #Grey (date in notifcation) : rgb(125, 125, 125) or #7D7D7D                    *|
+|*                                                                                   *|
+|*                                                                                   *|
+|**************************COLORS USED FOR THE LIST OF SENSORS************************|
+|*                                                                                   *|
+|*    #Blue (same as sidebar): rgb(38, 67, 120) or #264376                           *|
+|*    #Red : rgb(199,85,102) or #C75566                                              *|
+|*    #Green : rgb(33,155,117) or #219D75                                            *|
+|*    #Yellow : rgb(221,172,38) or #DDAC26                                           *|
+|*    #Purple : rgb(95,63,93) or #5F3F5D                                             *|
+|*    #Dark grey : rgb(46,50,62) or #2E323E                                          *|
+|*    #Orange : rgb(227,138,33) or #E38A21                                           *|
+|*    #Light blue : rgb(13,190,200) or #0DBEC8                                       *|
+|*    #Brown : rgb(80,36,11) or #50240B                                              *|
+|*    #Pink : rgb(223,32,136) or #DF2088                                             *|
+|*                                                                                   *|
+\*************************************************************************************/
+
+
 #main > div > div {
     display: flex;
     margin-right: 0;
-    margin-bottom: 2%;
+    margin-bottom: 1em;
 }
 
-
 .iconPart {
-    width: 10%;
-    height: auto;
+    width: 8em;
+    height: 7em;
     color: white;
     text-align: center;
 }
 
-.iconPart img {
+.iconPartImage {
     width: 100%;
-    height: auto;
+    height: 70%;
 }
 
-#bedroom_icon {
-    background: rgb(38, 67, 120);
+.iconPartImage img {
+    width: auto;
+    height: 100%;
 }
 
-#kitchen_icon {
-    background: rgb(199,85,102);
-}
-
-#bathroom_icon {
-    background: rgb(33,155,117);
+.iconPartText {
+    font-size: 0.9em;
 }
 
 .tablePart {
     display: flex;
-    width: 60%;
+    width: 100%;
     background: #F3F3F3;
 }
 
 .tablePartCells {
-    position: relative;
-    display: flex;
-    width: 100px;
-    margin: 10% 2% 10%;
+    width: 6em;
+    height: 6em;
+    margin-top: 0.5em;
+    margin-left: 1.5em;
     border-radius: 10px;
+    text-align: center;
+    color: white;
 }
 
-.tablePartCellsColorBlue {
+.listOfSensorsColorBlue {
     background: rgb(38, 67, 120);
 }
 
-.tablePartCellsColorRed {
+.listOfSensorsColorRed {
     background: rgb(199,85,102);
 }
 
-.tablePartCellsColorGreen {
+.listOfSensorsColorGreen {
     background: rgb(33,155,117);
 }
 
 .tablePartCellsImage {
-    position: absolute;
     width: 100%;
-    height: 70%;
-
+    height: 60%;
+    margin-top: 0.4em;
+    transition: 1s linear;
 }
 
 .tablePartCellsImage img {
-    position: absolute;
-    width: 50px;
-    height: auto;
-    right: 25%;
-    top: 10%;
+    display: inline;
+    width: auto;
+    height: 100%;
 }
 
 .tablePartCellsText {
-    position: absolute;
+    margin-top: 0.4em;
     width: 100%;
     height: 30%;
-    margin-top: 70%;
-    text-align: center;
-    color: white;
+    font-size: 0.8em;
 }

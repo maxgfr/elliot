@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="../../css/Accueil.css">
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
     <script src="../../js/animation.js"></script>
+    <script src="../../js/accueil.js">
+
+    </script>
     <title>Accueil</title>
 </head>
 
@@ -27,123 +30,148 @@
 
 <div id="main">
     <div>
-        <div id="Bedroom_div">
-            <div class="iconPart" id="bedroom_icon">
-                <img src="../../img/bedroomIcon.png"/>
+        <div class="bedroom parent">
+            <div class="iconPart listOfSensorsColorBlue">
+                <div class="iconPartImage">
+                    <img src="../../img/bedroomIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    <!-- In the database : room -->
+                    CHAMBRE PARENT
+                </div>
             </div>
             <div class="tablePart">
-                <div class="tablePartCells tablePartCellsColorBlue" style="margin-left:5%">
+                <div class="tablePartCells listOfSensorsColorBlue"
+                     onmouseover="showTypeOfSensor(this)"
+                     onmouseout="showInitialImage(this)">
                     <div class="tablePartCellsImage">
                         <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
-
                     </div>
                     <div class="tablePartCellsText">
-                        20°C
+                        <!-- In the database :
+                             family_sensor +
+                             datasensor         -->
+                        Température 20°C
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorBlue">
+                <div class="tablePartCells listOfSensorsColorBlue"
+                     onmouseover="showTypeOfSensor(this)"
+                     onmouseout="showInitialImage(this)">
                     <div class="tablePartCellsImage">
                         <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        40%
+                        Luminosité 40%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorBlue" >
+                <div class="tablePartCells listOfSensorsColorBlue" >
                     <div class="tablePartCellsImage">
                         <img src="../../img/humidityIcon.png" alt="Humidity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        35%
+                        Humidité 35%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorBlue">
+                <div class="tablePartCells listOfSensorsColorBlue">
                     <div class="tablePartCellsImage">
                         <img src="../../img/motionIcon.png" alt="Motion Icon">
                     </div>
-                    <div class="tablePartCellsText" style="font-size:12px;margin-top:75%">
-                        Présence : NON
+                    <div class="tablePartCellsText">
+                        Présence NON
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorBlue">
+                <div class="tablePartCells listOfSensorsColorBlue">
                     <div class="tablePartCellsImage">
                         <img src="../../img/barometerIcon.png" alt="Motion Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        1013hPa
+                        Pression atm 1013hPa
                     </div>
                 </div>
             </div>
         </div>
-        <div id="Kitchen_div">
-            <div class="iconPart" id="kitchen_icon">
-                <img src="../../img/kitchenIcon.png"/>
+        <div class="kitchen">
+            <div class="iconPart listOfSensorsColorRed">
+                <div class="iconPartImage">
+                    <img src="../../img/kitchenIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    CUISINE
+                </div>
             </div>
             <div class="tablePart">
-                <div class="tablePartCells tablePartCellsColorRed" style="margin-left:5%">
+                <div class="tablePartCells listOfSensorsColorRed">
                     <div class="tablePartCellsImage">
                         <img src="../../img/humidityIcon.png" alt="Humidity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        29%
+                        Humidité 29%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorRed">
+                <div class="tablePartCells listOfSensorsColorRed">
                     <div class="tablePartCellsImage">
                         <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        80%
+                        Luminosité 80%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorRed" >
+                <div class="tablePartCells listOfSensorsColorRed" >
                     <div class="tablePartCellsImage">
                         <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        17°C
+                        Température 17°C
                     </div>
                 </div>
             </div>
         </div>
-        <div id="Bathroom_div">
-            <div class="iconPart" id="bathroom_icon">
-                <img src="../../img/showerIcon.png"/>
+        <div class="bathroom">
+            <div class="iconPart listOfSensorsColorGreen">
+                <div class="iconPartImage">
+                    <img src="../../img/bathroomIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    SALLE DE BAIN
+                </div>
             </div>
             <div class="tablePart">
-                <div class="tablePartCells tablePartCellsColorGreen" style="margin-left:5%">
+                <div class="tablePartCells listOfSensorsColorGreen">
                     <div class="tablePartCellsImage">
                         <img src="../../img/humidityIcon.png" alt="Humidity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        80%
+                        Humidité 80%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorGreen">
+                <div class="tablePartCells listOfSensorsColorGreen">
                     <div class="tablePartCellsImage">
                         <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        80%
+                        Luminosité 80%
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorGreen">
+                <div class="tablePartCells listOfSensorsColorGreen">
                     <div class="tablePartCellsImage">
                         <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        35°C
+                        Température 35°C
                     </div>
                 </div>
-                <div class="tablePartCells tablePartCellsColorGreen">
+                <div class="tablePartCells listOfSensorsColorGreen">
                     <div class="tablePartCellsImage">
                         <img src="../../img/barometerIcon.png" alt="Motion Icon">
                     </div>
                     <div class="tablePartCellsText">
-                        1000hPa
+                        Pression atm 1000hPa
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="add_sensor">
+            <button type="button" name="button">Ajouter un capteur</button>
         </div>
     </div>
 </div>

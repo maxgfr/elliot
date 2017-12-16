@@ -17,7 +17,7 @@ function openSideBar() {
   document.getElementById("hamburger_button").style.marginLeft = "9em";
   document.getElementById("main").style.transform = "scale(1,1)";
   document.getElementById("main").style.paddingLeft = "17em";
-
+  document.getElementById("main").style.paddingTop = "6em";
 
 
   for(var i = 0; i < elements_text_of_sidebar.length; i++) {
@@ -38,7 +38,7 @@ function closeSideBar() {
   document.getElementById("hamburger_button").style.marginLeft = "3em";
   document.getElementById("main").style.transform = "scale(1.1,1.1)";
   document.getElementById("main").style.paddingLeft = "12em";
-
+  document.getElementById("main").style.paddingTop = "7em";
 
 
   for(var i = 0; i < elements_text_of_sidebar.length; i++) {

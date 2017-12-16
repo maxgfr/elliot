@@ -1,0 +1,36 @@
+- Lors de l'inscription, ajouter un "Confirmer le mot de passe"
+
+- Faire la fonctionnalité "Mot de passe oublié"
+
+- Avoir la liste des capteurs par pièce sur la page d'accueil
+	L'interface est presque finie : il reste à pouvoir ajouter une case capteur en JS
+	Il faut aussi pouvoir récupérer les informations de capteurs dans la database
+
+- Donner la possibilité à l'utilisateur de modifier les noms des pièces
+
+- Ne pas mettre que des logos sur la page d'accueil [DONE]
+
+- Avoir la sidebar ouverte lors de la connexion [DONE]
+
+- Avoir une page admin
+	Page admin à améliorer fortement
+
+- La page admin doit se différencier de l'interface utilisateur
+	Il veut vraiment créer une autre interface F*CK
+
+- L'admin peut être client de son propre service [EN COURS DE REFLEXION]
+
+- Si un admin-client se connecte, il doit arriver en premier sur la page admin
+
+- Possibilité de switcher entre interface admin et interface utilisateur
+
+- Revoir la distinction entre les notifications de l'utilisateur normal et de l'admin
+
+- Pour la page Profil, l'utilisateur doit pouvoir modifer son mot de passe avec vérification par mail 
+[POUR LA VERIFICATION PAR MAIL : F*CK]
+
+
+[FACULTATIF]
+
+- Possibilité de donner les droits admin à quelqu'un d'autre : créer une interface pour l'admin actuel
+pour ne pas qu'il ait à modifier le rôle directement dans la base
