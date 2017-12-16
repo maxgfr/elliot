@@ -78,6 +78,18 @@
     background: rgb(33,155,117);
 }
 
+.listOfSensorsColorDarkGrey {
+    background: rgb(46,50,62);
+}
+
+.listOfSensorsColorOrange {
+    background: rgb(227,138,33);
+}
+
+.listOfSensorsColorBrown {
+    background: rgb(80,36,11);
+}
+
 .tablePartCellsImage {
     width: 100%;
     height: 60%;

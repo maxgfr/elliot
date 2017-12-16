@@ -1,3 +1,9 @@
+<?php
+function createQuery($sql_code, $array) {
+    return DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_code, $array);
+}
+ ?>
+
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
@@ -13,7 +19,6 @@
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <!--span><?php $_SESSION['mail']; ?></span-->
                     <span>DomISEP</span>
                 </div>
             </div>

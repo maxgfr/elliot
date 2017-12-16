@@ -30,6 +30,7 @@
 
 <div id="main">
     <div>
+
         <div class="bedroom parent">
             <div class="iconPart listOfSensorsColorBlue">
                 <div class="iconPartImage">
@@ -90,6 +91,7 @@
                 </div>
             </div>
         </div>
+
         <div class="kitchen">
             <div class="iconPart listOfSensorsColorRed">
                 <div class="iconPartImage">
@@ -126,6 +128,7 @@
                 </div>
             </div>
         </div>
+
         <div class="bathroom">
             <div class="iconPart listOfSensorsColorGreen">
                 <div class="iconPartImage">
@@ -170,9 +173,142 @@
                 </div>
             </div>
         </div>
-        <div id="add_sensor">
-            <button type="button" name="button">Ajouter un capteur</button>
+
+        <div class="livingroom">
+            <div class="iconPart listOfSensorsColorOrange">
+                <div class="iconPartImage">
+                    <img src="../../img/livingroomIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    SALON
+                </div>
+            </div>
+            <div class="tablePart">
+                <div class="tablePartCells listOfSensorsColorOrange">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/humidityIcon.png" alt="Humidity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Humidité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorOrange">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Luminosité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorOrange">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Température 35°C
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorOrange">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/barometerIcon.png" alt="Motion Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Pression atm 1000hPa
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="bedroom Serge">
+            <div class="iconPart listOfSensorsColorBrown">
+                <div class="iconPartImage">
+                    <img src="../../img/bedroomIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    CHAMBRE SERGE
+                </div>
+            </div>
+            <div class="tablePart">
+                <div class="tablePartCells listOfSensorsColorBrown">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/humidityIcon.png" alt="Humidity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Humidité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorBrown">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Luminosité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorBrown">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Température 35°C
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorBrown">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/barometerIcon.png" alt="Motion Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Pression atm 1000hPa
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="winecellar">
+            <div class="iconPart listOfSensorsColorDarkGrey">
+                <div class="iconPartImage">
+                    <img src="../../img/winecellarIcon.png"/>
+                </div>
+                <div class="iconPartText">
+                    CAVE A VIN
+                </div>
+            </div>
+            <div class="tablePart">
+                <div class="tablePartCells listOfSensorsColorDarkGrey">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/humidityIcon.png" alt="Humidity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Humidité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorDarkGrey">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Luminosité 80%
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorDarkGrey">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Température 35°C
+                    </div>
+                </div>
+                <div class="tablePartCells listOfSensorsColorDarkGrey">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/barometerIcon.png" alt="Motion Icon">
+                    </div>
+                    <div class="tablePartCellsText">
+                        Pression atm 1000hPa
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
