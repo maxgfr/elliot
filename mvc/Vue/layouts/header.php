@@ -19,7 +19,7 @@ function createQuery($sql_code, $array) {
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <span>DomISEP</span>
+                    <span>Lama Sticot</span>
                 </div>
             </div>
             <div id="logout" onclick="window.location.href='vueConnexion.php'">
