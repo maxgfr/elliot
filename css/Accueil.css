@@ -23,7 +23,7 @@
 \*************************************************************************************/
 
 
-#main > div > div {
+#main > div {
     display: flex;
     margin-right: 0;
     margin-bottom: 1em;
