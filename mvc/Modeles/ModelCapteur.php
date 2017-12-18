@@ -30,7 +30,7 @@
 
 	    public static function getModelCapteurDisplay ($inputArray) {
 			$model = new self(array());
-			$model->nom = "Connexion capteur à la BDD !";
+			$model->nom = "Affichage des capteurs de la BDD lié à l'utilisateur!";
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
 	        $args = array($inputArray["id_user"]);
 	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM sensors WHERE id_user=?', $args);
