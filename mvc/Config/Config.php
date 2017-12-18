@@ -17,11 +17,11 @@
 			$db_user ="root";
 			$db_password="root";
 			*/
-			/*CONFIG 2	*/		
-			$db_host="mysql:host=localhost;port=3306;";
+			/*CONFIG 2	*/
+			/*$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
-			$db_password="";
+			$db_password="";*/
 
 
 		}
@@ -34,7 +34,10 @@
 			return array("default" => $vueDirectory."vueAccueil.php",
 						 "connexion" => $vueDirectory."vueConnexion.php",
 					 	"inscription" => $vueDirectory."vueInscription.php",
-						"index" => $vueDirectory."vueIndex.php");
+						"index" => $vueDirectory."vueIndex.php",
+						"ajoutCapteur" => $vueDirectory."vueAjoutCapteur.php",
+					   	"afficheCapteur" => $vueDirectory."vueAfficheCapteur.php",
+					   	"deleteCapteur" => $vueDirectory."vueDeleteCapteur.php");
 		}
 
 
