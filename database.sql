@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  sam. 16 déc. 2017 à 17:45
+-- Généré le :  lun. 18 déc. 2017 à 11:46
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -199,8 +199,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
 (1, 'Elliot', '', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
-(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1),
-(3, 'Admin', 'Admin', 'admin@admin.com', 'passw0rd', '1997-01-01', NULL, 2);
+(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1);
 
 --
 -- Index pour les tables déchargées
