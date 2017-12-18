@@ -20,8 +20,8 @@
 		    $model = new self(array());
 			$model->nom = "Ajout capteur à la BDD !";
 			// Execution de la requête d'insertion' :
-			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
-			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
+			$data = array($inputArray["id_sensor"],$inputArray["name"],$inputArray["state"]$inputArray["id_familysensor"],$inputArray["id_user"],$inputArray["id_room"]);
+			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO sensors (id_sensor,name,state,id_familysensor,id_user,id_room) VALUES (?,?,?,?,?,?)",$data);
 			if ($queryResults === false) {
 			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
 			}
@@ -32,7 +32,7 @@
 			$model = new self(array());
 			$model->nom = "Connexion capteur à la BDD !";
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
-	        $args = array($inputArray["mail"]);
+	        $args = array($inputArray["id_user"]);
 	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM sensors WHERE id_user=?', $args);
 	        //Si la requête a fonctionné
 			if ($queryResults === false) {
@@ -43,10 +43,10 @@
 
 	    public static function getModelCapteurDelete ($inputArray) {
 			$model = new self(array());
-			$model->nom = "Connexion capteur à la BDD !";
+			$model->nom = "Capteur supprimé de la BDD !";
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
-	        $args = array($inputArray["mail"]);
-	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('DELETE * FROM sensors WHERE id_user=?', $args);
+	        $args = array($inputArray["id_capteur"]);
+	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('DELETE FROM sensors WHERE id=?', $args);
 	        //Si la requête a fonctionné
 			if ($queryResults === false) {
 			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
