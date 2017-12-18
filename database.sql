@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  sam. 16 déc. 2017 à 17:45
+-- Généré le :  lun. 18 déc. 2017 à 11:56
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.8
 
@@ -33,27 +33,6 @@ CREATE TABLE `accomodation` (
 INSERT INTO `accomodation` (`id_accomodation`, `name`, `id_building`) VALUES
 (1, 'Appartement 52', 1),
 (2, 'Appartement 324', 2);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `actuators`
---
-
-CREATE TABLE `actuators` (
-  `id_actuator` int(9) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `state` tinyint(1) NOT NULL,
-  `id_user` int(9) NOT NULL,
-  `id_room` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `actuators`
---
-
-INSERT INTO `actuators` (`id_actuator`, `name`, `state`, `id_user`, `id_room`) VALUES
-(1, 'Actuator A', 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -199,8 +178,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
 (1, 'Elliot', '', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
-(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1),
-(3, 'Admin', 'Admin', 'admin@admin.com', 'passw0rd', '1997-01-01', NULL, 2);
+(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1);
 
 --
 -- Index pour les tables déchargées
@@ -212,14 +190,6 @@ INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `
 ALTER TABLE `accomodation`
   ADD PRIMARY KEY (`id_accomodation`),
   ADD KEY `foreign_key_accomodation` (`id_building`);
-
---
--- Index pour la table `actuators`
---
-ALTER TABLE `actuators`
-  ADD PRIMARY KEY (`id_actuator`),
-  ADD KEY `fk_1` (`id_user`),
-  ADD KEY `fk_2` (`id_room`);
 
 --
 -- Index pour la table `building`
@@ -278,13 +248,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `accomodation`
   ADD CONSTRAINT `foreign_key_accomodation` FOREIGN KEY (`id_building`) REFERENCES `building` (`id_building`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `actuators`
---
-ALTER TABLE `actuators`
-  ADD CONSTRAINT `fk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_2` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `datasensors`

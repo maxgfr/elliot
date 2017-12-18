@@ -42,14 +42,14 @@
 			$inputArray['password'] = hash("sha1", $inputArray['password']);
 			$inputArray['id_user'] = substr(abs(crc32(uniqid())), 0, 8);
 			// Execution de la requête d'insertion' :
-			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"]);
+			$data = array($inputArray["id_user"],$inputArray["last_name"],$inputArray["first_name"],$inputArray["mail"],$inputArray["password"],$inputArray["birthday"],$inputArray["phone_number"],1);
 			$result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT * FROM users WHERE mail=?",array($inputArray["mail"]));
 			if (count($result) > 0) {
 				$model->dataError["doublon"] = "Utilisateur déjà inscrit avec cette adresse";
 				return $model;
 			}
 
-			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number) VALUES (?,?,?,?,?,?,?)",$data);
+			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO users (id_user,last_name,first_name,mail,password,birthday,phone_number,roles) VALUES (?,?,?,?,?,?,?,?)",$data);
 			if ($queryResults === false) {
 			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
 			}

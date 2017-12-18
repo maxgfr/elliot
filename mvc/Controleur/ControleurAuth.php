@@ -8,11 +8,66 @@
 				case "home":
 					require(Config::getVues()["default"]);
 					break;
+				case "ajoutCapteur" :
+                    $this->actionAjoutCapteur();
+                    break;
+                case "afficheCapteur" :
+                    $this->actionAfficheCapteur();
+                    break;
+				case "deleteCapteur" :
+                    $this->actionDeleteCapteur();
+                    break;
+
 				default://L’action indéfinie (page par défaut, ici accueil)
 					require(Config::getVues()["default"]);
 					break;
 			}
 		}
+
+        private function actionAjoutCapteur(){
+          $model = ModelCapteur::getModelCapteurCreate($_POST);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["ajoutCapteur"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
+          }
+
+          private function actionAfficheCapteur(){
+            $model = ModelCapteur::getModelCapteurDisplay($_POST);
+              if ($model->getError ( ) === false ) {
+                  require(Config::getVues()["afficheCapteur"]);
+              } else {
+                  if (!empty($model->getError()['persistance'])){
+                      // Erreur d'accès à la base de donnée
+                      require(Config::getVuesErreur()["default"]);
+                  } else {
+                      // Erreur de saisie
+                      require(Config::getVuesErreur()["default"]);
+                  }
+              }
+        }
+
+        private function actionDeleteCapteur(){
+          $model = ModelCapteur::getModelCapteurDelete($_POST);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["deleteCapteur"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
+          }
 
 	}
 ?>
