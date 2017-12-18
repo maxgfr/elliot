@@ -10,6 +10,17 @@ function createQuery($sql_code, $array) {
             &#9776;
         </div>
         <div id="header_right">
+
+            <!--//////////////////////////////////////////////////////////-->
+        <div class="toggle">
+        <label class="switch">
+            <input type="checkbox" class="checkbox" />
+            <div class="switch-btn" ></div>
+        </label>
+
+            <!--//////////////////////////////////////////////////////////-->
+
+
             <div id="notification" onclick="setNotificationPopupStatus()">
                 <span id="how_many_notif">5</span>
                 <img src="../../img/notificationIcon.png" alt="Notification Icon">
