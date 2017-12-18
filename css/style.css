@@ -52,8 +52,9 @@
 #header_right > div {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    margin-right: 1em;
+    margin-right: 0em;
     cursor: pointer;
+    vertical-align: center;
 }
 
 #header_right > div:hover {
@@ -75,6 +76,45 @@
     vertical-align: center;
 }
 
+/*************TOGGLE SWITCH**************************************/
+.toggle {
+    display:flex;
+}
+
+.checkbox {
+    display: none;
+    position: absolute;
+    z-index: 100px;
+}
+
+.switch-btn {
+    width: 80px;
+    height: 40px;
+    background: #e5e5e5;
+    position: relative;
+    cursor: pointer;
+    margin-top: 11%
+}
+
+.switch-btn:before {
+    content: '';
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    background: #b3b3b3;
+    left: 2px;
+    top: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+input[type=checkbox]:checked + .switch-btn:before {
+    left: 42px;
+}
+
+input[type=checkbox]:checked + .switch-btn {
+    background: rgb(255,50,50);
+}
 
 /*************SETTING OF THE NOTIFICATION POPUP*******************/
 #notification {
