@@ -5,7 +5,7 @@ L'utilisation des framework et library est strictement interdit.
 
 ## Le controller :
 
-La première étape est d'ajouter des fonctions au controller associé. Dans notre cas, nous souhaitons que seul les utilisateurs connectées puisse gérer les capteurs.
+La première étape est d'ajouter des méthodes à un controller. Dans notre cas, nous souhaitons que seul les utilisateurs connectées puisse gérer les capteurs.
 
 ![alt text](https://github.com/maxgfr/elliot/blob/master/tutoriel/controllerauth.png)
 
