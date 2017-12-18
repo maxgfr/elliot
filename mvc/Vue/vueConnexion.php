@@ -42,7 +42,7 @@
                             <a href="/elliot/mvc/Vue/vueInscription.php">Je n'ai pas de compte</a>
                         </div>
                         <div id="login_box_input_suggestion_forgotPassword">
-                            <a href="#">Mot de passe oublié ?</a>
+                            <a href="VueMDPoublie.php">Mot de passe oublié ?</a>
                         </div>
                     </div>
                 </div>
