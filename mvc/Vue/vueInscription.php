@@ -46,8 +46,7 @@
                         <div id="input_box">
                             <input onkeyup="setBackgroundColorBar(setStrength())"
                                    class="text" id="password" type="password" name="password" placeholder="Mot de passe"/>
-                            <input onkeyup="setBackgroundColorBar(setStrength())"
-                                   class="text" id="password2" type="password" name="password2" placeholder="Confirmation du mot de passe"/>
+                            <input class="text" id="password2" type="password" name="password2" placeholder="Confirmation du mot de passe"/>
                         </div>
                         <div id="show_strength_box">
                             <div id="text_type_of_strength">

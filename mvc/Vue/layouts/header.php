@@ -1,30 +1,29 @@
-<?php
-function createQuery($sql_code, $array) {
-    return DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_code, $array);
-}
- ?>
-
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
             &#9776;
         </div>
+        <!--div id="toggle_button">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div-->
+        <div id="toggle_button">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div>
+        </div>
         <div id="header_right">
-
-            <!--//////////////////////////////////////////////////////////-->
-        <div class="toggle">
-        <label class="switch">
-            <input type="checkbox" class="checkbox" />
-            <div class="switch-btn" ></div>
-        </label>
-
-            <!--//////////////////////////////////////////////////////////-->
-
-
             <div id="notification" onclick="setNotificationPopupStatus()">
                 <span id="how_many_notif">5</span>
                 <img src="../../img/notificationIcon.png" alt="Notification Icon">
             </div>
+            <!--Changer avec getVue()-->
             <div id="profile" onclick="window.location.href='vueProfil.php'">
                 <div id="profile_image">
                     <img src="../../img/userIcon.png" alt="User Icon">

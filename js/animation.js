@@ -317,3 +317,88 @@ function setBackgroundColorBar(strength) {
         }
     }
 }
+
+/*******************************VERIFICATION OF THE FORM****************************************/
+function verifiyForm() {
+    /*************************************************************************************************\
+    |*                                                                                               *|
+    |*  This function verify the inputs typed by the user before send them to the database.          *|
+    |*  The part below will explain how we verify the inputs.                                        *|
+    |*                                                                                               *|
+    |*  Last name and first name will be the same :                                                  *|
+    |*      - must contain letters, no numbers, no special characters, no space                      *|
+    |*      - must contain at least two characters                                                   *|
+    |*      - can be either uppercase or lowercase, anyway the string will be transformed to         *|
+    |*        lowercase. After, these strings could be transformed to a show better interface        *|
+    |*      - maximum characters of 15 (we are not a novel)                                          *|
+    |*                                                                                               *|
+    |*  Phone number :                                                                               *|
+    |*      - must contain exactly 10 numbers, no letters, no special characters                     *|
+    |*      - the form of the phone number will be : 0123456789                                      *|
+    |*      - the spaces will be deleted, then if the user types 01 23 45 67 89 it is ok             *|
+    |*                                                                                               *|
+    |*  Birthday :                                                                                   *|
+    |*      - must be like JJ/MM/AAAA (maybe a form with the / can be implemented)                   *|
+    |*      - must be numbers                                                                        *|
+    |*      - JJ between 1 and 31 (depending), MM between 1 and 12 (all the time),                   *|
+    |*        AAAA between 1930 and actual year (why 1930? I don't know)                             *|
+    |*                                                                                               *|
+    |*  Mail :                                                                                       *|
+    |*      - must contain @ and . characters                                                        *|
+    |*      - before @ and . , must contain at least 2 characters                                    *|
+    |*      - special characters forbidden, except @ (only once), . (only once after @               *|
+    |*        and no matter before) and underscore before @ (no matter the frequency)                *|
+    |*                                                                                               *|
+    |*  Password :                                                                                   *|
+    |*      - must be at least level 2                                                               *|
+    |*                                                                                               *|
+    |*                                                                                               *|
+    \*************************************************************************************************/
+
+
+    var lastNameInput = document.getElementById("last_name").value;
+    var firstNameInput = document.getElementById("first_name").value;
+    var phoneNumberInput = document.getElementById("phone_number").value;
+    var birthdayInput = document.getElementById("birthday");
+    var mailInput = document.getElementById("mail").value;
+    var birthdayInput = document.getElementById('birthday');
+
+    /***************************THIS FUNCTION IS NOT MINE***************************************/
+    function checkValue(str, max) {
+        if (str.charAt(0) !== '0' || str == '00') {
+            var num = parseInt(str);
+            if (isNaN(num) || num <= 0 || num > max) {
+                num = 1;
+            }
+            str = num > parseInt(max.toString().charAt(0))
+                   && num.toString().length == 1 ? '0' + num : num.toString();
+        }
+        return str;
+    }
+
+    birthdayInput.addEventListener('input', function(e) {
+        this.type = 'text';
+        var input = this.value;
+        if (/\D\/$/.test(input)) {
+            input = input.substr(0, input.length - 3);
+        }
+        var values = input.split('/').map(function(v) { return v.replace(/\D/g, '') });
+        if (values[0]) {
+            values[0] = checkValue(values[0], 12);
+        }
+        if (values[1]) {
+            values[1] = checkValue(values[1], 31);
+        }
+        var output = values.map(function(v, i) { return v.length == 2 && i < 2 ? v + ' / ' : v; });
+        this.value = output.join('').substr(0, 14);
+    });
+    /** GET THIS HERE : https://stackoverflow.com/questions/44137998/auto-slash-for-date-input-using-javascript **/
+
+
+    if (lastNameInput.includes(" ") || lastNameInput.match(/[0-9]/) || lastNameInput.length==0) {
+        document.getElementById("last_name").style.backgroundColor = "red";
+    }
+    else {
+        document.getElementById("last_name").style.backgroundColor = "white";
+    }
+}

@@ -30,170 +30,58 @@
 
 <div id="main">
 
+    <label for="creating_room">Créer une pièce</label>
+    <select name="creating_room" id="create_the_room">
+        <option value="bedroom">Chambre</option>
+        <option value="kitchen">Cuisine</option>
+        <option value="bathroom">Salle de bain</option>
+        <option value="livingroom">Salon</option>
+        <option value="diningroom">Salle à manger</option>
+    </select>
+    <button type="button" name="button" onclick="setCreatingRoom()">Créer la pièce</button>
+
+    <br><br>
+
     <label for="selection_room">Choisir une pièce</label>
     <select name="selection_room" id="select_the_room">
-        <option value="bedroom">CHAMBRE</option>
-        <option value="kitchen">CUISINE</option>
-        <option value="bathroom">SALLE DE BAIN</option>
-        <option value="winecellar">CAVE A VIN</option>
-        <option value="livingroom">SALON</option>
+
     </select>
 
     <label for="selection_sensor">Choisir un capteur</label>
     <select name="selection_sensor" id="select_the_sensor">
-        <option value="temperature">TEMPERATURE</option>
-        <option value="luminosity">LUMINOSITE</option>
-        <option value="motion">PRESENCE</option>
-        <option value="humidity">HUMIDITE</option>
-        <option value="barometer">BAROMETRE</option>
+        <option value="temperature">Température</option>
+        <option value="luminosity">Luminosité</option>
+        <option value="motion">Présence</option>
+        <option value="humidity">Humidité</option>
+        <option value="barometer">Baromètre</option>
     </select>
 
-    <button type="button" name="button" onclick="setNamesOfRoomAndSensor()">Ajouter le capteur</button>
+    <button type="button" name="button" onclick="setSensor()">Ajouter le capteur</button>
 
-    <div class="bedroom parent">
-        <div class="iconPart listOfSensorsColorBlue">
+    <br><br>
+
+    <div class="room" style="display:none;">
+        <div class="iconPart">
             <div class="iconPartImage">
-                <img src="../../img/bedroomIcon.png"/>
+                <img src="../../img/roomIcon.png"/>
             </div>
             <div class="iconPartText">
-                CHAMBRE PARENT
+                name_of_room
             </div>
         </div>
         <div class="tablePart">
-
-        </div>
-    </div>
-
-    <div class="kitchen">
-        <div class="iconPart listOfSensorsColorRed">
-            <div class="iconPartImage">
-                <img src="../../img/kitchenIcon.png"/>
-            </div>
-            <div class="iconPartText">
-                CUISINE
-            </div>
-        </div>
-        <div class="tablePart">
-
-        </div>
-    </div>
-
-    <div class="bathroom">
-        <div class="iconPart listOfSensorsColorGreen">
-            <div class="iconPartImage">
-                <img src="../../img/bathroomIcon.png"/>
-            </div>
-            <div class="iconPartText">
-                SALLE DE BAIN
-            </div>
-        </div>
-        <div class="tablePart">
-
-        </div>
-    </div>
-
-    <div class="livingroom">
-        <div class="iconPart listOfSensorsColorOrange">
-            <div class="iconPartImage">
-                <img src="../../img/livingroomIcon.png"/>
-            </div>
-            <div class="iconPartText">
-                SALON
-            </div>
-        </div>
-        <div class="tablePart">
-
-        </div>
-    </div>
-
-    <div class="bedroom Serge">
-        <div class="iconPart listOfSensorsColorBrown">
-            <div class="iconPartImage">
-                <img src="../../img/bedroomIcon.png"/>
-            </div>
-            <div class="iconPartText">
-                CHAMBRE SERGE
-            </div>
-        </div>
-        <div class="tablePart">
-
-        </div>
-    </div>
-
-    <div class="winecellar">
-        <div class="iconPart listOfSensorsColorDarkGrey">
-            <div class="iconPartImage">
-                <img src="../../img/winecellarIcon.png"/>
-            </div>
-            <div class="iconPartText">
-                CAVE A VIN
-            </div>
-        </div>
-        <div class="tablePart">
-
-        </div>
-    </div>
-
-
-
-                    <div id="sensorElements" style="display:none">
-
-                        <div id="sensorElementsTemperature">
-                            <div class="tablePartCells listOfSensorsColor">
-                                <div class="tablePartCellsImage">
-                                    <img src="../../img/temperatureIcon.png" alt="Temperature Icon">
-                                </div>
-                                <div class="tablePartCellsText">
-                                    Température 20°C
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="sensorElementsLuminosity">
-                            <div class="tablePartCells listOfSensorsColor">
-                                <div class="tablePartCellsImage">
-                                    <img src="../../img/luminosityIcon.png" alt="Luminosity Icon">
-                                </div>
-                                <div class="tablePartCellsText">
-                                    Luminosité 40%
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="sensorElementsHumidity">
-                            <div class="tablePartCells listOfSensorsColor" >
-                                <div class="tablePartCellsImage">
-                                    <img src="../../img/humidityIcon.png" alt="Humidity Icon">
-                                </div>
-                                <div class="tablePartCellsText">
-                                    Humidité 35%
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="sensorElementsMotion">
-                            <div class="tablePartCells listOfSensorsColor">
-                                <div class="tablePartCellsImage">
-                                    <img src="../../img/motionIcon.png" alt="Motion Icon">
-                                </div>
-                                <div class="tablePartCellsText">
-                                    Présence NON
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="sensorElementsBarometer">
-                            <div class="tablePartCells listOfSensorsColor">
-                                <div class="tablePartCellsImage">
-                                    <img src="../../img/barometerIcon.png" alt="Motion Icon">
-                                </div>
-                                <div class="tablePartCellsText">
-                                    Pression atm 1013hPa
-                                </div>
-                            </div>
-                        </div>
-
+            <div id="sensor_elements_type_of_sensor" style="display:none">
+                <div class="tablePartCells">
+                    <div class="tablePartCellsImage">
+                        <img src="../../img/type_of_sensorIcon.png" alt="type_of_sensor icon">
                     </div>
+                    <div class="tablePartCellsText">
+                        type_of_sensor value_of_sensor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
