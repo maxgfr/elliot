@@ -23,7 +23,7 @@ xmlhttp.onreadystatechange = function() {
         for (x in myObj) {
             addRoom(myObj[x].nameOfRoom, myObj[x].idOfRoom);
             var idRoom = myObj[x].nameOfRoom + '_' + myObj[x].idOfRoom;
-            setTablePart(idRoom, myObj[x].nameOfFamilysensor);
+            setTablePart(idRoom, myObj[x].nameOfFamilysensor, myObj[x].valueOfSensor);
         }
     }
 };
@@ -59,7 +59,7 @@ name_of_sensor = {'temperature' : 'Température',
 unit_of_sensor = {'temperature' : '°C',
                   'barometer' : 'hPa',
                   'luminosity' : '%',
-                  'motion' : 'NON',
+                  'motion' : '',
                   'humidity' : '%'};
 
 
@@ -135,7 +135,7 @@ function setIconPart(parentNode) {
     textPart.innerHTML = setTextRoom(parameter,true,'');
 }
 
-function setTablePart(id_room, type_of_sensor) {
+function setTablePart(id_room, type_of_sensor, value_of_sensor) {
     var rootDirectoryImages = '../../img/';
 
     var getRoom = document.getElementById(id_room);
@@ -160,7 +160,15 @@ function setTablePart(id_room, type_of_sensor) {
 
         var textPart = cellsNode.children[1]; // go to tablePartCellsText
         textPart.style.width = '100%';
-        var value_of_sensor = type_of_sensor!='motion' ? Math.floor((Math.random() * 100) + 1):'' //has to be modified
+        if (type_of_sensor=='motion') {
+
+            if (value_of_sensor==1) {
+                value_of_sensor = "OUI";
+            }
+            else if (value_of_sensor==0) {
+                value_of_sensor = "NON";
+            }
+        }
         textPart.innerHTML = name_of_sensor[type_of_sensor] + ' ' + value_of_sensor + unit_of_sensor[type_of_sensor];
 
         getRoom.children[1].appendChild(duplicatedNode);
