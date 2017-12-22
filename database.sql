@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  lun. 18 déc. 2017 à 12:00
--- Version du serveur :  5.6.35
--- Version de PHP :  7.1.8
+-- Hôte : 127.0.0.1
+-- Généré le :  ven. 22 déc. 2017 à 10:45
+-- Version du serveur :  10.1.28-MariaDB
+-- Version de PHP :  7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `elliot_db`
@@ -89,8 +97,11 @@ CREATE TABLE `familysensor` (
 --
 
 INSERT INTO `familysensor` (`id_familysensor`, `name`) VALUES
-(1, 'Accéléromètres'),
-(2, 'Gyroscope');
+(1, 'temperature'),
+(2, 'barometer'),
+(3, 'humidity'),
+(4, 'luminosity'),
+(5, 'motion');
 
 -- --------------------------------------------------------
 
@@ -129,9 +140,12 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`id_room`, `name`, `id_accomodation`) VALUES
-(1, 'Salon', 1),
-(2, 'Cuisine', 1),
-(3, 'Salon', 2);
+(1, 'diningroom', 2),
+(3, 'bedroom', 2),
+(4, 'bedroom', 2),
+(5, 'kitchen', 2),
+(6, 'livingroom', 2),
+(7, 'bathroom', 2);
 
 -- --------------------------------------------------------
 
@@ -153,7 +167,20 @@ CREATE TABLE `sensors` (
 --
 
 INSERT INTO `sensors` (`id_sensor`, `name`, `state`, `id_familysensor`, `id_user`, `id_room`) VALUES
-(1, 'Sensor A', 0, 1, 2, 1);
+(1, 'Sensor A', 0, 1, 2, 1),
+(2, 'Sensor B', 1, 1, 2, 3),
+(3, 'Sensor C', 1, 3, 2, 3),
+(4, 'Sensor D', 1, 5, 2, 4),
+(5, 'Sensor E', 1, 2, 2, 4),
+(6, 'Sensor F', 1, 3, 2, 4),
+(7, 'Sensor G', 1, 3, 2, 5),
+(8, 'Sensor H', 1, 1, 2, 5),
+(9, 'Sensor I', 1, 4, 2, 5),
+(10, 'Sensor J', 1, 2, 2, 5),
+(11, 'klj', 1, 2, 2, 6),
+(12, 'cds', 1, 4, 2, 6),
+(13, 'iohuyuvbhjn', 1, 3, 2, 7),
+(3456789, 'kjhgcftègh', 1, 5, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -178,7 +205,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
 (1, 'Elliot', '', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
-(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1);
+(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1),
+(19455174, 'Vavelin', 'Florian', 'root@root.fr', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', '2017-12-16', 987462829, 1);
 
 --
 -- Index pour les tables déchargées
@@ -274,3 +302,8 @@ ALTER TABLE `sensors`
   ADD CONSTRAINT `foreign_key_sensor_familySensor` FOREIGN KEY (`id_familysensor`) REFERENCES `familysensor` (`id_familysensor`) ON DELETE CASCADE,
   ADD CONSTRAINT `foreign_key_sensor_room` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`) ON DELETE CASCADE,
   ADD CONSTRAINT `foreign_key_sensor_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
