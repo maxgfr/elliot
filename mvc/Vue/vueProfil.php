@@ -11,7 +11,6 @@
   } catch(Exception $e){
       require (Config::getVues()["default"]) ;
   }
-  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script src="../../js/animation.js"></script>
-
+	<script type="text/javascript" src="../../js/password.js"></script>
     <title>UserPage</title>
 </head>
 
@@ -33,10 +32,10 @@
           <h1>Bonjour Lama Sticot !</h1>
           <h3>Avez-vous changé de coordonnées ? N'hésitez pas à nous le faire savoir !</h3>
 
-          <label for="tel_fixe"> Téléphone fixe :
+          <label for="tel_fixe"> Téléphone fixe : 
           <input class="text" id="tel_fixe" type="tel" name="tel_fixe" value="" placeholder="0101010101"/>
           <br>
-          <label for="tel_port"> Téléphone portable :
+          <label for="tel_port"> Téléphone portable : 
           <input class="text" id="tel_port" type="tel" name="tel_port" value="" placeholder="0606060606"/>
           <br>
           <label for="address"> Adresse :
@@ -51,17 +50,17 @@
           <input class="text" id="formerpassword" type="password" name="formerpassword" value="" placeholder="********"/>
           <br>
           <label for="mdp"> Nouveau mot de passe :
-          <input class="text" id="newpassword" type="password" name="newpassword" value="" placeholder="********"/>
+          <input class="text" id="password" type="password" name="newpassword" value="" placeholder="********"/>
           <br>
           <label for="mdp2"> Confirmation du mot de passe :
-          <input class="text" id="password2" type="password" name="password2" value="" placeholder="********"/>
+          <input class="text" id="confirm_password" type="password" name="password2" value="" placeholder="********" onkeyup="checkPass(); return false;"/>
 
 
           <br><br>
           <button type="button" name="button">Enregistrer les modifications</button>
         </form>
 
-
+        
     </div>
 </body>
 
