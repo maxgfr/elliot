@@ -3,7 +3,10 @@
         <div id="hamburger_button" onclick="setSideBarStatus()">
             &#9776;
         </div>
-        <!--div id="toggle_button">
+        
+        <div id="header_right">
+
+            <div id="toggle_button">
             <div class="onoffswitch">
                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                 <label class="onoffswitch-label" for="myonoffswitch">
@@ -11,14 +14,14 @@
                     <span class="onoffswitch-switch"></span>
                 </label>
             </div>
-        </div-->
-        <div id="header_right">
-            <div id="notification" onclick="setNotificationPopupStatus()">
+            </div>
+            
+            <div id="notification" onclick="setNotificationPopupStatus()" class="header_hover">
                 <span id="how_many_notif">5</span>
                 <img src="../../img/notificationIcon.png" alt="Notification Icon">
             </div>
             <!--Changer avec getVue()-->
-            <div id="profile" onclick="window.location.href='vueProfil.php'">
+            <div id="profile" onclick="window.location.href='vueProfil.php'" class="header_hover">
                 <div id="profile_image">
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
@@ -26,7 +29,7 @@
                     <span>Lama Sticot</span>
                 </div>
             </div>
-            <div id="logout" onclick="window.location.href='vueConnexion.php'">
+            <div id="logout" onclick="window.location.href='vueConnexion.php'" class="header_hover">
                 <img src="../../img/logoutIcon.png" alt="Logout Icon">
             </div>
         </div>

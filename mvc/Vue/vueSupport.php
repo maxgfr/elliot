@@ -34,7 +34,7 @@
 
         <div id="blockSupport">
             <div id="blockSupport_header">
-                Comment pouvons-nous vous aider?
+                Besoin d'aide ?
             </div>
             <div id="blockSupport_main">
                 <div class="blockSupportTable" id="ticket" onclick="window.location.href='vueTicket.php'">
@@ -42,10 +42,15 @@
                         <img src="../../img/supportTicket.png" alt="Support ticket">
                     </div>
                     <div class="blockSupportTableText">
-                        Go to support ticket <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <h3>Soumettre un ticket</h3>
+                        <p>
+                          Un problème spécifique est survenu ? 
+                          <br>Un commentaire sur notre équipement ? 
+                          <br>Une idée pour améliorer notre service ? 
+                          <br>Ou voulez-vous tout simplement en savoir plus sur Domisep ?
+                          <br>Notre équipe est à votre disposition pour vous renseigner et vous accompagner dans votre démarche. Ecrivez-nous <strong>ici</strong> !
+                          <br>Nous vous répondrons dans les plus brefs délais.
+                        </p>
                     </div>
                 </div>
                 <div class="blockSupportTable" id="faq" onclick="window.location.href='vueFAQ.php'">
@@ -53,10 +58,11 @@
                         <img src="../../img/FAQ.png" alt="FAQ">
                     </div>
                     <div class="blockSupportTableText">
-                        Go to FAQ <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <h3>FAQ</h3><br>
+                        <p>
+                          Un incident vient entraver le bon fonctionnement de votre système HAN et vous voulez une réponse immédiate ?
+                          <br>Veuillez trouver <strong>ici</strong> les problématiques les plus récurrentes des utilisateurs. Un client a probablement déjà constaté la même situation que vous !
+                        </p>
                     </div>
                 </div>
                 <div class="blockSupportTable" id="faq" onclick="window.location.href='vueFAQ.php'" style="margin-right:0">
@@ -64,10 +70,11 @@
                         <img src="../../img/supportGearIcon.png" alt="FAQ" style="width:5em">
                     </div>
                     <div class="blockSupportTableText">
-                        Go to parameter page <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <h3>Guide d'utilisation Client</h3> <p>
+                          Est-ce la première fois que vous vous connectiez sur votre compte ?
+                          <br>Avez-vous oublié le fonctionnement de notre site ?
+                          <br>Nous vous répertorions <strong>ici</strong> l'intégralité de notre service. N'hésitez pas à aller consulter cette page afin de découvrir les nombreuses fonctionnalités qu'offre Domisep !
+                        </p>
                     </div>
                 </div>
             </div>
