@@ -40,8 +40,7 @@
             <textarea name="Description" id="Description" rows="10" cols="65" style="resize:none" placeholder="Merci de décrire votre problème dans les moindres détails !"></textarea>
             <br />
             <br />
-            <button id="Butto_support">
-                <img id="Envoyer" src="../../img/Envoyer_Support.png">
+            <button id="Button_support">
                 Envoyer
             </button>
         </div>
