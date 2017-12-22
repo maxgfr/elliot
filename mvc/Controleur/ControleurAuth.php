@@ -8,6 +8,9 @@
 				case "home":
 					require(Config::getVues()["default"]);
 					break;
+				case "deconnexion" :
+					$this->actionDeconnexion();
+					break;
 				case "ajoutCapteur" :
                     $this->actionAjoutCapteur();
                     break;
@@ -37,6 +40,11 @@
                     require(Config::getVuesErreur()["default"]);
                 }
             }
+          }
+
+		  private function actionDeconnexion() {
+            session_destroy();
+			Config::movePage('vueConnexion.php');
           }
 
           private function actionAfficheCapteur(){

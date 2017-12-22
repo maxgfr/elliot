@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div id="logout" class="header_hover">
-                <img src="../../img/logoutIcon.png" alt="Logout Icon"/>
+                <a href="../Modeles/Logout.php"><img src="../../img/logoutIcon.png" alt="Logout Icon"/></a>
             </div>
         </div>
     </div>

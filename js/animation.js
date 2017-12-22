@@ -402,11 +402,3 @@ function verifiyForm() {
         document.getElementById("last_name").style.backgroundColor = "white";
     }
 }
-
-function deco() {
-    console.log('deconnexion');
-     <?php
-        session_destroy();
-        Config::movePage('/elliot/mvc/vue/vueConnexion.php');
-     ?>
- }
