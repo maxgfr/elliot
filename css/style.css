@@ -12,6 +12,12 @@
 
 /**********************HEADER*********************/
 
+body {
+	font-family: "Gotham", Verdana, sans-serif;
+	font-weight: 500;
+}
+
+
 .header {
     z-index:1;
     text-align: center;

@@ -69,6 +69,9 @@
 	            if (count($queryResults) == 1) {
 					if ($hashedPassword == $queryResults[0]['password']) {
 						$model->email = $queryResults[0]['mail'];
+						$_SESSION['email'] = $model->email;
+						$_SESSION['role'] = $queryResults[0]['role'];
+						$_SESSION['ipAddress'] = $_SERVER['REMOTE_ADDR'];
 						return $model;
 					} else {
 						$model->dataError["persistance"] = "Mot de passe incorrect. Réessayez";

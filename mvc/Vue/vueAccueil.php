@@ -8,6 +8,7 @@
   } catch(Exception $e){
       require (Config::getVues()["default"]) ;
   }
+  session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +30,23 @@
 
 
 <div id="main">
+
+    <div class="showChange" style="width:100%; height:40px; background-color:#52D0A8;opacity:0.8; border-radius:10px">
+        <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8;text-align:center">
+            <img src="../../img/checkIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
+        </div>
+        <div class="showChangeText" style="margin-left:10px;margin-top:10px; color:white;">
+            Le capteur a été ajouté à la base de données.
+        </div>
+    </div>
+    <div class="showChange" style="width:100%; height:40px; background-color:#D86677;opacity:0.8; border-radius:10px">
+        <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8; text-align:center">
+            <img src="../../img/crossIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
+        </div>
+        <div class="showChangeText" style="margin-left:10px;margin-top:10px; color:white;">
+            Le capteur a été supprimé de la base de données.
+        </div>
+    </div>
 
     <div class="room" style="display:none;">
         <div class="iconPart">
