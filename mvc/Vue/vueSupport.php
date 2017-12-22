@@ -58,7 +58,7 @@
                         <img src="../../img/FAQ.png" alt="FAQ">
                     </div>
                     <div class="blockSupportTableText">
-                        <h3>FAQ</h3><br>
+                        <h3>FAQ</h3>
                         <p>
                           Un incident vient entraver le bon fonctionnement de votre système HAN et vous voulez une réponse immédiate ?
                           <br>Veuillez trouver <strong>ici</strong> les problématiques les plus récurrentes des utilisateurs. Un client a probablement déjà constaté la même situation que vous !

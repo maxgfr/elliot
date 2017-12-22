@@ -1,7 +1,7 @@
 #blockSupport {
     text-align: center;
-    width: 50em;
     margin-left: 5%;
+	width: 90%;
 }
 
 #blockSupport_header {
@@ -18,10 +18,10 @@
 }
 
 .blockSupportTable {
-    width: 15em;
     border: 0.2em solid #E3E3E3;
     text-align: center;
-    margin-right: 2em;
+    margin-right: 0.5em;
+	margin-left: 0.5em;
 }
 
 .blockSupportTable:hover {
@@ -46,5 +46,5 @@
 
 .blockSupportTableText {
     margin: 1em;
-    text-align: left;
+    text-align: center;
 }
