@@ -22,11 +22,10 @@
 	} catch(Exception $e){
 		require (Config::getVues()["default"]) ;
 	}
-
-	if (isset($_SESSION['mail'])) {
-	   $ctrl = new ControleurAuth('home');
-	 } else {
-	   $ctrl = new ControleurVisitor('index');
-	 }
+	if(empty($_SESSION['email'])) {
+      $ctrl = new ControleurVisitor('index');
+    } else {
+	  $ctrl = new ControleurAuth('home');
+    }
 
 ?>

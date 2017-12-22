@@ -23,7 +23,7 @@ function fakedb(Nom,lieu,type) {
     cell3.innerHTML = type1;
     var temp = table.rows.length - 1
     var chkv = "chk_"+ temp
-    //chkv --;    
+    //chkv --;
     cell4.innerHTML = '<input type="checkbox" id="' + chkv + '">';
     Nom.value=null;
     lieu.value=null;
@@ -59,4 +59,3 @@ document.getElementById('formulaire').value = 'Créer un capteur';
 }
 
 }
-

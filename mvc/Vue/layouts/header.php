@@ -29,8 +29,8 @@
                     <span><?php echo $_SESSION['email'] ?></span>
                 </div>
             </div>
-            <div id="logout" onclick="window.location.href='vueConnexion.php'" class="header_hover">
-                <img src="../../img/logoutIcon.png" alt="Logout Icon">
+            <div id="logout" class="header_hover">
+                <img src="../../img/logoutIcon.png" alt="Logout Icon"/>
             </div>
         </div>
     </div>
