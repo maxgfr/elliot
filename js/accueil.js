@@ -204,11 +204,3 @@ function setTextRoom(id_of_room, defaultValue, text_of_user) {
     }
     return text;
 }
-
-function deco() {
-    console.log('deconnexion');
-     <?php
-        session_destroy();
-        Config::movePage('/elliot/mvc/vue/vueConnexion.php');
-     ?>
- }
