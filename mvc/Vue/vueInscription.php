@@ -12,9 +12,6 @@
       require (Config::getVues()["default"]) ;
   }
   session_start();
-  if(empty($_SESSION['email'])) {
-    header("Location:vueConnexion.php");
- }
 ?>
 <!DOCTYPE html>
 <html>
