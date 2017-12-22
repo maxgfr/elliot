@@ -11,6 +11,7 @@
   } catch(Exception $e){
       require (Config::getVues()["default"]) ;
   }
+  session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,7 +52,7 @@
 
 
           <details>
-            <summary class="summary_FAQ"><strong>II. Mon capteur/HAGbox est cassé !</strong></summary>  
+            <summary class="summary_FAQ"><strong>II. Mon capteur/HAGbox est cassé !</strong></summary>
         <p>
           Si vous détenez un appareil défaillant, nous vous prions de nous le renvoyer à l'adresse suivante :
           <br> <strong>17 avenue de l'arnaque, 77700 Bailly-Romainvilliers.</strong>
@@ -67,7 +68,7 @@
           Si vous ne recevez plus aucune donnée venant d'un capteur, il se peut qu'il soit défaillant ou alors que la connexion du capteur au système général de Domisep soit brisée :
         <ul>
           <li> Dans le premier cas, veuillez vous référer à la question numéro II. </li>
-          <li> 
+          <li>
             Dans le second cas, par souci de sécurité, il est conseillé d'effectuer un REBOOT :
             <ul>
               <li>Eteignez le capteur grâce au bouton associé. </li>
@@ -78,16 +79,16 @@
             Si votre problème persiste, nous vous conseillons d'appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Connexion</em>.
           </li>
         </ul>
-          Dans le cas où votre capteur envoie certains paramètres (e.g. température par exemple), mais pas d'autres (e.g. détecteur de présence), veuillez vous référer à la question numéro II. 
+          Dans le cas où votre capteur envoie certains paramètres (e.g. température par exemple), mais pas d'autres (e.g. détecteur de présence), veuillez vous référer à la question numéro II.
           <br>Dans le cas où vous ne recevez les données d'aucun capteur, la HAGbox peut être à l'origine du problème.
           <br>Il faut alors REBOOT la HAGbox en la redémarrant et reconnecter les différents capteurs en effectuant la procédure précédente.
           <br>Si le problème persiste, votre appareil peut être défaillant : veuillez vous référer à la question numéro II.
-        </p>  
+        </p>
         </details>
         <br>
 
           <details>
-            <summary class="summary_FAQ"><strong>IV. Je déménage et souhaite ré-aménager le système de capteurs à mon nouveau domicile.</strong></summary>  
+            <summary class="summary_FAQ"><strong>IV. Je déménage et souhaite ré-aménager le système de capteurs à mon nouveau domicile.</strong></summary>
         <p>
           Le système général HAN a été conçu afin d'être facilement déployable : vous avez donc la possibilité de ré-aménager votre système à votre guise.
           <br> Si vous souhaitez optimiser votre architecture en fonction du plan de votre nouveau domicile, nous serons ravi de vous envoyer un expert Domisep afin de déployer votre système dans les meilleures configurations et recevoir des suggestions supplémentaires pour votre confort. Dans le cas échéant, veuillez appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Architecture</em>.
@@ -98,7 +99,7 @@
           <details>
             <summary class="summary_FAQ"><strong>V. Je souhaite me désabonner de Domisep.</strong></summary>
         <p>
-          Nous sommes désolés de l'apprendre ... 
+          Nous sommes désolés de l'apprendre ...
           <br>Si vous souhaitez rompre votre contrat, veuillez appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Abonnement</em>.
           <br>Afin de nous améliorer, nous souhaitons connaître la raison de votre départ en ouvrant un ticket de support via la page dédiée en mentionnant la section <em>Amélioration</em>.
           <br>Nous vous remercions pour la confiance que vous nous avez apporté.

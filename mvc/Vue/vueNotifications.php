@@ -11,6 +11,7 @@
   } catch(Exception $e){
       require (Config::getVues()["default"]) ;
   }
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

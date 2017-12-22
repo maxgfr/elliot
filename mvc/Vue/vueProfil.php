@@ -11,6 +11,7 @@
   } catch(Exception $e){
       require (Config::getVues()["default"]) ;
   }
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,10 +33,10 @@
           <h1>Bonjour Lama Sticot !</h1>
           <h3>Avez-vous changé de coordonnées ? N'hésitez pas à nous le faire savoir !</h3>
 
-          <label for="tel_fixe"> Téléphone fixe : 
+          <label for="tel_fixe"> Téléphone fixe :
           <input class="text" id="tel_fixe" type="tel" name="tel_fixe" value="" placeholder="0101010101"/>
           <br>
-          <label for="tel_port"> Téléphone portable : 
+          <label for="tel_port"> Téléphone portable :
           <input class="text" id="tel_port" type="tel" name="tel_port" value="" placeholder="0606060606"/>
           <br>
           <label for="adress"> Adresse :
@@ -57,7 +58,7 @@
           <button type="button" name="button">Enregistrer les modifications</button>
         </form>
 
-        
+
     </div>
 </body>
 

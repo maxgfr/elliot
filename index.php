@@ -15,6 +15,8 @@
 	//header
 	header("Location:./mvc/Vue/vueConnexion.php");
 
+	session_start();
+
 	try {
 		Autoload::load();
 	} catch(Exception $e){

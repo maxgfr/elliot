@@ -3,7 +3,7 @@
         <div id="hamburger_button" onclick="setSideBarStatus()">
             &#9776;
         </div>
-        
+
         <div id="header_right">
 
             <div id="toggle_button">
@@ -15,7 +15,7 @@
                 </label>
             </div>
             </div>
-            
+
             <div id="notification" onclick="setNotificationPopupStatus()" class="header_hover">
                 <span id="how_many_notif">5</span>
                 <img src="../../img/notificationIcon.png" alt="Notification Icon">
@@ -26,7 +26,7 @@
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <span>Lama Sticot</span>
+                    <span><?php echo $_SESSION['email'] ?></span>
                 </div>
             </div>
             <div id="logout" onclick="window.location.href='vueConnexion.php'" class="header_hover">
