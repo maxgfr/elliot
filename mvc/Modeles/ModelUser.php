@@ -71,6 +71,8 @@
 						$model->email = $queryResults[0]['mail'];
 						$_SESSION['email'] = $queryResults[0]['mail'];
 						$_SESSION['role'] = $queryResults[0]['roles'];
+						$_SESSION['nom'] = $queryResults[0]['last_name'];
+						$_SESSION['prenom'] = $queryResults[0]['first_name'];
 						$_SESSION['id_user'] = $queryResults[0]['id_user'];
 						return $model;
 					} else {

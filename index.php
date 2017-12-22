@@ -12,9 +12,6 @@
 	// chargement de la classe Autoload pour autochargement des classes
 	require_once($rootDirectory.'Config/Autoload.php');
 
-	//header
-	header("Location:./mvc/Vue/vueConnexion.php");
-
 	session_start();
 
 	try {
@@ -23,10 +20,10 @@
 		require (Config::getVues()["default"]) ;
 	}
 
-	if (isset($_SESSION['mail'])) {
-	   $ctrl = new ControleurAuth('home');
-	 } else {
-	   $ctrl = new ControleurVisitor('index');
-	 }
+	if(empty($_SESSION['email'])) {
+      header("Location:./mvc/Vue/vueConnexion.php");
+    } else {
+	  header("Location:./mvc/Vue/vueAccueil.php");
+    }
 
 ?>

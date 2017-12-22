@@ -12,6 +12,9 @@
       require (Config::getVues()["default"]) ;
   }
   session_start();
+  if(empty($_SESSION['email'])) {
+    header("Location:vueConnexion.php");
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +23,8 @@
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
+    <script type="text/javascript" src="../../js/animation.js"></script>
+	<script type="text/javascript" src="../../js/password.js"></script>
     <title>Inscription</title>
   </head>
 
@@ -45,9 +49,8 @@
                     <input class="text" id="mail" type="email" name="mail" value="" placeholder="Email"/>
                     <div class="testSecurityPassword">
                         <div id="input_box">
-                            <input onkeyup="setBackgroundColorBar(setStrength())"
-                                   class="text" id="password" type="password" name="password" placeholder="Mot de passe"/>
-                            <input class="text" id="password2" type="password" name="password2" placeholder="Confirmation du mot de passe"/>
+                            <input class="text" id="password" type="password" name="password" placeholder="Mot de passe" onkeyup="setBackgroundColorBar(setStrength());" />
+                            <input class="text" id="confirm_password" type="password" name="confirm_password" placeholder="Confirmation du mot de passe" onkeyup="checkPass(); return false;" />
                         </div>
                         <div id="show_strength_box">
                             <div id="text_type_of_strength">
