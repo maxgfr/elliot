@@ -1,3 +1,18 @@
+<?php
+  //Voir les erreurs
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+  // Répertoire racine du MVC
+  $rootDirectory = dirname(__FILE__)."/../../mvc/";
+  // chargement de la classe Autoload pour autochargement des classes
+  require_once($rootDirectory.'Config/Autoload.php');
+  try {
+      Autoload::load();
+  } catch(Exception $e){
+      require (Config::getVues()["default"]) ;
+  }
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +71,7 @@
 <br>
 
 
-<input type=button name=type id='formulaire' value='Créer un capteur' onclick="setVisibility('nom');";> 
+<input type=button name=type id='formulaire' value='Créer un capteur' onclick="setVisibility('nom');";>
 <button onclick="myDelete1Function()">Supprimer</button>
 
 
