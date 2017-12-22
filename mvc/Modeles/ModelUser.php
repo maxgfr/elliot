@@ -8,8 +8,6 @@
 
 		private $email;
 
-		/** Durée du cookie en secondes */
-		private const DUREE_COOKIE = 120;
 
 		/** Constructeur par défaut (Init. du tableau d'erreurs à vide) */
 		public function __construct ($dataError) {
