@@ -34,8 +34,8 @@
     <div id="main">
 
         <h1> FAQ </h1>
-        <h4>Numéro du support : 08 99 12 34 56 (appel gratuit)</h4>
-        <h4>Mail du support : support.domisep@elliot.com</h4>
+        <h4>Numéro du support : <a href="tel:+33899123456">08 99 12 34 56</a> (appel gratuit)</h4>
+        <h4>Mail du support : <a href="mailto:support.domisep@elliot.com">support.domisep@elliot.com</a></h4>
         <br>
 
           <details>

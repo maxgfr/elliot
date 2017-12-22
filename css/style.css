@@ -12,6 +12,12 @@
 
 /**********************HEADER*********************/
 
+body {
+	font-family: "Verdana", Verdana, sans-serif;
+
+}
+
+
 .header {
     z-index:1;
     text-align: center;
