@@ -56,7 +56,7 @@
           <input class="text" id="formerpassword" type="password" name="formerpassword" value="" placeholder="********"/>
           <br>
           <label for="mdp"> Nouveau mot de passe :
-          <input class="text" id="password" type="password" name="newpassword" value="" placeholder="********"/>
+          <input class="text" id="password" type="password" name="newpassword" value="" placeholder="********" onkeyup="checkPass(); return false;"/>
           <br>
           <label for="mdp2"> Confirmation du mot de passe :
           <input class="text" id="confirm_password" type="password" name="password2" value="" placeholder="********" onkeyup="checkPass(); return false;"/>

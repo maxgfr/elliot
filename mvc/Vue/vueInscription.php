@@ -46,7 +46,7 @@
                     <input class="text" id="mail" type="email" name="mail" value="" placeholder="Email"/>
                     <div class="testSecurityPassword">
                         <div id="input_box">
-                            <input class="text" id="password" type="password" name="password" placeholder="Mot de passe" onkeyup="setBackgroundColorBar(setStrength());" />
+                            <input class="text" id="password" type="password" name="password" placeholder="Mot de passe" onkeyup="setBackgroundColorBar(setStrength()); checkPass(); return false;" />
                             <input class="text" id="confirm_password" type="password" name="confirm_password" placeholder="Confirmation du mot de passe" onkeyup="checkPass(); return false;" />
                         </div>
                         <div id="show_strength_box">
