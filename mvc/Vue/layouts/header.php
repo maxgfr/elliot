@@ -4,12 +4,6 @@
             &#9776;
         </div>
         <!--div id="toggle_button">
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div-->
-        <div id="toggle_button">
             <div class="onoffswitch">
                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                 <label class="onoffswitch-label" for="myonoffswitch">
@@ -17,7 +11,7 @@
                     <span class="onoffswitch-switch"></span>
                 </label>
             </div>
-        </div>
+        </div-->
         <div id="header_right">
             <div id="notification" onclick="setNotificationPopupStatus()">
                 <span id="how_many_notif">5</span>

@@ -31,10 +31,48 @@
 <body>
 
     <div id="main">
-        <a href="vueTicket.php"><img src="../../img/ticket_support.png" alt="image du ticket support"
-                                      style="width:200px;height:auto;margin-left:30%"></a>
-        <a href="vueFAQ.php"><img src="../../img/FAQ.png" alt="image du FAQ"
-                                   style="width:200px;height:auto"></a>
+
+        <div id="blockSupport">
+            <div id="blockSupport_header">
+                Comment pouvons-nous vous aider?
+            </div>
+            <div id="blockSupport_main">
+                <div class="blockSupportTable" id="ticket" onclick="window.location.href='vueTicket.php'">
+                    <div class="blockSupportTableImage">
+                        <img src="../../img/supportTicket.png" alt="Support ticket">
+                    </div>
+                    <div class="blockSupportTableText">
+                        Go to support ticket <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+                <div class="blockSupportTable" id="faq" onclick="window.location.href='vueFAQ.php'">
+                    <div class="blockSupportTableImage">
+                        <img src="../../img/FAQ.png" alt="FAQ">
+                    </div>
+                    <div class="blockSupportTableText">
+                        Go to FAQ <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+                <div class="blockSupportTable" id="faq" onclick="window.location.href='vueFAQ.php'" style="margin-right:0">
+                    <div class="blockSupportTableImage">
+                        <img src="../../img/supportGearIcon.png" alt="FAQ" style="width:5em">
+                    </div>
+                    <div class="blockSupportTableText">
+                        Go to parameter page <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

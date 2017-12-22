@@ -30,36 +30,6 @@
 
 <div id="main">
 
-    <label for="creating_room">Créer une pièce</label>
-    <select name="creating_room" id="create_the_room">
-        <option value="bedroom">Chambre</option>
-        <option value="kitchen">Cuisine</option>
-        <option value="bathroom">Salle de bain</option>
-        <option value="livingroom">Salon</option>
-        <option value="diningroom">Salle à manger</option>
-    </select>
-    <button type="button" name="button" onclick="setCreatingRoom()">Créer la pièce</button>
-
-    <br><br>
-
-    <label for="selection_room">Choisir une pièce</label>
-    <select name="selection_room" id="select_the_room">
-
-    </select>
-
-    <label for="selection_sensor">Choisir un capteur</label>
-    <select name="selection_sensor" id="select_the_sensor">
-        <option value="temperature">Température</option>
-        <option value="luminosity">Luminosité</option>
-        <option value="motion">Présence</option>
-        <option value="humidity">Humidité</option>
-        <option value="barometer">Baromètre</option>
-    </select>
-
-    <button type="button" name="button" onclick="setSensor()">Ajouter le capteur</button>
-
-    <br><br>
-
     <div class="room" style="display:none;">
         <div class="iconPart">
             <div class="iconPartImage">

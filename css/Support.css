@@ -1,17 +1,50 @@
-#Support {
-    width: 500px;
-    height: 325px;
-    padding: 0px 30px 0 30px;
-    color: white;
-    font: 12px Arial, Helvetica, sans-serif;
-    background-color: rgb(38,67,120) ;
+#blockSupport {
+    text-align: center;
+    width: 50em;
+    margin-left: 5%;
 }
 
-#Butto_support {background-color: rgb(46, 117, 181); width: 100px;  height: 30px; color: white;}
-#Butto_support:hover {filter:contrast(100%);}
-#Envoyer {width: 20%; height: auto; filter:invert(90%);}
-div.centre {
-    position:absolute;
-    left: 10%;
-    top: 0%;
+#blockSupport_header {
+    font-size: 2em;
+    color: rgb(38, 67, 120);
+}
+
+#blockSupport_main {
+    text-align: center;
+    margin-top: 1em;
+    display: flex;
+    padding-top: 1.5em;
+    border-top: 1px solid black;
+}
+
+.blockSupportTable {
+    width: 15em;
+    border: 0.2em solid #E3E3E3;
+    text-align: center;
+    margin-right: 2em;
+}
+
+.blockSupportTable:hover {
+    cursor: pointer;
+    background-color: #F3F3F3;
+}
+
+.blockSupportTableImage {
+    height: 7em;
+}
+
+.blockSupportTableImage img {
+    margin-top: 0.5em;
+    width: 7em;
+    height: auto;
+    text-align: center;
+}
+
+#ticket img {
+    margin-top: 1em;
+}
+
+.blockSupportTableText {
+    margin: 1em;
+    text-align: left;
 }
