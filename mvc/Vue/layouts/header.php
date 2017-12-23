@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../../css/header.css">
+<link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
+<script src="../../js/header.js"></script>
+
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
@@ -7,13 +11,13 @@
         <div id="header_right">
 
             <div id="toggle_button">
-            <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
-            </div>
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
             </div>
 
             <div id="notification" onclick="setNotificationPopupStatus()" class="header_hover">

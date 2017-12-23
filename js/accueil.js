@@ -162,10 +162,10 @@ function setTablePart(id_room, type_of_sensor, value_of_sensor) {
         textPart.style.width = '100%';
         if (type_of_sensor=='motion') {
             if (value_of_sensor==1) {
-                value_of_sensor = "OUI";
+                value_of_sensor = "détectée";
             }
             else if (value_of_sensor==0) {
-                value_of_sensor = "NON";
+                value_of_sensor = "non détectée";
             }
         }
         textPart.innerHTML = name_of_sensor[type_of_sensor] + ' ' + value_of_sensor + unit_of_sensor[type_of_sensor];

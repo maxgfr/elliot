@@ -17,9 +17,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
     <title>Ajout bâtiments</title>
   </head>
 

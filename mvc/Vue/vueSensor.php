@@ -20,13 +20,9 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/Sensor.css">
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
     <title>Capteurs/actionneurs</title>
     <script type="text/javascript" src="../../js/sensor.js"></script>
-
-    <script type="text/javascript" src="../../js/animation.js"></script>
 
 
 </head>

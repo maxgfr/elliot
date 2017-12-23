@@ -10,17 +10,13 @@
 \*************************************************************************************/
 
 
-.global_container {
-    display: flex;
-}
-
 #container_register {
     background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
-    width: 400px;
-    height:550px;
-    padding-bottom: 3%;  padding-top: 0.2%;
+    width: 380px;
+    height:auto;
+    padding-bottom: 0.7%;  padding-top: 0.1%;
 	font-family: sans-serif;
-	border-radius: 11px;
+	border-radius: 2px;
 }
 
 #container_login {
@@ -29,7 +25,7 @@
     height: 500px;
     margin-left: 20px;
     padding-bottom: 3%;  padding-top: 0.2%;
-	border-radius: 11px;
+	border-radius: 2px;
 	font-family: sans-serif;
 }
 
@@ -51,9 +47,11 @@ h3, p {
 #register_box_text {
     width: 90%;
 }
+
 .iconImage {
     right:0;
 }
+
 .iconImage img {
     width: 40px;
     height: auto;
@@ -65,9 +63,14 @@ h3, p {
     font-size: 20px;
 }
 
-#login_box_input, #register_box_input {
+#register_box_input {
     width:100%;
-    padding-top: 50px;
+    padding-top: 30px;
+}
+
+#login_box_input {
+    width:100%;
+    padding-top: 60px;
 }
 
 .inputText input {
@@ -121,7 +124,7 @@ h3, p {
 }
 
 .confirmButton button:hover {
-    background-color: #D3D3D3;
+    background-color: #E3E3E3;
     transition: 1s;
 }
 

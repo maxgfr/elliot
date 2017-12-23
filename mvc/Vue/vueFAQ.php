@@ -22,11 +22,7 @@
 
     <meta charset="utf-8">
     <title> Support </title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/FAQ.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
 
 
 </head>
@@ -37,7 +33,7 @@
 
     <div id="main">
 
-        <h1> FAQ </h1>
+        <h1 style="text-align:center"> Foire aux questions </h1>
         <h4>Numéro du support : <a href="tel:+33899123456">08 99 12 34 56</a> (appel gratuit)</h4>
         <h4>Mail du support : <a href="mailto:support.domisep@elliot.com">support.domisep@elliot.com</a></h4>
         <br>

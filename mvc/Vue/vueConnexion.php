@@ -30,6 +30,9 @@
                 <div id="login_box_text">
                     <h2 align="center" >Authentifiez-vous pour accéder à votre espace</h2>
                 </div>
+                <div id="register_box_icon" class="iconImage">
+                    <img src="../../img/login_icon.png" alt="Login Icon">
+                </div>
             </div>
             <form method="post">
                 <div id="login_box_input" style="margin-top:20px;">

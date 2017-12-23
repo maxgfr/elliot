@@ -22,10 +22,7 @@
 
     <meta charset="utf-8">
     <title> Support </title>
-    <link rel="stylesheet" href="../../css/style.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
 
 
 </head>

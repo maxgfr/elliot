@@ -23,10 +23,7 @@
 
     <meta charset="utf-8">
     <title> Support </title>
-    <link rel="stylesheet" href="../../css/style.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
 
 
 </head>
@@ -42,13 +39,13 @@
                 Besoin d'aide ?
             </div>
             <div id="blockSupport_main">
-                <div class="blockSupportTable" id="ticket" onclick="window.location.href='vueTicket.php'">
+                <div class="blockSupportTable" id="ticket" onclick="window.location.href='vueTicket.php'" style="margin-right:1em">
                     <div class="blockSupportTableImage">
                         <img src="../../img/supportTicket.png" alt="Support ticket">
                     </div>
                     <div class="blockSupportTableText">
                         <h3>Soumettre un ticket</h3>
-                        <p>
+                        <p style="text-align:left">
                           Un problème spécifique est survenu ?
                           <br>Un commentaire sur notre équipement ?
                           <br>Une idée pour améliorer notre service ?
@@ -63,8 +60,8 @@
                         <img src="../../img/FAQ.png" alt="FAQ">
                     </div>
                     <div class="blockSupportTableText">
-                        <h3>FAQ</h3>
-                        <p>
+                        <h3>Foire aux questions</h3>
+                        <p style="text-align:left">
                           Un incident vient entraver le bon fonctionnement de votre système HAN et vous voulez une réponse immédiate ?
                           <br>Veuillez trouver <strong>ici</strong> les problématiques les plus récurrentes des utilisateurs. Un client a probablement déjà constaté la même situation que vous !
                         </p>

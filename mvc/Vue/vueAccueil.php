@@ -17,13 +17,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/Accueil.css">
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
-    <script src="../../js/animation.js"></script>
-    <script src="../../js/accueil.js">
-
-    </script>
+    <script src="../../js/accueil.js"></script>
     <title>Accueil</title>
 </head>
 
@@ -34,7 +29,7 @@
 
 <div id="main">
 
-    <div class="showChange" style="width:100%; height:40px; background-color:#52D0A8;opacity:0.8; border-radius:10px">
+    <div class="showChange" style="margin-top:10px;width:100%; height:40px; background-color:#52D0A8;opacity:0.8; border-radius:7px">
         <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8;text-align:center">
             <img src="../../img/checkIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
         </div>
@@ -42,12 +37,12 @@
             Le capteur a été ajouté à la base de données.
         </div>
     </div>
-    <div class="showChange" style="width:100%; height:40px; background-color:#D86677;opacity:0.8; border-radius:10px">
+    <div class="showChange" style="width:100%; height:40px; background-color:#D86677;opacity:0.8; border-radius:7px">
         <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8; text-align:center">
             <img src="../../img/crossIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
         </div>
         <div class="showChangeText" style="margin-left:10px;margin-top:10px; color:white;">
-            Le capteur a été supprimé de la base de données.
+            Une erreur est survenue : le capteur n'a pas pu être supprimé de la base de données.
         </div>
     </div>
 
