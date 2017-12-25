@@ -19,13 +19,15 @@ Le model va interragir avec la base de données. Le résultat est renvoyé par l
 
 ![alt text](https://github.com/maxgfr/elliot/blob/master/tutoriel/model.png)
 
-## La configuration des vues:
+## Les vues:
+
+### La configuration :
 
 Nous devons configurer les vues que nous allons renvoyer à l'utilisateur dans /mvc/Config/Config.php
 
 ![alt text](https://github.com/maxgfr/elliot/blob/master/tutoriel/config.png)
 
-### La création des vues:
+### La créations:
 
 Nous pouvons maintenant réaliser ces vues.
 
