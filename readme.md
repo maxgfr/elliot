@@ -27,7 +27,7 @@ Nous devons configurer les vues que nous allons renvoyer à l'utilisateur dans /
 
 ![alt text](https://github.com/maxgfr/elliot/blob/master/tutoriel/config.png)
 
-### La créations:
+### La création:
 
 Nous pouvons maintenant réaliser ces vues.
 
