@@ -24,11 +24,11 @@
 </head>
 <body>
 
-    <div id="container_login" style="width:800px; margin:0 auto;">
+    <div id="container_login">
         <div id="login_box" class="box">
             <div id="login_box_textandicon" class="box_textandicon">
                 <div id="login_box_text">
-                    <h2 align="center" >Authentifiez-vous pour accéder à votre espace</h2>
+                    <h2 align="center">Connexion</h2>
                 </div>
                 <div id="register_box_icon" class="iconImage">
                     <img src="../../img/login_icon.png" alt="Login Icon">

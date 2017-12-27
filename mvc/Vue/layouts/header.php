@@ -10,7 +10,7 @@
 
         <div id="header_right">
 
-            <div id="toggle_button">
+            <div id="toggle_button" style="display:none">
                 <div class="onoffswitch">
                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                     <label class="onoffswitch-label" for="myonoffswitch">
@@ -30,7 +30,7 @@
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <span><?php echo $_SESSION['email'] ?></span>
+                    <span><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?></span>
                 </div>
             </div>
             <div id="logout" class="header_hover">

@@ -26,11 +26,11 @@
 
   <body>
 
-      <div id="container_register" style="width:800px; margin:0 auto;">
+      <div id="container_register">
         <div id="register_box" class="box">
             <div id="register_box_textandicon" class="box_textandicon">
                 <div id="register_box_text">
-                    <h2 align="center">Inscrivez-vous dès maintenant !</h2>
+                    <h2 align="center">Inscription</h2>
                 </div>
                 <div id="register_box_icon" class="iconImage">
                     <img src="../../img/register_icon.png" alt="Register Icon">

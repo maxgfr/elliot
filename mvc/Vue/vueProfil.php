@@ -22,8 +22,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/profil.css">
 	<script type="text/javascript" src="../../js/password.js"></script>
-    <title>UserPage</title>
+    <title><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?></title>
 </head>
 
     <?php include("layouts/header.php"); ?>
@@ -31,38 +32,34 @@
 <body>
     <div id="main">
 
-        <form method="post">
-          <h1>Bonjour Lama Sticot !</h1>
-          <h3>Avez-vous changé de coordonnées ? N'hésitez pas à nous le faire savoir !</h3>
-
-          <label for="tel_fixe"> Téléphone fixe :
-          <input class="text" id="tel_fixe" type="tel" name="tel_fixe" value="" placeholder="0101010101"/>
-          <br>
-          <label for="tel_port"> Téléphone portable :
-          <input class="text" id="tel_port" type="tel" name="tel_port" value="" placeholder="0606060606"/>
-          <br>
-          <label for="address"> Adresse :
-          <input class="text" id="address" type="text" name="address" value="" placeholder="82 Boulevard de Clichy, 75018 Paris"/>
-
-          <br><br>
-          <h3>Souhaitez-vous changer d'identifiants ? Attention aux yeux indiscrets !</h3>
-          <label for="mail"> E-mail :
-          <input class="text" id="mail" type="email" name="mail" value="" placeholder="lama.sticot@yahoo.fr"/>
-          <br>
-		  <label for="formermdp"> Ancien mot de passe :
-          <input class="text" id="formerpassword" type="password" name="formerpassword" value="" placeholder="********"/>
-          <br>
-          <label for="mdp"> Nouveau mot de passe :
-          <input class="text" id="password" type="password" name="newpassword" value="" placeholder="********" onkeyup="checkPass(); return false;"/>
-          <br>
-          <label for="mdp2"> Confirmation du mot de passe :
-          <input class="text" id="confirm_password" type="password" name="password2" value="" placeholder="********" onkeyup="checkPass(); return false;"/>
-
-
-          <br><br>
-          <button type="button" name="button">Enregistrer les modifications</button>
-        </form>
-
+        <div id="container_change_profile">
+            <div id="container_change_profile_input">
+                <div id="container_contact_details">
+                    <div id="contact_details_text">
+                        Avez-vous changé de coordonnées ?
+                    </div>
+                    <div id="contact_details_input">
+                        <input type="tel" name="landline_phone" placeholder="Téléphone fixe">
+                        <input type="tel" name="mobile_phone" placeholder="Téléphone portable">
+                        <input type="text" name="address" placeholder="Adresse de votre domicile">
+                    </div>
+                </div>
+                <div id="container_change_password">
+                    <div id="change_password_text">
+                        Voulez-vous changer de mot de passe ?
+                    </div>
+                    <div id="contact_details_input">
+                        <input type="email" name="mail" placeholder="Adresse mail">
+                        <input type="password" name="last_password" placeholder="Ancien mot de passe">
+                        <input type="password" name="new_password" placeholder="Nouveau mot de passe">
+                        <input type="password" name="confirm_new_password" placeholder="Confirmer le nouveau mot de passe">
+                    </div>
+                </div>
+            </div>
+            <div class="confirmButton">
+                <button type="submit" name="button">Enregistrer les modifications</button>
+            </div>
+        </div>
 
     </div>
 </body>

@@ -12,7 +12,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
 
-    $sql_query = "SELECT room.name AS nameOfRoom, room.id_room AS idOfRoom, familysensor.name AS nameOfFamilysensor, datasensors.value AS valueOfSensor
+    $sql_query = "SELECT room.name AS nameOfRoom, room.id_room AS idOfRoom, familysensor.name AS nameOfFamilysensor, datasensors.value AS valueOfSensor, sensors.id_sensor AS idOfSensor
                   /* It is important to rename the columns to avoid duplication */
                   FROM (((sensors
                   INNER JOIN familysensor ON sensors.id_familysensor = familysensor.id_familysensor)

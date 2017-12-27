@@ -1,8 +1,8 @@
-- Lors de l'inscription, ajouter un "Confirmer le mot de passe"
+- Lors de l'inscription, ajouter un "Confirmer le mot de passe" [DONE]
 
-- Faire la fonctionnalité "Mot de passe oublié"
+- Faire la fonctionnalité "Mot de passe oublié" [DONE]
 
-- Avoir la liste des capteurs par pièce sur la page d'accueil
+- Avoir la liste des capteurs par pièce sur la page d'accueil [DONE MOTHAF*CKA]
 	L'interface est presque finie : il reste à pouvoir ajouter une case capteur en JS
 	Il faut aussi pouvoir récupérer les informations de capteurs dans la database
 
@@ -34,3 +34,12 @@
 
 - Possibilité de donner les droits admin à quelqu'un d'autre : créer une interface pour l'admin actuel
 pour ne pas qu'il ait à modifier le rôle directement dans la base
+
+- Graphiques : Bar chart (vertical) 
+	       Line chart (filled or not) 
+	       Boundaries (filled or not) 
+	       Radar (filled or not)
+               Pie [DONE]
+	       Doughnut [DONE]
+               Polar area [DONE] 
+               

@@ -23,7 +23,7 @@ xmlhttp.onreadystatechange = function() {
         for (x in myObj) {
             addRoom(myObj[x].nameOfRoom, myObj[x].idOfRoom);
             var idRoom = myObj[x].nameOfRoom + '_' + myObj[x].idOfRoom;
-            setTablePart(idRoom, myObj[x].nameOfFamilysensor, myObj[x].valueOfSensor);
+            setTablePart(idRoom, myObj[x].idOfSensor, myObj[x].nameOfFamilysensor, myObj[x].valueOfSensor);
         }
     }
 };
@@ -135,7 +135,7 @@ function setIconPart(parentNode) {
     textPart.innerHTML = setTextRoom(parameter,true,'');
 }
 
-function setTablePart(id_room, type_of_sensor, value_of_sensor) {
+function setTablePart(id_room, id_sensor_db, type_of_sensor, value_of_sensor) {
     var rootDirectoryImages = '../../img/';
 
     var getRoom = document.getElementById(id_room);
@@ -147,6 +147,7 @@ function setTablePart(id_room, type_of_sensor, value_of_sensor) {
         var duplicatedNode = idNode.cloneNode([true]);
         duplicatedNode.style.display = "flex";
         duplicatedNode.id = duplicatedNode.id.replace('type_of_sensor', type_of_sensor); // change the id to specific type_of_sensor
+        duplicatedNode.id += '_' + id_sensor_db;
 
         var cellsNode = duplicatedNode.children[0]; // go to tablePartCells
         var getColorOfIcon = window.getComputedStyle(getRoom.children[0], null).getPropertyValue('background-color');

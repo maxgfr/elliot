@@ -1,0 +1,69 @@
+#container_change_profile {
+    background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
+    width: 80%;
+    height:auto;
+    padding-bottom: 5px;  padding-top: 0.1%;
+	font-family: sans-serif;
+	border-radius: 2px;
+    margin-left: 10%;
+    margin-top: 1%;
+    color: white;
+}
+
+#container_change_profile_input {
+    display: flex;
+}
+
+#container_contact_details {
+     width: 45%;
+     padding-top: 25px;
+     padding-right: 3%;
+     border-right: 2px solid white;
+ }
+
+#container_change_password {
+    width:50%;
+    padding-left: 3%;
+}
+
+#container_change_profile > div {
+    margin: 4%;
+    position: relative;
+}
+
+#container_change_profile_input input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+}
+
+#contact_details_text, #change_password_text {
+    font-size: 1.1em;
+}
+
+.confirmButton {
+    text-align: center;
+}
+
+.confirmButton button {
+    width: 60%;
+    margin: 8px 0;
+    padding-top: 10px; padding-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.confirmButton button::-moz-focus-inner {
+    border: 0; /*remove dotlines in Mozilla*/
+}
+
+.confirmButton button:hover {
+    background-color: #E3E3E3;
+    transition: 1s;
+}

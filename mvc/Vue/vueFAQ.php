@@ -39,7 +39,7 @@
         <br>
 
           <details>
-            <summary class="summary_FAQ" style=""><strong>I. Je souhaite connaître l'avancement de ma commande.</strong></summary>
+            <summary class="summary_FAQ"><strong>I. Je souhaite connaître l'avancement de ma commande.</strong></summary>
             <p>
           Merci d'avoir choisi Domisep pour équiper votre domicile !
           <br> N'hésitez pas à appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Commande</em>.
