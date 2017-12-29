@@ -29,20 +29,20 @@
 
 <div id="main">
 
-    <div class="showChange" style="margin-top:10px;width:100%; height:40px; background-color:#52D0A8;opacity:0.8; border-radius:7px">
-        <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8;text-align:center">
-            <img src="../../img/checkIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
+    <div class="showChange" id="success" style="display: none">
+        <div class="showChangeImage">
+            <img src="../../img/checkIcon.png" alt="dashboardIcon">
         </div>
-        <div class="showChangeText" style="margin-left:10px;margin-top:10px; color:white;">
-            Le capteur a été ajouté à la base de données.
+        <div class="showChangeText" >
+            <!--Le capteur a été ajouté à la base de données.-->
         </div>
     </div>
-    <div class="showChange" style="width:100%; height:40px; background-color:#D86677;opacity:0.8; border-radius:7px">
-        <div class="showChangeImage" style="border-radius:100%;margin-left:10px;margin-top:5px;width:30px; height:30px; background-color:#F8F8F8; text-align:center">
-            <img src="../../img/crossIcon.png" alt="dashboardIcon" style="width:20px; height:20px; margin-top:5px;">
+    <div class="showChange" id="failure" style="display: none">
+        <div class="showChangeImage">
+            <img src="../../img/crossIcon.png" alt="dashboardIcon">
         </div>
-        <div class="showChangeText" style="margin-left:10px;margin-top:10px; color:white;">
-            Une erreur est survenue : le capteur n'a pas pu être supprimé de la base de données.
+        <div class="showChangeText">
+            <!--Une erreur est survenue : le capteur n'a pas pu être supprimé de la base de données.-->
         </div>
     </div>
 
@@ -68,6 +68,23 @@
             </div>
         </div>
     </div>
+
+    <div id="add_delete_cancel">
+        <button id="add_sensor_room" onclick="add_sensor_room()" type="button" name="button" style="margin-left:0">
+            Ajouter des capteurs et des pièces
+        </button>
+        <button id="delete_sensor_room" onclick="delete_sensor_room()" type="button" name="button" style="margin-left:2%">
+            Supprimer des capteurs et des pièces
+        </button>
+        <button id="cancel_modifications" onclick="cancel_modifications()" type="button" name="button" style="margin-left:2%; display:none;">
+            Annuler les modifications
+        </button>
+    </div>
+
+    <?php
+
+
+    ?>
 
 </div>
 
