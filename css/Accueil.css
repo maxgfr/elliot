@@ -23,11 +23,12 @@
 \*************************************************************************************/
 
 
-#main > div {
+#main_home > div {
     display: flex;
     margin-right: 0;
     margin-bottom: 1em;
 }
+
 
 .iconPart {
     width: 8em;
@@ -54,6 +55,10 @@
     display: flex;
     width: 100%;
     background: #F3F3F3;
+}
+
+.tablePart > div {
+    display: flex;
 }
 
 .tablePartCells {
@@ -87,14 +92,21 @@
 }
 
 .showChange {
+    margin-bottom: 1em;
+}
+
+.showChange > div {
+    margin-top: 1%;
     width: 100%;
-    height: 40px;
+    height: 2.2em;
     opacity: 0.8;
     border-radius: 7px;
+    padding-top: 0.2em;
+    position: relative;
+    display: none;
 }
 
 #success {
-    margin-top: 10px;
     background-color: #52D0A8;
 }
 
@@ -102,25 +114,31 @@
     background-color: #D86677;
 }
 
+#information_delete {
+    background-color: #2E323E;
+}
+
 .showChangeImage {
+    position: absolute;
     border-radius: 100%;
-    margin-left: 10px;
-    margin-top: 5px;
-    width: 30px;
-    height: 30px;
+    margin-left: 0.7em;
+    width: 2em;
+    height: 2em;
     background-color: #F8F8F8;
     text-align: center;
 }
 
 .showChangeImage > img {
-    width:20px;
-    height:20px;
-    margin-top:5px;
+    margin-top:1em;
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0.3em;
 }
 
 .showChangeText {
-    margin-left: 10px;
-    margin-top: 10px;
+    position: absolute;
+    margin-left: 3.5em;
+    margin-top: 0.4em;
     color: white;
 }
 
@@ -142,4 +160,51 @@
 
 #add_delete_cancel > button:hover {
     background-color: #E3E3E3;
+}
+
+
+
+
+.navigationSensor, .navigationRoom {
+    text-align: left;
+    position: absolute;
+    background-color: #264376;
+    height: 7.5em;
+    margin-top: 0em;
+    margin-left: 8.2em;
+    color: white;
+    font-size: 0.8em;
+}
+
+.navigationSensor::before, .navigationRoom::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 100%;
+    border-style: solid;
+    margin-top: 3em;
+    border-color: transparent #264376 transparent transparent ;
+    border-width: 0.7em;
+}
+
+.navigationSensor > nav, .navigationRoom > nav  {
+    height: 7.5em;
+    width: 10em;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.navigationSensor > nav > li, .navigationRoom > nav > li {
+    list-style-type: none;
+    height: 1.5em;
+    padding-top: 0.6em;
+    padding-bottom: 0.4em;
+}
+
+.navigationSensor > nav > li:hover, .navigationRoom > nav > li:hover {
+    background-color: #193264;
+    filter: brightness(100%);
+    cursor: pointer;
 }
