@@ -41,7 +41,7 @@
           private function actionConnexion(){
             $model = ModelUser::getModelUserConnexion($_POST);
               if ($model->getError ( ) === false ) {
-                  Config::movePage('/elliot/mvc/vue/vueAccueil.php');
+                  Config::movePage('/elliot/mvc/Vue/vueAccueil.php');
               } else {
                   if (!empty($model->getError()['persistance'])){
                       // Erreur d'accès à la base de donnée
