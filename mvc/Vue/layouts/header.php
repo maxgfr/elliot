@@ -100,7 +100,7 @@
                 Habitation
             </div>
         </div>
-        <div class="elementsOfSidebar" onclick="window.location.href='vueGestionBatiment.php'">
+        <div class="elementsOfSidebar" onclick="window.location.href='vueTableauDeBord.php'">
             <div class="iconOfSidebar">
                 <img src="../../img/dashboardIcon.png" alt="Dashboard Icon">
             </div>

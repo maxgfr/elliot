@@ -2,7 +2,7 @@
 
 - Faire la fonctionnalité "Mot de passe oublié" [DONE]
 
-- Avoir la liste des capteurs par pièce sur la page d'accueil [DONE MOTHAF*CKA]
+- Avoir la liste des capteurs par pièce sur la page d'accueil [DONE]
 	L'interface est presque finie : il reste à pouvoir ajouter une case capteur en JS
 	Il faut aussi pouvoir récupérer les informations de capteurs dans la database
 
@@ -16,7 +16,7 @@
 	Page admin à améliorer fortement
 
 - La page admin doit se différencier de l'interface utilisateur
-	Il veut vraiment créer une autre interface F*CK
+	Il veut vraiment créer une autre interface
 
 - L'admin peut être client de son propre service [EN COURS DE REFLEXION]
 
@@ -26,8 +26,7 @@
 
 - Revoir la distinction entre les notifications de l'utilisateur normal et de l'admin
 
-- Pour la page Profil, l'utilisateur doit pouvoir modifer son mot de passe avec vérification par mail 
-[POUR LA VERIFICATION PAR MAIL : F*CK]
+- Pour la page Profil, l'utilisateur doit pouvoir modifer son mot de passe avec vérification par mail
 
 
 [FACULTATIF]
