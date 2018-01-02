@@ -17,7 +17,7 @@
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
 			$db_password="";*/
-			
+
 			/* CONFIG MARIN */
 			/*$db_host="mysql:host=localhost;port=;";
 			$db_name="dbname=elliot_db";
