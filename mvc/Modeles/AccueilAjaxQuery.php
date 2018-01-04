@@ -12,13 +12,13 @@
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
 
-    $sql_query = "SELECT t1.name AS nameOfRoom, t1.id_room AS idOfRoom, t3.name AS nameOfFamilysensor, t4.value as valueOfSensor, t2.id_sensor as idOfSensor
+    $sql_query = "SELECT t1.name AS nameOfRoom, t1.id_room AS idOfRoom, t3.name AS nameOfFamilysensor, t4.value AS valueOfSensor, t4.id_datasensor AS idOfSensor
                   /* It is important to rename the columns to avoid duplication */
                   FROM room t1
                   LEFT JOIN sensors t2 ON t2.id_room = t1.id_room
                   LEFT JOIN familysensor t3 ON t2.id_familysensor = t3.id_familysensor
                   LEFT JOIN datasensors t4 ON t2.id_sensor = t4.id_sensor
-                  WHERE id_accomodation = 2
+                  WHERE t4.date_time = (SELECT max(date_time) FROM datasensors t5 WHERE t5.id_sensor = t4.id_sensor AND id_accomodation = 2) OR t4.date_time IS NULL
                   ORDER BY t1.name";
 
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,array());
