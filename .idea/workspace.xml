@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33547ab5-ab60-480f-b2f0-8be8e9fa76a1" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/css/dashboard.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/css/profil.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/crossIconDelete.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/crossIconDelete.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/informationIcon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/informationIcon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/plusIcon.PNG" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/plusIcon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/dashboard.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/header.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/jquery-3.2.1.min.js" />
       <change beforePath="$PROJECT_DIR$/Demandes du client.txt" afterPath="$PROJECT_DIR$/Demandes du client.txt" />
       <change beforePath="$PROJECT_DIR$/css/Accueil.css" afterPath="$PROJECT_DIR$/css/Accueil.css" />
       <change beforePath="$PROJECT_DIR$/css/FAQ.css" afterPath="" />
@@ -9,7 +21,7 @@
       <change beforePath="$PROJECT_DIR$/css/MDPoublie.css" afterPath="$PROJECT_DIR$/css/MDPoublie.css" />
       <change beforePath="$PROJECT_DIR$/css/Support.css" afterPath="$PROJECT_DIR$/css/Support.css" />
       <change beforePath="$PROJECT_DIR$/css/login.css" afterPath="$PROJECT_DIR$/css/login.css" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/header.css" />
       <change beforePath="$PROJECT_DIR$/database.sql" afterPath="$PROJECT_DIR$/database.sql" />
       <change beforePath="$PROJECT_DIR$/img/Envoyer_Support.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/img/ellIoT2.png" afterPath="" />
@@ -18,8 +30,7 @@
       <change beforePath="$PROJECT_DIR$/img/supportGearIcon.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/img/winecellarIcon.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/js/accueil.js" afterPath="$PROJECT_DIR$/js/accueil.js" />
-      <change beforePath="$PROJECT_DIR$/js/animation.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/password.js" afterPath="$PROJECT_DIR$/js/password.js" />
+      <change beforePath="$PROJECT_DIR$/js/animation.js" afterPath="$PROJECT_DIR$/js/password.js" />
       <change beforePath="$PROJECT_DIR$/mvc/Config/Config.php" afterPath="$PROJECT_DIR$/mvc/Config/Config.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Controleur/ControleurVisitor.php" afterPath="$PROJECT_DIR$/mvc/Controleur/ControleurVisitor.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Modeles/AccueilAjaxQuery.php" afterPath="$PROJECT_DIR$/mvc/Modeles/AccueilAjaxQuery.php" />
@@ -35,7 +46,7 @@
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueConnexion.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueConnexion.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueDeleteCapteur.php" afterPath="" />
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueFAQ.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueFAQ.php" />
-      <change beforePath="$PROJECT_DIR$/mvc/Vue/vueGestionBatiment.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/mvc/Vue/vueGestionBatiment.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueTableauDeBord.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueInscription.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueInscription.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueNotifications.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueNotifications.php" />
       <change beforePath="$PROJECT_DIR$/mvc/Vue/vueProfil.php" afterPath="$PROJECT_DIR$/mvc/Vue/vueProfil.php" />
@@ -53,7 +64,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvc/Vue/layouts/header.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
@@ -61,6 +72,26 @@
               <folding>
                 <element signature="n#style#0;n#div#4;n#div#1;n#div#2;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mvc/Config/Config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,11 +104,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mvc/Config/Config.php" />
         <option value="$PROJECT_DIR$/css/header.css" />
         <option value="$PROJECT_DIR$/js/header.js" />
         <option value="$PROJECT_DIR$/mvc/Modeles/ModelUser.php" />
         <option value="$PROJECT_DIR$/mvc/Vue/layouts/header.php" />
+        <option value="$PROJECT_DIR$/mvc/Config/Config.php" />
       </list>
     </option>
   </component>
@@ -120,6 +151,12 @@
               <item name="elliot" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="mvc" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="elliot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="elliot" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mvc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -157,12 +194,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515399452372</updated>
-      <workItem from="1515399453670" duration="7276000" />
+      <workItem from="1515399453670" duration="7343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7276000" />
+    <option name="totallyTimeSpent" value="7343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -202,14 +239,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elliot/database.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34206">
@@ -222,14 +251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1657">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/Config/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -301,6 +322,22 @@
           <folding>
             <element signature="n#style#0;n#div#4;n#div#1;n#div#2;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/Config/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
