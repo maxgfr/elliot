@@ -19,35 +19,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
-    <script src="../../js/animation.js"></script>
-    <title>Tableau de bord</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="../../css/dashboard.css">
+      <script src="../../js/dashboard.js"></script>
+      <title>Tableau de bord</title>
   </head>
 
   <?php include ('layouts/header.php'); ?>
 
 
-  <body>
+  <body onload="draw()">
 
 
-      <div id="main">
+    <div id="main">
+        <canvas id="canvas_bar"></canvas>
+        <canvas id="canvas_polar"></canvas>
+        <canvas id="canvas_line"></canvas>
+        <canvas id="canvas_pie"></canvas>
+        <canvas id="canvas_doughnut"></canvas>
+        <canvas id="canvas_boundary"></canvas>
+    </div>
 
-
-        <h2>Gérer les bâtiments</h2>
-        <form id="BuildingAddingForm" method="post">
-          <label for="building_name">Nom du bâtiment</label>
-          <input class="text" id="last_name" type="text" name="building_name" value="" />
-          <button id="registerNew" type="submit">Ajouter</button>
-        </form>
-      </div>
-
-      <?php
+      <!--?php
           if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password']))  {
               $ctrl = new ControleurVisitor('inscription');
           }
-      ?>
+      ?-->
 
   </body>
 

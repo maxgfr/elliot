@@ -22,11 +22,7 @@
 
     <meta charset="utf-8">
     <title> DomISEP </title>
-    <link rel="stylesheet" href="../../css/style.css">
     <link href="../../css/admin.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
-
 
 </head>
 

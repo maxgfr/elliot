@@ -20,21 +20,20 @@
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script type="text/javascript" src="../../js/animation.js"></script>
 	<script type="text/javascript" src="../../js/password.js"></script>
     <title>Inscription</title>
   </head>
 
   <body>
 
-      <div id="container_register" style="width:800px; margin:0 auto;">
+      <div id="container_register">
         <div id="register_box" class="box">
             <div id="register_box_textandicon" class="box_textandicon">
                 <div id="register_box_text">
-                    <h2 align="center">Inscrivez-vous dès maintenant !</h2>
+                    <h2 align="center">Inscription</h2>
                 </div>
                 <div id="register_box_icon" class="iconImage">
-                    <img src="../../img/register_icon.png" alt="Login Icon">
+                    <img src="../../img/register_icon.png" alt="Register Icon">
                 </div>
             </div>
             <div id="register_box_input" class="inputText">

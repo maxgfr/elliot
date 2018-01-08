@@ -22,10 +22,7 @@
 
     <meta charset="utf-8">
     <title> Support </title>
-    <link rel="stylesheet" href="../../css/style.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
 
 
 </head>
@@ -35,18 +32,19 @@
 <body>
 
     <div id="main">
-        <div id="Support" class="centre">
-            <label>Motif</label> : <input type="Text" name="Motif" id="Motif" placeholder=" Mon capteur ne fonctionne pas" size="70" />
-            <br />
-            <br />
-            <label>Description detaillée de votre problème</label>
-            <br />
-            <textarea name="Description" id="Description" rows="10" cols="65" style="resize:none" placeholder="Merci de décrire votre problème dans les moindres détails !"></textarea>
-            <br />
-            <br />
-            <button id="Button_support">
-                Envoyer
-            </button>
+
+        <div id="container_ticket">
+            <div id="container_ticket_main">
+                <div class="inputText">
+                    <input type="text" name="motif" id="motif" placeholder="Motif de votre problème">
+                </div>
+                <div class="descriptionText">
+                    <textarea name="description" id="description" style="resize:none" placeholder="Description détaillée de votre problème"></textarea>
+                </div>
+                <div class="confirmButton">
+                    <button type="submit" name="button">Envoyer</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

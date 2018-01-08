@@ -22,11 +22,7 @@
 
     <meta charset="utf-8">
     <title> Support </title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/FAQ.css">
     <link href="../../css/Support.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
-    <script src="../../js/animation.js"></script>
 
 
 </head>
@@ -37,13 +33,13 @@
 
     <div id="main">
 
-        <h1> FAQ </h1>
+        <h1 style="text-align:center"> Foire aux questions </h1>
         <h4>Numéro du support : <a href="tel:+33899123456">08 99 12 34 56</a> (appel gratuit)</h4>
         <h4>Mail du support : <a href="mailto:support.domisep@elliot.com">support.domisep@elliot.com</a></h4>
         <br>
 
           <details>
-            <summary class="summary_FAQ" style=""><strong>I. Je souhaite connaître l'avancement de ma commande.</strong></summary>
+            <summary class="summary_FAQ"><strong>I. Je souhaite connaître l'avancement de ma commande.</strong></summary>
             <p>
           Merci d'avoir choisi Domisep pour équiper votre domicile !
           <br> N'hésitez pas à appeler directement le service Support Domisep 08 99 12 34 56 (appel gratuit) ou d'ouvrir un ticket de support via la page dédiée en mentionnant la section <em>Commande</em>.

@@ -13,8 +13,8 @@
 /**********************HEADER*********************/
 
 body {
-	font-family: "Gotham", Verdana, sans-serif;
-	font-weight: 500;
+	font-family: Trebuchet, Arial, sans-serif;
+	font-weight: 600;
 }
 
 
@@ -158,10 +158,11 @@ body {
     border-width: thin;
     border-color: #D3D3D3;
     border-top: none;
-    width:400px;
-    right: 14.3em;
+    width: 23em;
+    right: 15.2em;
     margin-top: 4.5em;
     position: absolute;
+	position: fixed;
 }
 
 #container_notification div {

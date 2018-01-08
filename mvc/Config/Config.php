@@ -7,10 +7,10 @@
 		public static function getAuthData(&$db_host , &$db_name , &$db_user , &$db_password )
 		{
 			/* CONFIG 1 */
-			$db_host="mysql:host=localhost;port=8889;";
+			/*$db_host="mysql:host=localhost;port=8889;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
-			$db_password="root";
+			$db_password="root";*/
 
 			/*CONFIG 2	*/
 			/*$db_host="mysql:host=localhost;port=3306;";
@@ -19,11 +19,16 @@
 			$db_password="";*/
 
 			/* CONFIG MARIN */
-			/*$db_host="mysql:host=localhost;port=;";
+			$db_host="mysql:host=localhost;port=;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
-			$db_password="";*/
+			$db_password="";
 
+			/* CONFIG SERVEUR */
+			/*$db_host="mysql:host=localhost;port=3306;";
+			$db_name="dbname=elliot_db";
+			$db_user ="phpmyadmin";
+			$db_password="M7<dk8A,~zdD92%C";*/
 
 		}
 

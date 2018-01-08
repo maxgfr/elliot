@@ -22,10 +22,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/notification.css">
-    <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
-    <script src="../../js/animation.js"></script>
     <title>Notifications</title>
 
     <?php include("layouts/header.php"); ?>
