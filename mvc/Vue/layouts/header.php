@@ -2,6 +2,14 @@
 <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
 <script src="../../js/header.js"></script>
 
+<?php
+
+if (!isset($_COOKIE[$cookie_toggle_state])) {
+    $cookie_toggle_state = "1";
+    setcookie($cookie_toggle_state, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
+?>
+
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
@@ -9,7 +17,6 @@
         </div>
 
         <div id="header_right">
-
             <div id="toggle_button">
                 <div class="onoffswitch">
                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
@@ -138,6 +145,7 @@
 </div>
 <script src="../../js/jquery-3.2.1.min.js"></script>
 
+
 <script>
     $(document).ready(function () {
         /*** 1 = ADMIN ***/
@@ -183,6 +191,8 @@
             $('#elementsOfSidebar_Sensor').css({"display": ""});
             $('#elementsOfSidebar_Tableau').css({"display": ""});
             $('#elementsOfSidebar_Accueil').css({"display": ""});
+            alert(<?php echo $_COOKIE[$cookie_toggle_state] ?>);
+
         }
 
         else {
