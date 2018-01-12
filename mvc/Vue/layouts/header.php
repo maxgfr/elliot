@@ -2,6 +2,14 @@
 <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
 <script src="../../js/header.js"></script>
 
+<?php
+
+if (!isset($_COOKIE[$cookie_toggle_state])) {
+    $cookie_toggle_state = "1";
+    setcookie($cookie_toggle_state, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
+?>
+
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
@@ -9,8 +17,7 @@
         </div>
 
         <div id="header_right">
-
-            <div id="toggle_button" style="display:none">
+            <div id="toggle_button">
                 <div class="onoffswitch">
                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                     <label class="onoffswitch-label" for="myonoffswitch">
@@ -30,7 +37,7 @@
                     <img src="../../img/userIcon.png" alt="User Icon">
                 </div>
                 <div id="profile_text">
-                    <span><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?></span>
+                    <span><?php echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?></span>
                 </div>
             </div>
             <div id="logout" class="header_hover">
@@ -83,7 +90,7 @@
 </div>
 
 <div class="sidebarContainer">
-    <div id="elliot_icon" onclick="window.location.href='vueAccueil.php'">
+    <div id="elliot_icon" onclick="GoTo('vueAccueil.php')">
         <div id="small_icon">
             <img src="../../img/smallellIoT.png" alt="Small ellIoT Icon">
         </div>
@@ -92,7 +99,7 @@
         </div>
     </div>
     <div id="main_sidebar">
-        <div class="elementsOfSidebar" onclick="window.location.href='vueAccueil.php'">
+        <div class="elementsOfSidebar" onclick="GoTo('vueAccueil.php')" id="elementsOfSidebar_Accueil">
             <div class="iconOfSidebar">
                 <img src="../../img/homeplanIcon.png" alt="Home Plan Icon">
             </div>
@@ -100,7 +107,8 @@
                 Habitation
             </div>
         </div>
-        <div class="elementsOfSidebar" onclick="window.location.href='vueTableauDeBord.php'">
+        <div class="elementsOfSidebar" onclick="GoTo('vueTableauDeBord.php')"
+             id="elementsOfSidebar_Tableau">
             <div class="iconOfSidebar">
                 <img src="../../img/dashboardIcon.png" alt="Dashboard Icon">
             </div>
@@ -108,7 +116,7 @@
                 Tableau de bord
             </div>
         </div>
-        <div class="elementsOfSidebar" onclick="window.location.href='vueSensor.php'">
+        <div class="elementsOfSidebar" onclick="GoTo('vueSensor.php')" id="elementsOfSidebar_Sensor">
             <div class="iconOfSidebar">
                 <img src="../../img/sensorIcon.png" alt="Sensor Icon">
             </div>
@@ -116,7 +124,7 @@
                 Capteurs/actionneurs
             </div>
         </div>
-        <div class="elementsOfSidebar" onclick="window.location.href='vueSupport.php'">
+        <div class="elementsOfSidebar" onclick="GoTo('vueSupport.php')" id="elementsOfSidebar_Support">
             <div class="iconOfSidebar">
                 <img src="../../img/supportIcon.png" alt="Support Icon">
             </div>
@@ -124,7 +132,8 @@
                 Support technique
             </div>
         </div>
-        <div class="elementsOfSidebar" onclick="window.location.href='vueAdmin.php'">
+        <div class="elementsOfSidebar" onclick="GoTo('vueAdmin.php')" style="display: none"
+             id="elementsOfSidebar_Admin">
             <div class="iconOfSidebar">
                 <img src="../../img/adminIcon.png" alt="Admin Icon">
             </div>
@@ -134,3 +143,74 @@
         </div>
     </div>
 </div>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        /*** 1 = ADMIN ***/
+        if (<?php echo $_SESSION['role'] ?> == 1
+    )
+        {
+            $('#toggle_button').css({"display": "none"});
+            $('#elementsOfSidebar_Admin').css({"display": ""});
+            $('#elementsOfSidebar_Support').css({"display": "none"});
+            $('#elementsOfSidebar_Sensor').css({"display": "none"});
+            $('#elementsOfSidebar_Tableau').css({"display": "none"});
+            $('#elementsOfSidebar_Accueil').css({"display": "none"});
+        }
+        /*** 0 = CLIENT ***/
+    else
+        if (<?php echo $_SESSION['role'] ?> == 0
+    )
+        {
+            $('#toggle_button').css({"display": "none"});
+            $('#elementsOfSidebar_Admin').css({"display": "none"});
+            $('#elementsOfSidebar_Support').css({"display": ""});
+            $('#elementsOfSidebar_Sensor').css({"display": ""});
+            $('#elementsOfSidebar_Tableau').css({"display": ""});
+            $('#elementsOfSidebar_Accueil').css({"display": ""});
+        }
+
+        /*** 2 = CLIENT & ADMIN ***/
+    else
+        {
+            $('#toggle_button').css({"display": ""});
+            $('#elementsOfSidebar_Admin').css({"display": ""});
+            $('#elementsOfSidebar_Support').css({"display": "none"});
+            $('#elementsOfSidebar_Sensor').css({"display": "none"});
+            $('#elementsOfSidebar_Tableau').css({"display": "none"});
+            $('#elementsOfSidebar_Accueil').css({"display": "none"});
+        }
+    });
+    $("#myonoffswitch").click(function () {
+
+        if ($('#myonoffswitch').is(':checked') == false) {
+            $('#elementsOfSidebar_Admin').css({"display": "none"});
+            $('#elementsOfSidebar_Support').css({"display": ""});
+            $('#elementsOfSidebar_Sensor').css({"display": ""});
+            $('#elementsOfSidebar_Tableau').css({"display": ""});
+            $('#elementsOfSidebar_Accueil').css({"display": ""});
+            alert(<?php echo $_COOKIE[$cookie_toggle_state] ?>);
+
+        }
+
+        else {
+            $('#elementsOfSidebar_Admin').css({"display": ""});
+            $('#elementsOfSidebar_Support').css({"display": "none"});
+            $('#elementsOfSidebar_Sensor').css({"display": "none"});
+            $('#elementsOfSidebar_Tableau').css({"display": "none"});
+            $('#elementsOfSidebar_Accueil').css({"display": "none"});
+        }
+    })
+</script>
+
+<script>
+    function GoTo(page) {
+        $.ajax({
+            success: function () {
+                window.location.href = page
+            }
+        })
+    }
+</script>
