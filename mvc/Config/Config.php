@@ -24,7 +24,7 @@
 			$db_user ="root";
 			$db_password="";*/
 
-			/* CONFIG SERVEUR */
+			/* CONFIG SERVEUR*/
 			$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
 			$db_user ="phpmyadmin";

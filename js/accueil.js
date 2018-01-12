@@ -74,6 +74,8 @@ function addRoom(plusPart, room, id_room_db) {
     |*  If it does not exist, we clone the code in <div id="main"> (it is a model) and  *|
     |*  set the icon part (icon, text and color relative to the room we are creating).  *|
     |*                                                                                  *|
+    |*  A part has been added to deal with the case of adding rooms and sensors.        *|
+    |*                                                                                  *|
     \************************************************************************************/
 
                         /*\
@@ -235,6 +237,10 @@ var deleted_elements = [];
 
 /******************************INTERMEDIATE FUNCTIONS*********************************/
 
+
+/**THIS PART IS VERY AWFUL, DID NOT FIND ANOTHER SOLUTION**/
+/**IT IS USED TO SET THE CSS OF BEFORE PARTS **/
+/**HERE IT CREATES ANOTHER CLASS WHERE WE MODIFIED THE BEFORE PART**/
 var UID = {
 	_current: 0,
 	getNew: function(){
@@ -262,7 +268,7 @@ HTMLElement.prototype.pseudoStyle = function(element,prop,value){
 function darkenColor(color, percentage) {
     /*********************************DOCUMENTATION**************************************\
     |*                                                                                  *|
-    |*  This function darken a color passed in parameter by a percentage                *|
+    |*  This function darkens a color passed in parameter by a percentage               *|
     |*  set by the user.                                                                *|
     |*                                                                                  *|
     |*  It splits the rgb code and decreases the 3 values by the percentage (e.g. 0.2). *|
@@ -290,6 +296,7 @@ function removeFromArray(array, element) {
 
 
 function setCursorStyle(array, style) {
+    /** Array is a document.getElementsByClassName **/
     for (var i = 0; i < array.length; i++) {
         array[i].style.cursor = style;
     }
@@ -328,6 +335,15 @@ function sendData(data, url) {
 /********************************CHANGING IN INTERFACE**************************************/
 
 function setContrast(element) {
+    /*********************************DOCUMENTATION**************************************\
+    |*                                                                                  *|
+    |*  When clicking on an element, this element becomes darker than initially.        *|
+    |*  After that, the element is pushed into the deleted_elements array.              *|
+    |*                                                                                  *|
+    |*  If the element is dark initially, when clicking the element becomes lighter.    *|
+    |*  After that the clicked element is remoived from the deleted_elements array.     *|
+    |*                                                                                  *|
+    \************************************************************************************/
     if (element.className=='iconPart') {
         var element_sensor = element.nextElementSibling.children;
 
@@ -375,6 +391,13 @@ function setContrast(element) {
 
 
 function addPlusIconForSensors(roomClassName, addToDatabase) {
+    /*********************************DOCUMENTATION**************************************\
+    |*                                                                                  *|
+    |*  When the user wants to add rooms and sensors, we set the plus icon.             *|
+    |*                                                                                  *|
+    |*  It is similar to the function setIconPart.                                      *|
+    |*                                                                                  *|
+    \************************************************************************************/
     var roomClass = document.getElementsByClassName(roomClassName);
     for (var i = 0; i < roomClass.length; i++) {
         var roomID = roomClass[i].id;
@@ -425,6 +448,15 @@ function addPlusIconForSensors(roomClassName, addToDatabase) {
 
 
 function createScrollBox(element, type) {
+    /*********************************DOCUMENTATION**************************************\
+    |*                                                                                  *|
+    |*  ScrollBox for adding rooms or sensors.                                          *|
+    |*                                                                                  *|
+    |*  Problem : not responsive at all.                                                *|
+    |*  If the cell containing the icon of room or sensor is smaller than normal,       *|
+    |*  the scrollbox will not be placed near the cell.                                 *|
+    |*                                                                                  *|
+    \************************************************************************************/
     if (type=='sensor') {
         var box = document.getElementsByClassName('navigationSensor');
         box = box[0];
@@ -733,8 +765,9 @@ function cancel_modifications(real) {
         var condition = true;
     }
     if (condition) {
-        //put the code here if the user presses Ok
         /****************************CANCEL ADDING PART*****************************/
+
+        document.getElementById('add_sensor_room').innerHTML = 'Ajouter des capteurs et des pièces';
 
         var addRoomClass = document.getElementsByClassName('addingRoom');
         for (var i = 0; i < addRoomClass.length; i++) {
@@ -798,6 +831,7 @@ function cancel_modifications(real) {
         document.getElementById('add_sensor_room').style.display = 'block';
         document.getElementById('delete_sensor_room').style.marginLeft = '2%';
         document.getElementById('delete_sensor_room').style.display = 'block';
+        document.getElementById('delete_sensor_room').innerHTML = 'Supprimer des capteurs et des pièces';
         /***************************************************************************/
 
 
