@@ -24,12 +24,18 @@
 			$db_user ="root";
 			$db_password="";*/
 
-			/* CONFIG SERVEUR*/
+			/* CONFIG 3 */
+			$db_host="mysql:host=localhost;port=;";
+			$db_name="dbname=elliot_db";
+			$db_user ="root";
+			$db_password="GDBx:P3k";
+
+			/* CONFIG SERVEUR
 			$db_host="mysql:host=localhost;port=3306;";
 			$db_name="dbname=elliot_db";
 			$db_user ="phpmyadmin";
 			$db_password="M7<dk8A,~zdD92%C";
-
+			*/
 		}
 
 		/** @brief retourne le tableau des chemins vers les vues */

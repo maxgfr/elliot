@@ -1,14 +1,49 @@
 <link rel="stylesheet" href="../../css/header.css">
 <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
 <script src="../../js/header.js"></script>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+
+<script>
+    if (<?php echo $_SESSION['role'] ?> == 1) {
+    document.cookie ='cookie_toggle_state=1' ;
+}
+            
+        /*** 0 = CLIENT ***/
+else
+    if (<?php $_SESSION['role'] ?> == 0) {
+            document.cookie ='cookie_toggle_state=0' ;
+        }
+        /*** 2 = CLIENT & ADMIN ***/
+    else
+        {
+            document.cookie ='cookie_toggle_state=0' ;
+            /**$('#toggle_button').css({"display": ""});**/
+        }
+</script>
+
 
 <?php
-
-if (!isset($_COOKIE[$cookie_toggle_state])) {
-    $cookie_toggle_state = "1";
-    setcookie($cookie_toggle_state, time() + (86400 * 30), "/"); // 86400 = 1 day
+       /*** 1 = ADMIN ***/ /**
+if ($_SESSION['role'] == 1) {
+    setcookie('cookie_toggle_state', "1", time() + (86400 * 30), "/"); 
 }
-?>
+            
+        /*** 0 = CLIENT ***/ /**
+else
+    if ($_SESSION['role'] == 0) {
+            setcookie('cookie_toggle_state', "0", time() + (86400 * 30), "/");
+        }
+        /*** 2 = CLIENT & ADMIN ***/ /**
+    else
+        {
+            setcookie('cookie_toggle_state', "1", time() + (86400 * 30), "/");
+            /**$('#toggle_button').css({"display": ""});**/ /**
+        }
+        **/ ?>
+
+<script>
+
+</script>
 
 <div class="header">
     <div class="header_container">
@@ -143,66 +178,23 @@ if (!isset($_COOKIE[$cookie_toggle_state])) {
         </div>
     </div>
 </div>
-<script src="../../js/jquery-3.2.1.min.js"></script>
-
-
 <script>
-    $(document).ready(function () {
-        /*** 1 = ADMIN ***/
-        if (<?php echo $_SESSION['role'] ?> == 1
-    )
-        {
-            $('#toggle_button').css({"display": "none"});
-            $('#elementsOfSidebar_Admin').css({"display": ""});
-            $('#elementsOfSidebar_Support').css({"display": "none"});
-            $('#elementsOfSidebar_Sensor').css({"display": "none"});
-            $('#elementsOfSidebar_Tableau').css({"display": "none"});
-            $('#elementsOfSidebar_Accueil').css({"display": "none"});
-        }
-        /*** 0 = CLIENT ***/
-    else
-        if (<?php echo $_SESSION['role'] ?> == 0
-    )
-        {
-            $('#toggle_button').css({"display": "none"});
-            $('#elementsOfSidebar_Admin').css({"display": "none"});
-            $('#elementsOfSidebar_Support').css({"display": ""});
-            $('#elementsOfSidebar_Sensor').css({"display": ""});
-            $('#elementsOfSidebar_Tableau').css({"display": ""});
-            $('#elementsOfSidebar_Accueil').css({"display": ""});
-        }
+$(document).ready(function () {
 
-        /*** 2 = CLIENT & ADMIN ***/
-    else
-        {
-            $('#toggle_button').css({"display": ""});
-            $('#elementsOfSidebar_Admin').css({"display": ""});
-            $('#elementsOfSidebar_Support').css({"display": "none"});
-            $('#elementsOfSidebar_Sensor').css({"display": "none"});
-            $('#elementsOfSidebar_Tableau').css({"display": "none"});
-            $('#elementsOfSidebar_Accueil').css({"display": "none"});
-        }
-    });
     $("#myonoffswitch").click(function () {
 
         if ($('#myonoffswitch').is(':checked') == false) {
-            $('#elementsOfSidebar_Admin').css({"display": "none"});
-            $('#elementsOfSidebar_Support').css({"display": ""});
-            $('#elementsOfSidebar_Sensor').css({"display": ""});
-            $('#elementsOfSidebar_Tableau').css({"display": ""});
-            $('#elementsOfSidebar_Accueil').css({"display": ""});
-            alert(<?php echo $_COOKIE[$cookie_toggle_state] ?>);
-
+            document.cookie = "cookie_toggle_state=0";
+            useTheCookieLuke();
         }
 
-        else {
-            $('#elementsOfSidebar_Admin').css({"display": ""});
-            $('#elementsOfSidebar_Support').css({"display": "none"});
-            $('#elementsOfSidebar_Sensor').css({"display": "none"});
-            $('#elementsOfSidebar_Tableau').css({"display": "none"});
-            $('#elementsOfSidebar_Accueil').css({"display": "none"});
+        else {  
+            document.cookie = "cookie_toggle_state=1";
+            useTheCookieLuke();
         }
     })
+});
+
 </script>
 
 <script>
@@ -213,4 +205,39 @@ if (!isset($_COOKIE[$cookie_toggle_state])) {
             }
         })
     }
+</script>
+
+<script>
+    useTheCookieLuke();
+    function useTheCookieLuke() {
+
+        var text = document.cookie;
+        var number = text.indexOf("cookie_toggle_state=");
+        var toggle_state = text[number + 20];
+
+    if (toggle_state == 0)
+    {
+            if (<?php echo $_SESSION['role'] ?> != 2) 
+            {
+                $('#toggle_button').remove();
+            }
+
+            $('#elementsOfSidebar_Admin').remove();
+            $('#elementsOfSidebar_Support').css({"display": ""});
+            $('#elementsOfSidebar_Sensor').css({"display": ""});
+            $('#elementsOfSidebar_Tableau').css({"display": ""});
+            $('#elementsOfSidebar_Accueil').css({"display": ""});
+            $('#elementsOfSidebar_Admin').css({"background-color": "blue"});
+    }
+
+    else
+    {
+        $('#elementsOfSidebar_Admin').css({"display": ""});
+        $('#elementsOfSidebar_Support').remove();
+        $('#elementsOfSidebar_Sensor').remove();
+        $('#elementsOfSidebar_Tableau').remove();
+        $('#elementsOfSidebar_Accueil').remove();
+        $('.sidebarContainer').css({"background-color": "purple"});
+    }
+}
 </script>
