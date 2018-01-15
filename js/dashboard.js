@@ -278,7 +278,7 @@ function createLegend(canvas, context, array, colorArray) {
 **************************************
 **********************************************
 *******************************************************
-*   CHART FUNCTIONS     ************************************** BONNE ANNEE
+*   CHART FUNCTIONS     **************************************
 *******************************************************
 **********************************************
 **************************************
@@ -287,8 +287,6 @@ function createLegend(canvas, context, array, colorArray) {
 ****************
 **********
 */
-
-
 
 
 function draw() {
@@ -323,6 +321,8 @@ function draw() {
         arrText.push('Test');
     }
 
+
+
     createVerticalBarChart(canvas_bar, ctx['canvas_bar'], arrText, arrValues, 600, '#264376', 'Creation of a bar chart for ellIoT');
 
     createDoughnutChart(canvas_doughnut, ctx['canvas_doughnut'], ['5% Température', '25% Luminosité', '31% Présence', '10% Baromètre', '29% Humidité'], [0.05, 0.25, 0.31, 0.1, 0.29], 'Creation of a doughnut chart for ellIoT');
@@ -340,7 +340,28 @@ function draw() {
 
     createPolarAreaChart(canvas_polar, ctx['canvas_polar'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [20, 55, 45, 20, 34, 69, 5], 'Creation of a polar area chart for ellIoT');
 
-    createLineChart(canvas_line, ctx['canvas_line'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [0, -140, -80, -80, -180, -60, -80], 200, '', 'Creation of a line chart for ellIoT', 0.5, false);
+
+    /******************************AJAX AND JSON PART*******************************/
+
+    var dbParam, xmlhttp, myObj, x = "";
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            array_date = [];
+            array_value = [];
+            for (x in myObj) {
+                array_date.push(myObj[x].dateTimeArray);
+                array_value.push(parseInt(-myObj[x].valueArray));
+            }
+            createLineChart(canvas_line, ctx['canvas_line'], array_date, array_value, 70, '', 'Creation of a line chart for ellIoT', 0.5, false);
+        }
+    };
+    xmlhttp.open("POST", "../Modeles/DashboardAjaxQuery.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("x=" + dbParam);
+
+    /*******************************************************************************/
 
     createLineChart(canvas_boundary, ctx['canvas_boundary'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [-70, -20, -190, -30, -150, -45, -99], 200, '', 'Creation of a boundary chart for ellIoT', 0, false);
 
