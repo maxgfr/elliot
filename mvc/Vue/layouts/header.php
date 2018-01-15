@@ -82,7 +82,7 @@
     </div>
 </div>
 
-<div class="sidebarContainer">
+<div class="sidebarContainer" style="display: none" id="sidebarContainer">
     <div id="elliot_icon" onclick="GoTo('vueAccueil.php')">
         <div id="small_icon">
             <img src="../../img/smallellIoT.png" alt="Small ellIoT Icon">
