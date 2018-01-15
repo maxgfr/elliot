@@ -40,7 +40,8 @@ CREATE TABLE `accomodation` (
 
 INSERT INTO `accomodation` (`id_accomodation`, `name`, `id_building`) VALUES
 (1, 'Appartement 52', 1),
-(2, 'Appartement 324', 2);
+(2, 'Appartement 324', 2),
+(3, 'Appartement 423', 2);
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,8 @@ CREATE TABLE `building` (
 
 INSERT INTO `building` (`id_building`, `name`) VALUES
 (1, 'Building Champs-Elysées'),
-(2, 'Building Issy-les-Moulineaux');
+(2, 'Building Issy-les-Moulineaux'),
+(3, 'Building Notre-Dame des Champs');
 
 -- --------------------------------------------------------
 
@@ -10015,7 +10017,14 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id_message`, `date`, `contenu`, `id_user`) VALUES
-(1, '2017-12-01', 'La température est mal réglée', 1);
+(1, '2017-12-01', 'La température est mal réglée', 1),
+(2, '2018-01-01', 'Bonne année !', 1),
+(3, '2017-12-21', 'Une intrusion a été détectée', 2),
+(4, '2018-01-01', 'Bonne année !', 2),
+(5, '2017-12-01', 'La lumière est allumée depuis plus d\'une journée', 3),
+(6, '2018-01-01', 'Bonne année !', 3),
+(7, '2017-12-01', 'L\'humidité est anormalement élevée sur la dernière journée', 4),
+(8, '2018-01-01', 'Bonne année !', 4);
 
 -- --------------------------------------------------------
 
@@ -10096,7 +10105,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
-(1, 'Elliot', '', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
+(1, 'Elliot', 'Alderson', 'elliot@elliot.com', '65f1aaaa901a3080e06ad50869a72a8b85190dad', '2017-09-09', NULL, 0),
 (2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 1),
 (3, 'Albert', 'Einstein', 'albert@einstein.com', 'a85e8111e7c25d989ac2f41ff4d8dd0b52834889', '1879-03-14', NULL, 2),
 (4, 'Sergio', 'Sergi', 'root@root.fr', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', '1997-04-19', NULL, 1);

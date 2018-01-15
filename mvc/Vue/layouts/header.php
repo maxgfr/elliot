@@ -3,48 +3,6 @@
 <script src="../../js/header.js"></script>
 <script src="../../js/jquery-3.2.1.min.js"></script>
 
-<script>
-    if (<?php echo $_SESSION['role'] ?> == 1) {
-    document.cookie ='cookie_toggle_state=1' ;
-}
-            
-        /*** 0 = CLIENT ***/
-else
-    if (<?php $_SESSION['role'] ?> == 0) {
-            document.cookie ='cookie_toggle_state=0' ;
-        }
-        /*** 2 = CLIENT & ADMIN ***/
-    else
-        {
-            document.cookie ='cookie_toggle_state=0' ;
-            /**$('#toggle_button').css({"display": ""});**/
-        }
-</script>
-
-
-<?php
-       /*** 1 = ADMIN ***/ /**
-if ($_SESSION['role'] == 1) {
-    setcookie('cookie_toggle_state', "1", time() + (86400 * 30), "/"); 
-}
-            
-        /*** 0 = CLIENT ***/ /**
-else
-    if ($_SESSION['role'] == 0) {
-            setcookie('cookie_toggle_state', "0", time() + (86400 * 30), "/");
-        }
-        /*** 2 = CLIENT & ADMIN ***/ /**
-    else
-        {
-            setcookie('cookie_toggle_state', "1", time() + (86400 * 30), "/");
-            /**$('#toggle_button').css({"display": ""});**/ /**
-        }
-        **/ ?>
-
-<script>
-
-</script>
-
 <div class="header">
     <div class="header_container">
         <div id="hamburger_button" onclick="setSideBarStatus()">
@@ -178,66 +136,7 @@ else
         </div>
     </div>
 </div>
-<script>
-$(document).ready(function () {
 
-    $("#myonoffswitch").click(function () {
 
-        if ($('#myonoffswitch').is(':checked') == false) {
-            document.cookie = "cookie_toggle_state=0";
-            useTheCookieLuke();
-        }
 
-        else {  
-            document.cookie = "cookie_toggle_state=1";
-            useTheCookieLuke();
-        }
-    })
-});
-
-</script>
-
-<script>
-    function GoTo(page) {
-        $.ajax({
-            success: function () {
-                window.location.href = page
-            }
-        })
-    }
-</script>
-
-<script>
-    useTheCookieLuke();
-    function useTheCookieLuke() {
-
-        var text = document.cookie;
-        var number = text.indexOf("cookie_toggle_state=");
-        var toggle_state = text[number + 20];
-
-    if (toggle_state == 0)
-    {
-            if (<?php echo $_SESSION['role'] ?> != 2) 
-            {
-                $('#toggle_button').remove();
-            }
-
-            $('#elementsOfSidebar_Admin').remove();
-            $('#elementsOfSidebar_Support').css({"display": ""});
-            $('#elementsOfSidebar_Sensor').css({"display": ""});
-            $('#elementsOfSidebar_Tableau').css({"display": ""});
-            $('#elementsOfSidebar_Accueil').css({"display": ""});
-            $('#elementsOfSidebar_Admin').css({"background-color": "blue"});
-    }
-
-    else
-    {
-        $('#elementsOfSidebar_Admin').css({"display": ""});
-        $('#elementsOfSidebar_Support').remove();
-        $('#elementsOfSidebar_Sensor').remove();
-        $('#elementsOfSidebar_Tableau').remove();
-        $('#elementsOfSidebar_Accueil').remove();
-        $('.sidebarContainer').css({"background-color": "purple"});
-    }
-}
-</script>
+<?php include('toggle.php'); ?>
