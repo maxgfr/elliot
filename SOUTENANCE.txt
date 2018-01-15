@@ -1,0 +1,60 @@
+Date de passage : Vendredi 02 février 2018, 09h00-10h30
+Salle : L417
+Jury :	Patrick Wang (patrick.wang@isep.fr), Hervé Feller (herve.feller@gmail.com)
+Tuteur : Denis Maurel (denis.maurel@isep.f)
+
+
+
+Documents à déposer sur Moodle ET envoyer au tuteur et aux jurés avant le 1 février 2018 à 23h59 :
+	PDFs à mettre à jour (pas besoin d'imprimer pour la soutenance) :
+		- Spécification fonctionnelle
+			Reprendre l'ancien rapport.
+			Objectif et limite du projet, rappel des besoins/fonctionnalités en diagrammes UML.
+
+		- Conception technique
+			Reprendre l'ancien rapport.
+			Base de donnée et son organisation + choix technologiques.
+
+		- Manuel Utilisateur
+			Comment utiliser/naviguer dans le site Web (Capture d'écran) à inclure).
+
+		- Manuel de déploiement
+			Comment installer/lancer le site Web : Où récupérer le code source (Git), quelles versions 
+			de XAMP, quels navigateurs, quelle sécurité, ...
+
+		- Lien vers les documents de suivi APP
+
+	Fichier ZIP :
+		- Tout le site Web, ou lien vers Git
+		- Dump de la base de donnée
+		- Ajouter le tuteur au projet
+
+
+
+
+Soutennce de 1h30 : 30-40 min de présentation + 40-50 min d'échanges avec le jury
+	Présentation :
+		- Aspects fonctionnels du site
+			Fonctionnalités, réponse au cahier des charges/demandes du client, ergonomie.
+			Montrer la progression.
+			Indiquer ce qui a été fait/pas fait.
+
+		- Aspects techniques
+			Architecture du site, modules, modèle de données.
+
+		- Aspects gestion de projet
+			Organisation de l'équipe et les rôles attribués, méthode de travail, outils utilisés, méthodologie de test, qualité du produit, retour sur les apports/difficultés de l'APP, etc.
+
+		Aspects fonctionnels + Aspects techniques = 25-30 min
+		Demonstration exhaustive sous forme de scénario avec points forts/faibles du site.
+		Auto-critique constructive à ajouter.
+
+	Echanges avec le jury :
+		Questions techniques ou organisationnelles.
+		Questions globales ou ciblées personnellement.
+		Exemples :
+			- Temps nécessaire pour intégrer une nouvelle fonctionnalité
+			- Architecture technique et améliorations possibles
+			- Auto-analyse du projet
+			- Critique des technologies utilisées (PHP/MySQL, ...)
+			- ...
