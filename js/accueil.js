@@ -12,27 +12,6 @@
 \*********************************************************************************************/
 
 
-
-/******************************AJAX AND JSON PART*******************************/
-
-var dbParam, xmlhttp, myObj, x = "";
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        for (x in myObj) {
-            addRoom(false, myObj[x].nameOfRoom, myObj[x].idOfRoom);
-            var idRoom = myObj[x].nameOfRoom + '_' + myObj[x].idOfRoom;
-            setTablePart(idRoom, myObj[x].idOfSensor, myObj[x].nameOfFamilysensor, myObj[x].valueOfSensor);
-        }
-    }
-};
-xmlhttp.open("POST", "../Modeles/AccueilAjaxQuery.php", true);
-xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
-
-/*******************************************************************************/
-
 color_of_cells = {'bedroom_0' : '#264376',
                   'bedroom_1' : '#DDAC26',
                   'bedroom_2' : '#5F3F5D',
