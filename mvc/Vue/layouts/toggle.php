@@ -16,6 +16,7 @@
                 $('#elementsOfSidebar_Tableau').css({"display": ""});
                 $('#elementsOfSidebar_Accueil').css({"display": ""});
                 $('.sidebarContainer').css({"background-color": "rgb(38, 67, 120)"});
+
                 break;
             case 1:
                 document.getElementById("toggle_button").remove();
@@ -24,7 +25,9 @@
                 $('#elementsOfSidebar_Sensor').remove();
                 $('#elementsOfSidebar_Tableau').remove();
                 $('#elementsOfSidebar_Accueil').remove();
-                $('.sidebarContainer').css({"background-color": "purple"});
+                $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
+                $('.header').css({"background-color": "rgb(78, 85, 106)"});
+                $('#hamburger_button').css({"color": "rgb(78, 85, 106)"});
                 break;
             case 2:
                 document.cookie = "cookie_toggle_state=1";
@@ -49,12 +52,12 @@
             if ($('#myonoffswitch').is(':checked') == false) {
                 document.cookie = "cookie_toggle_state=0";
                 useTheCookieLuke();
-                window.location.href = 'VueAccueil.php';
+                window.location.href = 'vueAccueil.php';
             }
             else {
                 document.cookie = "cookie_toggle_state=1";
                 useTheCookieLuke();
-                window.location.href = 'VueAdmin.php';
+                window.location.href = 'vueAdmin.php';
             }
         })
 
@@ -79,12 +82,6 @@
     function useTheCookieLuke() {
         var verif = getCookie("cookie_toggle_state") == "1";
 
-        /* var verif_text = getCookie("cookie_toogle_state");
-         var verif_1 = verif_text == "1";
-         var verif_0 = verif_text == "0";
-         console.log(verif_0);
-         console.log(verif_1); */
-
         if (!verif) {
             $('#elementsOfSidebar_Admin').css({"display": "none"});
             $('#elementsOfSidebar_Support').css({"display": ""});
@@ -99,7 +96,9 @@
             $('#elementsOfSidebar_Sensor').css({"display": "none"});
             $('#elementsOfSidebar_Tableau').css({"display": "none"});
             $('#elementsOfSidebar_Accueil').css({"display": "none"});
-            $('.sidebarContainer').css({"background-color": "purple"});
+            $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
+            $('.header').css({"background-color": "rgb(78, 85, 106)"});
+            $('#hamburger_button').css({"color": "rgb(78, 85, 106)"});
         }
     }
 
@@ -116,8 +115,7 @@
         var verif = getCookie("cookie_toggle_state") == "1";
 
         if (verif) {
-            console.log("YOUPI");
-            window.location.href = 'VueAdmin.php';
+            window.location.href = 'vueAdmin.php';
         }
         else {
             window.location.href = page;
