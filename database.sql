@@ -80,8 +80,8 @@ CREATE TABLE `datasensors` (
 -- Déchargement des données de la table `datasensors`
 --
 
-INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) VALUES
-	    (1, '2016-01-01', 15, '1'),
+INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) VALUES 
+			(1, '2016-01-01', 15, '1'),
             (2, '2016-01-01', 19, '2'),
             (3, '2016-01-01', 46, '3'),
             (4, '2016-01-01', 52, '4'),
@@ -9974,6 +9974,7 @@ INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) V
             (9891, '2018-01-30', 1017, '11'),
             (9892, '2018-01-30', 25, '12'),
             (9893, '2018-01-30', 41, '13');
+            
             
         
 
