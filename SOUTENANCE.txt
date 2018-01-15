@@ -1,4 +1,4 @@
-Date de passage : Vendredi 02 février 2018, 09h00-10h30
+﻿Date de passage : Vendredi 02 février 2018, 09h00-10h30
 Salle : L417
 Jury :	Patrick Wang (patrick.wang@isep.fr), Hervé Feller (herve.feller@gmail.com)
 Tuteur : Denis Maurel (denis.maurel@isep.f)
@@ -13,10 +13,10 @@ Documents à déposer sur Moodle ET envoyer au tuteur et aux jurés avant le 1 f
 
 		- Conception technique
 			Reprendre l'ancien rapport.
-			Base de donnée et son organisation + choix technologiques.
+			Base de données et son organisation + choix technologiques.
 
 		- Manuel Utilisateur
-			Comment utiliser/naviguer dans le site Web (Capture d'écran) à inclure).
+			Comment utiliser/naviguer dans le site Web (Capture d'écran) à inclure.
 
 		- Manuel de déploiement
 			Comment installer/lancer le site Web : Où récupérer le code source (Git), quelles versions 
