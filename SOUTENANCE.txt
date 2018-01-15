@@ -26,7 +26,7 @@ Documents à déposer sur Moodle ET envoyer au tuteur et aux jurés avant le 1 f
 
 	Fichier ZIP :
 		- Tout le site Web, ou lien vers Git
-		- Dump de la base de donnée
+		- Dump de la base de données
 		- Ajouter le tuteur au projet
 
 
