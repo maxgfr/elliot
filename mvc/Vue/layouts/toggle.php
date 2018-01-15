@@ -16,7 +16,6 @@
                 $('#elementsOfSidebar_Tableau').css({"display": ""});
                 $('#elementsOfSidebar_Accueil').css({"display": ""});
                 $('.sidebarContainer').css({"background-color": "rgb(38, 67, 120)"});
-                $('#sidebarContainer').css({"display": ""});
                 break;
             case 1:
                 document.getElementById("toggle_button").remove();
@@ -26,7 +25,6 @@
                 $('#elementsOfSidebar_Tableau').remove();
                 $('#elementsOfSidebar_Accueil').remove();
                 $('.sidebarContainer').css({"background-color": "purple"});
-                $('#sidebarContainer').css({"display": ""});
                 break;
             case 2:
                 document.cookie = "cookie_toggle_state=1";
@@ -94,7 +92,6 @@
             $('#elementsOfSidebar_Tableau').css({"display": ""});
             $('#elementsOfSidebar_Accueil').css({"display": ""});
             $('.sidebarContainer').css({"background-color": "rgb(38, 67, 120)"});
-            $('#sidebarContainer').css({"display": ""});
         }
         else if (verif) {
             $('#elementsOfSidebar_Admin').css({"display": ""});
@@ -103,7 +100,6 @@
             $('#elementsOfSidebar_Tableau').css({"display": "none"});
             $('#elementsOfSidebar_Accueil').css({"display": "none"});
             $('.sidebarContainer').css({"background-color": "purple"});
-            $('#sidebarContainer').css({"display": ""});
         }
     }
 
