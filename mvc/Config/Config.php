@@ -19,16 +19,16 @@
 			$db_password="";*/
 
 			/* CONFIG MARIN */
-			/*$db_host="mysql:host=localhost;port=;";
-			$db_name="dbname=elliot_db";
-			$db_user ="root";
-			$db_password="";*/
-
-			/* CONFIG 3 */
 			$db_host="mysql:host=localhost;port=;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
-			$db_password="GDBx:P3k";
+			$db_password="";
+
+			/* CONFIG 3 */
+			/*$db_host="mysql:host=localhost;port=;";
+			$db_name="dbname=elliot_db";
+			$db_user ="root";
+			$db_password="GDBx:P3k"; */
 
 			/* CONFIG SERVEUR
 			$db_host="mysql:host=localhost;port=3306;";
