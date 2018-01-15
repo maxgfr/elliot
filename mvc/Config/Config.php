@@ -22,7 +22,7 @@
 			/*$db_host="mysql:host=localhost;port=;";
 			$db_name="dbname=elliot_db";
 			$db_user ="root";
-			$db_password=""; */
+			$db_password="";*/
 
 			/* CONFIG 3 */
 			/*$db_host="mysql:host=localhost;port=;";

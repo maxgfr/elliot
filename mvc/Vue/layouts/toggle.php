@@ -49,10 +49,12 @@
             if ($('#myonoffswitch').is(':checked') == false) {
                 document.cookie = "cookie_toggle_state=0";
                 useTheCookieLuke();
+                window.location.href = 'VueAccueil.php';
             }
             else {
                 document.cookie = "cookie_toggle_state=1";
                 useTheCookieLuke();
+                window.location.href = 'VueAdmin.php';
             }
         })
 
