@@ -12,7 +12,7 @@
         <div id="header_right">
             <div id="toggle_button">
                 <div class="onoffswitch">
-                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
                     <label class="onoffswitch-label" for="myonoffswitch">
                         <span class="onoffswitch-inner"></span>
                         <span class="onoffswitch-switch"></span>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div id="logout" class="header_hover">
-                <a href="../Modeles/Logout.php"><img src="../../img/logoutIcon.png" alt="Logout Icon"/></a>
+                <a href="../Modeles/Logout.php"><img src="../../img/logoutIcon.png" alt="Logout Icon" id="Logout_button"/></a>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@
         <div id="small_icon">
             <img src="../../img/smallellIoT.png" alt="Small ellIoT Icon">
         </div>
-        <div id="big_icon" onclick="window.location.href='vueAccueil.php'">
+        <div id="big_icon" onclick="GoTo_big_icon('vueAccueil.php')">
             <img src="../../img/ellIoT.png" alt="Big ellIoT Icon">
         </div>
     </div>
@@ -136,7 +136,5 @@
         </div>
     </div>
 </div>
-
-
 
 <?php include('toggle.php'); ?>
