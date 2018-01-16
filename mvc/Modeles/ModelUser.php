@@ -46,7 +46,7 @@ class ModelUser extends Model
         $inputArray['password'] = hash("sha1", $inputArray['password']);
         $inputArray['id_user'] = substr(abs(crc32(uniqid())), 0, 8);
         // Execution de la requête d'insertion' :
-        $data = array($inputArray["id_user"], $inputArray["last_name"], $inputArray["first_name"], $inputArray["mail"], $inputArray["password"], $inputArray["birthday"], $inputArray["phone_number"], 1);
+        $data = array($inputArray["id_user"], $inputArray["last_name"], $inputArray["first_name"], $inputArray["mail"], $inputArray["password"], $inputArray["birthday"], $inputArray["phone_number"], 0);
         $result = DataBaseManager::getInstance()->prepareAndLaunchQuery("SELECT * FROM users WHERE mail=?", array($inputArray["mail"]));
         if (count($result) > 0) {
             $model->dataError["doublon"] = "Utilisateur déjà inscrit avec cette adresse";
