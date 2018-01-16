@@ -12,9 +12,9 @@
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
 
-    $sql_query = "SELECT * FROM `message` WHERE `id_user` = ";
+    $sql_query = "SELECT * FROM message WHERE id_user = ?";
 
-    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,array());
+    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,[$_SESSION['id_user']]);
 
     echo json_encode($query);
 ?>
