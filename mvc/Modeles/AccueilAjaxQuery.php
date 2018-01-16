@@ -18,10 +18,10 @@
                   LEFT JOIN sensors t2 ON t2.id_room = t1.id_room
                   LEFT JOIN familysensor t3 ON t2.id_familysensor = t3.id_familysensor
                   LEFT JOIN datasensors t4 ON t2.id_sensor = t4.id_sensor
-                  WHERE t4.date_time = (SELECT max(date_time) FROM datasensors t5 WHERE t5.id_sensor = t4.id_sensor AND id_accomodation = 2) OR t4.date_time IS NULL
+                  WHERE t4.date_time = ? AND id_accomodation = 2
                   ORDER BY t1.name";
 
-    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,array());
+    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [date('Y-m-d')]);
 
     echo json_encode($query);
 ?>
