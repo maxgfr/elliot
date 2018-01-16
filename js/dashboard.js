@@ -14,8 +14,6 @@
 |*  createLinearGrid : creates an orthogonal grid from values of an array given in           *|
 |*                     parameter. It is possible to hide vertical and/or horizontal lines.   *|
 |*                                                                                           *|
-|*  createRadarGrid : creates a radar grid.                                                  *|
-|*                                                                                           *|
 |*  createPolarGrid : creates a polar grid.                                                  *|
 |*                                                                                           *|
 |*  createPoint : creates a point in a canva. The position (Abscissa and Ordinate),          *|
@@ -165,33 +163,6 @@ function createLinearGrid(canvas, context, xArray, yArray, yMin, max, showHorizo
         context.closePath();
     }
 
-}
-
-
-function createRadarGrid(canvas, context, xArray, yArray, max, showAxis, showCyclicLines) {
-    /*******************GET GLOBAL PROPERTIES*******************/
-    var height_of_canvas = canvas.style.height;
-    height_of_canvas = Number(height_of_canvas.replace('px', ''));
-    var width_of_canvas = canvas.style.width;
-    width_of_canvas = Number(width_of_canvas.replace('px', ''));
-
-
-    /***************SET PROPERTY FOR THE TITLE******************/
-    var height_of_title = 0.07*height_of_canvas;
-
-    var xCenter = width_of_canvas / 2;
-    var yCenter = (height_of_canvas - height_of_title) / 2;
-    var radius = width_of_canvas/4;
-
-    var number_of_points_abscissa = xArray.length;
-    context.translate(xCenter, yCenter);
-    for (var i = 0; i < xArray.length; i++) {
-        context.beginPath();
-        context.lineTo(0, radius/i);
-        context.strokeStyle = '#D3D3D3';
-        context.stroke();
-        context.closePath();
-    }
 }
 
 
