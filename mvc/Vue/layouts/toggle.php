@@ -28,6 +28,7 @@
                 $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
                 $('.header').css({"background-color": "rgb(78, 85, 106)"});
                 $('#hamburger_button').css({"color": "rgb(78, 85, 106)"});
+                $('#notification').remove();
                 break;
             case 2:
                 document.cookie = "cookie_toggle_state=1";
@@ -99,6 +100,7 @@
             $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
             $('.header').css({"background-color": "rgb(78, 85, 106)"});
             $('#hamburger_button').css({"color": "rgb(78, 85, 106)"});
+            $('#notification').remove();
         }
     }
 
