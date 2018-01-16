@@ -65,7 +65,24 @@ function setNotificationPopupStatus() {
     }
 }
 
-function showNotifications() {
+var dbParam, xmlhttp, myObj, x = "";
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        //console.log(this.responseText);
+        //myObj = JSON.parse(this.responseText);
+        for (x in myObj) {
+            var idmessage = myObj[x];
+            console.log(idmessage);
+        }
+    }
+};
+xmlhttp.open("POST", "../Modeles/MessageAjaxQuery.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+
+function showNotifications() {    
     document.getElementById("container_notification").style.display = "block";
     document.getElementById("how_many_notif").style.display = "none";
     notificationIsOpen = 1;
