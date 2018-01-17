@@ -1,17 +1,23 @@
 <?php
+// Répertoire racine du MVC
+$rootDirectory = dirname(__FILE__) . "/../../mvc/";
+// chargement de la classe Autoload pour autochargement des classes
+require_once($rootDirectory . 'Config/Autoload.php');
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+    Autoload::load();
 } catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+    require(Config::getVues()["default"]);
 }
 
-$variable = $_POST['data'];
+header("Content-Type: application/json; charset=UTF-8");
 
-$query = $bdd->prepare('SELECT nom FROM users ');
-$query->execute();
+$variable = $_POST['data']['titre'];
 
-while ($data = $query->fetch()) {
-    echo '<p>' . $data['nom'] . '</p>' . '<br />';
-}
-$query->closeCursor();
+$variable_1 = $_POST['data']['message'];
+
+$sql_query = "SELECT last_name,first_name,roles,mail FROM users WHERE $variable=?";
+
+$query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$variable_1]);
+
+echo json_encode($query);
 ?>
