@@ -84,7 +84,14 @@
         var verif = getCookie("cookie_toggle_state") == "1";
 
         if (!verif) {
-            $('#elementsOfSidebar_Admin').css({"display": "none"});
+            if (<?php echo $_SESSION['role'] ?> == 2)
+            {
+               $('#elementsOfSidebar_Admin').css({"display": "none"}); 
+            }
+            if (<?php echo $_SESSION['role'] ?> == 1)
+            {
+               $('#elementsOfSidebar_Admin').css({"display": ""}); 
+            }
             $('#elementsOfSidebar_Support').css({"display": ""});
             $('#elementsOfSidebar_Sensor').css({"display": ""});
             $('#elementsOfSidebar_Tableau').css({"display": ""});
@@ -116,7 +123,7 @@
     function GoTo_big_icon(page) {
         var verif = getCookie("cookie_toggle_state") == "1";
 
-        if (verif) {
+        if (verif || <?php echo $_SESSION['role'] ?> == 1) {
             window.location.href = 'vueAdmin.php';
         }
         else {
