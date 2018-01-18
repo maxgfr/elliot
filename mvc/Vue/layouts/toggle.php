@@ -119,7 +119,7 @@
             })
     }
 
-    function GoTo_big_icon(page) {
+    function GoTo_icon(page) {
         var verif = getCookie("cookie_toggle_state") == "1";
 
         if (verif || <?php echo $_SESSION['role'] ?> == 1) {
