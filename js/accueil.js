@@ -875,8 +875,8 @@ function add_to_database(target) {
                 failure.style.display = "block";
             }
         }
-        //reload after 3s
-        setTimeout(function (){location.reload()}, 3000);
+        //reload after 2s
+        setTimeout(function (){location.reload()}, 2000);
     };
     xmlhttp.open("POST", "../Modeles/AddRoomsAndSensorsAjaxQuery.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -999,8 +999,8 @@ function delete_from_database(target) {
                 failure.style.display = "block";
                 failure.innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être supprimé de la base de données";
             }
-            //reload after 3s
-            //setTimeout(function (){location.reload()}, 3000);
+            //reload after 2s
+            setTimeout(function (){location.reload()}, 2000);
         }
     };
     xmlhttp.open("POST", "../Modeles/DeleteRoomsAndSensorsAjaxQuery.php", true);

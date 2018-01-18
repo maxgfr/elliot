@@ -163,6 +163,22 @@ function createLinearGrid(canvas, context, xArray, yArray, yMin, max, showHorizo
         context.closePath();
     }
 
+    /*Abscissa values function of the xArray*/
+    context.moveTo(0.1*width_of_canvas, height_of_canvas - height_of_title - 0.1*height_of_canvas - 1);
+    for (var i = 0; i < number_of_points_abscissa; i++) {
+        var rotation = Math.PI/3.5;
+        context.beginPath();
+        context.save();
+        context.textAlign = 'right';
+        context.font = 'bold ' + String(0.3*height_of_canvas/xArray[i].length) + 'px sans-serif';
+        context.translate(0.1*width_of_canvas + i*length_of_abscissa/number_of_points_abscissa,
+                          height_of_canvas - height_of_title/3.9 - 0.1*height_of_canvas - 1);
+        context.rotate(-rotation);
+        context.fillText(xArray[i], 0, 0);
+        context.restore();
+        context.closePath();
+    }
+
 }
 
 
@@ -417,7 +433,7 @@ function createLineChart(canvas, context, xArray, yArray, max, color, title, str
                      width_of_canvas/2,
                      height_of_title);
 
-    createLinearGrid(canvas, context, yArray, yArray, max, max, true, true);
+    createLinearGrid(canvas, context, xArray, yArray, max, max, true, true);
     context.translate(0.1*width_of_canvas + 1, height_of_ordinate); //go to origin
 
     var color = chooseUniqueRandomData(1)[0];
