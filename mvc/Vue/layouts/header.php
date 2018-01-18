@@ -134,6 +134,15 @@
                 Administrateur
             </div>
         </div>
+        <div class="elementsOfSidebar" onclick="GoTo('vueAdmin_personne.php')" style="display: none"
+             id="elementsOfSidebar_AdminPersonne">
+            <div class="iconOfSidebar">
+                <img src="../../img/adminIcon.png" alt="Admin Icon">
+            </div>
+            <div class="textOfSidebar">
+                Statut
+            </div>
+        </div>
     </div>
 </div>
 

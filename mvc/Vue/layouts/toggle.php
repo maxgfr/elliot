@@ -11,6 +11,7 @@
             case 0:
                 document.getElementById("toggle_button").remove();
                 $('#elementsOfSidebar_Admin').remove();
+                $('#elementsOfSidebar_AdminPersonne').remove();
                 $('#elementsOfSidebar_Support').css({"display": ""});
                 $('#elementsOfSidebar_Sensor').css({"display": ""});
                 $('#elementsOfSidebar_Tableau').css({"display": ""});
@@ -21,6 +22,7 @@
             case 1:
                 document.getElementById("toggle_button").remove();
                 $('#elementsOfSidebar_Admin').css({"display": ""});
+                $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
                 $('#elementsOfSidebar_Support').remove();
                 $('#elementsOfSidebar_Sensor').remove();
                 $('#elementsOfSidebar_Tableau').remove();
@@ -87,10 +89,12 @@
             if (<?php echo $_SESSION['role'] ?> == 2)
             {
                $('#elementsOfSidebar_Admin').css({"display": "none"}); 
+               $('#elementsOfSidebar_AdminPersonne').css({"display": "none"}); 
             }
             if (<?php echo $_SESSION['role'] ?> == 1)
             {
                $('#elementsOfSidebar_Admin').css({"display": ""}); 
+               $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
             }
             $('#elementsOfSidebar_Support').css({"display": ""});
             $('#elementsOfSidebar_Sensor').css({"display": ""});
@@ -100,6 +104,7 @@
         }
         else if (verif) {
             $('#elementsOfSidebar_Admin').css({"display": ""});
+            $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
             $('#elementsOfSidebar_Support').css({"display": "none"});
             $('#elementsOfSidebar_Sensor').css({"display": "none"});
             $('#elementsOfSidebar_Tableau').css({"display": "none"});
