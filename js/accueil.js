@@ -216,8 +216,6 @@ var deleted_elements = [];
 
 /******************************INTERMEDIATE FUNCTIONS*********************************/
 
-
-/**THIS PART IS VERY AWFUL, DID NOT FIND ANOTHER SOLUTION**/
 /**IT IS USED TO SET THE CSS OF BEFORE PARTS **/
 /**HERE IT CREATES ANOTHER CLASS WHERE WE MODIFIED THE BEFORE PART**/
 var UID = {
@@ -265,7 +263,7 @@ function darkenColor(color, percentage) {
 
 
 function removeFromArray(array, element) {
-    const index = array.indexOf(element);
+    var index = array.indexOf(element);
 
     if (index !== -1) {
         //see if the element really exists in the array
@@ -392,10 +390,12 @@ function addPlusIconForSensors(roomClassName, addToDatabase) {
         //an existent model is already set (when cloning after keeping the elements from the database)
         duplicatedNode = tablePartNode.children[0].cloneNode([true]); //clone the existent model
         duplicatedNode.children[0].id = 'adding_element_' + roomID; //take the roomID so that we can easily add elements in database
+        tablePartID = duplicatedNode.children[0].id;
 
         var tablePartCellsNode = duplicatedNode.children[0];
         tablePartCellsNode.style.backgroundColor = get_color; //set the color relative to the iconPart
         tablePartCellsNode.removeChild(tablePartCellsNode.children[1]); //remove the text
+        //console.log(tablePartCellsNode);
 
         //set the image
         var imagePartNode = tablePartCellsNode.children[0];
@@ -581,7 +581,6 @@ function setRoomsToAdd(target) {
     addPlusIconForSensors(added.className, true);
     var plusPart = target.parentElement.parentElement.parentElement;
     plusPart.parentElement.appendChild(plusPart); //put it at the end
-    //createDeleteButton(target);
 }
 
 function addRoomsInDatabase(element) {
@@ -602,6 +601,12 @@ function setArrayCreatedRooms() {
             for (var i = 0; i < getRoom.length; i++) {
                 if (getRoom[i].id.includes('toAdd')) {
                     arrayCreatedRoom.push(getRoom[i].id);
+                    for (var j = 0; j < getRoom[i].children[1].children.length; j++) {
+                        //check all elements in tablePart
+                        if (getRoom[i].children[1].children[j].id.includes('toAdd')) {
+                            arrayCreatedRoom.push(getRoom[i].children[1].children[j].id);
+                        }
+                    }
                 }
             }
         }
@@ -613,13 +618,26 @@ function setArrayExistentRooms() {
     var arrayExistentRoom = [];
     var tablePartNode = document.getElementsByClassName('tablePart');
     for (var i = 0; i < tablePartNode.length; i++) {
-        for (var j = 0; j < tablePartNode[i].children.length; j++) {
-            if (tablePartNode[i].children[j].id.includes('toAdd')) {
-                arrayExistentRoom.push(tablePartNode[i].children[j].id);
+        if (!tablePartNode[i].parentElement.id.includes('toAdd')) {
+            for (var j = 0; j < tablePartNode[i].children.length; j++) {
+                if (tablePartNode[i].children[j].id.includes('toAdd')) {
+                    arrayExistentRoom.push(tablePartNode[i].children[j].id);
+                }
             }
         }
     }
     return arrayExistentRoom;
+}
+
+function generateRandomText(lengthOfWord) {
+    var text = "";
+    var alphabet = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,r,s,t,u,v,w,x,y,z".split(',');
+    lengthOfAlphabet = alphabet.length;
+    for (var i = 0; i < lengthOfWord; i++) {
+        var rand =  Math.floor(Math.random() * lengthOfAlphabet);
+        text += alphabet[rand];
+    }
+    return text;
 }
 
 /********************************WHEN CLICKING THE BUTTONS**************************************/
@@ -672,22 +690,204 @@ function add_sensor_room(target) {
 
 }
 
+function getAllIndexes(arr, val) {
+    var indexes = [], i;
+    for(i = 0; i < arr.length; i++)
+        if (arr[i] === val)
+            indexes.push(i);
+    return indexes;
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function setDataInDatasensors(type_of_sensor) {
+    var data = 0;
+    switch (type_of_sensor) {
+        case "motion":
+            data = getRndInteger(0, 1);
+            break;
+        case "barometer":
+            data = getRndInteger(980, 1020);
+            break;
+        case "humidity":
+            data = getRndInteger(38, 52);
+            break;
+        case "luminosity":
+            data = getRndInteger(0, 100);
+            break;
+        case "temperature":
+            data = getRndInteger(18, 25);
+            break;
+        default:
+            data = 0;
+    }
+    return data;
+}
+
 function add_to_database(target) {
     var arrayCreatedRoom = setArrayCreatedRooms();
     for (var i = 0; i < arrayCreatedRoom.length; i++) {
-        if (arrayCreatedRoom[i].includes('adding_element')) {
+        if (arrayCreatedRoom[i].includes('adding_element_')) {
             removeFromArray(arrayCreatedRoom, arrayCreatedRoom[i]);
         }
     }
+    //We do not know why but one element with 'adding_element_' stays in the array.
+    for (var i = 0; i < arrayCreatedRoom.length; i++) {
+        if (arrayCreatedRoom[i].includes('adding_element_')) {
+            removeFromArray(arrayCreatedRoom, arrayCreatedRoom[i]);
+        }
+    }
+
     var arrayExistentRoom = setArrayExistentRooms();
     for (var i = 0; i < arrayExistentRoom.length; i++) {
-        if (arrayExistentRoom[i].includes('adding_element')) {
+        if (arrayExistentRoom[i].includes('adding_element_')) {
             removeFromArray(arrayExistentRoom, arrayExistentRoom[i]);
         }
     }
     cancel_modifications(false);
-    console.log('arrayCreatedRoom = ', arrayCreatedRoom);
-    console.log('arrayExistentRoom = ', arrayExistentRoom);
+
+    /***************************CREATE THE ARRAY FOR THE SQL QUERY**********************************/
+
+    var arrayForExistentRoom = [];
+    //this array will look like : [{'name':'nolkik', 'familysensor':'barometer', 'id_room':'7'}, {'name':'nolkik', 'familysensor':'motion', 'id_room':'1'}]
+
+    var arrayForCreatedRoom = [];
+
+    /*******EXISTENT ROOM PART********/
+    //Array [ "bathroom_7_barometer_number_1_toAdd", "bathroom_7_barometer_number_2_toAdd", "bedroom_3_humidity_number_1_toAdd" ]
+
+    for (var i = 0; i < arrayExistentRoom.length; i++) {
+        var associativeArray = {"name":generateRandomText(7),
+                               "familysensor":"null",
+                               "id_room":"null",
+                               "data":"null"};
+
+        var splitting = arrayExistentRoom[i].split('_');
+        associativeArray["familysensor"] = splitting[2];
+        associativeArray["id_room"] = parseInt(splitting[1]);
+        associativeArray["data"] = setDataInDatasensors(splitting[2]);
+        arrayForExistentRoom.push(associativeArray);
+    }
+
+    /*******CREATED ROOM PART*********/
+
+    /*Array [ "bedroom_number_1_toAdd",
+              "bedroom_number_1_toAdd_humidity_number_1_toAdd",
+              "bedroom_number_2_toAdd",
+              "bedroom_number_2_toAdd_luminosity_number_1_toAdd",
+              "bedroom_number_2_toAdd_temperature_number_1_toAdd",
+              "bathroom_number_1_toAdd" ]*/
+
+    var roomPart = [];
+    var sensorsPart = [];
+
+    for (var i = 0; i < arrayCreatedRoom.length; i++) {
+        //separate the rooms and the sensors
+        var splittingCreatedRoom = arrayCreatedRoom[i].split('_');
+        if (getAllIndexes(splittingCreatedRoom, 'toAdd').length > 1) {
+            sensorsPart.push(arrayCreatedRoom[i]);
+        } else {
+            roomPart.push(arrayCreatedRoom[i]);
+        }
+    }
+
+    for (var i = 0; i < roomPart.length; i++) {
+        //associate the sensors to the room
+        var splittingRoom = roomPart[i].split('_');
+        var arr = [splittingRoom[0]]; //e.g. ["bedroom"]
+        for (var j = 0; j < sensorsPart.length; j++) {
+            if (sensorsPart[j].includes(roomPart[i])) {
+                var associativeArray = {"name":generateRandomText(7),
+                                        "familysensor":"null",
+                                        "data":"null"};
+                //if the sensor is associated to the room (if has, for example, 'bedroom_number_1_toAdd')
+                var splittingSensors = sensorsPart[j].split('_');
+                splittingSensors.splice(0, splittingRoom.length); //remove 'bedroom_number_1_toAdd', for example.
+                associativeArray["familysensor"] = splittingSensors[0];
+                associativeArray["data"] = setDataInDatasensors(splittingSensors[0]);
+                arr.push(associativeArray); //get the familysensor
+            }
+        }
+        arrayForCreatedRoom.push(arr);
+    }
+
+    var arrayForSQLQuery = {"arrayForCreatedRoom":arrayForCreatedRoom, "arrayForExistentRoom":arrayForExistentRoom};
+    console.log(arrayForSQLQuery);
+
+    /******************************AJAX AND JSON PART*******************************/
+
+    var dbParam, xmlhttp, myObj, y = "";
+    dbParam = JSON.stringify(arrayForSQLQuery);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var showChangeClass = document.getElementsByClassName('showChange');
+            if (this.responseText) {
+                //query is success
+                var roomsAdded = roomPart.length;
+                var sensorsInExistentAdded = arrayExistentRoom.length;
+                var sensorsInCreatedAdded = sensorsPart.length;
+                var text = "";
+                if (roomsAdded > 0) {
+                    //at least one room has been added
+                    if (roomsAdded==1) {
+                        text = "La pièce a bien été ajoutée à la base de données.";
+                        if (sensorsInCreatedAdded > 0) {
+                            //at least one sensor in this created room has been added
+                            if (sensorsInCreatedAdded==1) {
+                                text = "La pièce et le capteur ont bien été ajoutés à la base de données.";
+                            } else {
+                                text = "La pièce et les capteurs ont bien été ajoutés à la base de données.";
+                            }
+                        }
+                    } else {
+                        text = "Les pièces ont bien été ajoutées de la base de données.";
+                        if (sensorsInCreatedAdded > 0) {
+                            //at least one sensor in one of these created rooms has been added
+                            if (sensorsInCreatedAdded==1) {
+                                text = "Les pièces et le capteur ont bien été ajoutés à la base de données.";
+                            } else {
+                                text = "Les pièces et les capteurs ont bien été ajoutés à la base de données.";
+                            }
+                        }
+                    }
+                } else {
+                    //no room has been added
+                    if (sensorsInExistentAdded > 0) {
+                        //at least one sensor has been added in an existent room
+                        if (sensorsInExistentAdded==1) {
+                            text = "Le capteur a bien été ajouté à la base de données.";
+                        } else {
+                            text = "Les capteurs ont bien été ajoutés à la base de données.";
+                        }
+                    }
+                }
+                showChangeClass[0].style.display = "block";
+                var success = showChangeClass[0].children[1];
+                success.children[1].innerHTML = text;
+                success.style.display = "block";
+            } else {
+                showChangeClass[0].style.display = "block";
+                var failure = showChangeClass[i].children[2];
+                failure.children[1].innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être ajouté à la base de données.";
+                failure.style.display = "block";
+            }
+        }
+        //reload after 3s
+        setTimeout(function (){location.reload()}, 3000);
+    };
+    xmlhttp.open("POST", "../Modeles/AddRoomsAndSensorsAjaxQuery.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("y=" + dbParam);
+
+    /*******************************************************************************/
+
+
+    /***********************************************************************************************/
+    /*console.log('arrayForCreatedRoom = ', arrayForCreatedRoom);
+    console.log('arrayForExistentRoom = ', arrayForExistentRoom);*/
     target.removeEventListener('click', _funcAddToDatabase);
     target.innerHTML = 'Ajouter des capteurs et des pièces';
     target.addEventListener('click', _funcAddSensorRoom);
@@ -728,6 +928,87 @@ function delete_sensor_room(target) {
 }
 
 function delete_from_database(target) {
+    deletedRooms = [];
+    deletedSensors = [];
+    for (var i = 0; i < deleted_elements.length; i++) {
+        var splitting = deleted_elements[i].split('_');
+        var element = splitting[splitting.length-1];
+        if (deleted_elements[i].includes('sensor_elements_')) {
+            deletedSensors.push(element);
+        } else {
+            deletedRooms.push(element);
+        }
+    }
+    deleted_elements = {'deletedRooms':deletedRooms, 'deletedSensors':deletedSensors};
+
+    /******************************AJAX AND JSON PART*******************************/
+
+    var dbParam, xmlhttp, myObj, z = "";
+    dbParam = JSON.stringify(deleted_elements);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var showChangeClass = document.getElementsByClassName('showChange');
+            console.log(this.responseText);
+            if(this.responseText) {
+                //query is success
+                var text = "";
+                var countRoom = deletedRooms.length;
+                var countSensor = deletedSensors.length;
+                if (countRoom > 0) {
+                    //at least one room has been deleted
+                    if (countRoom==1) {
+                        text = "La pièce a bien été supprimée de la base de données.";
+                        if (countSensor > 0) {
+                            //at least one sensor in this created room has been deleted
+                            if (countSensor==1) {
+                                text = "La pièce et le capteur ont bien été supprimés de la base de données.";
+                            } else {
+                                text = "La pièce et les capteurs ont bien été supprimés de la base de données.";
+                            }
+                        }
+                    } else {
+                        text = "Les pièces ont bien été supprimées de la base de données.";
+                        if (countSensor > 0) {
+                            //at least one sensor in one of these created rooms has been added
+                            if (countSensor==1) {
+                                text = "Les pièces et le capteur ont bien été supprimés de la base de données.";
+                            } else {
+                                text = "Les pièces et les capteurs ont bien été supprimés de la base de données.";
+                            }
+                        }
+                    }
+                } else {
+                    //no room has been deleted
+                    if (countSensor > 0) {
+                        //at least one sensor has been deleted in a room
+                        if (countSensor==1) {
+                            text = "Le capteur a bien été supprimé de la base de données.";
+                        } else {
+                            text = "Les capteurs ont bien été supprimés de la base de données.";
+                        }
+                    }
+                }
+                showChangeClass[0].style.display = "block";
+                var success = showChangeClass[0].children[1];
+                success.children[1].innerHTML = text;
+                success.style.display = "block";
+            } else {
+                showChangeClass[0].style.display == "block";
+                var failure = showChangeClass[0].children[2];
+                failure.style.display = "block";
+                failure.innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être supprimé de la base de données";
+            }
+            //reload after 3s
+            //setTimeout(function (){location.reload()}, 3000);
+        }
+    };
+    xmlhttp.open("POST", "../Modeles/DeleteRoomsAndSensorsAjaxQuery.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("z=" + dbParam);
+
+    /*******************************************************************************/
+
     console.log('deleted_elements = ', deleted_elements);
     cancel_modifications(false);
     target.removeEventListener('click', _funcDeleteFromDatabase);
@@ -773,11 +1054,15 @@ function cancel_modifications(real) {
         var arrayExistentRoom = setArrayExistentRooms();
 
         for (var i = 0; i < arrayExistentRoom.length; i++) {
-            document.getElementById(arrayExistentRoom[i]).remove();
+            if (document.getElementById(arrayExistentRoom[i])!=null) {
+                document.getElementById(arrayExistentRoom[i]).remove();
+            }
         }
 
         for (var i = 0; i < arrayCreatedRoom.length; i++) {
-            document.getElementById(arrayCreatedRoom[i]).remove();
+            if (document.getElementById(arrayCreatedRoom[i])!=null) {
+                document.getElementById(arrayCreatedRoom[i]).remove();
+            }
         }
 
 
