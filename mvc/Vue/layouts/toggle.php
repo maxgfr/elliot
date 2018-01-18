@@ -80,6 +80,11 @@
         var verif = getCookie("cookie_toggle_state") == "1";
 
         if (!verif) {
+            $('#elementsOfSidebar_Support').css({"display": ""});
+            $('#elementsOfSidebar_Sensor').css({"display": ""});
+            $('#elementsOfSidebar_Tableau').css({"display": ""});
+            $('#elementsOfSidebar_Accueil').css({"display": ""});
+            $('.sidebarContainer').css({"background-color": "rgb(38, 67, 120)"});
             if (<?php echo $_SESSION['role'] ?> == 2)
             {
                $('#elementsOfSidebar_Admin').css({"display": "none"});
@@ -89,12 +94,8 @@
             {
                $('#elementsOfSidebar_Admin').css({"display": ""});
                $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
+               $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
             }
-            $('#elementsOfSidebar_Support').css({"display": ""});
-            $('#elementsOfSidebar_Sensor').css({"display": ""});
-            $('#elementsOfSidebar_Tableau').css({"display": ""});
-            $('#elementsOfSidebar_Accueil').css({"display": ""});
-            $('.sidebarContainer').css({"background-color": "rgb(38, 67, 120)"});
         }
         else if (verif) {
             $('#elementsOfSidebar_Admin').css({"display": ""});

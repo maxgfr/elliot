@@ -22,6 +22,7 @@ if (empty($_SESSION['email'])) {
     <meta charset="utf-8">
     <title> Administration </title>
     <link href="../../css/admin.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/admin_personne.css" rel="stylesheet" type="text/css"/>
     <script src="../../js/jquery-3.2.1.min.js"></script>
     <script src="../../js/admin_personne.js"></script>
 
@@ -32,6 +33,7 @@ if (empty($_SESSION['email'])) {
 
     <form method="post">
         <fieldset>
+            <legend>Recherchez un utilisateur</legend>
             <label for="type">Type :</label>
             <select name="type" id="type">
                 <option value="last_name">Nom</option>
@@ -42,11 +44,12 @@ if (empty($_SESSION['email'])) {
             </select>
             <label for="input_search">Recherche :</label>
             <input name="input_search" id="input_search">
-            <button type="button" id="search">Submit</button>
+            <button type="button" id="search">Envoyer</button>
         </fieldset>
     </form>
     <div id="result">
         <table id="table_result">
+            <thead>
             <tr>
                 <th>
                     Nom
@@ -61,6 +64,7 @@ if (empty($_SESSION['email'])) {
                     Mail
                 </th>
             </tr>
+            </thead>
         </table>
     </div>
 </div>
@@ -80,8 +84,10 @@ if (empty($_SESSION['email'])) {
 
                 for (var i = 0; i < result.length; i++) {
                     var tr = document.createElement('tr');
+                    tr.className = "inner";
                     tr.id = "tr_" + i.toString();
                     var Jquery_tr = "#" + tr.id;
+
                     var td_name = document.createElement('td');
                     td_name.id = "td_name" + i.toString();
                     $('#table_result').append(tr);
@@ -95,6 +101,7 @@ if (empty($_SESSION['email'])) {
 
                     var td_role = document.createElement('td');
                     td_role.id = "td_role" + i.toString();
+                    td_role.setAttribute("contenteditable", "true");
                     $(Jquery_tr).append(td_role);
                     td_role.innerText = result[i]['roles'];
 
@@ -102,8 +109,8 @@ if (empty($_SESSION['email'])) {
                     td_mail.id = "td_mail" + i.toString();
                     $(Jquery_tr).append(td_mail);
                     td_mail.innerText = result[i]['mail'];
-
                 }
+                $('.inner').wrapAll("<tbody />");
             },
             error: function (err) {
                 console.log("Dans err");
