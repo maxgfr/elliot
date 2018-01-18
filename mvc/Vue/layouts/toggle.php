@@ -1,9 +1,3 @@
-<link rel="stylesheet" href="../../css/header.css">
-<link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
-<script src="../../js/header.js"></script>
-<script src="../../js/jquery-3.2.1.min.js"></script>
-
-
 <script>
 
     if (!getCookie("cookie_toggle_state")) {
@@ -88,12 +82,12 @@
         if (!verif) {
             if (<?php echo $_SESSION['role'] ?> == 2)
             {
-               $('#elementsOfSidebar_Admin').css({"display": "none"}); 
-               $('#elementsOfSidebar_AdminPersonne').css({"display": "none"}); 
+               $('#elementsOfSidebar_Admin').css({"display": "none"});
+               $('#elementsOfSidebar_AdminPersonne').css({"display": "none"});
             }
             if (<?php echo $_SESSION['role'] ?> == 1)
             {
-               $('#elementsOfSidebar_Admin').css({"display": ""}); 
+               $('#elementsOfSidebar_Admin').css({"display": ""});
                $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
             }
             $('#elementsOfSidebar_Support').css({"display": ""});
