@@ -14,7 +14,6 @@
     $obj = json_decode($_POST["z"], false);
 
     $sql_query = "";
-    $arrayForQuery = [];
 
     $roomsToDelete = $obj->deletedRooms;
     $countRoom = sizeof($roomsToDelete);
@@ -27,18 +26,16 @@
     if ($countSensor > 0) {
         $sql_query .= "DELETE t1, t2 FROM datasensors AS t1
                        INNER JOIN sensors AS t2 ON t2.id_sensor = t1.id_sensor
-                       WHERE t2.id_sensor IN (?);";
+                       WHERE t2.id_sensor IN ($sensorsToDelete);";
 
-        array_push($arrayForQuery, $sensorsToDelete);
     }
     if ($countRoom > 0) {
         $sql_query .= "DELETE FROM room
-                       WHERE id_room IN (?);";
+                       WHERE id_room IN ($roomsToDelete);";
 
-        array_push($arrayForQuery, $roomsToDelete);
     }
 
-    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, $arrayForQuery);
+    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, array());
 
     echo json_encode($sensorsToDelete);
 ?>
