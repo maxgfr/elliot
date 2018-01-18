@@ -54,7 +54,7 @@ function hideList(element) {
 }
 
 function showListWithInput(input) {
-    var inputText = input.value;
+    var inputText = input.value.toUpperCase();
     var arrow = input.parentElement.nextElementSibling;
     var navigation = input.parentElement.parentElement.nextElementSibling.children[0]; //go to <nav>
     var li = navigation.getElementsByTagName('li');
@@ -62,14 +62,36 @@ function showListWithInput(input) {
         //user typed something
         showList(arrow);
         for (var i = 0; i < li.length; i++) {
-            var valueOfLI = li[i].innerHTML;
+            var valueOfLI = li[i].innerHTML.toUpperCase();
+            //not case-sensitive
             if (valueOfLI.includes(inputText)) {
                 li[i].style.display = "block";
             } else {
                 li[i].style.display = "none";
             }
         }
+        var count = 0;
+        for (var i = 0; i < li.length; i++) {
+            //if no results, show 'Aucun résultat ne correspond.'
+            if (li[i].style.display == "block") {
+                count += 1;
+            }
+        }
+        if (count==0) {
+            var notFound = document.getElementById('not_found');
+            if (notFound!=null) {
+                notFound.remove();
+            }
+            var element = document.createElement('LI');
+            element.id = 'not_found';
+            element.innerHTML = "Aucun résultat ne correspond.";
+            navigation.appendChild(element);
+        }
     } else {
+        var notFound = document.getElementById('not_found');
+        if (notFound!=null) {
+            notFound.remove();
+        }
         for (var i = 0; i < li.length; i++) {
             li[i].style.display = "block";
         }
