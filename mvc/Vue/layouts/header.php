@@ -83,11 +83,11 @@
 </div>
 
 <div class="sidebarContainer" id="sidebarContainer">
-    <div id="elliot_icon" onclick="GoTo('vueAccueil.php')">
+    <div id="elliot_icon" onclick="GoTo_icon('vueAccueil.php')">
         <div id="small_icon">
             <img src="../../img/smallellIoT.png" alt="Small ellIoT Icon">
         </div>
-        <div id="big_icon" onclick="GoTo_big_icon('vueAccueil.php')">
+        <div id="big_icon" onclick="GoTo_icon('vueAccueil.php')">
             <img src="../../img/ellIoT.png" alt="Big ellIoT Icon">
         </div>
     </div>
