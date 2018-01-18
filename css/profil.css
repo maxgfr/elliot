@@ -16,7 +16,8 @@
 
 #container_contact_details {
      width: 45%;
-     padding-top: 25px;
+     vertical-align: middle;
+     line-height: auto;
      padding-right: 3%;
      border-right: 2px solid white;
  }
@@ -31,17 +32,25 @@
     position: relative;
 }
 
-#container_change_profile_input input {
+#contact_details_input > input, .profileData {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-radius: 2px;
+    background-color: white;
+}
+
+.textFromDatabase {
+    color: #777777;
+    font-weight: normal;
+    font-size: 0.9em;
 }
 
 #contact_details_text, #change_password_text {
     font-size: 1.1em;
+    text-align: center;
 }
 
 .confirmButton {
@@ -49,7 +58,7 @@
 }
 
 .confirmButton button {
-    width: 60%;
+    width: 100%;
     margin: 8px 0;
     padding-top: 10px; padding-bottom: 10px;
     box-sizing: border-box;
@@ -66,4 +75,75 @@
 .confirmButton button:hover {
     background-color: #E3E3E3;
     transition: 1s;
+}
+
+.dropdownBox {
+    margin-bottom: 0.6em;
+}
+
+.inputPartDropdown {
+    background-color: white;
+    display: flex;
+    height: 1.3em;
+    margin-top: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 2px;
+}
+
+.inputForDropdown {
+    width: 85%;
+}
+
+.inputForDropdown > input {
+    padding-top: 0.2em;
+    padding-left: 1.3em;
+    border: none;
+    width: 100%;
+}
+
+.activeArrow {
+    width: 15%;
+    vertical-align: middle;
+    line-height: 1.3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.activeArrow > img {
+    width: 15px;
+}
+
+.choicePartDropdown {
+    background-color: white;
+    display: none;
+    position: absolute;
+}
+
+.choicePartDropdown > nav {
+    max-height: 15em;
+    width: 20.3em;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.choicePartDropdown > nav > li {
+    border: 1px solid #777777;
+    height: 0.4em;
+    background-color: white;
+    padding: 1em;
+    padding-left: 1.3em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .3s;
+    color: black;
+    font-weight: 100;
+    font-size: 0.9em;
+    transition: all ease 0.3s;
+}
+
+.choicePartDropdown > nav > li:hover{
+    background-color: #E3E3E3;
 }
