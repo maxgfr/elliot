@@ -14226,14 +14226,13 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id_message`, `date`, `contenu`, `id_user`) VALUES
-(1, '2017-12-01', 'La température est mal réglée', 1),
-(2, '2018-01-01', 'Bonne année !', 1),
-(3, '2017-12-21', 'Une intrusion a été détectée', 2),
-(4, '2018-01-01', 'Bonne année !', 2),
-(5, '2017-12-01', 'La lumière est allumée depuis plus d\'une journée', 3),
-(6, '2018-01-01', 'Bonne année !', 3),
-(7, '2017-12-01', 'L\'humidité est anormalement élevée sur la dernière journée', 4),
-(8, '2018-01-01', 'Bonne année !', 4);
+(1, '2017-12-01', 'Temperature sensor is broken', 1),
+(2, '2018-01-01', 'Happy New Year !', 1),
+(3, '2017-12-21', 'An intrusion was detected', 2),
+(4, '2018-01-01', 'Happy New Year !', 2),
+(5, '2017-12-01', 'Light is on since more than one day', 3),
+(6, '2018-01-01', 'Happy New Year !', 3),
+(7, '2018-01-01', 'Happy New Year !', 4);
 
 -- --------------------------------------------------------
 
