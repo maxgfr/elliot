@@ -1,4 +1,5 @@
 /**** AJAX AND JS ****/
+
 $('#search').click(function () {
   $('#test').remove();
     var data = {};
@@ -77,7 +78,7 @@ $('#send_button').click(function () {
     data.name = table_result.rows[i].cells[0].innerText;
     data.role = $('#select_'+ (i - 1).toString()).val();
 
-    if (data.name != '<?php echo $_SESSION['nom'] ;?>' )
+    if (data.name != test() )
     {
       $.ajax({
         type: "POST",
@@ -96,3 +97,11 @@ $('#send_button').click(function () {
     }
   }
 });
+
+$('#input_search').on('keypress', function(e) {
+  /* ENTER PRESSED*/
+  if (e.keyCode == 13) {
+      $('#search').click();
+      return false;
+    }
+  });
