@@ -36,7 +36,7 @@
 		private function actionAjoutBat(){
           $model = ModelBat::getModelBatCreate($_POST);
             if ($model->getError ( ) === false ) {
-                require(Config::getVues()["ajoutBat"]);
+                require(Config::getVues()["success"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
