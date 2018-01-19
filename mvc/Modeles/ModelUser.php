@@ -68,7 +68,7 @@ class ModelUser extends Model
         // Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
         $args = array($inputArray["mail"]);
         $hashedPassword = hash("sha1", $inputArray['password']);
-        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT * FROM users WHERE mail=?', $args);
+        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery('SELECT t1.*, t2.id_accomodation from users t1 left join accomodation t2 on t1.id_user = t2.id_user WHERE mail=?', $args);
         //Si la requête a fonctionné
         if ($queryResults !== false) {
             if (count($queryResults) == 1) {
@@ -79,6 +79,7 @@ class ModelUser extends Model
                     $_SESSION['nom'] = $queryResults[0]['last_name'];
                     $_SESSION['prenom'] = $queryResults[0]['first_name'];
                     $_SESSION['id_user'] = $queryResults[0]['id_user'];
+                    $_SESSION['id_accomodation'] = $queryResults[0]['id_accomodation'];
                     return $model;
                 } else {
                     $model->dataError["persistance"] = "Mot de passe incorrect. Réessayez";

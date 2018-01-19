@@ -65,22 +65,21 @@ function setNotificationPopupStatus() {
     }
 }
 
-var dbParam, xmlhttp, myObj, x = "";
+var dbParam, xmlhttp, myObj, t = "";
 xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
-
     if (this.readyState == 4 && this.status == 200) {
-        //console.log(this.responseText);
-        //myObj = JSON.parse(this.responseText);
-        for (x in myObj) {
-            var idmessage = myObj[x];
-            console.log(idmessage);
-        }
+        myObj = JSON.parse(this.responseText);
+        console.log(myObj);
+        /*for (x in myObj) {
+            //var idmessage = myObj[x];
+            //console.log(idmessage);
+        }*/
     }
 };
 xmlhttp.open("POST", "../Modeles/MessageAjaxQuery.php", true);
 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
+xmlhttp.send("t=" + dbParam);
 
 function showNotifications() {
     document.getElementById("container_notification").style.display = "block";
