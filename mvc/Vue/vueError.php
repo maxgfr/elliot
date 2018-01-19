@@ -1,3 +1,9 @@
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the error default page if the user failed to
+  use any service.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 <style>
 /* The Modal (background) */
 .modal {

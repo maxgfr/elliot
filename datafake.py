@@ -15,11 +15,7 @@ def daterange(date1, date2): #création  d'une fonction génératrice qui génè
         yield date1 + timedelta(n)
 		
 
-mon_fichier = open("fichier.txt", "w") #ouverture d'un fichier où l'on va écrire la requête
-
-
-
-
+mon_fichier = open("datasensors.txt", "w") #ouverture d'un fichier où l'on va écrire la requête
 
 
 typecapteurs={}
@@ -36,17 +32,36 @@ typecapteurs["10"]='barometer'
 typecapteurs["11"]='barometer'
 typecapteurs["12"]='luminosity'
 typecapteurs["13"]='humidity'
+typecapteurs["14"]='température'
+typecapteurs["15"]='barometer'
+typecapteurs["16"]='humidity'
+typecapteurs["17"]='luminosity'
+typecapteurs["18"]='motion'
+typecapteurs["19"]='température'
+typecapteurs["20"]='barometer'
+typecapteurs["21"]='humidity'
+typecapteurs["22"]='luminosity'
+typecapteurs["23"]='motion'
+typecapteurs["24"]='température'
+typecapteurs["25"]='barometer'
+typecapteurs["26"]='humidity'
+typecapteurs["27"]='luminosity'
+typecapteurs["28"]='motion'
+typecapteurs["29"]='température'
+typecapteurs["30"]='barometer'
+typecapteurs["31"]='barometer'
+
 
 def requete():
     sql="INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) VALUES "
     i=0
     listedate=[]
-    start_dt = date(2016, 1, 1)
+    start_dt = date(2016, 12, 1)
     end_dt = date(2018, 2, 28)
     for dt in daterange(start_dt, end_dt):
         listedate.append(dt.strftime("%Y-%m-%d"))
     for dt in listedate:
-        for k in range(1, 14) :
+        for k in range(1, len(typecapteurs)+1) :
             k=str(k)
             i+=1
             if typecapteurs[k] == 'température':

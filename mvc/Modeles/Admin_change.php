@@ -11,13 +11,13 @@ try {
 
 header("Content-Type: application/json; charset=UTF-8");
 
-$variable = $_POST['data']['titre'];
+$name = $_POST['name'];
 
-$variable_1 = $_POST['data']['message'];
+$role = $_POST['role'];
 
-$sql_query = "SELECT last_name,first_name,roles,mail FROM users WHERE $variable=?";
+$sql_query = "UPDATE users SET roles=? WHERE last_name=?;";
 
-$query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$variable_1]);
+$query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$role,$name]);
 
 echo json_encode($query);
 ?>

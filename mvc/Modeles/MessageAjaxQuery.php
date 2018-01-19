@@ -8,11 +8,12 @@
     } catch(Exception $e){
       require (Config::getVues()["default"]) ;
     }
+    session_start();
 
     header("Content-Type: application/json; charset=UTF-8");
-    $obj = json_decode($_POST["x"], false);
+    $obj = json_decode($_POST["t"], false);
 
-    $sql_query = "SELECT * FROM message WHERE id_user = ?";
+    $sql_query = "SELECT contenu FROM message WHERE id_user = ?;";
 
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,[$_SESSION['id_user']]);
 

@@ -1,3 +1,11 @@
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
+
 <?php
     //Voir les erreurs
     ini_set('display_errors', 'On');
@@ -15,18 +23,35 @@
     if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
     }
+// Navigate through MVC root directory
+$rootDirectory = dirname(__FILE__)."/../../mvc/";
+
+// Implement the "Autoload" class to load automatically all classes.
+require_once($rootDirectory.'Config\Autoload.php');
+try {
+  Autoload::load();
+} catch(Exception $e){
+  require (Config::getVues()["default"]) ;
+}
+
+session_start();
+if(empty($_SESSION['email'])) {
+    header("Location:vueConnexion.php");
+}
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Ajout bâtiment</title>
-  </head>
-
-  <?php include ('layouts/header.php'); ?>
+</head>
 
 
-  <body>
+<?php include ('layouts/header.php'); ?>
+
 
       <div id="main">
 
@@ -35,8 +60,10 @@
           <label for="name">Nom du bâtiment</label>
           <input class="text" id="name" type="text" name="name"/>
           <button id="buildingAdd" type="submit">Ajouter</button>
+
         </form>
-      </div>
+
+    </div>
 
 
       <?php
@@ -45,6 +72,6 @@
           }
       ?>
 
-  </body>
 
+</body>
 </html>
