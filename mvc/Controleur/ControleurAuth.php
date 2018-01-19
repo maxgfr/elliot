@@ -17,12 +17,66 @@
 				case "deleteCapteur" :
                     $this->actionDeleteCapteur();
                     break;
+				case "ajoutBat" :
+                    $this->actionAjoutBat();
+                    break;
+                case "afficheBat" :
+                    $this->actionAfficheBat();
+                    break;
+				case "deleteBat" :
+                    $this->actionDeleteBat();
+                    break;
 
 				default://L’action indéfinie (page par défaut, ici accueil)
 					require(Config::getVues()["default"]);
 					break;
 			}
 		}
+
+		private function actionAjoutBat(){
+          $model = ModelBat::getModelBatCreate($_POST);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["ajoutBat"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
+          }
+
+          private function actionAfficheBat(){
+            $model = ModelBat::getModelBatDisplay($_POST);
+              if ($model->getError ( ) === false ) {
+                  require(Config::getVues()["afficheBat"]);
+              } else {
+                  if (!empty($model->getError()['persistance'])){
+                      // Erreur d'accès à la base de donnée
+                      require(Config::getVuesErreur()["default"]);
+                  } else {
+                      // Erreur de saisie
+                      require(Config::getVuesErreur()["default"]);
+                  }
+              }
+        }
+
+        private function actionDeleteBat(){
+          $model = ModelBat::getModelBatDelete($_POST);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["deleteBat"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Erreur d'accès à la base de donnée
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Erreur de saisie
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
+          }
 
         private function actionAjoutCapteur(){
           $model = ModelCapteur::getModelCapteurCreate($_POST);
