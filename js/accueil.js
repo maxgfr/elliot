@@ -171,6 +171,9 @@ function setTablePart(id_room, id_sensor_db, type_of_sensor, value_of_sensor) {
                 value_of_sensor = "non détectée";
             }
         }
+        if (value_of_sensor==null) {
+            cellsNode.style.display = "none";
+        }
         textPart.innerHTML = name_of_sensor[type_of_sensor] + ' ' + value_of_sensor + unit_of_sensor[type_of_sensor];
 
         getRoom.children[1].appendChild(duplicatedNode);

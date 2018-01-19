@@ -82,7 +82,7 @@ xmlhttp.open("POST", "../Modeles/MessageAjaxQuery.php", true);
 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xmlhttp.send("x=" + dbParam);
 
-function showNotifications() {    
+function showNotifications() {
     document.getElementById("container_notification").style.display = "block";
     document.getElementById("how_many_notif").style.display = "none";
     notificationIsOpen = 1;

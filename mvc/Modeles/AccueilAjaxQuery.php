@@ -18,7 +18,7 @@
                   LEFT JOIN sensors t2 ON t2.id_room = t1.id_room
                   LEFT JOIN familysensor t3 ON t2.id_familysensor = t3.id_familysensor
                   LEFT JOIN datasensors t4 ON t2.id_sensor = t4.id_sensor
-                  WHERE t4.date_time = ? AND id_accomodation = 2
+                  WHERE (t4.date_time = ? OR t4.date_time is null) AND id_accomodation = 2
                   ORDER BY t1.name";
 
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [date('Y-m-d')]);

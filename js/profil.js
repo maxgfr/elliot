@@ -54,18 +54,20 @@ function hideList(element) {
 }
 
 function showListWithInput(input) {
-    var inputText = input.value.toUpperCase();
+    var inputText = input.value;
     var arrow = input.parentElement.nextElementSibling;
     var navigation = input.parentElement.parentElement.nextElementSibling.children[0]; //go to <nav>
     var li = navigation.getElementsByTagName('li');
+    init();
     if (inputText.length > 0) {
         //user typed something
         showList(arrow);
         for (var i = 0; i < li.length; i++) {
-            var valueOfLI = li[i].innerHTML.toUpperCase();
+            var valueOfLI = li[i].innerHTML;
             //not case-sensitive
-            if (valueOfLI.includes(inputText)) {
+            if (valueOfLI.toUpperCase().includes(inputText.toUpperCase())) {
                 li[i].style.display = "block";
+                InstantSearch.highlight(li[i], inputText);
             } else {
                 li[i].style.display = "none";
             }
@@ -88,13 +90,20 @@ function showListWithInput(input) {
             navigation.appendChild(element);
         }
     } else {
-        var notFound = document.getElementById('not_found');
-        if (notFound!=null) {
-            notFound.remove();
-        }
         for (var i = 0; i < li.length; i++) {
             li[i].style.display = "block";
+            li[i].backgroundColor = "transparent";
         }
         hideList(arrow);
+    }
+}
+
+function init() {
+    var notFound = document.getElementById('not_found');
+    if (notFound!=null) {
+        notFound.remove();
+    }
+    for (var i = 0; i < document.getElementsByTagName('li').length; i++) {
+        document.getElementsByTagName('li')[i].style.display = "block";
     }
 }

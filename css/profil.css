@@ -148,3 +148,7 @@
 .choicePartDropdown > nav > li:hover{
     background-color: #E3E3E3;
 }
+
+.highlight {
+    background: #D3E18A;
+}
