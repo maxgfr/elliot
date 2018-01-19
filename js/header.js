@@ -70,11 +70,10 @@ xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         myObj = JSON.parse(this.responseText);
-        console.log(myObj);
-        /*for (x in myObj) {
-            //var idmessage = myObj[x];
-            //console.log(idmessage);
-        }*/
+        for (x in myObj) {
+            var idmessage = myObj[x];
+            console.log(idmessage['contenu']);
+        }
     }
 };
 xmlhttp.open("POST", "../Modeles/MessageAjaxQuery.php", true);
