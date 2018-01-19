@@ -44,9 +44,9 @@
         $lengthOfSensorsInRoom = sizeof($createdRoom[$i]);
 
         $sql_query .= "INSERT INTO room(id_room, name, id_accomodation)
-                       SELECT MAX(id_room)+1, ?, 2 FROM room;";
+                       SELECT MAX(id_room)+1, ?, ? FROM room;";
 
-        array_push($arrayForQuery, $roomToAdd);
+        array_push($arrayForQuery, $roomToAdd, $_SESSION['id_accomodation']);
 
         for ($j=1; $j < $lengthOfSensorsInRoom; $j++) {
             $sensorToAdd = $createdRoom[$i][$j];
@@ -61,7 +61,6 @@
                            INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor)
                            SELECT MAX(id_datasensor)+1, ?, ?, (SELECT MAX(id_sensor) FROM sensors) FROM datasensors;";
 
-           //array_push($arrayForQuery, $roomToAdd, $_SESSION['id_accomodation']);
            array_push($arrayForQuery, $name, $familySensor, $_SESSION['id_user'], date('Y-m-d'), $dataOfSensor);
         }
 

@@ -1,9 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!--
-  This view displays the error default page if the user failed to
-  use any service.
--->
-<!-- //////////////////////////////////////////////////////////// -->
 <style>
 /* The Modal (background) */
 .modal {
@@ -51,7 +45,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <?php echo "<h3 style='color:black;'>Une erreur s'est produite </h3>" ; foreach ($model->getError() as $error) { echo "<p style='color:red;'>".$error."</p>"; } ?>
+    <?php echo "<h3 style='color:olive;'>Information</h3>" ; echo $model->getNom() ?>
   </div>
 
 </div>

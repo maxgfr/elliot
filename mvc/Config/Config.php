@@ -9,10 +9,10 @@ class Config
     public static function getAuthData(&$db_host, &$db_name, &$db_user, &$db_password)
     {
         /* CONFIG 1 */
-        /*$db_host="mysql:host=localhost;port=8889;";
+        $db_host="mysql:host=localhost;port=8889;";
         $db_name="dbname=elliot_db";
         $db_user ="root";
-        $db_password="root";*/
+        $db_password="root";
 
         /*CONFIG 2	*/
         $db_host="mysql:host=localhost;port=3306;";
@@ -51,7 +51,11 @@ class Config
             "index" => $vueDirectory . "vueIndex.php",
             "ajoutCapteur" => $vueDirectory . "vueAjoutCapteur.php",
             "afficheCapteur" => $vueDirectory . "vueAfficheCapteur.php",
-            "deleteCapteur" => $vueDirectory . "vueDeleteCapteur.php");
+            "deleteCapteur" => $vueDirectory . "vueDeleteCapteur.php",
+            "ajoutBat" => $vueDirectory . "vueAjoutBatiment.php",
+            "afficheBat" => $vueDirectory . "vueAfficheBatiment.php",
+            "deleteBat" => $vueDirectory . "vueDeleteBatiment.php",
+            "success" => $vueDirectory . "vueSuccess.php",);
     }
 
 

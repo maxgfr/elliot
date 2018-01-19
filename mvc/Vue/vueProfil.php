@@ -1,38 +1,54 @@
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!-- 
+  This view displays the user informations.
+  The user may change its informations and change his passwords.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
+
 <?php
-  //Voir les erreurs
-  ini_set('display_errors', 'On');
-  error_reporting(E_ALL | E_STRICT);
-  // Répertoire racine du MVC
-  $rootDirectory = dirname(__FILE__)."/../../mvc/";
-  // chargement de la classe Autoload pour autochargement des classes
-  require_once($rootDirectory.'Config/Autoload.php');
-  try {
-      Autoload::load();
-  } catch(Exception $e){
-      require (Config::getVues()["default"]) ;
-  }
+// Authorize errors to be displayed.
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 
-  session_start();
-  if(empty($_SESSION['email'])) {
+// Navigate through MVC root directory
+$rootDirectory = dirname(__FILE__)."/../../mvc/";
+
+// Implement the "Autoload" class to load automatically all classes.
+require_once($rootDirectory.'Config/Autoload.php');
+try {
+  Autoload::load();
+} catch(Exception $e){
+  require (Config::getVues()["default"]) ;
+}
+
+session_start();
+if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
- }
-
+}
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/profil.css">
-	<script type="text/javascript" src="../../js/password.js"></script>
+    <script type="text/javascript" src="../../js/password.js"></script>
     <title><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?></title>
 </head>
 
-    <?php include("layouts/header.php"); ?>
+
+<?php include("layouts/header.php"); ?>
+
 
 <body>
     <div id="main">
 
         <div id="container_profile">
+            <!-- Display/Set the user informations request. -->
             <div id="container_contact_details">
                 <div id="contact_details_text">
                     Votre profil
@@ -70,6 +86,7 @@
                     <input type="tel" name="landline_phone" placeholder="Téléphone fixe">
                 </div>
             </div>
+            <!-- Display/Set the password change request. -->
             <div id="container_change_password">
                 <div id="change_password_text">
                     Voulez-vous changer de mot de passe ?
@@ -87,8 +104,11 @@
         </div>
 
     </div>
+
 </body>
 
+<!-- Retrieve/Update data in the database. -->
 <script type="text/javascript" src="../../js/profil.js"></script>
+
 
 </html>

@@ -50,6 +50,7 @@ session_start();
                 <img src="../../img/register_icon.png" alt="Register Icon">
             </div>
         </div>
+        <!-- Set the register request. -->
         <div id="register_box_input" class="inputText">
             <form method="post">
                 <input class="text" id="last_name" type="text" name="last_name" value="" placeholder="Nom de famille"/>
@@ -62,6 +63,8 @@ session_start();
                         <input class="text" id="password" type="password" name="password" placeholder="Mot de passe" onkeyup="setBackgroundColorBar(setStrength()); checkPass(); return false;" />
                         <input class="text" id="confirm_password" type="password" name="confirm_password" placeholder="Confirmation du mot de passe" onkeyup="checkPass(); return false;" />
                     </div>
+
+                    <!-- Set the password security notification. -->
                     <div id="show_strength_box">
                         <div id="text_type_of_strength">
                             Sûreté : <span id="type_of_strength"></span>
@@ -74,6 +77,8 @@ session_start();
                             <div id="show_strength_bar_excellent"></div>
                         </div>
                     </div>
+
+                    <!-- Set the warning notification in case of unrespected input informations. -->
                     <div id="show_warning">
                         <div id="warning_image">
                             <img src="../../img/warning.png" alt="warning">
@@ -90,12 +95,16 @@ session_start();
         </div>
     </div>
 
+
+
+    <!-- Check the input register informations. -->
     <?php
     if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password']))  {
       $ctrl = new ControleurVisitor('inscription');
-  }
-  ?>
+    }
+    ?>
+
+
 
 </body>
-
 </html>
