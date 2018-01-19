@@ -10,12 +10,12 @@ from random import randint
 
 from datetime import timedelta, date
 
-def daterange(date1, date2):
+def daterange(date1, date2): #création  d'une fonction génératrice qui génère toutes les dates entre date 1 et dat 2
     for n in range(int ((date2 - date1).days)+1):
         yield date1 + timedelta(n)
-mon_fichier = open("fichier.txt", "w")
-start_dt = date(2016, 12, 1)
-end_dt = date(2018, 1, 30)
+		
+
+mon_fichier = open("fichier.txt", "w") #ouverture d'un fichier où l'on va écrire la requête
 
 
 
@@ -42,7 +42,7 @@ def requete():
     i=0
     listedate=[]
     start_dt = date(2016, 1, 1)
-    end_dt = date(2018, 1, 30)
+    end_dt = date(2018, 2, 28)
     for dt in daterange(start_dt, end_dt):
         listedate.append(dt.strftime("%Y-%m-%d"))
     for dt in listedate:
