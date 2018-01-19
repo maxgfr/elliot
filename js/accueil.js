@@ -172,7 +172,7 @@ function setTablePart(id_room, id_sensor_db, type_of_sensor, value_of_sensor) {
             }
         }
         if (value_of_sensor==null) {
-            cellsNode.style.display = "none";
+            cellsNode.remove();
         }
         textPart.innerHTML = name_of_sensor[type_of_sensor] + ' ' + value_of_sensor + unit_of_sensor[type_of_sensor];
 

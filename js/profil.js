@@ -67,7 +67,7 @@ function showListWithInput(input) {
             //not case-sensitive
             if (valueOfLI.toUpperCase().includes(inputText.toUpperCase())) {
                 li[i].style.display = "block";
-                InstantSearch.highlight(li[i], inputText);
+                //InstantSearch.highlight(li[i], inputText);
             } else {
                 li[i].style.display = "none";
             }

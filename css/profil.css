@@ -1,30 +1,27 @@
-#container_change_profile {
+#container_profile {
     background-image: linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120));
     width: 80%;
     height:auto;
-    padding-bottom: 5px;  padding-top: 0.1%;
+    padding: 2%;
 	font-family: sans-serif;
 	border-radius: 2px;
     margin-left: 10%;
     margin-top: 1%;
     color: white;
-}
-
-#container_change_profile_input {
     display: flex;
 }
 
 #container_contact_details {
-     width: 45%;
-     vertical-align: middle;
-     line-height: auto;
-     padding-right: 3%;
-     border-right: 2px solid white;
+    width: 45%;
+    vertical-align: middle;
+    line-height: auto;
+    padding: 3%;
+    border-right: 2px solid white;
  }
 
 #container_change_password {
     width:50%;
-    padding-left: 3%;
+    padding: 3%;
 }
 
 #container_change_profile > div {
@@ -32,7 +29,7 @@
     position: relative;
 }
 
-#contact_details_input > input, .profileData {
+#contact_details > input, #contact_details_input > input, .profileData > div {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -77,8 +74,34 @@
     transition: 1s;
 }
 
-.dropdownBox {
-    margin-bottom: 0.6em;
+.dropdownBox > select {
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    border: none;
+    border-radius: 2px;
+    text-overflow: '';
+    /*Hiding the select arrow for firefox*/
+    -moz-appearance: none;
+    /*Hiding the select arrow for chrome*/
+    -webkit-appearance:none;
+    /*Hiding the select arrow default implementation*/
+    appearance: none;
+}
+
+.dropdownBox > select::after {
+    content:"";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: black transparent transparent transparent;
+    position: absolute;
+    top: 16px;
+    right: 10px;
 }
 
 .inputPartDropdown {

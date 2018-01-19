@@ -45,7 +45,7 @@
 
 		/** @brief Prépare et exécute une requête.
 		* @param $requete  requête avec des ":name" pour PDO::prepare
-		* @param $args tableau des valeurs
+		* @param $data tableau des valeurs
 		* @return false si la requête échoue,
 		*         true si succès ET requête différente de SELECT,
 		*         ou résultats du SELECT dans un array à double entrée PHP standard
@@ -63,6 +63,52 @@
 				$statement = $this->dbh->prepare($requete);
 				if ($statement !== false){ // si la syntaxe est correcte
 					$statement->execute($data);
+				}
+			} catch (\Exception $e){
+				return false;
+			}
+
+			if ($statement === false){
+				return false;
+			}
+
+			try{
+				// Transfert des résultats de la requête dans un array
+				$results = $statement->fetchAll(\PDO::FETCH_ASSOC);
+				// destruction des données du PDOstatement
+				$statement->closeCursor();
+			} catch (\PDOException $e){
+				// La requête a été exécutée mais pas de résultats
+				// La requête n'est pas de type SELECT...
+				$results = true;
+			}
+
+			// Libération via la garbage collector
+			$statement = null;
+
+			return $results; // retour des données de requête
+		}
+
+
+		/** @brief Prépare et exécute une requête.
+		* @param $requete  requête avec des ":name" pour PDO::prepare
+		* @return false si la requête échoue,
+		*         true si succès ET requête différente de SELECT,
+		*         ou résultats du SELECT dans un array à double entrée PHP standard
+		* @throws exception personnalisée en cas d'exception PDO */
+		public function prepareAndLaunchQueryWithoutData($requete) {
+
+			// Une requête préparée ne doit pas contenir de guillemets !!!
+			if (empty($requete) || !is_string($requete) || preg_match('/(\"|\')+/', $requete) !== 0){
+				throw new \Exception("Erreur concernant la sécurité. Requête incomplètement préparée.");
+			}
+
+			// On ne laisse pas remonter d'exceptions PDO
+			try{
+				// Préparation de la requête
+				$statement = $this->dbh->prepare($requete);
+				if ($statement !== false){ // si la syntaxe est correcte
+					$statement->execute();
 				}
 			} catch (\Exception $e){
 				return false;
