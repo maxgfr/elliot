@@ -49,7 +49,7 @@ typecapteurs["27"]='luminosity'
 typecapteurs["28"]='motion'
 typecapteurs["29"]='température'
 typecapteurs["30"]='barometer'
-typecapteurs["31"]='barometer'
+typecapteurs["31"]='humidity'
 
 
 def requete():
