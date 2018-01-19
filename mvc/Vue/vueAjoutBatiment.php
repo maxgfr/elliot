@@ -59,6 +59,7 @@ if(empty($_SESSION['email'])) {
         <form id="BuildingAddingForm" method="post">
           <label for="name">Nom du bâtiment</label>
           <input class="text" id="name" type="text" name="name"/>
+          <input class="text" id="address" type="text" name="address"/>
           <button id="buildingAdd" type="submit">Ajouter</button>
 
         </form>
@@ -67,7 +68,7 @@ if(empty($_SESSION['email'])) {
 
 
       <?php
-          if (isset($_POST['name'])) {
+          if (isset($_POST['name']) && isset($_POST['address'])) {
               $ctrl = new ControleurAuth('ajoutBat');
           }
       ?>

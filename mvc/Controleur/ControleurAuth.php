@@ -66,7 +66,7 @@
         private function actionDeleteBat(){
           $model = ModelBat::getModelBatDelete($_POST);
             if ($model->getError ( ) === false ) {
-                require(Config::getVues()["deleteBat"]);
+                require(Config::getVues()["success"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
                     // Erreur d'accès à la base de donnée
