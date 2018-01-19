@@ -1,11 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the user informations.
-  The user may change its informations and change his passwords.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
 
 <?php
 // Authorize errors to be displayed.
@@ -28,6 +20,14 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the user informations.
+  The user may change its informations and change his passwords.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
 
 
 
@@ -63,7 +63,7 @@ if(empty($_SESSION['email'])) {
                         <select id="dropdown_accomodation" name="">
                             <option value=""></option>
                             <option value=""></option>
-                        </select>                        
+                        </select>
                     </div>
                     <!--div class="dropdownBox" id="dropdown_accomodation">
                         <div class="inputPartDropdown">

@@ -1,10 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!--
-  This view
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
 
 <?php
     //Voir les erreurs
@@ -23,22 +16,14 @@
     if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
     }
-// Navigate through MVC root directory
-$rootDirectory = dirname(__FILE__)."/../../mvc/";
-
-// Implement the "Autoload" class to load automatically all classes.
-require_once($rootDirectory.'Config\Autoload.php');
-try {
-  Autoload::load();
-} catch(Exception $e){
-  require (Config::getVues()["default"]) ;
-}
-
-session_start();
-if(empty($_SESSION['email'])) {
-    header("Location:vueConnexion.php");
-}
 ?>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
 
 
 

@@ -1,9 +1,4 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the register interface.
-  The user may create an account to access to Elliot services.
--->
-<!-- //////////////////////////////////////////////////////////// -->
+
 
 
 
@@ -25,7 +20,12 @@ try {
 
 session_start();
 ?>
-
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the register interface.
+  The user may create an account to access to Elliot services.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 <!DOCTYPE html>

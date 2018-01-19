@@ -1,11 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!--
-	This view displays the sensors' measurements at present time.
-	The user may decide to add new sensors' data to be displayed
-	or to delete already displayed ones.
-	Before saving, he may as well cancel his modifications.
--->
-<!-- //////////////////////////////////////////////////////////// -->
 
 
 
@@ -27,6 +19,14 @@ if(empty($_SESSION['email'])) {
 }
 ?>
 
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+	This view displays the sensors' measurements at present time.
+	The user may decide to add new sensors' data to be displayed
+	or to delete already displayed ones.
+	Before saving, he may as well cancel his modifications.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 <!DOCTYPE html>
