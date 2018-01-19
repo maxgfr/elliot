@@ -17,12 +17,6 @@ if (empty($_SESSION['email'])) {
 }
 ?>
 <!DOCTYPE html>
-<script>
-function test() {
-  var text = "<?php echo $_SESSION['nom'] ;?>" ;
-  return text;
-  }
-</script>
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,13 +24,13 @@ function test() {
     <link href="../../css/admin.css" rel="stylesheet" type="text/css"/>
     <link href="../../css/admin_personne.css" rel="stylesheet" type="text/css"/>
     <script src="../../js/jquery-3.2.1.min.js"></script>
-
+    <script src="../../js/admin_personne.js"></script>
 </head>
 <?php include("layouts/header.php"); ?>
 <body>
 <div id="main">
 
-    <form method="post" id="submit_form">
+    <form method="post">
         <fieldset>
             <legend>Recherchez un utilisateur</legend>
             <label for="type">Type :</label>
@@ -57,7 +51,7 @@ function test() {
             <thead>
             <tr>
                 <th>
-                    Nosm
+                    Nom
                 </th>
                 <th>
                     Prénom
@@ -77,4 +71,3 @@ function test() {
 </div>
 </body>
 </html>
-    <script src="../../js/admin_personne.js"></script>
