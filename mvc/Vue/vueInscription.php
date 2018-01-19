@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
