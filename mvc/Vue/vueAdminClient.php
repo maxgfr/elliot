@@ -37,17 +37,14 @@
         <div class="mainPart">
             <div class="leftSide">
                 <div class="tabletable">
-                    <div class="headerTable">
-                        DomISEP
+                    <div class="headerTable" id="headerTable">
                     </div>
-                    <div>
+                    <div id="addressTable">
                         Adresse : 28 rue Notre-Dame des Champs
                     </div>
-                    <div>
-                        Adresse mail : domisep@isep.fr
+                    <div id="mailTable">
                     </div>
-                    <div>
-                        Date de naissance : 10 juin 1957
+                    <div id="birthdayTable">
                     </div>
                     <div id="footer_table">
                         Surface de la maison : 100m²
@@ -80,3 +77,22 @@
     </div>
 </body>
 </html>
+
+<script>
+
+var data = {};
+data.head = "<?php echo $_SESSION['nom'] ; ?>" ;
+
+$.ajax({
+  type: "POST",
+  url: "../Modeles/fiche_client.php",
+  data: data,
+  success: function (result) {
+    $('#headerTable').text(result[0]['last_name'] + " "+ result[0]['first_name']);
+    $('#addressTable').text(result[0]['address']);
+    $('#mailTable').text("Adresse mail : " + result[0]['mail']);
+    $('#birthdayTable').text("Date de naissance : " + result[0]['birthday']);
+  }
+})
+
+</script>
