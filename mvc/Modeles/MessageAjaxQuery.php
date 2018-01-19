@@ -10,7 +10,7 @@
     }
 
     header("Content-Type: application/json; charset=UTF-8");
-    $obj = json_decode($_POST["x"], false);
+    //$obj = json_decode($_POST["x"], false);
 
     $sql_query = "SELECT * FROM message WHERE id_user = ?";
 
