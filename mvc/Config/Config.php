@@ -1,20 +1,20 @@
 <?php
 
-/** @brief Classe de configuration : Elle donne accès aux paramères spécifiques contenat l'application tellles que les chemins vers les vues, les vues d'erreur, les hash pour les ID de sessions, etc... */
+/** @brief Configuration class : It gives access to specific parameters involving the application, such as paths towards views, error views, hashes for sessions ID, etc. */
+
 class Config
 {
 
+	/** @brief Essential data for the connection to the database. Values can be initialized from a dinstinct configuration file (require('configuration.php')) to ease its monitoring. */
+	public static function getAuthData(&$db_host, &$db_name, &$db_user, &$db_password)
+	{
+		/* CONFIG 1 */
+		$db_host="mysql:host=localhost;port=8889;";
+		$db_name="dbname=elliot_db";
+		$db_user ="root";
+		$db_password="root";
 
-    /** @brief Données nécessaires à la connexion à la base de données. Les valeurs pourraient être initialisées à partir d'un fichier de configuration  séparé (require('configuration.php')) pour faciliter la maintenance */
-    public static function getAuthData(&$db_host, &$db_name, &$db_user, &$db_password)
-    {
-        /* CONFIG 1 */
-        $db_host="mysql:host=localhost;port=8889;";
-        $db_name="dbname=elliot_db";
-        $db_user ="root";
-        $db_password="root";
-
-        /*CONFIG 2	*/
+		/*CONFIG 2	*/
         /*$db_host="mysql:host=localhost;port=3306;";
         $db_name="dbname=elliot_db";
         $db_user ="root";
@@ -30,7 +30,7 @@ class Config
         /*$db_host="mysql:host=localhost;port=;";
         $db_name="dbname=elliot_db";
         $db_user ="root";
-        $db_password="GDBx:P3k"; */
+        $db_password="GDBx:P3k";*/
 
         /* CONFIG SERVEUR*/
         /*$db_host="mysql:host=localhost;port=3306;";
@@ -40,53 +40,57 @@ class Config
 
     }
 
-    /** @brief retourne le tableau des chemins vers les vues */
+
+    /** @brief Return a table of paths towards views. */
     public static function getVues()
     {
-        global $rootDirectory; //racine du site
-        $vueDirectory = $rootDirectory . "Vue/"; //répertoire contenant les vues
+        global $rootDirectory; // Website root.
+        $vueDirectory = $rootDirectory . "Vue/"; // Directory containing views.
         return array("default" => $vueDirectory . "vueAccueil.php",
-            "connexion" => $vueDirectory . "vueConnexion.php",
-            "inscription" => $vueDirectory . "vueInscription.php",
-            "index" => $vueDirectory . "vueIndex.php",
-            "ajoutCapteur" => $vueDirectory . "vueAjoutCapteur.php",
-            "afficheCapteur" => $vueDirectory . "vueAfficheCapteur.php",
-            "deleteCapteur" => $vueDirectory . "vueDeleteCapteur.php",
-            "ajoutBat" => $vueDirectory . "vueAjoutBatiment.php",
-            "afficheBat" => $vueDirectory . "vueAfficheBatiment.php",
-            "deleteBat" => $vueDirectory . "vueDeleteBatiment.php",
-            "success" => $vueDirectory . "vueSuccess.php",);
+        	"connexion" => $vueDirectory . "vueConnexion.php",
+        	"inscription" => $vueDirectory . "vueInscription.php",
+        	"index" => $vueDirectory . "vueIndex.php",
+        	"ajoutCapteur" => $vueDirectory . "vueAjoutCapteur.php",
+        	"afficheCapteur" => $vueDirectory . "vueAfficheCapteur.php",
+        	"deleteCapteur" => $vueDirectory . "vueDeleteCapteur.php",
+        	"ajoutBat" => $vueDirectory . "vueAjoutBatiment.php",
+        	"afficheBat" => $vueDirectory . "vueAfficheBatiment.php",
+        	"deleteBat" => $vueDirectory . "vueDeleteBatiment.php",
+        	"success" => $vueDirectory . "vueSuccess.php",);
     }
 
 
-    /** @brief retourne le tableau des chemins vers les vues d'erreur */
+    /** @brief Return a table towards error views. */
     public static function getVuesErreur()
     {
-        global $rootDirectory;  //racine du site
-        $vueDirectory = $rootDirectory . "Vue/"; //répertoire contenant les vues d'erreur
+        global $rootDirectory;  // Website root.
+        $vueDirectory = $rootDirectory . "Vue/"; // Directory containing error views.
         return array("default" => $vueDirectory . "vueError.php");
     }
 
 
-    /** @brief retourne l'URI sans le nom d'hôte du site et sans la query string du répertoire racine de notre architecture MVC */
+    /** @brief Return the URI without the host name of the website and without the query string of the root directory of the MVC architecture. */
     public static function getRootURI()
     {
-        global $rootURI;
-        return $rootURI;
+    	global $rootURI;
+    	return $rootURI;
     }
 
-    /** @brief Génère 10 chiffres hexa aléatoires (soit 5 octets) : */
+
+    /** @brief Generate 10 random hexadecimal integers (thus 5 bytes) as ID. */
     public static function generateRandomId()
     {
-        // Génération de 5 octets (pseudo) aléatoires codés en hexa
-        $cryptoStrong = false; // Variable pour passage par référence
+        // Generation of 5 (allegedly) random bytes, coded in hexadecimal. */
+        $cryptoStrong = false; // Variable to shift by reference.
         $octets = openssl_random_pseudo_bytes(5, $cryptoStrong);
         return bin2hex($octets);
     }
 
+
+    /** @brief Redirect the view to replace the current one. */
     public static function movePage($url)
     {
-        echo '<script language="Javascript">document.location.replace("' . $url . '");</script>';
+    	echo '<script language="Javascript">document.location.replace("' . $url . '");</script>';
         /*    static $http = array (
                100 => "HTTP/1.1 100 Continue",
                101 => "HTTP/1.1 101 Switching Protocols",
@@ -130,9 +134,9 @@ class Config
                );
                header($http[$num]);
                header ("Location: $url");*/
-    }
+           }
 
-}
+       }
 
 
-?>
+       ?>
