@@ -164,14 +164,14 @@ function createLinearGrid(canvas, context, xArray, yArray, yMin, max, showHorizo
     }
 
     /*Abscissa values function of the xArray*/
-    context.moveTo(0.1*width_of_canvas, height_of_canvas - height_of_title - 0.1*height_of_canvas - 1);
+    context.moveTo(0.15*width_of_canvas, height_of_canvas - height_of_title - 0.1*height_of_canvas - 1);
     for (var i = 0; i < number_of_points_abscissa; i++) {
         var rotation = Math.PI/3.5;
         context.beginPath();
         context.save();
         context.textAlign = 'right';
-        context.font = 'bold ' + String(0.3*height_of_canvas/xArray[i].length) + 'px sans-serif';
-        context.translate(0.1*width_of_canvas + i*length_of_abscissa/number_of_points_abscissa,
+        context.font = 'bold ' + String(0.28*height_of_canvas/xArray[i].length) + 'px sans-serif';
+        context.translate(0.12*width_of_canvas + i*length_of_abscissa/number_of_points_abscissa,
                           height_of_canvas - height_of_title/3.9 - 0.1*height_of_canvas - 1);
         context.rotate(-rotation);
         context.fillText(xArray[i], 0, 0);
@@ -338,7 +338,9 @@ function draw() {
             array_date = [];
             array_value = [];
             for (x in myObj) {
-                array_date.push(myObj[x].dateTimeArray);
+                var splitting = myObj[x].dateTimeArray.split('-');
+                var date = splitting[1] + ' ' + splitting[0]
+                array_date.push(date);
                 array_value.push(parseInt(-myObj[x].valueArray));
             }
             createLineChart(canvas_line, ctx['canvas_line'], array_date, array_value, 70, '', 'Creation of a line chart for ellIoT', 0.5, false);

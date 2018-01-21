@@ -30,13 +30,13 @@
         $idRoom = $sensorToAdd->id_room;
         $dataOfSensor = $sensorToAdd->data;
 
-        $sql_query .= "INSERT INTO sensors(id_sensor, name, state, id_familysensor, id_user, id_room)
-                       SELECT MAX(id_sensor)+1, ?, 1, (SELECT id_familysensor FROM familysensor WHERE name = ?), ?, ? FROM sensors;
+        $sql_query .= "INSERT INTO sensors(id_sensor, name, state, id_familysensor, id_room)
+                       SELECT MAX(id_sensor)+1, ?, 1, (SELECT id_familysensor FROM familysensor t1 WHERE name = ?), ? FROM sensors;
 
                        INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor)
                        SELECT MAX(id_datasensor)+1, ?, ?, (SELECT MAX(id_sensor) FROM sensors) FROM datasensors;";
 
-        array_push($arrayForQuery, $name, $familySensor, $_SESSION['id_user'], $idRoom, date('Y-m-d'), $dataOfSensor);
+        array_push($arrayForQuery, $name, $familySensor, $idRoom, date('Y-m-d'), $dataOfSensor);
     }
 
     for ($i=0; $i < $lengthOfCreatedRoom; $i++) {
@@ -54,42 +54,17 @@
             $familySensor = $sensorToAdd->familysensor;
             $dataOfSensor = $sensorToAdd->data;
 
-            $sql_query .= "INSERT INTO sensors(id_sensor, name, state, id_familysensor, id_user, id_room)
-                           SELECT MAX(id_sensor)+1, ?, 1, (SELECT id_familysensor FROM familysensor WHERE name = ?), ?,
+            $sql_query .= "INSERT INTO sensors(id_sensor, name, state, id_familysensor, id_room)
+                           SELECT MAX(id_sensor)+1, ?, 1, (SELECT id_familysensor FROM familysensor WHERE name = ?),
                            (SELECT MAX(id_room) FROM room) FROM sensors;
 
                            INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor)
                            SELECT MAX(id_datasensor)+1, ?, ?, (SELECT MAX(id_sensor) FROM sensors) FROM datasensors;";
 
-           array_push($arrayForQuery, $name, $familySensor, $_SESSION['id_user'], date('Y-m-d'), $dataOfSensor);
+           array_push($arrayForQuery, $name, $familySensor, date('Y-m-d'), $dataOfSensor);
         }
 
     }
-
-    /*$sql_query = "CREATE PROCEDURE P()
-                  BEGIN
-                      DECLARE index INT DEFAULT 0;
-                      for_loop_label: LOOP
-                          IF index < $lengthOfExistentRoom THEN
-                              INSERT INTO sensors(id_sensor, name, state, id_familysensor, id_user, id_room)
-                              SELECT MAX(id_sensor)+1,
-                              $existentRoom[index][:familyOfSensor],
-                              1,
-                              (SELECT id_familysensor FROM familysensor WHERE name = $existentRoom[index][:familyOfSensor]),
-                              :idOfUser,
-                              $existentRoom[index][:idOfRoom]
-                              FROM sensors
-                              SET index = index + 1;
-                          ITERATE for_loop_label;
-                          END IF;
-                          LEAVE for_loop_label;
-                      END LOOP
-                  END";
-
-    $arrayForQuery = array("nameOfSensor" => "name",
-                           "familyOfSensor" => "familysensor",
-                           "idOfUser" => $_SESSION["id_user"],
-                           "idOfRoom" => "id_room");*/
 
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, $arrayForQuery);
 
