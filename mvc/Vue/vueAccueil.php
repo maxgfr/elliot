@@ -1,6 +1,3 @@
-
-
-
 <?php
 // Navigate through MVC root directory
 $rootDirectory = dirname(__FILE__)."/../../mvc/";
@@ -19,6 +16,8 @@ if(empty($_SESSION['email'])) {
 }
 ?>
 
+
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
 	This view displays the sensors' measurements at present time.
@@ -27,6 +26,7 @@ if(empty($_SESSION['email'])) {
 	Before saving, he may as well cancel his modifications.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
+
 
 
 <!DOCTYPE html>

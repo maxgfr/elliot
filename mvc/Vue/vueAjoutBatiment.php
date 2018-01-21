@@ -44,7 +44,10 @@
         <form id="BuildingAddingForm" method="post">
           <label for="name">Nom du bâtiment</label>
           <input class="text" id="name" type="text" name="name"/>
+          <br>
+          <label for="address">Addresse du bâtiment</label>
           <input class="text" id="address" type="text" name="address"/>
+          <br>
           <button id="buildingAdd" type="submit">Ajouter</button>
 
         </form>

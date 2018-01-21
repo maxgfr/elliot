@@ -16,6 +16,9 @@ try {
 
 session_start();
 ?>
+
+
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
   This view displays the login interface to access to the user
@@ -24,8 +27,6 @@ session_start();
   reset the password.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
-
-
 
 
 

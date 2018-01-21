@@ -1,4 +1,3 @@
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -21,13 +20,14 @@ if(empty($_SESSION['email'])) {
 }
 ?>
 
+
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
   This view displays the user informations.
   The user may change its informations and change his passwords.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
-
 
 
 

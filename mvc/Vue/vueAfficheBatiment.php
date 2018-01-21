@@ -14,7 +14,7 @@
         <tr>
             <th>ID Batiment</th>
             <th>Nom</th>
-            <th>Action</th>
+            <th>Adresse</th>
         </tr>
         <?php
             for ($i = 0; $i < count($model->getAll()); $i++) {

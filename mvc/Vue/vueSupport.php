@@ -1,5 +1,3 @@
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -21,6 +19,8 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+
 
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--

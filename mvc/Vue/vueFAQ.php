@@ -19,6 +19,9 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
   This view displays the frequently asked questions and their
@@ -27,8 +30,6 @@ if(empty($_SESSION['email'])) {
   informations to resolve problems in his side on his own.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
-
-
 
 
 

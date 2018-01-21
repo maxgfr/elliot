@@ -1,4 +1,3 @@
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -21,6 +20,8 @@ if(empty($_SESSION['email'])) {
 }
 ?>
 
+
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
   This view displays the notifications.
@@ -28,7 +29,6 @@ if(empty($_SESSION['email'])) {
   by SMS, as long as his phone number has been set.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
-
 
 
 

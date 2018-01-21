@@ -29,6 +29,8 @@
                 document.getElementById("toggle_button").remove();
                 $('#elementsOfSidebar_Admin').remove();
                 $('#elementsOfSidebar_AdminPersonne').remove();
+                $('#elementsOfSidebar_AffBatiment').remove();
+                $('#elementsOfSidebar_AjoutBatiment').remove();
                 $('#elementsOfSidebar_Support').css({"display": ""});
                 $('#elementsOfSidebar_Tableau').css({"display": ""});
                 $('#elementsOfSidebar_Accueil').css({"display": ""});
@@ -39,6 +41,8 @@
                 document.getElementById("toggle_button").remove();
                 $('#elementsOfSidebar_Admin').css({"display": ""});
                 $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
+                $('#elementsOfSidebar_AffBatiment').css({"display": ""});
+                $('#elementsOfSidebar_AjoutBatiment').css({"display": ""});
                 $('#elementsOfSidebar_Support').remove();
                 $('#elementsOfSidebar_Tableau').remove();
                 $('#elementsOfSidebar_Accueil').remove();
@@ -115,17 +119,23 @@
             {
                $('#elementsOfSidebar_Admin').css({"display": "none"});
                $('#elementsOfSidebar_AdminPersonne').css({"display": "none"});
+               $('#elementsOfSidebar_AffBatiment').css({"display": "none"});
+               $('#elementsOfSidebar_AjoutBatiment').css({"display": "none"});
             }
             if (<?php echo $_SESSION['role'] ?> == 1)
             {
                $('#elementsOfSidebar_Admin').css({"display": ""});
                $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
+               $('#elementsOfSidebar_AffBatiment').css({"display": ""});
+               $('#elementsOfSidebar_AjoutBatiment').css({"display": ""});
                $('.sidebarContainer').css({"background-color": "rgb(46, 50, 62)"});
             }
         }
         else if (verif) {
             $('#elementsOfSidebar_Admin').css({"display": ""});
             $('#elementsOfSidebar_AdminPersonne').css({"display": ""});
+            $('#elementsOfSidebar_AffBatiment').css({"display": ""});
+            $('#elementsOfSidebar_AjoutBatiment').css({"display": ""});
             $('#elementsOfSidebar_Support').css({"display": "none"});
             $('#elementsOfSidebar_Tableau').css({"display": "none"});
             $('#elementsOfSidebar_Accueil').css({"display": "none"});

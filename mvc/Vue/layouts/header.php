@@ -160,6 +160,24 @@
 			</div>
 		</div>
 
+		<div class="elementsOfSidebar" onclick="GoTo('vueAffBatiment.php')" style="display: none" id="elementsOfSidebar_AffBatiment">
+			<div class="iconOfSidebar">
+				<img src="../../img/adminIcon.png" alt="Admin Icon">
+			</div>
+			<div class="textOfSidebar">
+				Affichage bâtiment
+			</div>
+		</div>
+
+		<div class="elementsOfSidebar" onclick="GoTo('vueAjoutBatiment.php')" style="display: none" id="elementsOfSidebar_AjoutBatiment">
+			<div class="iconOfSidebar">
+				<img src="../../img/adminIcon.png" alt="Admin Icon">
+			</div>
+			<div class="textOfSidebar">
+				Ajout bâtiment
+			</div>
+		</div>
+
 	</div>
 	
 </div>

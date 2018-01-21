@@ -1,5 +1,3 @@
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -23,6 +21,7 @@ if(empty($_SESSION['email'])) {
 ?>
 
 
+
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
   This view let the user submit a ticket to Domisep support in
@@ -30,6 +29,7 @@ if(empty($_SESSION['email'])) {
   deserves more particular assistance.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
+
 
 
 <!DOCTYPE html>
