@@ -5,8 +5,7 @@
 	class ModelBat extends Model
 	{
 		private $nom;
-		private $name; //atribute
-		private $id;
+		private $allItem; //atribute
 
 		/** Constructeur par défaut (Init. du tableau d'erreurs à vide) */
 		public function __construct ($dataError) {
@@ -19,13 +18,8 @@
 		}
 
 		/** Permet d' obtenir le nom */
-		public function getName(){
-			return $this->name;
-		}
-
-		/** Permet d' obtenir le id */
-		public function getId(){
-			return $this->id;
+		public function getAll(){
+			return $this->allItem;
 		}
 
 	    public static function getModelBatCreate($inputArray) {
@@ -33,8 +27,8 @@
 			$model->nom = "Un batiment a été ajouté à la BDD !";
 			// Execution de la requête d'insertion' :
 			$id = substr(abs(crc32(uniqid())), 0, 8);
-			$data = array($id,$inputArray["name"]);
-			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO building (id_building,name) VALUES (?,?)",$data);
+			$data = array($id,$inputArray["name"],$inputArray["address"]);
+			$queryResults = DataBaseManager::getInstance()->prepareAndLaunchQuery("INSERT INTO building (id_building,name,address) VALUES (?,?,?)",$data);
 			if ($queryResults === false) {
 			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
 			}
@@ -46,13 +40,18 @@
 			$model->nom = "Affichage des Batiments de la BDD!";
 			// Exécution de la requête via la classe de connexion (singleton). Le exceptions éventuelles, personnalisées, sont gérés par le Contrôleur
 	        $queryResults = DataBaseManager::getInstance()->prepareAndLaunchQueryWithoutData('SELECT * FROM building');
-			echo implode(',', $queryResults);
-			$model->name = $queryResults["name"];
-			$model->id = $queryResults[0]["id_building"];
-	        //Si la requête a fonctionné
-			if ($queryResults === false) {
-			   $model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
+
+			//Construction de la collection des résultats (fabrique)
+			$collection = array();
+			// Si l'exécution de la requête a fonctionné
+			if($queryResults !== false){
+				foreach($queryResults as $row){
+					$collection[] = $row;
+				}
+			}else{
+				$model->dataError["persistance"] = "Probleme d'éxécution de la requête avec ces paramètres: ".implode(',', $inputArray);
 			}
+			$model->allItem = $collection;
 			return $model;
 	    }
 

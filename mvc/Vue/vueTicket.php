@@ -1,11 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view let the user submit a ticket to Domisep support in 
-  case of a specific problem that needs further explanations and 
-  deserves more particular assistance.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
 
 
 <?php
@@ -30,6 +22,14 @@ if(empty($_SESSION['email'])) {
 }
 ?>
 
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view let the user submit a ticket to Domisep support in
+  case of a specific problem that needs further explanations and
+  deserves more particular assistance.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 <!DOCTYPE html>

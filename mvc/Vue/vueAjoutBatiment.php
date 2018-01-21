@@ -1,10 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!--
-  This view
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
 
 <?php
     //Voir les erreurs
@@ -23,22 +16,14 @@
     if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
     }
-// Navigate through MVC root directory
-$rootDirectory = dirname(__FILE__)."/../../mvc/";
-
-// Implement the "Autoload" class to load automatically all classes.
-require_once($rootDirectory.'Config\Autoload.php');
-try {
-  Autoload::load();
-} catch(Exception $e){
-  require (Config::getVues()["default"]) ;
-}
-
-session_start();
-if(empty($_SESSION['email'])) {
-    header("Location:vueConnexion.php");
-}
 ?>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
 
 
 
@@ -59,6 +44,7 @@ if(empty($_SESSION['email'])) {
         <form id="BuildingAddingForm" method="post">
           <label for="name">Nom du bâtiment</label>
           <input class="text" id="name" type="text" name="name"/>
+          <input class="text" id="address" type="text" name="address"/>
           <button id="buildingAdd" type="submit">Ajouter</button>
 
         </form>
@@ -67,7 +53,7 @@ if(empty($_SESSION['email'])) {
 
 
       <?php
-          if (isset($_POST['name'])) {
+          if (isset($_POST['name']) && isset($_POST['address'])) {
               $ctrl = new ControleurAuth('ajoutBat');
           }
       ?>

@@ -1,14 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the frequently asked questions and their 
-  usual answers.
-  The user may contact Domisep by call or mail and find useful
-  informations to resolve problems in his side on his own.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -30,6 +19,16 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the frequently asked questions and their
+  usual answers.
+  The user may contact Domisep by call or mail and find useful
+  informations to resolve problems in his side on his own.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
 
 
 

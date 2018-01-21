@@ -1,12 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the register interface.
-  The user may create an account to access to Elliot services.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -25,7 +16,12 @@ try {
 
 session_start();
 ?>
-
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the register interface.
+  The user may create an account to access to Elliot services.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 <!DOCTYPE html>
