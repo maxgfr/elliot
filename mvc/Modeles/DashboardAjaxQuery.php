@@ -1,18 +1,22 @@
 <?php
-    // Répertoire racine du MVC
+    // Navigate through MVC root directory
     $rootDirectory = dirname(__FILE__)."/../../mvc/";
-    // chargement de la classe Autoload pour autochargement des classes
+    
+    // Implement the "Autoload" class to load automatically all classes.
     require_once($rootDirectory.'Config/Autoload.php');
     try {
       Autoload::load();
     } catch(Exception $e){
       require (Config::getVues()["default"]) ;
     }
+
     session_start();
 
+    // Adapt the variable to an appropriate data understandable by PHP.
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["x"], false);
 
+    // Set the general query string to retrieve sensor's parameters data from the database.
     $sql_query = "SELECT t1.date_time AS dateTimeArray, t1.value AS valueArray
                   FROM datasensors t1
                   LEFT JOIN sensors t2 ON t2.id_sensor = t1.id_sensor
@@ -20,7 +24,10 @@
                   LEFT JOIN room t4 ON t4.id_room = t2.id_room
                   WHERE t4.name = ? AND t3.name = ? AND date_time LIKE ?";
 
+    // Execute the query
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,['kitchen', 'humidity', '2017-%-01']);
 
+    // Check if the query complies to PHP.
     echo json_encode($query);
+    
 ?>

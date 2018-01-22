@@ -1,28 +1,36 @@
 <?php
-    // Répertoire racine du MVC
+    // Navigate through MVC root directory
     $rootDirectory = dirname(__FILE__)."/../../mvc/";
-    // chargement de la classe Autoload pour autochargement des classes
+
+    // Implement the "Autoload" class to load automatically all classes.
     require_once($rootDirectory.'Config/Autoload.php');
     try {
       Autoload::load();
     } catch(Exception $e){
       require (Config::getVues()["default"]) ;
     }
+
     session_start();
 
+    // Adapt the variable to an appropriate data understandable by PHP.
     header("Content-Type: application/json; charset=UTF-8");
     $obj = json_decode($_POST["y"], false);
 
+
+    // Reference for loop parses.
     $existentRoom = $obj->arrayForExistentRoom;
     $createdRoom = $obj->arrayForCreatedRoom;
-    //the part above works perfectly
+    // The part above works perfectly.
 
     $lengthOfExistentRoom = sizeof($existentRoom);
     $lengthOfCreatedRoom = sizeof($createdRoom);
 
+    // Defined values for queries.
     $sql_query = "";
     $arrayForQuery = [];
 
+
+    // Loop an "INSERT" query for pre-existing rooms.
     for ($i=0; $i < $lengthOfExistentRoom; $i++) {
         $sensorToAdd = $existentRoom[$i];
         $name = $sensorToAdd->name;
@@ -39,6 +47,8 @@
         array_push($arrayForQuery, $name, $familySensor, $idRoom, date('Y-m-d'), $dataOfSensor);
     }
 
+
+    // Loop an "INSERT" query for newly created rooms.
     for ($i=0; $i < $lengthOfCreatedRoom; $i++) {
         $roomToAdd = $createdRoom[$i][0];
         $lengthOfSensorsInRoom = sizeof($createdRoom[$i]);
@@ -66,7 +76,11 @@
 
     }
 
+
+    // Execute the query
     $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, $arrayForQuery);
 
+    // Check if the query complies to PHP.
     echo json_encode($query);
+    
 ?>
