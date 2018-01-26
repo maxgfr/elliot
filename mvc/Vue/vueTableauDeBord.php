@@ -1,5 +1,5 @@
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
+<!--
   This view displays a dashboard of sensors' data through time.
   The user may check the evolution of its parameters with graphs.
 -->
@@ -11,7 +11,7 @@
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
-*
+
 // Navigate through MVC root directory
 $rootDirectory = dirname(__FILE__)."/../../mvc/";
 

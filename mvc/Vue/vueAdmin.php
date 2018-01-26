@@ -177,7 +177,7 @@ if (empty($_SESSION['email'])) {
             </div>
             <!--Juste pour la démo, l'optimisation sera faite plus tard-->
             <div id="list1">
-                <li id="test" onclick="window.location.href='vueAdminClient.php'">DomISEP</li>
+                <li id="test">DomISEP</li>
                 <li>28</li>
                 <li>Notre-Dame des Champs</li>
                 <li>Paris, Ile-de-France</li>
@@ -205,3 +205,23 @@ if (empty($_SESSION['email'])) {
 </div>
 </body>
 </html>
+
+<script>
+$('#list1').click(function () {
+
+$.post(
+  'vueAdminClient.php',
+  {
+    nom : "DomISEP"
+  },
+  success,
+
+  'text'
+);
+
+function success () {
+  console.log("POUET");
+  window.Location.href = "vueAdminClient.php";
+}
+})
+</script>

@@ -13,7 +13,10 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $name = $_POST['head'];
 
-$sql_query = "SELECT last_name,first_name,birthday,mail,address FROM users WHERE last_name=?;";
+$sql_query = "SELECT t1.last_name, t1.first_name, t1.birthday, t1.mail, t3.address
+FROM users t1
+LEFT JOIN accomodation t2 on t1.id_user = t2.id_user
+LEFT JOIN building t3 on t2.id_building = t3.id_building WHERE last_name=?;";
 
 $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$name]);
 
