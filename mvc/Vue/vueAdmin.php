@@ -205,23 +205,4 @@ if (empty($_SESSION['email'])) {
 </div>
 </body>
 </html>
-
-<script>
-$('#list1').click(function () {
-
-$.post(
-  'vueAdminClient.php',
-  {
-    nom : "DomISEP"
-  },
-  success,
-
-  'text'
-);
-
-function success () {
-  console.log("POUET");
-  window.Location.href = "vueAdminClient.php";
-}
-})
-</script>
+<script src="../../js/Admin.js"></script>
