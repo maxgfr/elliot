@@ -1,13 +1,13 @@
 /*************************PART OF CHECKING STRENGTH OF PASSWORD**************************/
 /* To be improved : when longpress on key the strength bar is not modified.
-   The goal is to make it in live */
+   The goal is to make it in a demonstration. */
 
 var counter_space = 0;
 var counter_normal = 0;
 var counter_capitalize = 0;
 var counter_numbers = 0;
 var counter_special = 0;
-var lengthText=0;
+var lengthText = 0;
 var last_text = "";
 var passwordText = "";
 var initial_lengthText = 0;
@@ -30,40 +30,32 @@ function detectCapitalize(character) {
 }
 
 function setCounters(condition, character) {
-    if (lengthText!=0) {
+    if (lengthText != 0) {
         if (detectNormal(character)) {
             if (condition) {
                 counter_normal++;
-            }
-            else {
+            } else {
                 counter_normal--;
             }
-        }
-        else if (detectNumber(character)) {
+        } else if (detectNumber(character)) {
             if (condition) {
                 counter_numbers++;
-            }
-            else {
+            } else {
                 counter_numbers--;
             }
-        }
-        else if (detectSpace(character)) {
+        } else if (detectSpace(character)) {
             if (condition) {
                 counter_space++;
-            }
-            else {
+            } else {
                 counter_space--;
             }
-        }
-        else if (detectCapitalize(character)) {
+        } else if (detectCapitalize(character)) {
             if (condition) {
                 counter_capitalize++;
-            }
-            else {
+            } else {
                 counter_capitalize--;
             }
-        }
-        else {
+        } else {
             /* It's just a trick to determine the special characters by elimination.
                For ease of implementation, it will work for Latin, Greek, Armenian and Cyrillic scripts.
                We don't take into account Chinese, Japanese, Arabic, Hebrew and most other scripts.
@@ -71,13 +63,11 @@ function setCounters(condition, character) {
             */
             if (condition) {
                 counter_special++;
-            }
-            else {
+            } else {
                 counter_special--;
             }
         }
-    }
-    else {
+    } else {
         // If empty text set the default values.
         counter_space = 0;
         counter_normal = 0;
@@ -94,13 +84,13 @@ function setStrength() {
     |*  It returns a value between 0 and 5, depending on the strength                                *|
     |*  of the password written by the user.                                                         *|
     |*                                                                                               *|
-    |*  0 : no word is typed                                                                         *|
+    |*  0 : no word is typed.                                                                        *|
     |*  1 : the password's length is less than 4 characters (even with special characters).          *|
     |*  2 : the password's length is higher than 5 characters (not considering special characters).  *|
-    |*  3 : the password contains at least 2 capitalize characters or at least 2 numbers or          *|
+    |*  3 : the password contains at least 2 capitalized characters or at least 2 numbers or         *|
     |*  at least 2 special characters.                                                               *|
     |*  4 : the password contains at least 2 of the criterias quoted above.                          *|
-    |*  5 : the password contains all the criterias (at least 2 capitalize characters, 2 numbers     *|
+    |*  5 : the password contains all the criterias (at least 2 capitalized characters, 2 numbers    *|
     |*  and 2 special characters).                                                                   *|
     |*                                                                                               *|
     \*************************************************************************************************/
@@ -118,8 +108,7 @@ function setStrength() {
         for (var i = 0; i < text_added.length; i++) {
             setCounters(add_character, text_added[i]);
         }
-    }
-    else if (remove_character) {
+    } else if (remove_character) {
         number_of_character_removed = initial_lengthText - lengthText;
         text_removed = last_text.slice(-number_of_character_removed);
         for (var i = 0; i < text_removed.length; i++) {
@@ -140,30 +129,25 @@ function setStrength() {
 
     /**********DETERMINE THE STRENGTH OF THE PASSWORD**********\
     |*                                                        *|
-    |*    Put here how you want the password to be strong.    *|
+    |*  Describe here how you want the password to be strong. *|
     |*                                                        *|
     \**********************************************************/
 
-    if (lengthText==0) {
+    if (lengthText == 0) {
         strength = 0;
-    }
-    else if (lengthText <= 4) {
+    } else if (lengthText <= 4) {
         strength = 1;
-    }
-    else if (lengthText > 4) {
+    } else if (lengthText > 4) {
         /* The order of the if conditions is very important here ! */
-        if (counter_capitalize>=2 && counter_numbers>=2 && counter_special>=2) {
+        if (counter_capitalize >= 2 && counter_numbers >= 2 && counter_special >= 2) {
             strength = 5;
-        }
-        else if ((counter_capitalize>=2 && counter_numbers>=2) ||
-                 (counter_capitalize>=2 && counter_special>=2) ||
-                 (counter_numbers>=2 && counter_special>=2)) {
+        } else if ((counter_capitalize >= 2 && counter_numbers >= 2) ||
+            (counter_capitalize >= 2 && counter_special >= 2) ||
+            (counter_numbers >= 2 && counter_special >= 2)) {
             strength = 4;
-        }
-        else if ((counter_capitalize>=2 || counter_numbers>=2 || counter_special>=2)) {
+        } else if ((counter_capitalize >= 2 || counter_numbers >= 2 || counter_special >= 2)) {
             strength = 3;
-        }
-        else {
+        } else {
             strength = 2;
         }
     }
@@ -174,7 +158,7 @@ function setStrength() {
 function setBackgroundColorBar(strength) {
     /*************************************************************************************************\
     |*                                                                                               *|
-    |*  This function takes in parameter the value return by the setStrength                         *|
+    |*  This function takes in parameter the value returned by the setStrength                       *|
     |*  function to set the bars' color.                                                             *|
     |*                                                                                               *|
     \*************************************************************************************************/
@@ -191,51 +175,42 @@ function setBackgroundColorBar(strength) {
     if (counter_space >= 1) {
         warning.style.display = "flex";
         strengthBox.style.display = "none";
-    }
-    else {
+    } else {
         strengthBox.style.display = "flex";
         warning.style.display = "none";
-        if (strength==0) {
-            strengthBox.style.display="none";
-        }
-        else if (strength==1) {
-            strengthBox.style.display="flex";
-            displayText.innerHTML="Médiocre";
+        if (strength == 0) {
+            strengthBox.style.display = "none";
+        } else if (strength == 1) {
+            strengthBox.style.display = "flex";
+            displayText.innerHTML = "Médiocre";
 
             firstBarColor.style.backgroundColor = "#C00000";
-            secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor
-            = fifthBarColor.style.backgroundColor = "#D3D3D3";
+            secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
             /* This line forces the other bars to be grey because, when a color is set,
                it stays at its previous color.
                Example : The password is medium, so the first three bars are set yellow. Now the user
                          removes the password and it becomes a weak password. At this moment, the first
                          two bars are set to red but the third bar is still set to yellow and not grey.
             */
-        }
-        else if (strength==2) {
-            displayText.innerHTML="Mauvaise";
+        } else if (strength == 2) {
+            displayText.innerHTML = "Mauvaise";
 
             firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = "#C75566";
             thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
-        }
-        else if (strength==3) {
-            displayText.innerHTML="Moyenne";
+        } else if (strength == 3) {
+            displayText.innerHTML = "Moyenne";
 
             firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = "#DDAC26";
             fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
-        }
-        else if (strength==4) {
-            displayText.innerHTML="Elevée";
+        } else if (strength == 4) {
+            displayText.innerHTML = "Elevée";
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
-            = fourthBarColor.style.backgroundColor = "#219D75";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = "#219D75";
             fifthBarColor.style.backgroundColor = "#D3D3D3";
-        }
-        else if (strength==5) {
-            displayText.innerHTML="Excellente";
+        } else if (strength == 5) {
+            displayText.innerHTML = "Excellente";
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor
-            = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#548235";
+            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#548235";
         }
     }
 }
@@ -244,35 +219,35 @@ function setBackgroundColorBar(strength) {
 function verifiyForm() {
     /*************************************************************************************************\
     |*                                                                                               *|
-    |*  This function verify the inputs typed by the user before send them to the database.          *|
-    |*  The part below will explain how we verify the inputs.                                        *|
+    |*  This function check the inputs typed by the user before sending them to the database.        *|
+    |*  The part below will explain how the inputs are checked.                                      *|
     |*                                                                                               *|
     |*  Last name and first name will be the same :                                                  *|
-    |*      - must contain letters, no numbers, no special characters, no space                      *|
-    |*      - must contain at least two characters                                                   *|
+    |*      - must contain letters, no numbers, no special characters, no space,                     *|
+    |*      - must contain at least two characters,                                                  *|
     |*      - can be either uppercase or lowercase, anyway the string will be transformed to         *|
-    |*        lowercase. After, these strings could be transformed to a show better interface        *|
-    |*      - maximum characters of 15 (we are not a novel)                                          *|
+    |*        lowercase. These strings could be transformed later to a show better interface,        *|
+    |*      - maximum characters of 15 (we are not a novel).                                         *|
     |*                                                                                               *|
     |*  Phone number :                                                                               *|
-    |*      - must contain exactly 10 numbers, no letters, no special characters                     *|
-    |*      - the form of the phone number will be : 0123456789                                      *|
-    |*      - the spaces will be deleted, then if the user types 01 23 45 67 89 it is ok             *|
+    |*      - must contain exactly 10 numbers, no letters, no special characters,                    *|
+    |*      - the form of the phone number will be : 0123456789,                                     *|
+    |*      - the spaces will be deleted, then if the "01 23 45 67 89" form will be fine.            *|
     |*                                                                                               *|
     |*  Birthday :                                                                                   *|
-    |*      - must be like JJ/MM/AAAA (maybe a form with the / can be implemented)                   *|
-    |*      - must be numbers                                                                        *|
+    |*      - must be like JJ/MM/AAAA (maybe a form with the / can be implemented),                  *|
+    |*      - must be numbers,                                                                       *|
     |*      - JJ between 1 and 31 (depending), MM between 1 and 12 (all the time),                   *|
-    |*        AAAA between 1930 and actual year (why 1930? I don't know)                             *|
+    |*        AAAA between 1930 and actual year (why 1930? I don't know).                            *|
     |*                                                                                               *|
     |*  Mail :                                                                                       *|
-    |*      - must contain @ and . characters                                                        *|
-    |*      - before @ and . , must contain at least 2 characters                                    *|
+    |*      - must contain @ and . characters,                                                       *|
+    |*      - before @ and . , must contain at least 2 characters,                                   *|
     |*      - special characters forbidden, except @ (only once), . (only once after @               *|
-    |*        and no matter before) and underscore before @ (no matter the frequency)                *|
+    |*        and no matter before) and underscore before @ (no matter the frequency).               *|
     |*                                                                                               *|
     |*  Password :                                                                                   *|
-    |*      - must be at least level 2                                                               *|
+    |*      - must be at least level 2.                                                              *|
     |*                                                                                               *|
     |*                                                                                               *|
     \*************************************************************************************************/
@@ -292,8 +267,8 @@ function verifiyForm() {
             if (isNaN(num) || num <= 0 || num > max) {
                 num = 1;
             }
-            str = num > parseInt(max.toString().charAt(0))
-                   && num.toString().length == 1 ? '0' + num : num.toString();
+            str = num > parseInt(max.toString().charAt(0)) &&
+                num.toString().length == 1 ? '0' + num : num.toString();
         }
         return str;
     }
@@ -317,33 +292,32 @@ function verifiyForm() {
     /** GET THIS HERE : https://stackoverflow.com/questions/44137998/auto-slash-for-date-input-using-javascript **/
 
 
-    if (lastNameInput.includes(" ") || lastNameInput.match(/[0-9]/) || lastNameInput.length==0) {
+    if (lastNameInput.includes(" ") || lastNameInput.match(/[0-9]/) || lastNameInput.length == 0) {
         document.getElementById("last_name").style.backgroundColor = "red";
-    }
-    else {
+    } else {
         document.getElementById("last_name").style.backgroundColor = "white";
     }
 }
 
 function checkPass() {
-    //Store the password field objects into variables ...
+    // Store the password field objects into variables ...
     var password = document.getElementById('password');
     var confirm_password = document.getElementById('confirm_password');
-    //Store the Confimation Message Object ...
-    //Set the colors we will be using ...
+    // Store the Confimation Message Object ...
+    // Set the colors we will be using ...
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
-    //Compare the values in the password field
-    //and the confirmation field
-    if(password.value == confirm_password.value){
-        //The passwords match.
-        //Set the color to the good color and inform
-        //the user that they have entered the correct password
+    // Compare the values in the password field
+    // and the confirmation field.
+    if (password.value == confirm_password.value) {
+        // The passwords match.
+        // Set the color to the good color and inform
+        // the user that they have entered the correct password.
         confirm_password.style.backgroundColor = goodColor;
-    } else{
-        //The passwords do not match.
-        //Set the color to the bad color and
-        //notify the user.
+    } else {
+        // The passwords do not match.
+        // Set the color to the bad color and
+        // notify the user.
         confirm_password.style.backgroundColor = badColor;
     }
 }

@@ -1,29 +1,33 @@
 <?php
 
-/** @brief ControleurVisitor identifie l'action et appelle la méthode pour construire le modèle correspondant à l'action avec le rôle "visitor". Le controleur appelle aussi la Vue correspondante. */
+/** @brief ControleurVisitor identify the action and call a method to build the model suited for the action with the "visitor" role. The controller also calls the suited view. */
+
 class ControleurVisitor
 {
-
+    /** @brief Selection of the appropriate use case. */
     function __construct($action)
     {
-        ///On distingue des cas d’utilisation, suivant l’action
+        /// Several use cases are distinguished according to the action.
         switch ($action) {
             case "index" :
-                require(Config::getVues()["index"]);
-                break;
+            require(Config::getVues()["index"]);
+            break;
             case "inscription" :
-                $this->actionInscription();
-                break;
+            $this->actionInscription();
+            break;
             case "connexion" :
-                $this->actionConnexion();
-                break;
-            default : // L'action indéfinie ( page par défaut , ici accueil )
-                require(Config::getVues()["connexion"]);
-                break;
+            $this->actionConnexion();
+            break;
+
+            // The undefined action (here, vueAccueil.php or vueAdmin.php).
+            default :
+            require(Config::getVues()["connexion"]);
+            break;
         }
     }
 
-    /** @brief Inscription d'un utilisateur */
+
+    /** @brief Resgister of a user. */
     private function actionInscription()
     {
         $model = ModelUser::getModelUserCreate($_POST);
@@ -32,16 +36,17 @@ class ControleurVisitor
             SessionUtils::createSession($model->email);
         } else {
             if (!empty($model->getError()['persistance'])) {
-                // Erreur d'accès à la base de donnée
+                // Error when accessing to the database.
                 require(Config::getVuesErreur()["default"]);
             } else {
-                // Erreur de saisie
+                // Typing error.
                 require(Config::getVuesErreur()["default"]);
             }
         }
     }
 
-    /** @brief Inscription d'un utilisateur */
+
+    /** @brief Login of a user. */
     private function actionConnexion()
     {
         $model = ModelUser::getModelUserConnexion($_POST);
@@ -52,10 +57,10 @@ class ControleurVisitor
                 Config::movePage('/elliot/mvc/Vue/vueAdmin.php');
         } else {
             if (!empty($model->getError()['persistance'])) {
-                // Erreur d'accès à la base de donnée
+                // Error when accessing to the database.
                 require(Config::getVuesErreur()["default"]);
             } else {
-                // Erreur de saisie
+                // Typing error.
                 require(Config::getVuesErreur()["default"]);
             }
         }

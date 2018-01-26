@@ -1,9 +1,12 @@
 <?php
-	/** @brief Identifie l'action concernant l'authentification et appelle la méthode pour construire le modèle pour l'action. Le controleur appelle aussi la vue correspondante. Il ne gère pas les exceptions, qui remontent au Front Controller. */
+
+  /** @brief Identify the action regarding the authentification and call a method to build a suited model for the action. The controler also calls the suied view. It doesn't handle exceptions, which are redirected to the Front Controller. */
+
 	class ControleurAuth{
-		/** @brief C’est dans le contructeur que le contrôleur fait son travail */
+
+    /** @brief The controller do its job in the constructor. */
 		function __construct($action){
-			//On distingue des cas d’utilisation suivant l’action
+			/// Several use cases are distinguished according to the action.
 			switch($action){
 				case "home":
 					require(Config::getVues()["default"]);
@@ -27,101 +30,115 @@
                     $this->actionDeleteBat();
                     break;
 
-				default://L’action indéfinie (page par défaut, ici accueil)
+                // The undefined action (here, vueAccueil.php or vueAdmin.php).
+				default: 
 					require(Config::getVues()["default"]);
 					break;
 			}
 		}
 
+
+        /** @brief Addition of a building. */
 		private function actionAjoutBat(){
-          $model = ModelBat::getModelBatCreate($_POST);
+            $model = ModelBat::getModelBatCreate($_POST);
             if ($model->getError ( ) === false ) {
                 require(Config::getVues()["success"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
-                    // Erreur d'accès à la base de donnée
+                    // Error when accessing to the database.
                     require(Config::getVuesErreur()["default"]);
                 } else {
-                    // Erreur de saisie
+                    // Typing error.
                     require(Config::getVuesErreur()["default"]);
                 }
             }
-          }
-
-          private function actionAfficheBat(){
-            $model = ModelBat::getModelBatDisplay($_POST);
-              if ($model->getError ( ) === false ) {
-                  require(Config::getVues()["afficheBat"]);
-              } else {
-                  if (!empty($model->getError()['persistance'])){
-                      // Erreur d'accès à la base de donnée
-                      require(Config::getVuesErreur()["default"]);
-                  } else {
-                      // Erreur de saisie
-                      require(Config::getVuesErreur()["default"]);
-                  }
-              }
         }
 
-        private function actionDeleteBat(){
-          $model = ModelBat::getModelBatDelete($_POST);
+
+        /** @brief Display of a building. */
+        private function actionAfficheBat(){
+            $model = ModelBat::getModelBatDisplay($_POST);
             if ($model->getError ( ) === false ) {
-                require(Config::getVues()["deleteBat"]);
+                require(Config::getVues()["afficheBat"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
-                    // Erreur d'accès à la base de donnée
+                    // Error when accessing to the database.
                     require(Config::getVuesErreur()["default"]);
                 } else {
-                    // Erreur de saisie
+                    // Typing error.
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
+        }
+
+
+        /** @brief Withdrawal of a building. */
+        private function actionDeleteBat(){
+            $model = ModelBat::getModelBatDelete($_POST);
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["success"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Error when accessing to the database.
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Typing error.
                     require(Config::getVuesErreur()["default"]);
                 }
             }
           }
 
+
+        /** @brief Addition of a sensor. */
         private function actionAjoutCapteur(){
           $model = ModelCapteur::getModelCapteurCreate($_POST);
             if ($model->getError ( ) === false ) {
                 require(Config::getVues()["ajoutCapteur"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
-                    // Erreur d'accès à la base de donnée
+                    // Error when accessing to the database.
                     require(Config::getVuesErreur()["default"]);
                 } else {
-                    // Erreur de saisie
+                    // Typing error.
                     require(Config::getVuesErreur()["default"]);
                 }
             }
           }
 
-          private function actionAfficheCapteur(){
+
+        /** @brief Display of a sensor. */
+        private function actionAfficheCapteur(){
             $model = ModelCapteur::getModelCapteurDisplay($_POST);
-              if ($model->getError ( ) === false ) {
-                  require(Config::getVues()["afficheCapteur"]);
-              } else {
-                  if (!empty($model->getError()['persistance'])){
-                      // Erreur d'accès à la base de donnée
-                      require(Config::getVuesErreur()["default"]);
-                  } else {
-                      // Erreur de saisie
-                      require(Config::getVuesErreur()["default"]);
-                  }
-              }
+            if ($model->getError ( ) === false ) {
+                require(Config::getVues()["afficheCapteur"]);
+            } else {
+                if (!empty($model->getError()['persistance'])){
+                    // Error when accessing to the database.
+                    require(Config::getVuesErreur()["default"]);
+                } else {
+                    // Typing error.
+                    require(Config::getVuesErreur()["default"]);
+                }
+            }
         }
 
+
+        /** @brief Withdrawal of a sensor. */
         private function actionDeleteCapteur(){
           $model = ModelCapteur::getModelCapteurDelete($_POST);
             if ($model->getError ( ) === false ) {
                 require(Config::getVues()["deleteCapteur"]);
             } else {
                 if (!empty($model->getError()['persistance'])){
-                    // Erreur d'accès à la base de donnée
+                    // Error when accessing to the database.
                     require(Config::getVuesErreur()["default"]);
                 } else {
-                    // Erreur de saisie
+                    // Typing error.
                     require(Config::getVuesErreur()["default"]);
                 }
             }
-          }
+        }
 
 	}
+
 ?>

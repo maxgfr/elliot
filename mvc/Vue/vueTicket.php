@@ -1,13 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view let the user submit a ticket to Domisep support in 
-  case of a specific problem that needs further explanations and 
-  deserves more particular assistance.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -29,6 +19,16 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view let the user submit a ticket to Domisep support in
+  case of a specific problem that needs further explanations and
+  deserves more particular assistance.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 

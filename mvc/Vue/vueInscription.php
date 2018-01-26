@@ -1,12 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the register interface.
-  The user may create an account to access to Elliot services.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -28,6 +19,15 @@ session_start();
 
 
 
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the register interface.
+  The user may create an account to access to Elliot services.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +36,14 @@ session_start();
     <link rel="shortcut icon" href="../../img/smallellIoTICO.ico" />
     <script type="text/javascript" src="../../js/password.js"></script>
     <title>Inscription</title>
+    <style type="text/css">
+        .alert {
+            padding: 20px;
+            background-color: #f44336; /* Red */
+            color: white;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,11 +63,11 @@ session_start();
             <form method="post">
                 <input class="text" id="last_name" type="text" name="last_name" value="" placeholder="Nom de famille"/>
                 <input class="text" id="first_name" type="text" name="first_name" value="" placeholder="Prénom"/>
-                <input class="text" id="phone_number" type="tel" name="phone_number" value="" placeholder="Téléphone"/>
-                <input class="text" id="birthday" type="text" name="birthday" value="" placeholder="Date de naissance"/>
+                <input class="text" id="phone_number" type="tel" name="phone_number" value="" placeholder="Téléphone (sous forme 0123456789)"/>
+                <input class="text" id="birthday" type="text" name="birthday" value="" placeholder="Date de naissance (sous forme AAAA-MM-JJ)"/>
                 <input class="text" id="mail" type="email" name="mail" value="" placeholder="Email"/>
                 <div class="testSecurityPassword">
-                    <div id="input_box">
+                    <div id="input_box"> 
                         <input class="text" id="password" type="password" name="password" placeholder="Mot de passe" onkeyup="setBackgroundColorBar(setStrength()); checkPass(); return false;" />
                         <input class="text" id="confirm_password" type="password" name="confirm_password" placeholder="Confirmation du mot de passe" onkeyup="checkPass(); return false;" />
                     </div>
@@ -87,7 +95,8 @@ session_start();
                             <div id="warning_message">Les espaces ne sont pas autorisés.</div>
                         </div>
                     </div>
-                </div>            </div>
+                </div>            
+        </div>
                 <div id="register_box_register" class="confirmButton">
                     <button type="submit" name="button">S'enregistrer</button>
                 </div>
@@ -99,9 +108,25 @@ session_start();
 
     <!-- Check the input register informations. -->
     <?php
-    if (isset($_POST['last_name']) && isset($_POST['first_name']) && isset($_POST['phone_number']) && isset($_POST['birthday']) && isset($_POST['mail']) && isset($_POST['password']))  {
-      $ctrl = new ControleurVisitor('inscription');
-    }
+    if (isset($_POST['last_name']) && 
+        isset($_POST['first_name']) && 
+        isset($_POST['phone_number']) && 
+        isset($_POST['birthday']) && 
+        isset($_POST['mail']) && 
+        isset($_POST['password']) && 
+        isset($_POST['confirm_password']) &&
+        $_POST['password'] == $_POST['confirm_password'])  {
+        $ctrl = new ControleurVisitor('inscription');
+    } 
+    else if (!isset($_POST['last_name'])) { echo "<h1 class=\"alert\"> Nom de famille obligatoire ! </h1>"; }
+    else if (!isset($_POST['first_name'])) { echo "<h1 class=\"alert\"> Prénom obligatoire ! </h1>"; }
+    else if (!isset($_POST['phone_number'])) { echo "<h1 class=\"alert\"> Numéro de téléphone obligatoire ! </h1>"; }
+    else if (!isset($_POST['birthday'])) { echo "<h1 class=\"alert\"> Date de naissance obligatoire ! </h1>"; }
+    else if (!isset($_POST['mail'])) { echo "<h1 class=\"alert\"> Addresse mail obligatoire ! </h1>"; }
+    else if (!isset($_POST['password'])) { echo "<h1 class=\"alert\"> Mot de passe obligatoire ! </h1>"; } 
+    else if (!isset($_POST['confirm_password']) || $_POST['password'] != $_POST['confirm_password']) { echo "<h1 class=\"alert\"> Vous devez confirmer votre mot de passe ! </h1>"; }  
+ 
+
     ?>
 
 

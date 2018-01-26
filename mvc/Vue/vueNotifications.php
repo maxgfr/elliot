@@ -1,13 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the notifications.
-  The user may choose whether or not to receive the notifications
-  by SMS, as long as his phone number has been set.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -29,6 +19,16 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the notifications.
+  The user may choose whether or not to receive the notifications
+  by SMS, as long as his phone number has been set.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 

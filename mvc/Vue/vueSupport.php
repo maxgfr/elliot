@@ -1,13 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays an interface to help resolving a problem.
-  The user may choose to submit a ticket to the support or check
-  if his current problem has already been resolved.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -29,6 +19,16 @@ if(empty($_SESSION['email'])) {
     header("Location:vueConnexion.php");
 }
 ?>
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays an interface to help resolving a problem.
+  The user may choose to submit a ticket to the support or check
+  if his current problem has already been resolved.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 

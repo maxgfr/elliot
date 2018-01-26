@@ -15,10 +15,11 @@ xmlhttp.send("a=" + dbParam);*/
 
 /*******************************************************************************/
 
-var _funcShowList = function() {showList(this)};
-var _funcHideList = function() {hideList(this)};
+// Set the general model to a user's data display.
+var _funcShowList = function() { showList(this) };
+var _funcHideList = function() { hideList(this) };
 
-var _funcShowListWithInput = function() {showListWithInput(this)};
+var _funcShowListWithInput = function() { showListWithInput(this) };
 
 var arrow = document.getElementsByClassName('activeArrow');
 for (var i = 0; i < arrow.length; i++) {
@@ -30,13 +31,15 @@ for (var i = 0; i < getInputText.length; i++) {
     getInputText[i].addEventListener('keyup', _funcShowListWithInput);
 }
 
+
+// Display a user's data.
 function showList(element) {
     var otherElements = document.getElementsByClassName(element.className);
     for (var i = 0; i < otherElements.length; i++) {
-        //when opening a list, display none the others
+        // When opening a list, display "none" the others.
         hideList(otherElements[i]);
     }
-    element.children[0].setAttribute('style', 'width:15px; transform:rotate(180deg); transition: all ease 0.3s'); //rotate the image
+    element.children[0].setAttribute('style', 'width:15px; transform:rotate(180deg); transition: all ease 0.3s'); // Rotate the image.
     var listClass = element.parentElement.nextElementSibling;
     listClass.style.display = "block";
     listClass.style.zIndex = "1";
@@ -44,6 +47,8 @@ function showList(element) {
     element.addEventListener('click', _funcHideList);
 }
 
+
+// Withdraw a user's data.
 function hideList(element) {
     element.children[0].setAttribute('style', 'width:15px; transform:rotate(0deg); transition: all ease 0.3s');
     var listClass = element.parentElement.nextElementSibling;
@@ -53,18 +58,20 @@ function hideList(element) {
     element.addEventListener('click', _funcShowList);
 }
 
+
+//Display a user's input.
 function showListWithInput(input) {
     var inputText = input.value;
     var arrow = input.parentElement.nextElementSibling;
-    var navigation = input.parentElement.parentElement.nextElementSibling.children[0]; //go to <nav>
+    var navigation = input.parentElement.parentElement.nextElementSibling.children[0]; //Go to <nav>.
     var li = navigation.getElementsByTagName('li');
     init();
     if (inputText.length > 0) {
-        //user typed something
+        // The user typed something.
         showList(arrow);
         for (var i = 0; i < li.length; i++) {
             var valueOfLI = li[i].innerHTML;
-            //not case-sensitive
+            // Not case-sensitive.
             if (valueOfLI.toUpperCase().includes(inputText.toUpperCase())) {
                 li[i].style.display = "block";
                 //InstantSearch.highlight(li[i], inputText);
@@ -74,14 +81,14 @@ function showListWithInput(input) {
         }
         var count = 0;
         for (var i = 0; i < li.length; i++) {
-            //if no results, show 'Aucun résultat ne correspond.'
+            // If no results, show 'Aucun résultat ne correspond.'.
             if (li[i].style.display == "block") {
                 count += 1;
             }
         }
-        if (count==0) {
+        if (count == 0) {
             var notFound = document.getElementById('not_found');
-            if (notFound!=null) {
+            if (notFound != null) {
                 notFound.remove();
             }
             var element = document.createElement('LI');
@@ -98,9 +105,11 @@ function showListWithInput(input) {
     }
 }
 
+
+// Display the existing user's data.
 function init() {
     var notFound = document.getElementById('not_found');
-    if (notFound!=null) {
+    if (notFound != null) {
         notFound.remove();
     }
     for (var i = 0; i < document.getElementsByTagName('li').length; i++) {

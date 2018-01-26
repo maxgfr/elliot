@@ -14,10 +14,11 @@
         <tr>
             <th>ID Batiment</th>
             <th>Nom</th>
+            <th>Adresse</th>
         </tr>
         <?php
-            for ($i = 0; $i <= count($model->getId()); $i++) {
-                 echo "<tr><td>".$model->getId()[$i]["name"]."</td><td>".$model->getName()[$i]["name"]."</td></tr>";
+            for ($i = 0; $i < count($model->getAll()); $i++) {
+                 echo "<tr><td>".$model->getAll()[$i]["id_building"]."</td><td>".$model->getAll()[$i]["name"]."</td><td>".$model->getAll()[$i]["address"]."</td></tr>";
              }
          ?>
     </table>

@@ -1,14 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!-- 
-  This view displays the login interface to access to the user
-  account.
-  The user may get to a register interface or an interface to 
-  reset the password.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Authorize errors to be displayed.
 ini_set('display_errors', 'On');
@@ -27,6 +16,17 @@ try {
 
 session_start();
 ?>
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+  This view displays the login interface to access to the user
+  account.
+  The user may get to a register interface or an interface to
+  reset the password.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 
@@ -62,7 +62,7 @@ session_start();
                         <input name="password" id="password" type="password" title="Password" placeholder="Mot de passe" />
                     </div>
 
-                    <!-- Set the register and password-resetting options. -->    
+                    <!-- Set the register and password-resetting options. -->
                     <div id="login_box_input_suggestion">
                         <div>
                             <a href="/elliot/mvc/Vue/vueInscription.php">Je n'ai pas de compte</a>

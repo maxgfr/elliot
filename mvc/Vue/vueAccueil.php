@@ -1,14 +1,3 @@
-<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
-<!--
-	This view displays the sensors' measurements at present time.
-	The user may decide to add new sensors' data to be displayed
-	or to delete already displayed ones.
-	Before saving, he may as well cancel his modifications.
--->
-<!-- //////////////////////////////////////////////////////////// -->
-
-
-
 <?php
 // Navigate through MVC root directory
 $rootDirectory = dirname(__FILE__)."/../../mvc/";
@@ -26,6 +15,17 @@ if(empty($_SESSION['email'])) {
 	header("Location:vueConnexion.php");
 }
 ?>
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
+<!--
+	This view displays the sensors' measurements at present time.
+	The user may decide to add new sensors' data to be displayed
+	or to delete already displayed ones.
+	Before saving, he may as well cancel his modifications.
+-->
+<!-- //////////////////////////////////////////////////////////// -->
 
 
 
