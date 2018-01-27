@@ -1,14 +1,9 @@
 $('#list1').click(function () {
-  sessionStorage.setItem('name', 'DomISEP');
+  sessionStorage.setItem('name', 'Elliot');
   window.location.href = "vueAdminClient.php";
 })
 
 $('#list2').click(function () {
-  sessionStorage.setItem('name', 'Dupont Dupond');
-  window.location.href = "vueAdminClient.php";
-})
-
-$('#list3').click(function () {
-  sessionStorage.setItem('name', 'Serge');
+  sessionStorage.setItem('name', 'Albert');
   window.location.href = "vueAdminClient.php";
 })

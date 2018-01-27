@@ -177,7 +177,7 @@ if (empty($_SESSION['email'])) {
             </div>
             <!--Juste pour la démo, l'optimisation sera faite plus tard-->
             <div id="list1">
-                <li id="test">DomISEP</li>
+                <li id="test">Elliot Alderson</li>
                 <li>28</li>
                 <li>Notre-Dame des Champs</li>
                 <li>Paris, Ile-de-France</li>
@@ -185,20 +185,12 @@ if (empty($_SESSION['email'])) {
                 <li id="footer_list_clients">Batterie: 10%</li>
             </div>
             <div id="list2">
-                <li id="test">Dupont Dupond</li>
+                <li id="test">Albert Einstein</li>
                 <li>30</li>
                 <li>Tour Montparnasse</li>
                 <li>Paris, Ile-de-France</li>
                 <li>dupont@dupond.fr</li>
                 <li id="footer_list_clients">Capteur non fonctionnel</li>
-            </div>
-            <div id="list3">
-                <li id="test">Serge</li>
-                <li>1</li>
-                <li>Edmon Richard</li>
-                <li>Bourg-en-Bresse, Ain</li>
-                <li>serge_lm@hotmail.fr</li>
-                <li id="footer_list_clients">Connexion non assurée</li>
             </div>
         </div>
     </div>
