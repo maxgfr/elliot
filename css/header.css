@@ -308,6 +308,18 @@ body {
     background: rgb(28, 30, 38);
 }
 
+#elementsOfSidebar_AdminPersonne:hover {
+    background: rgb(28, 30, 38);
+}
+
+#elementsOfSidebar_AffBatiment:hover {
+    background: rgb(28, 30, 38);
+}
+
+#elementsOfSidebar_AjoutBatiment:hover {
+    background: rgb(28, 30, 38);
+}
+
 .iconOfSidebar img {
     width: 2.7em;
     height: auto;

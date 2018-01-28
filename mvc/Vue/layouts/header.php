@@ -1,19 +1,20 @@
 <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  -->
 <!--
 	This layout displays the overall "header" of every view.
-	It is built in 2 parts : 
-	- The top displays options to change the sidebar, ŝwitch status, 
+	It is built in 2 parts :
+	- The top displays options to change the sidebar, ŝwitch status,
 	check notifications, look at profile page and logout.
-	- The sidebar displays the views that can be accessed according 
+	- The sidebar displays the views that can be accessed according
 	to the current user's status.
 -->
 <!-- //////////////////////////////////////////////////////////// -->
 
 
 
-<link rel="stylesheet" href="../../css/header.css">
+
 <link rel="shortcut icon" href="../../img/smallellIoTICO.ico"/>
 <script src="../../js/header.js"></script>
+<link rel="stylesheet" href="../../css/header.css">
 <script src="../../js/jquery-3.2.1.min.js"></script>
 
 <!-- Display the top options. -->
@@ -179,7 +180,7 @@
 		</div>
 
 	</div>
-	
+
 </div>
 
 
