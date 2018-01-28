@@ -31,6 +31,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/login.css">
     <title>Ajout bâtiment</title>
 </head>
 
@@ -39,19 +40,28 @@
 
 
       <div id="main">
-
-        <h2>Ajouter un bâtiment</h2>
-        <form id="BuildingAddingForm" method="post">
-          <label for="name">Nom du bâtiment</label>
-          <input class="text" id="name" type="text" name="name"/>
-          <br>
-          <label for="address">Addresse du bâtiment</label>
-          <input class="text" id="address" type="text" name="address"/>
-          <br>
-          <button id="buildingAdd" type="submit">Ajouter</button>
-
-        </form>
-
+          <div id="container_login" style="background-image:linear-gradient(rgb(46,50,62), rgb(66,70,82))">
+            <div id="login_box" class="box">
+                <div id="login_box_textandicon" class="box_textandicon">
+                    <div id="login_box_text">
+                        <h2 align="center">Ajouter un bâtiment</h2>
+                    </div>
+                    <div id="login_box_icon" class="iconImage">
+                        <img src="../../img/buildingicon.png" style="width:60px;margin-top:10px" alt="building icon">
+                    </div>
+                </div>
+                <!-- Set the login request. -->
+                <div id="login_box_input" class="inputText">
+                    <form method="post">
+                        <input class="text" id="name" type="text" name="name" placeholder="Nom du bâtiment"/>
+                        <input class="text" id="address" type="text" name="address" placeholder="Adresse du bâtiment"/>
+                    </form>
+                    <div id="login_box_login" class="confirmButton">
+                        <button id="buildingAdd" type="submit" name="button">Ajouter le bâtiment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
