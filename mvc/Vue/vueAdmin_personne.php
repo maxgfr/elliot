@@ -24,7 +24,7 @@ if (empty($_SESSION['email'])) {
     <link href="../../css/admin.css" rel="stylesheet" type="text/css"/>
     <link href="../../css/admin_personne.css" rel="stylesheet" type="text/css"/>
     <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/admin_personne.js"></script>
+
 </head>
 <?php include("layouts/header.php"); ?>
 <body>
@@ -71,3 +71,5 @@ if (empty($_SESSION['email'])) {
 </div>
 </body>
 </html>
+
+<script src="../../js/admin_personne.js"></script>
