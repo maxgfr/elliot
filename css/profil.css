@@ -29,10 +29,10 @@
     position: relative;
 }
 
-#contact_details > input, #contact_details_input > input, .profileData > div {
+#contact_details > input, #contact_details_input input, .profileData > div, .changeProfileData > input {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 6px 0;
     box-sizing: border-box;
     border: none;
     border-radius: 2px;
@@ -43,6 +43,7 @@
     color: #777777;
     font-weight: normal;
     font-size: 0.9em;
+    margin-bottom: 12px;
 }
 
 #contact_details_text, #change_password_text {

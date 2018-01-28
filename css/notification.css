@@ -1,5 +1,5 @@
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid white;
     border-collapse: collapse;
 }
 
@@ -17,16 +17,16 @@ table {
 }
 
 table tr:nth-child(even) {
-    background-color: #eee;
+    background-color: rgb(66,70,82);
 }
 
 table tr:nth-child(odd) {
-    background-color: #fff;
+    background-color: transparent;
 }
 
 table th {
     color: white;
-    background-color: black;
+    background-color: transparent;
 }
 
 summary::-webkit-details-marker {

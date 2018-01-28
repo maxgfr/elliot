@@ -154,7 +154,7 @@
 
 		<div class="elementsOfSidebar" onclick="GoTo('vueAdmin_personne.php')" style="display: none" id="elementsOfSidebar_AdminPersonne">
 			<div class="iconOfSidebar">
-				<img src="../../img/adminIcon.png" alt="Admin Icon">
+				<img src="../../img/showUserIcon.png" alt="Admin Icon">
 			</div>
 			<div class="textOfSidebar">
 				Statut
@@ -163,7 +163,7 @@
 
 		<div class="elementsOfSidebar" onclick="GoTo('vueAffBatiment.php')" style="display: none" id="elementsOfSidebar_AffBatiment">
 			<div class="iconOfSidebar">
-				<img src="../../img/adminIcon.png" alt="Admin Icon">
+				<img src="../../img/showBuildingIcon.png" alt="Admin Icon">
 			</div>
 			<div class="textOfSidebar">
 				Affichage bâtiment
@@ -172,7 +172,7 @@
 
 		<div class="elementsOfSidebar" onclick="GoTo('vueAjoutBatiment.php')" style="display: none" id="elementsOfSidebar_AjoutBatiment">
 			<div class="iconOfSidebar">
-				<img src="../../img/adminIcon.png" alt="Admin Icon">
+				<img src="../../img/buildingIcon.png" alt="Admin Icon">
 			</div>
 			<div class="textOfSidebar">
 				Ajout bâtiment
