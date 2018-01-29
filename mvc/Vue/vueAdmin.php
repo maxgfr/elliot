@@ -24,6 +24,7 @@ if (empty($_SESSION['email'])) {
     <title> Administrateur </title>
     <link href="../../css/notification.css" rel="stylesheet" type="text/css"/>
     <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/Admin.js"></script>
 
 </head>
 
@@ -59,7 +60,7 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, array
 
 <div id="main">
     <div id="container_user">
-        <table>
+        <table id="table">
             <tr>
                 <th>ID Client</th>
                 <th>Nom Prénom</th>
@@ -69,9 +70,9 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, array
             </tr>
             <?php
             for ($i = 0; $i < count($query); $i++) {
-                echo "<tr>
+                echo "<tr id=$i onclick='fiche_client(". $query[$i]["last_name"]. ")'>
                             <td>".$query[$i]['id_user']."</td>
-                            <td>".$query[$i]["last_name"]. " " .$query[$i]["first_name"]."</td>
+                            <td id='client_$i'>" . $query[$i]["last_name"]. " " .$query[$i]["first_name"]."</td>
                             <td>".$query[$i]["mail"]."</td>
                             <td>".$query[$i]["address"]."</td>
                             <td>".$query[$i]["contenu"]."</td>
@@ -83,4 +84,3 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, array
 </div>
 </body>
 </html>
-<script src="../../js/Admin.js"></script>
