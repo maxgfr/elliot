@@ -976,92 +976,95 @@ function delete_sensor_room(target) {
 
 // Allow for removal of a sensor's parameter from the database.
 function delete_from_database(target) {
-    deletedRooms = [];
-    deletedSensors = [];
-    for (var i = 0; i < deleted_elements.length; i++) {
-        var splitting = deleted_elements[i].split('_');
-        var element = splitting[splitting.length - 1];
-        if (deleted_elements[i].includes('sensor_elements_')) {
-            deletedSensors.push(element);
-        } else {
-            deletedRooms.push(element);
+    var condition = confirm('Voulez-vous vraiment supprimer les éléments sélectionnés?');
+    if (condition) {
+        deletedRooms = [];
+        deletedSensors = [];
+        for (var i = 0; i < deleted_elements.length; i++) {
+            var splitting = deleted_elements[i].split('_');
+            var element = splitting[splitting.length - 1];
+            if (deleted_elements[i].includes('sensor_elements_')) {
+                deletedSensors.push(element);
+            } else {
+                deletedRooms.push(element);
+            }
         }
-    }
-    deleted_elements = { 'deletedRooms': deletedRooms, 'deletedSensors': deletedSensors };
+        deleted_elements = { 'deletedRooms': deletedRooms, 'deletedSensors': deletedSensors };
 
-    /******************************AJAX AND JSON PART*******************************/
+        /******************************AJAX AND JSON PART*******************************/
 
-    var dbParam, xmlhttp, myObj, z = "";
-    dbParam = JSON.stringify(deleted_elements);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var showChangeClass = document.getElementsByClassName('showChange');
-            console.log(this.responseText);
-            if (this.responseText) {
-                // Query is successful
-                var text = "";
-                var countRoom = deletedRooms.length;
-                var countSensor = deletedSensors.length;
-                if (countRoom > 0) {
-                    // At least one room has been deleted.
-                    if (countRoom == 1) {
-                        text = "La pièce a bien été supprimée de la base de données.";
-                        if (countSensor > 0) {
-                            // At least one sensor in this created room has been deleted.
-                            if (countSensor == 1) {
-                                text = "La pièce et le capteur ont bien été supprimés de la base de données.";
-                            } else {
-                                text = "La pièce et les capteurs ont bien été supprimés de la base de données.";
+        var dbParam, xmlhttp, myObj, z = "";
+        dbParam = JSON.stringify(deleted_elements);
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var showChangeClass = document.getElementsByClassName('showChange');
+                console.log(this.responseText);
+                if (this.responseText) {
+                    // Query is successful
+                    var text = "";
+                    var countRoom = deletedRooms.length;
+                    var countSensor = deletedSensors.length;
+                    if (countRoom > 0) {
+                        // At least one room has been deleted.
+                        if (countRoom == 1) {
+                            text = "La pièce a bien été supprimée de la base de données.";
+                            if (countSensor > 0) {
+                                // At least one sensor in this created room has been deleted.
+                                if (countSensor == 1) {
+                                    text = "La pièce et le capteur ont bien été supprimés de la base de données.";
+                                } else {
+                                    text = "La pièce et les capteurs ont bien été supprimés de la base de données.";
+                                }
+                            }
+                        } else {
+                            text = "Les pièces ont bien été supprimées de la base de données.";
+                            if (countSensor > 0) {
+                                // At least one sensor in one of these created rooms has been added.
+                                if (countSensor == 1) {
+                                    text = "Les pièces et le capteur ont bien été supprimés de la base de données.";
+                                } else {
+                                    text = "Les pièces et les capteurs ont bien été supprimés de la base de données.";
+                                }
                             }
                         }
                     } else {
-                        text = "Les pièces ont bien été supprimées de la base de données.";
+                        // No room has been deleted.
                         if (countSensor > 0) {
-                            // At least one sensor in one of these created rooms has been added.
+                            // At least one sensor has been deleted in a room?
                             if (countSensor == 1) {
-                                text = "Les pièces et le capteur ont bien été supprimés de la base de données.";
+                                text = "Le capteur a bien été supprimé de la base de données.";
                             } else {
-                                text = "Les pièces et les capteurs ont bien été supprimés de la base de données.";
+                                text = "Les capteurs ont bien été supprimés de la base de données.";
                             }
                         }
                     }
+                    showChangeClass[0].style.display = "block";
+                    var success = showChangeClass[0].children[1];
+                    success.children[1].innerHTML = text;
+                    success.style.display = "block";
                 } else {
-                    // No room has been deleted.
-                    if (countSensor > 0) {
-                        // At least one sensor has been deleted in a room?
-                        if (countSensor == 1) {
-                            text = "Le capteur a bien été supprimé de la base de données.";
-                        } else {
-                            text = "Les capteurs ont bien été supprimés de la base de données.";
-                        }
-                    }
+                    showChangeClass[0].style.display == "block";
+                    var failure = showChangeClass[0].children[2];
+                    failure.style.display = "block";
+                    failure.innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être supprimé de la base de données";
                 }
-                showChangeClass[0].style.display = "block";
-                var success = showChangeClass[0].children[1];
-                success.children[1].innerHTML = text;
-                success.style.display = "block";
-            } else {
-                showChangeClass[0].style.display == "block";
-                var failure = showChangeClass[0].children[2];
-                failure.style.display = "block";
-                failure.innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être supprimé de la base de données";
+                // Reload after 2 seconds.
+                //setTimeout(function() { location.reload() }, 2000);
             }
-            // Reload after 2 seconds.
-            setTimeout(function() { location.reload() }, 2000);
-        }
-    };
-    xmlhttp.open("POST", "../Modeles/DeleteRoomsAndSensorsAjaxQuery.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("z=" + dbParam);
+        };
+        xmlhttp.open("POST", "../Modeles/DeleteRoomsAndSensorsAjaxQuery.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("z=" + dbParam);
 
-    /*******************************************************************************/
+        /*******************************************************************************/
 
-    console.log('deleted_elements = ', deleted_elements);
-    cancel_modifications(false);
-    target.removeEventListener('click', _funcDeleteFromDatabase);
-    target.innerHTML = 'Supprimer des capteurs et des pièces';
-    target.addEventListener('click', _funcDeleteSensorRoom);
+        console.log('deleted_elements = ', deleted_elements);
+        cancel_modifications(false);
+        target.removeEventListener('click', _funcDeleteFromDatabase);
+        target.innerHTML = 'Supprimer des capteurs et des pièces';
+        target.addEventListener('click', _funcDeleteSensorRoom);
+    }
 }
 
 

@@ -14,7 +14,7 @@
 
     // Adapt the variable to an appropriate data understandable by PHP.
     header("Content-Type: application/json; charset=UTF-8");
-    $obj = json_decode($_POST["x"], false);
+    $obj = json_decode($_POST["z"], false);
 
 
     // Set the general query string to remove sensor's parameters data from the database.
@@ -45,5 +45,5 @@
 
     // Check if the query complies to PHP.
     echo json_encode($sensorsToDelete);
-    
+
 ?>
