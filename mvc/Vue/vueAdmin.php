@@ -70,7 +70,7 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, array
             </tr>
             <?php
             for ($i = 0; $i < count($query); $i++) {
-                echo "<tr id=$i onclick='fiche_client(". $query[$i]["last_name"]. ")'>
+                echo "<tr id=$i onclick='fiche_client(". json_encode($query[$i]["last_name"]). ")'>
                             <td>".$query[$i]['id_user']."</td>
                             <td id='client_$i'>" . $query[$i]["last_name"]. " " .$query[$i]["first_name"]."</td>
                             <td>".$query[$i]["mail"]."</td>

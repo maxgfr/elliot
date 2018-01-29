@@ -8,7 +8,7 @@ $.ajax({
   data: data,
   success: function (result) {
     $('#headerTable').text(result[0]['last_name'] + " " + result[0]['first_name']);
-    $('#addressTable').text("Adresse : " + result[0]['address']);
+    $('#addressTable').text("Adresse du domicile: " + result[0]['address']);
     $('#mailTable').text("Adresse mail : " + result[0]['mail']);
     $('#birthdayTable').text("Date de naissance : " + result[0]['birthday']);
   }

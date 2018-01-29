@@ -1,7 +1,7 @@
 <?php
     // Navigate through MVC root directory
     $rootDirectory = dirname(__FILE__)."/../../mvc/";
-    
+
     // Implement the "Autoload" class to load automatically all classes.
     require_once($rootDirectory.'Config/Autoload.php');
     try {
@@ -22,12 +22,14 @@
                   LEFT JOIN sensors t2 ON t2.id_sensor = t1.id_sensor
                   LEFT JOIN familysensor t3 ON t2.id_familysensor = t3.id_familysensor
                   LEFT JOIN room t4 ON t4.id_room = t2.id_room
+                  LEFT JOIN accomodation t5 ON t5.id_accomodation = t4.id_accomodation
+                  LEFT JOIN users t6 ON t6.id_user = ?
                   WHERE t4.name = ? AND t3.name = ? AND date_time LIKE ?";
 
     // Execute the query
-    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,['kitchen', 'humidity', '2017-%-01']);
+    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query,[$_SESSION['id_user'], 'kitchen', 'humidity', '2017-%-01']);
 
     // Check if the query complies to PHP.
     echo json_encode($query);
-    
+
 ?>

@@ -319,8 +319,6 @@ function draw() {
 
     createPieChart(canvas_pie, ctx['canvas_pie'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [0.05, 0.25, 0.1, 0.1, 0.29, 0.21], 'Creation of a pie chart for ellIoT');
 
-    //createPolarGrid(canvas, ctx, [], [], 50, true, true);
-
     var arr_radar = [];
     for (var i = 0; i < 5; i++) {
         arr_radar.push(i);
