@@ -35,7 +35,7 @@ $sql_query = "SELECT t1.id_user, t1.first_name, t1.last_name, t1.mail, t2.addres
               LEFT JOIN accomodation t3 ON t3.id_user = t1.id_user
               LEFT JOIN building t2 ON t2.id_building = t3.id_building
               LEFT JOIN message t4 ON t4.id_user = t1.id_user
-              WHERE t4.date IS NULL OR t4.date = (SELECT MAX(t5.date) AS max_date FROM message t5)
+              WHERE t4.date IS NULL OR t4.date = (SELECT MAX(t5.date) AS max_date FROM message t5 WHERE t4.id_user = t5.id_user)
               ORDER BY t1.last_name";
 
 // Execute the query
