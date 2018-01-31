@@ -85,7 +85,7 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$_SE
                             Téléphone : <?php echo "0";print_r($query[0]['phone_number']); ?>
                         </div>
                     </div>
-                    <div class="confirmButton">
+                    <div class="confirmButton" id="modify_button">
                         <button type="button">
                             Modifier mes informations
                         </button>
@@ -94,17 +94,17 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$_SE
                         <form class="changeProfileData" method="post">
                             <input type="text" name="last_name" placeholder="Changer votre nom">
                             <input type="text" name="first_name" placeholder="Changer votre prénom">
-                            <input type="mail" name="mail" placeholder="Changer votre adresse mail">
+                            <input type="email" name="mail" placeholder="Changer votre adresse mail">
                             <input type="text" name="address" placeholder="Changer votre adresse de domicile">
                             <input type="text" name="birthday" placeholder="Changer votre date de naissance">
                             <input type="tel" name="phone_number" placeholder="Changer votre numéro de téléphone">
                         </form>
                         <div id="cancel_or_save" style="display:flex; width:100%">
-                            <div class="confirmButton" style="width:45%; margin-right:10%;">
+                            <div class="confirmButton" id="cancel_button" style="width:45%; margin-right:10%;">
                                 <button type="button" name="button">Annuler</button>
                             </div>
-                            <div class="confirmButton" style="width:45%;">
-                                <button type="button" name="button">Enregistrer</button>
+                            <div class="confirmButton" id="save_button" style="width:45%;">
+                                <button type="submit" name="button">Enregistrer</button>
                             </div>
                         </div>
                     </div>
@@ -131,22 +131,17 @@ $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [$_SE
 
     </div>
 
+    <?php
+        if (isset($_POST['last_name']) || isset($_POST['first_name'])|| isset($_POST['mail']) || isset($_POST['address']) || isset($_POST['birthday']) || isset($_POST['phone_number'])) {
+            //$ctrl = new ControleurAuth('ajoutBat');
+        }
+    ?>
+
 </body>
 
 <!-- Retrieve/Update data in the database. -->
 <script type="text/javascript" src="../../js/profil.js"></script>
 
-<script>
-if (getCookie("cookie_toggle_state")==1) {
-    // if we are inside vueAdmin set the grey color
-    $('#container_profile').css({"background-image":"linear-gradient(rgb(46,50,62), rgb(66,70,82))"})
-}
-if (getCookie("cookie_toggle_state")==0) {
-    // set the blue color
-    $('#container_profile').css({"background-image":"linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120))"})
-}
-
-</script>
 
 
 </html>

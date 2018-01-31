@@ -17,7 +17,7 @@ table {
 }
 
 table tr:nth-child(even) {
-    background-color: rgb(66,70,82);
+    background-color: transparent;
 }
 
 table tr:nth-child(odd) {
@@ -31,4 +31,41 @@ table th {
 
 summary::-webkit-details-marker {
     display: none
+}
+
+#container_notif {
+    background-image: linear-gradient(rgb(46,50,62), rgb(66,70,82));
+    width: 80%;
+    height:auto;
+    padding: 2%;
+	font-family: sans-serif;
+	border-radius: 2px;
+    margin-left: 10%;
+    margin-top: 1%;
+    color: white;
+}
+
+.confirmButton {
+    text-align: center;
+    margin-left:2%;
+}
+
+.confirmButton input {
+    width: 100%;
+    margin: 8px 0;
+    padding-top: 10px; padding-bottom: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.confirmButton input::-moz-focus-inner {
+    border: 0; /*remove dotlines in Mozilla*/
+}
+
+.confirmButton input:hover {
+    background-color: #E3E3E3;
+    transition: 1s;
 }

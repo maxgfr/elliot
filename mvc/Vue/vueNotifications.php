@@ -43,22 +43,33 @@ if(empty($_SESSION['email'])) {
 
 </head>
 
+<style>
+table tr:nth-child(even) {
+    background-color: rgb(45, 70, 120);
+}
+
+table tr:nth-child(odd) {
+    background-color: transparent;
+}
+</style>
+
 
 <body>
 
     <div id="main">
         <!-- Display the notifications. -->
-        <h1> Vous avez 5 notifications</h1>
 
-        <table>
-            <tr>
-                <th>Dates</th>
-                <th>Objet</th>
-                <th>Message</th>
-            </tr>
+        <div id="container_notif">
+            <h1 style="text-align:center"> Vous avez 5 notifications</h1>
+            <table>
+                <tr>
+                    <th>Dates</th>
+                    <th>Objet</th>
+                    <th>Message</th>
+                </tr>
 
-        <!--
-            <tr>
+                <!--
+                <tr>
                 <td><?php $insertdate; ?></td>
                 <td><?php $insertobjet; ?></td>
                 <td><?php $insertmessage; ?></td>
@@ -119,19 +130,23 @@ if(empty($_SESSION['email'])) {
                 Text en plus
             </td>
         </tr>
+    </table>
 
-        </table>
-
-        <!-- Set the SMS notification choice. -->
-        <form>
-            <div>
-                <p>Voulez-vous recevoir les notifications par sms ?</p>
-                Oui<input type="radio" id="YES" name="show_notification" value="yes"> <br>
-                Non<input type="radio" id="No" name="show_notification" value="no"> <br>
-                <br/>
+    <form>
+        <div style="display:flex; margin-top:3%">
+            <p>Voulez-vous recevoir les notifications par sms ?</p>
+            <p style="margin-left:5%">Oui</p><input type="radio" id="YES" name="show_notification" value="yes"> <br>
+            <p style="margin-left:2%">Non</p><input type="radio" id="No" name="show_notification" value="no"> <br>
+            <br/>
+            <div class="confirmButton">
                 <input type="submit" value="Enregistrer les modifications">
+
             </div>
-        </form>
+        </div>
+    </form>
+
+    </div>
+    <!-- Set the SMS notification choice. -->
     </div>
 
 <!-- Run the dynamic concept of notification pop-up. -->

@@ -116,3 +116,33 @@ function init() {
         document.getElementsByTagName('li')[i].style.display = "block";
     }
 }
+
+if (getCookie("cookie_toggle_state")==1) {
+    // if we are inside vueAdmin set the grey color
+    $('#container_profile').css({"background-image":"linear-gradient(rgb(46,50,62), rgb(66,70,82))"})
+}
+if (getCookie("cookie_toggle_state")==0) {
+    // set the blue color
+    $('#container_profile').css({"background-image":"linear-gradient(rgb(25, 50, 100), rgb(38, 67, 120))"})
+}
+
+var _funcModifyInformations = function() {modifyUserInfo(this)};
+var modify_button = document.getElementById('modify_button');
+var cancel_button = document.getElementById('cancel_button');
+modify_button.addEventListener('click', _funcModifyInformations);
+cancel_button.addEventListener('click', cancel_modifications);
+
+function modifyUserInfo(element) {
+    element.nextElementSibling.style.display = 'block';
+    element.previousElementSibling.style.display = 'none';
+    element.style.display = 'none';
+}
+
+function cancel_modifications() {
+    var confirm_modifications = confirm("Voulez-vous vraiment annuler les modifications?");
+    if (confirm_modifications) {
+        document.getElementById('change_data_user').style.display = 'none';
+        document.getElementsByClassName('profileData')[0].style.display = 'block';
+        modify_button.style.display = 'block';
+    }
+}
