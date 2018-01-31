@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  Dim 21 jan. 2018 à 18:54
--- Version du serveur :  10.1.28-MariaDB
--- Version de PHP :  7.1.11
+-- Client :  127.0.0.1
+-- Généré le :  Mer 31 Janvier 2018 à 17:20
+-- Version du serveur :  10.1.21-MariaDB
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -36,13 +34,15 @@ CREATE TABLE `accomodation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `accomodation`
+-- Contenu de la table `accomodation`
 --
 
 INSERT INTO `accomodation` (`id_accomodation`, `name`, `id_building`, `id_user`) VALUES
-(1, 'Appartement 189', 1, 76078315),
-(3, 'Appartement 423', 2, 22828408),
-(4, 'Domicile 1', 3, 20565158);
+(1, 'Appartement 189', 1, 6),
+(2, 'Coulisses', 4, 1),
+(3, 'Appartement 423', 2, 7),
+(4, 'Domicile 1', 3, 5),
+(5, 'Appartement 5', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -57,13 +57,14 @@ CREATE TABLE `building` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `building`
+-- Contenu de la table `building`
 --
 
 INSERT INTO `building` (`id_building`, `name`, `address`) VALUES
 (1, 'Building Champs-Elysées', 'Avenue des Champs-Elysees, 75007 Paris'),
 (2, 'Building Issy-les-Moulineaux', '10 rue de Vanves, 92130 Issy-les-Moulineaux'),
-(3, 'Building Notre-Dame des Champs', '24 rue Notre-Dame des Champs, 75006 Paris');
+(3, 'Building Notre-Dame des Champs', '24 rue Notre-Dame des Champs, 75006 Paris'),
+(4, 'Building Opéra', 'Place de la Bastille, 75012 Paris');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,7 @@ CREATE TABLE `datasensors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `datasensors`
+-- Contenu de la table `datasensors`
 --
 
 INSERT INTO `datasensors` (`id_datasensor`, `date_time`, `value`, `id_sensor`) VALUES
@@ -24224,7 +24225,7 @@ CREATE TABLE `familysensor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `familysensor`
+-- Contenu de la table `familysensor`
 --
 
 INSERT INTO `familysensor` (`id_familysensor`, `name`) VALUES
@@ -24248,13 +24249,13 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `message`
+-- Contenu de la table `message`
 --
 
 INSERT INTO `message` (`id_message`, `date`, `contenu`, `id_user`) VALUES
-(3, '2017-12-21', 'Une intrusion a été détectée', 2),
+(3, '2018-01-31', 'Une intrusion a été détectée', 2),
 (4, '2018-01-01', 'Bonne année !', 2),
-(5, '2017-12-01', 'La lumière est allumée depuis plus d\'une journée', 3),
+(5, '2018-01-30', 'La lumière est allumée depuis plus d\'une journée', 3),
 (6, '2018-01-01', 'Bonne année !', 3),
 (7, '2017-12-01', 'L\'humidité est anormalement élevée sur la dernière journée', 4),
 (8, '2018-01-01', 'Bonne année !', 4);
@@ -24272,7 +24273,7 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `room`
+-- Contenu de la table `room`
 --
 
 INSERT INTO `room` (`id_room`, `name`, `id_accomodation`) VALUES
@@ -24310,7 +24311,7 @@ CREATE TABLE `sensors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `sensors`
+-- Contenu de la table `sensors`
 --
 
 INSERT INTO `sensors` (`id_sensor`, `name`, `state`, `id_familysensor`, `id_room`) VALUES
@@ -24386,20 +24387,20 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id_user`, `last_name`, `first_name`, `mail`, `password`, `birthday`, `phone_number`, `roles`) VALUES
-(2, 'Martin', 'Lambda', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 0),
-(3, 'Albert', 'Einstein', 'albert@einstein.com', 'a85e8111e7c25d989ac2f41ff4d8dd0b52834889', '1879-03-14', NULL, 2),
+(1, 'Boucher', 'Gilbert', 'gilbert.boucher@orange.fr', 'abce8112b09144879e78ed3733870a5fac44ca1f', '1962-11-23', 503289765, 1),
+(2, 'Lambda', 'Martin', 'lambda@gmail.com', '7c6a61c68ef8b9b6b061b28c348bc1ed7921cb53', '1997-01-01', NULL, 0),
+(3, 'Einstein', 'Albert', 'albert@einstein.com', 'a85e8111e7c25d989ac2f41ff4d8dd0b52834889', '1879-03-14', NULL, 2),
 (4, 'Sergio', 'Sergi', 'root@root.fr', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', '1997-04-19', NULL, 1),
-(17125131, 'Boucher', 'Gilbert', 'gilbert.boucher@orange.fr', 'abce8112b09144879e78ed3733870a5fac44ca1f', '1962-11-23', 503289765, 1),
-(20565158, 'Thompson', 'Emma', 'emma.thompson@gmail.com', '3bf2456116e896b889df6fa4c686c242f76af4ad', '1983-08-08', 987462829, 0),
-(22828408, 'Van Stutt', 'Natacha', 'natacha.vanstutt@gmail.com', '034ad33dd9fa67ab8b0b995bc557b1e06d37cf30', '1987-01-28', 309874544, 2),
-(76078315, 'Franco', 'Sidali', 'sidali.franco@yahoo.com', 'bf702a24f56e1b608a54711db64cb72215775c23', '1950-04-16', 786543890, 2);
+(5, 'Thompson', 'Emma', 'emma.thompson@gmail.com', '3bf2456116e896b889df6fa4c686c242f76af4ad', '1983-08-08', 987462829, 0),
+(6, 'Franco', 'Sidali', 'sidali.franco@yahoo.com', 'bf702a24f56e1b608a54711db64cb72215775c23', '1950-04-16', 786543890, 2),
+(7, 'Van Stutt', 'Natacha', 'natacha.vanstutt@gmail.com', '034ad33dd9fa67ab8b0b995bc557b1e06d37cf30', '1987-01-28', 309874544, 2);
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -24458,7 +24459,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -24492,7 +24493,6 @@ ALTER TABLE `room`
 ALTER TABLE `sensors`
   ADD CONSTRAINT `foreign_key_sensor_familySensor` FOREIGN KEY (`id_familysensor`) REFERENCES `familysensor` (`id_familysensor`) ON DELETE CASCADE,
   ADD CONSTRAINT `foreign_key_sensor_room` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
