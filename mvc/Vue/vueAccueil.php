@@ -71,7 +71,7 @@ if(empty($_SESSION['email'])) {
 		<div class="showChange">
 			<div id="information_delete">
 				<div class="showChangeImage">
-					<img src="../../img/informationIcon.png" alt="information icon">
+					<img src="../../img/informationIcon.png" alt="information icon" style="height:1.3em;">
 				</div>
 				<div class="showChangeText" >
 					Cliquez sur les icônes pour sélectionner les éléments que vous voulez supprimer.

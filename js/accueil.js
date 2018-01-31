@@ -66,7 +66,7 @@ function addRoom(plusPart, room, id_room_db) {
     |*                                                                                  *|
     \************************************************************************************/
 
-    /*\
+                        /*\
                        / * \
                       /  *  \
                      /   *   \
@@ -1050,7 +1050,7 @@ function delete_from_database(target) {
                     failure.innerHTML = "Une erreur est survenue : un des éléments n'a pas pu être supprimé de la base de données";
                 }
                 // Reload after 2 seconds.
-                //setTimeout(function() { location.reload() }, 2000);
+                setTimeout(function() { location.reload() }, 2000);
             }
         };
         xmlhttp.open("POST", "../Modeles/DeleteRoomsAndSensorsAjaxQuery.php", true);
