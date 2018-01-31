@@ -31,7 +31,7 @@
 				// Allows PDO errors to be detectable and manageable by exceptions
 				$this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 				$this->dbh->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND,'SET NAMES UTF8');
-
+				$this->dbh->exec("SET CHARACTER SET utf8");
 			} catch (\PDOException $e){
 				throw new \Exception("Erreur de connexion à la base de données.");
 			}
