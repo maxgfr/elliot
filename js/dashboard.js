@@ -455,8 +455,8 @@ function getData(type_of_chart, type_of_sensor, type_of_room, frequency) {
                     number_of_sensors[i] = Number((number_of_sensors[i]/total_number_of_sensors).toFixed(2));
                     sensors[i] = String(Number((number_of_sensors[i]*100).toFixed(2))) + '% ' + name_of_sensor[sensors[i]];
                 }
-                createDoughnutChart(canvas_doughnut, ctx['canvas_doughnut'], sensors, number_of_sensors, 'Creation of a doughnut chart for ellIoT');
-                createPieChart(canvas_pie, ctx['canvas_pie'], sensors, number_of_sensors, 'Creation of a pie chart for ellIoT');
+                createDoughnutChart(canvas_doughnut, ctx['canvas_doughnut'], sensors, number_of_sensors, 'Pourcentage de capteurs dans la maison');
+                createPieChart(canvas_pie, ctx['canvas_pie'], sensors, number_of_sensors, 'Pourcentage de capteurs dans la maison');
             }
         };
 
@@ -625,6 +625,7 @@ function createPieChart(canvas, context, xArray, yArray, title) {
     /**********************TITLE OF THE GRAPH******************/
     context.font = String(height_of_title) + 'px sans-serif';
     context.textAlign = 'center';
+    context.fillStyle = 'black';
     context.fillText(title,
         width_of_canvas / 2,
         height_of_title);
