@@ -304,58 +304,179 @@ function draw() {
         }
     }
 
-    arrValues = [];
-    arrText = [];
-    for (var i = 0; i < 10; i++) {
-        arrValues.push(Math.exp(Math.sqrt(4 * i)));
-        arrText.push('Test');
+    for (var type_of_chart in charts) {
+        if (charts.hasOwnProperty(type_of_chart)) {
+            getData(charts[type_of_chart], charts[type_of_chart]['type_of_sensor'], charts[type_of_chart]['room'], charts[type_of_chart]['frequency']);
+        }
     }
+}
 
-
-
-    createVerticalBarChart(canvas_bar, ctx['canvas_bar'], arrText, arrValues, 600, '#264376', 'Creation of a bar chart for ellIoT');
-
-    createDoughnutChart(canvas_doughnut, ctx['canvas_doughnut'], ['5% Température', '25% Luminosité', '31% Présence', '10% Baromètre', '29% Humidité'], [0.05, 0.25, 0.31, 0.1, 0.29], 'Creation of a doughnut chart for ellIoT');
-
-    createPieChart(canvas_pie, ctx['canvas_pie'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [0.05, 0.25, 0.1, 0.1, 0.29, 0.21], 'Creation of a pie chart for ellIoT');
-
-    var arr_radar = [];
-    for (var i = 0; i < 5; i++) {
-        arr_radar.push(i);
-    }
-
-    //createRadarGrid(canvas, ctx, arr_radar, arr_radar, 5, true, true);
-
-    createPolarAreaChart(canvas_polar, ctx['canvas_polar'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [20, 55, 45, 20, 34, 69, 5], 'Creation of a polar area chart for ellIoT');
-
+function getData(type_of_chart, type_of_sensor, type_of_room, frequency) {
 
     /******************************AJAX AND JSON PART*******************************/
 
-    var dbParam, xmlhttp, myObj, x = "";
+    var xmlhttp, myObj, x = "";
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
-            array_date = [];
-            array_value = [];
-            for (x in myObj) {
-                var splitting = myObj[x].dateTimeArray.split('-');
-                var date = splitting[1] + ' ' + splitting[0]
-                array_date.push(date);
-                array_value.push(parseInt(-myObj[x].valueArray));
-            }
-            createLineChart(canvas_line, ctx['canvas_line'], array_date, array_value, 70, '', 'Creation of a line chart for ellIoT', 0.5, false);
-        }
+
+    var array_date = [];
+    var array_value = [];
+
+    name_of_sensor = {
+        'temperature': 'Température',
+        'barometer': 'Pression atm',
+        'luminosity': 'Luminosité',
+        'motion': 'Présence',
+        'humidity': 'Humidité'
     };
+
+    if (frequency=='2017-%-01') {
+        var arrayToSend = ['month', type_of_room, type_of_sensor, frequency];
+        dbParam = JSON.stringify(arrayToSend);
+
+        if (type_of_room=='bedroom') {
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    for (x in myObj) {
+                        var splitting = myObj[x].dateTimeArray.split('-');
+                        var date = splitting[1] + ' ' + splitting[0]
+                        array_date.push(date);
+                        array_value.push(parseInt(myObj[x].valueArray));
+                    }
+                    createVerticalBarChart(canvas_bar, ctx['canvas_bar'], array_date, array_value, 110, '#264376', 'Luminosité dans la chambre en 2017');
+                }
+            };
+        }
+        if (type_of_room=='kitchen') {
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    for (x in myObj) {
+                        var splitting = myObj[x].dateTimeArray.split('-');
+                        var date = splitting[1] + ' ' + splitting[0]
+                        array_date.push(date);
+                        array_value.push(parseInt(-myObj[x].valueArray));
+                    }
+                    createLineChart(canvas_line, ctx['canvas_line'], array_date, array_value, 70, '', 'Humidité dans la cuisine en 2017', 0.5, false);
+                }
+            };
+        }
+    }
+    if (frequency.includes('last')) {
+        frequency = '-'+frequency.split('_')[1] //get the number of days
+        var arrayToSend = ['last', type_of_room, type_of_sensor, frequency];
+
+        dbParam = JSON.stringify(arrayToSend);
+
+        if (type_of_sensor=='temperature') {
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    for (x in myObj) {
+                        var splitting = myObj[x].dateTimeArray.split('-');
+                        if (splitting[1]=='01') {
+                            splitting[1] = 'Janvier';
+                        }
+                        if (splitting[1]=='02') {
+                            splitting[1] = 'Février';
+                        }
+                        var date = splitting[2] + ' ' + splitting[1];
+                        array_date.push(date);
+                        array_value.push(parseInt(-myObj[x].valueArray));
+                    }
+                    var array_value2 = [];
+                    var array_date2 = [];
+                    for (var i = 0; i < array_value.length; i++) {
+                        if (i<10) {
+                            array_date2.push(array_date[i]);
+                            array_value2.push(array_value[i]);
+                        }
+                    }
+                    createLineChart(canvas_boundary, ctx['canvas_boundary'], array_date2, array_value2, 30, '', 'Température dans le salon les 10 derniers jours', 0, false);
+                }
+            };
+        }
+        if (type_of_sensor=='luminosity') {
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    for (x in myObj) {
+                        var splitting = myObj[x].dateTimeArray.split('-');
+                        if (splitting[1]=='01') {
+                            splitting[1] = 'Janvier';
+                        }
+                        if (splitting[1]=='02') {
+                            splitting[1] = 'Février';
+                        }
+                        var date = splitting[2] + ' ' + splitting[1] + ' ' + splitting[0]
+                        array_date.push(date);
+                        array_value.push(parseInt(myObj[x].valueArray));
+                    }
+                    var array_value2 = [];
+                    var array_date2 = [];
+                    for (var i = 0; i < array_value.length; i++) {
+                        if (i<7) {
+                            array_date2.push(array_date[i] + ' : ' + array_value[i] + '%');
+                            array_value2.push(array_value[i]);
+                        }
+                    }
+                    createPolarAreaChart(canvas_polar, ctx['canvas_polar'], array_date2, array_value2, 'Luminosité dans la salle de bain les 7 derniers jours');
+                }
+            };
+        }
+    }
+    if (type_of_room=='all') {
+        var arrayToSend = ['all'];
+
+        dbParam = JSON.stringify(arrayToSend);
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myObj = JSON.parse(this.responseText);
+                var total_number_of_sensors = myObj.length;
+                var array_of_sensors = [];
+                var sensors = [], number_of_sensors = [], previous;
+
+                for (x in myObj) {
+                    array_of_sensors.push(myObj[x]['name']);
+                }
+
+                for (var i = 0; i < array_of_sensors.length; i++) {
+                    if (array_of_sensors[i] !== previous) {
+                        sensors.push(array_of_sensors[i]);
+                        number_of_sensors.push(1);
+                    } else {
+                        number_of_sensors[number_of_sensors.length-1]++;
+                    }
+                    previous = array_of_sensors[i];
+                }
+
+                for (var i = 0; i < number_of_sensors.length; i++) {
+                    number_of_sensors[i] = Number((number_of_sensors[i]/total_number_of_sensors).toFixed(2));
+                    sensors[i] = String(Number((number_of_sensors[i]*100).toFixed(2))) + '% ' + name_of_sensor[sensors[i]];
+                }
+                createDoughnutChart(canvas_doughnut, ctx['canvas_doughnut'], sensors, number_of_sensors, 'Creation of a doughnut chart for ellIoT');
+                createPieChart(canvas_pie, ctx['canvas_pie'], sensors, number_of_sensors, 'Creation of a pie chart for ellIoT');
+            }
+        };
+
+    }
     xmlhttp.open("POST", "../Modeles/DashboardAjaxQuery.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("x=" + dbParam);
 
     /*******************************************************************************/
 
-    createLineChart(canvas_boundary, ctx['canvas_boundary'], ['Test', 'Test', 'Test', 'Test', 'Test', 'Test', 'Test'], [-70, -20, -190, -30, -150, -45, -99], 200, '', 'Creation of a boundary chart for ellIoT', 0, false);
 }
 
+
+var charts = {'boundary':{'type_of_sensor':'temperature', 'room':'livingroom', 'frequency':'last_10_days'},
+              'line':{'type_of_sensor':'humidity', 'room':'kitchen', 'frequency':'2017-%-01'},
+              'bar':{'type_of_sensor':'luminosity', 'room':'bedroom', 'frequency':'2017-%-01'},
+              'doughnut':{'type_of_sensor':'', 'room':'all', 'frequency':''},
+              'pie':{'type_of_sensor':'', 'room':'all', 'frequency':''},
+              'polar':{'type_of_sensor':'luminosity', 'room':'livingroom', 'frequency':'last_7_days'}
+             }
 
 
 function createVerticalBarChart(canvas, context, xArray, yArray, max, color, title) {
