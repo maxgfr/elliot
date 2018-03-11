@@ -375,10 +375,10 @@ function getData(type_of_chart, type_of_sensor, type_of_room, frequency) {
                     for (x in myObj) {
                         var splitting = myObj[x].dateTimeArray.split('-');
                         if (splitting[1]=='01') {
-                            splitting[1] = 'Janvier';
+                            splitting[1] = 'Janv';
                         }
                         if (splitting[1]=='02') {
-                            splitting[1] = 'Février';
+                            splitting[1] = 'Fév';
                         }
                         var date = splitting[2] + ' ' + splitting[1];
                         array_date.push(date);

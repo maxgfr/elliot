@@ -132,7 +132,7 @@ h3, p {
 
 /**********STRENGTH OF PASSWORD**********/
 #show_strength_box {
-    display: none; /*Set the divs to be side by side*/
+    display: flex; /*Set the divs to be side by side*/
 }
 
 #text_type_of_strength {
@@ -152,7 +152,7 @@ h3, p {
 }
 
 #show_warning {
-    display: none;
+    display: flex;
     height: 30px;
     width: 100%;
 }
@@ -171,4 +171,46 @@ h3, p {
     position: absolute;
     bottom: 0;
     color: white;
+}
+
+.informationBubble {
+    width: 1em;
+    height: 1em;
+    margin-left: 1em;
+    border-radius: 100%;
+    border: 2px solid #193264;
+    background-color: #EEEEEE;
+    position: absolute;
+}
+
+.informationBubble > img {
+    width: 0.7em;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 2px;
+    margin-top: 1px;
+    display: block;
+}
+
+.messageBox {
+    position: absolute;
+    background-color: #EEEEEE;
+    font-size: 0.6em;
+    width: 20em;
+    margin-left: 3em;
+    margin-top: -18em;
+    padding: 1em;
+    display: none;
+}
+
+.messageBox:before {
+    position: absolute;
+    bottom: 11%;
+    height: 0;
+    width: 0;
+    right: 100%;
+    border: 0.8em solid transparent;
+    border-right-color: #EEEEEE;
+    content: "";
 }

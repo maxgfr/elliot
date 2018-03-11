@@ -1,6 +1,4 @@
 /*************************PART OF CHECKING STRENGTH OF PASSWORD**************************/
-/* To be improved : when longpress on key the strength bar is not modified.
-   The goal is to make it in a demonstration. */
 
 var counter_space = 0;
 var counter_normal = 0;
@@ -8,9 +6,16 @@ var counter_capitalize = 0;
 var counter_numbers = 0;
 var counter_special = 0;
 var lengthText = 0;
-var last_text = "";
 var passwordText = "";
-var initial_lengthText = 0;
+
+
+function initCounter() {
+    counter_space = 0;
+    counter_normal = 0;
+    counter_capitalize = 0;
+    counter_numbers = 0;
+    counter_special = 0;
+}
 
 /**********CREATE THE FUNCTIONS OF DETECTION OF CHARACTERS**********/
 function detectSpace(character) {
@@ -29,51 +34,27 @@ function detectCapitalize(character) {
     return (/[A-Z]/.test(character));
 }
 
-function setCounters(condition, character) {
+function setCounters(character) {
     if (lengthText != 0) {
         if (detectNormal(character)) {
-            if (condition) {
-                counter_normal++;
-            } else {
-                counter_normal--;
-            }
+            counter_normal++;
         } else if (detectNumber(character)) {
-            if (condition) {
-                counter_numbers++;
-            } else {
-                counter_numbers--;
-            }
+            counter_numbers++;
         } else if (detectSpace(character)) {
-            if (condition) {
-                counter_space++;
-            } else {
-                counter_space--;
-            }
+            counter_space++;
         } else if (detectCapitalize(character)) {
-            if (condition) {
-                counter_capitalize++;
-            } else {
-                counter_capitalize--;
-            }
+            counter_capitalize++;
         } else {
             /* It's just a trick to determine the special characters by elimination.
                For ease of implementation, it will work for Latin, Greek, Armenian and Cyrillic scripts.
                We don't take into account Chinese, Japanese, Arabic, Hebrew and most other scripts.
                Keep calm, it's not racism.
             */
-            if (condition) {
-                counter_special++;
-            } else {
-                counter_special--;
-            }
+            counter_special++;
         }
     } else {
         // If empty text set the default values.
-        counter_space = 0;
-        counter_normal = 0;
-        counter_capitalize = 0;
-        counter_numbers = 0;
-        counter_special = 0;
+        initCounter();
     }
 }
 
@@ -95,37 +76,14 @@ function setStrength() {
     |*                                                                                               *|
     \*************************************************************************************************/
 
+    initCounter();
 
-    passwordText = document.getElementById("password").value;
-    lengthText = document.createTextNode(passwordText).length;
+    passwordText = $('#password').val();
+    lengthText = passwordText.length;
 
-    var add_character = lengthText > initial_lengthText; /*returns True if the user adds a character*/
-    var remove_character = lengthText < initial_lengthText;
-
-    if (add_character) {
-        number_of_character_added = lengthText - initial_lengthText;
-        text_added = passwordText.slice(-number_of_character_added);
-        for (var i = 0; i < text_added.length; i++) {
-            setCounters(add_character, text_added[i]);
-        }
-    } else if (remove_character) {
-        number_of_character_removed = initial_lengthText - lengthText;
-        text_removed = last_text.slice(-number_of_character_removed);
-        for (var i = 0; i < text_removed.length; i++) {
-            setCounters(add_character, text_removed[i]);
-        }
+    for (var i = 0; i < lengthText; i++) {
+        setCounters(passwordText[i]);
     }
-
-    initial_lengthText = lengthText;
-    last_text = passwordText;
-
-    /*console.log("counter_space=", counter_space);
-    console.log("counter_normal=", counter_normal);
-    console.log("counter_numbers=", counter_numbers);
-    console.log("counter_capitalize=", counter_capitalize);
-    console.log("counter_special=", counter_special);*/
-
-
 
     /**********DETERMINE THE STRENGTH OF THE PASSWORD**********\
     |*                                                        *|
@@ -163,29 +121,29 @@ function setBackgroundColorBar(strength) {
     |*                                                                                               *|
     \*************************************************************************************************/
 
-    var firstBarColor = document.getElementById("show_strength_bar_weakest");
-    var secondBarColor = document.getElementById("show_strength_bar_weak");
-    var thirdBarColor = document.getElementById("show_strength_bar_medium");
-    var fourthBarColor = document.getElementById("show_strength_bar_good");
-    var fifthBarColor = document.getElementById("show_strength_bar_excellent");
-    var displayText = document.getElementById("type_of_strength");
-    var strengthBox = document.getElementById("show_strength_box");
-    var warning = document.getElementById("show_warning");
+    var firstBarColor = $("#show_strength_bar_weakest");
+    var secondBarColor = $("#show_strength_bar_weak");
+    var thirdBarColor = $("#show_strength_bar_medium");
+    var fourthBarColor = $("#show_strength_bar_good");
+    var fifthBarColor = $("#show_strength_bar_excellent");
+    var displayText = $("#type_of_strength");
+    var strengthBox = $("#show_strength_box");
+    var warning = $("#show_warning");
 
     if (counter_space >= 1) {
-        warning.style.display = "flex";
-        strengthBox.style.display = "none";
+        warning.show();
+        strengthBox.hide();
     } else {
-        strengthBox.style.display = "flex";
-        warning.style.display = "none";
+        strengthBox.show();
+        warning.hide();
         if (strength == 0) {
-            strengthBox.style.display = "none";
+            strengthBox.hide();
         } else if (strength == 1) {
-            strengthBox.style.display = "flex";
-            displayText.innerHTML = "Médiocre";
+            strengthBox.show();
+            displayText.html("Médiocre");
 
-            firstBarColor.style.backgroundColor = "#C00000";
-            secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
+            firstBarColor.css('background-color', "#C00000");
+            secondBarColor.add(thirdBarColor).add(fourthBarColor).add(fifthBarColor).css('background-color', '#D3D3D3');
             /* This line forces the other bars to be grey because, when a color is set,
                it stays at its previous color.
                Example : The password is medium, so the first three bars are set yellow. Now the user
@@ -193,24 +151,24 @@ function setBackgroundColorBar(strength) {
                          two bars are set to red but the third bar is still set to yellow and not grey.
             */
         } else if (strength == 2) {
-            displayText.innerHTML = "Mauvaise";
+            displayText.html("Mauvaise");
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = "#C75566";
-            thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
+            firstBarColor.add(secondBarColor).css('background-color', '#C75566');
+            thirdBarColor.add(fourthBarColor).add(fifthBarColor).css('background-color', '#D3D3D3');
         } else if (strength == 3) {
-            displayText.innerHTML = "Moyenne";
+            displayText.html("Moyenne");
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = "#DDAC26";
-            fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#D3D3D3";
+            firstBarColor.add(secondBarColor).add(thirdBarColor).css('background-color', '#DDAC26');
+            fourthBarColor.add(fifthBarColor).css('background-color', '#D3D3D3');
         } else if (strength == 4) {
-            displayText.innerHTML = "Elevée";
+            displayText.html("Élevée");
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = "#219D75";
-            fifthBarColor.style.backgroundColor = "#D3D3D3";
+            firstBarColor.add(secondBarColor).add(thirdBarColor).add(fourthBarColor).css('background-color', '#219D75');
+            fifthBarColor.css('background-color', '#D3D3D3');
         } else if (strength == 5) {
-            displayText.innerHTML = "Excellente";
+            displayText.html("Excellente");
 
-            firstBarColor.style.backgroundColor = secondBarColor.style.backgroundColor = thirdBarColor.style.backgroundColor = fourthBarColor.style.backgroundColor = fifthBarColor.style.backgroundColor = "#548235";
+            firstBarColor.add(secondBarColor).add(thirdBarColor).add(fourthBarColor).add(fifthBarColor).css('background-color', '#548235');
         }
     }
 }
@@ -227,7 +185,7 @@ function verifiyForm() {
     |*      - must contain at least two characters,                                                  *|
     |*      - can be either uppercase or lowercase, anyway the string will be transformed to         *|
     |*        lowercase. These strings could be transformed later to a show better interface,        *|
-    |*      - maximum characters of 15 (we are not a novel).                                         *|
+    |*      - maximum characters of 20 (we are not writing a novel).                                 *|
     |*                                                                                               *|
     |*  Phone number :                                                                               *|
     |*      - must contain exactly 10 numbers, no letters, no special characters,                    *|
@@ -238,13 +196,13 @@ function verifiyForm() {
     |*      - must be like JJ/MM/AAAA (maybe a form with the / can be implemented),                  *|
     |*      - must be numbers,                                                                       *|
     |*      - JJ between 1 and 31 (depending), MM between 1 and 12 (all the time),                   *|
-    |*        AAAA between 1930 and actual year (why 1930? I don't know).                            *|
+    |*        AAAA between 1900 and actual year (why 1900? I don't know).                            *|
     |*                                                                                               *|
     |*  Mail :                                                                                       *|
     |*      - must contain @ and . characters,                                                       *|
     |*      - before @ and . , must contain at least 2 characters,                                   *|
-    |*      - special characters forbidden, except @ (only once), . (only once after @               *|
-    |*        and no matter before) and underscore before @ (no matter the frequency).               *|
+    |*      - special characters forbidden, except @ (only once), . (no matter the frequency         *|
+    |*        before and after @), dash and underscore before @ (no matter the frequency).           *|
     |*                                                                                               *|
     |*  Password :                                                                                   *|
     |*      - must be at least level 2.                                                              *|
@@ -253,39 +211,281 @@ function verifiyForm() {
     \*************************************************************************************************/
 
 
-    var lastNameInput = document.getElementById("last_name").value;
-    var firstNameInput = document.getElementById("first_name").value;
-    var phoneNumberInput = document.getElementById("phone_number").value;
-    var birthdayInput = document.getElementById("birthday");
-    var mailInput = document.getElementById("mail").value;
-    var birthdayInput = document.getElementById('birthday');
+    var lastNameInput = $("#last_name").val();
+    var firstNameInput = $("#first_name").val();
+    var phoneNumberInput = $("#phone_number").val().replace(/\s/g, '');
+    var birthdayInput = $("#birthday").val();
+    var mailInput = $("#mail").val();
+    var passwordInput = $('#password').val();
+    var confirmPasswordInput = $('#confirm_password').val();
 
-    if (lastNameInput.includes(" ") || lastNameInput.match(/[0-9]/) || lastNameInput.length == 0) {
-        document.getElementById("last_name").style.backgroundColor = "red";
-    } else {
-        document.getElementById("last_name").style.backgroundColor = "white";
+
+    arrayBirthday = birthdayInput.replace(/\s/g, '').split('/');
+    var day = arrayBirthday[0] != null? arrayBirthday[0] : '';
+    var month = arrayBirthday[1] != null? arrayBirthday[1] : '';
+    var year = arrayBirthday[2] != null? arrayBirthday[2] : '';
+
+
+    if (validateNames(lastNameInput) &&
+        validateNames(firstNameInput) &&
+        validatePhoneNumber(phoneNumberInput) &&
+        !notValidateBirthday(day, month, year) &&
+        setStrength() > 2 &&
+        passwordInput == confirmPasswordInput) {
+            birthdayInput = year + '-' + month + '-' + day;
+            dataToSend = 'last_name='+lastNameInput+
+                         '&first_name='+firstNameInput+
+                         '&phone_number='+phoneNumberInput+
+                         '&birthday='+birthdayInput+
+                         '&mail='+mailInput+
+                         '&password='+passwordInput;
+            $.ajax({
+                url : '../Modeles/SendForm.php',
+                type : 'POST',
+                data : dataToSend,
+                success : function() {
+                    $('#form_user').submit();
+                }
+            });
+    }
+    if (!validateNames(lastNameInput)) {
+        $("#last_name").css('background-color', '#FF6666');
+    }
+    if (!validateNames(firstNameInput)) {
+        $("#first_name").css('background-color', '#FF6666');
+    }
+    if (!validatePhoneNumber(phoneNumberInput)) {
+        $("#phone_number").css('background-color', '#FF6666');
+    }
+    if (notValidateBirthday(day, month, year)) {
+        $("#birthday").css('background-color', '#FF6666');
+    }
+    if (!validateEmail(mailInput)) {
+        $("#mail").css('background-color', '#FF6666');
+    }
+    if (setStrength() <= 2) {
+        $("#password").css('background-color', '#FF6666');
+    }
+    if (passwordInput == confirmPasswordInput && passwordInput.length == 0) {
+        $("#password").add($('#confirm_password')).css('background-color', '#FF6666');
+    } else if (passwordInput != confirmPasswordInput && passwordInput.length != 0) {
+        $('#confirm_password').css('background-color', '#FF6666');
     }
 }
 
-function checkPass() {
-    // Store the password field objects into variables ...
-    var password = document.getElementById('password');
-    var confirm_password = document.getElementById('confirm_password');
-    // Store the Confimation Message Object ...
-    // Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-    // Compare the values in the password field
-    // and the confirmation field.
-    if (password.value == confirm_password.value) {
-        // The passwords match.
-        // Set the color to the good color and inform
-        // the user that they have entered the correct password.
-        confirm_password.style.backgroundColor = goodColor;
-    } else {
-        // The passwords do not match.
-        // Set the color to the bad color and
-        // notify the user.
-        confirm_password.style.backgroundColor = badColor;
+function validateNames(name) {
+    var correctPattern = /[A-zÀ-ÿ\-\s\.]/;
+    /* accept lower and uppercase letters even with accents
+       accept dash character (e.g. 'Jean-Eudes')
+       accept only one space character (e.g. 'Conor Jr.'')
+       accept only one dot character (e.g. 'Conor Jr.')
+    */
+    var wrongPattern = /[^A-zÀ-ÿ\-\s\.]/gi;
+
+    if (correctPattern.test(name) && name.length >= 2 && name.length <= 20) {
+        return true;
+    }
+    if (wrongPattern.test(name) || name.length < 2 || name.length > 20) {
+        return false;
     }
 }
+
+function validatePhoneNumber(phoneNumber) {
+    if (phoneNumber.length == 10) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function notValidateBirthday(day, month, year) {
+    var dayNumber = day == ''? 0 : Number(day);
+    var monthNumber = month == ''? 0 : Number(month);
+    var yearNumber = year == ''? (new Date()).getFullYear() : Number(year);
+
+    if (monthNumber > 12 || yearNumber < 1900 || yearNumber > (new Date()).getFullYear() ||
+        (yearNumber == (new Date()).getFullYear() && monthNumber > Number((new Date()).getMonth()+1)) ||
+        (yearNumber == (new Date()).getFullYear() && monthNumber == Number((new Date()).getMonth()+1) && dayNumber > Number((new Date()).getDate())) ||
+        (month % 2 == 0 && dayNumber > 30) || (month % 2 != 0 && dayNumber > 31) || (month == 2 && !isLeapYear(year) && dayNumber > 28) ||
+        (month == 2 && isLeapYear(year) && dayNumber > 29) || dayNumber == 0 || monthNumber == 0 || yearNumber == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+
+function isLeapYear(year) {
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/***************************************************************************************************/
+/****************************************** NAMES **************************************************/
+/***************************************************************************************************/
+
+$('#last_name').add($('#first_name')).keyup(function() {
+    var nameNode = $(this);
+    var name = nameNode.val();
+
+    if (validateNames(name)) {
+        $(this).css('background-color', '#66CC66');
+    } else {
+        $(this).css('background-color', '#FF6666');
+    }
+
+    if (name.length == 0) {
+        nameNode.css('background-color', 'white');
+    }
+});
+
+/***************************************************************************************************/
+/******************************************* PHONE *************************************************/
+/***************************************************************************************************/
+
+$('#phone_number').keyup(function() {
+    var phoneNumberInput = $(this).val();
+    phoneNumberInput = phoneNumberInput.replace(/\s/g, ''); // remove all spaces
+    arrayPhoneNumber = phoneNumberInput.split('');
+    if (arrayPhoneNumber[0] != '0') {
+        arrayPhoneNumber.unshift('0'); // put a 0 at the beginning
+    }
+    if (phoneNumberInput.length < 10) {
+        $(this).css('background-color', 'white');
+        var phoneNumber = '';
+        for (var i = 0; i < arrayPhoneNumber.length; i+=2) {
+            if (arrayPhoneNumber[i+1] == null) {
+                arrayPhoneNumber[i+1] = '';
+            } else {
+                arrayPhoneNumber[i+1] += ' ';
+            }
+            phoneNumber += arrayPhoneNumber[i] + arrayPhoneNumber[i+1];
+        }
+        $(this).val(phoneNumber);
+    } else if (validatePhoneNumber(phoneNumberInput)) {
+        $(this).css('background-color', '#66CC66');
+    } else if (!validatePhoneNumber(phoneNumberInput)) {
+        $(this).css('background-color', '#FF6666');
+    }
+});
+
+$('#phone_number').add('#birthday').on('keypress', function(event) {
+    if ((event.which >= 1 && event.which <= 7) ||
+        (event.which >= 9 && event.which <= 47) ||
+        (event.which >= 58 && event.which <= 300)) {
+        return false;
+    }
+});
+
+$('#phone_number').add('#birthday').on('keypress', function(event) {
+    if ($(this).val().length >= 14 && event.which >= 47 && event.which <= 58) {
+        // if the phone number has the right number of digits, disable writing
+        return false;
+    }
+});
+
+/***************************************************************************************************/
+/***************************************** BIRTHDAY ************************************************/
+/***************************************************************************************************/
+
+$('#birthday').keyup(function() {
+    var birthdayInput = $(this).val();
+    var birthdayOutput = '';
+    birthdayInput = birthdayInput.replace(/\s/g, ''); // remove all spaces
+    arrayBirthday = birthdayInput.split('/');
+    var day = arrayBirthday[0] != null? arrayBirthday[0] : '';
+    var month = arrayBirthday[1] != null? arrayBirthday[1] : '';
+    var year = arrayBirthday[2] != null? arrayBirthday[2] : '';
+
+    if (notValidateBirthday(day, month, year)) {
+        $(this).css('background-color', '#FF6666');
+    } else {
+        $(this).css('background-color', '#66CC66');
+    }
+
+    if (day.length < 2 || month.length < 2 || year.length < 4 ) {
+        $(this).css('background-color', 'white');
+    }
+
+    if ((day.length == 2) || (day.length < 2 && month != '') ) {
+        birthdayOutput += day + ' / ';
+    } else {
+        birthdayOutput += day;
+    }
+    if ((month.length == 2) || (month.length < 2 && year != '')) {
+        birthdayOutput += month + ' / ';
+    } else {
+        birthdayOutput += month;
+    }
+    if (year.length <= 4) {
+        birthdayOutput += year;
+    }
+
+
+    $(this).val(birthdayOutput);
+});
+
+
+/***************************************************************************************************/
+/******************************************* MAIL **************************************************/
+/***************************************************************************************************/
+
+$('#mail').keyup(function() {
+    var mailInput = $(this).val();
+    if (validateEmail(mailInput)) {
+        $(this).css('background-color', '#66CC66');
+    } else {
+        $(this).css('background-color', '#FF6666');
+    }
+    if (mailInput.length == 0) {
+        $(this).css('background-color', 'white');
+    }
+});
+
+/***************************************************************************************************/
+/***************************************** PASSWORD ************************************************/
+/***************************************************************************************************/
+
+$('#password').keyup(function() {
+    var strength = setStrength();
+    setBackgroundColorBar(strength);
+    if (strength >= 3) {
+        $(this).css('background-color', '#66CC66');
+    } else {
+        $(this).css('background-color', '#FF6666');
+    }
+    if ($('#confirm_password').val() != $(this).val() && $('#confirm_password').val().length != 0) {
+        $('#confirm_password').css('background-color', '#FF6666');
+    } else if ($('#confirm_password').val() == $(this).val() && $('#confirm_password').val().length != 0){
+        $('#confirm_password').css('background-color', '#66CC66');
+    }
+    if ($(this).val().length == 0) {
+        $('#confirm_password').val('');
+        $(this).add($('#confirm_password')).css('background-color', 'white');
+    }
+});
+
+$('#confirm_password').on('keypress', function() {
+    if ($('#password').val().length == 0) {
+        return false;
+    }
+});
+
+$('#confirm_password').keyup(function() {
+    if ($(this).val() == $('#password').val()) {
+        $(this).css('background-color', '#66CC66');
+    } else {
+        $(this).css('background-color', '#FF6666');
+    }
+    if ($(this).val().length == 0) {
+        $(this).css('background-color', 'white');
+    }
+});

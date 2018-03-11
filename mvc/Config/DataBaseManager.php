@@ -1,6 +1,6 @@
 <?php
 
-	/** @brief Allow for management over the connection to the database 
+	/** @brief Allow for management over the connection to the database
 	 * (here, MySQL), that is to say the execution of SQL queries with
 	 * preparation, service included.
 	 * This class is handled with the "SINGLETON" pattern which allows
@@ -13,7 +13,7 @@
 		/** Reference to the database when asking for a connection to it. */
 		private  $dbh = null;
 
-		/** Reference to the unique instance of the class following the
+		/* Reference to the unique instance of the class following the
 		"SINGLETON" model", originally null. */
 		private static $instance=null;
 
@@ -55,7 +55,7 @@
 		* @param $data 		Table of the wanted values.
 		* @return false 	if the query fails,
 		*		  true 		if the query success AND is different from
-		*		 			SELECT, or its result in a array with 
+		*		 			SELECT, or its result in a array with
 		*		 			double PHP standard entry.
 		* @throws Customized exception in case of PDO exception. */
 		public function prepareAndLaunchQuery($requete, $data) {
@@ -102,7 +102,7 @@
 		* @param $requete 	Query with ":name" for PDO::prepare.
 		* @return false 	if the query fails,
 		*		  true 		if the query success AND is different from
-		*		 			SELECT, or its result in a array with 
+		*		 			SELECT, or its result in a array with
 		*		 			double PHP standard entry.
 		* @throws Customized exception in case of PDO exception. */
 		public function prepareAndLaunchQueryWithoutData($requete) {
