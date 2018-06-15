@@ -245,6 +245,7 @@ function verifiyForm() {
                 data : dataToSend,
                 success : function() {
                     $('#form_user').submit();
+                    window.location.href = "vueConnexion.php";
                 }
             });
     }
