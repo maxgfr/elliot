@@ -45,6 +45,70 @@ if(empty($_SESSION['email'])) {
 <body>
 
 	<div id="main">
+		<?php
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G01D");
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$data = curl_exec($ch);
+		curl_close($ch);
+
+		$data_tab = str_split($data,33);
+		/*echo "All Data:<br />";
+		for($i=0; $i<count($data_tab)-1; $i++){
+			$trame = $data_tab[$i];
+			$t = substr($trame,0,1);
+			$o = substr($trame,1,4);
+			$r = substr($trame,4,5);
+			$c = substr($trame,5,6);
+			$n = substr($trame,6,8);
+			$v = substr($trame,8,12);
+			$a = substr($trame,12,16);
+			$x = substr($trame,16,18);
+			$year = substr($trame,18,22);
+			$month = substr($trame,22,24);
+			$day = substr($trame,24,26);
+			$hour = substr($trame,26,28);
+			$min = substr($trame,28,30);
+			$sec = substr($trame,30,32);
+			list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+			$type_of_sensor = "";
+			if ($c == "3") {
+				$type_of_sensor = "Température";
+			} elseif ($c == "4") {
+				$type_of_sensor = "Humidité";
+			} elseif ($c == "5") {
+				$type_of_sensor = "Lumière";
+			}
+			echo "Trame $i : $c $type_of_sensor $day / $month / $year  à $hour:$min:$sec<br/>";
+		}*/
+		$trame = $data_tab[0];
+		echo $trame;
+		$t = substr($trame,0,1);
+		$o = substr($trame,1,4);
+		$r = substr($trame,4,5);
+		$c = substr($trame,5,6);
+		$n = substr($trame,6,8);
+		$v = substr($trame,8,12);
+		$a = substr($trame,12,16);
+		$x = substr($trame,16,18);
+		$year = substr($trame,18,22);
+		$month = substr($trame,22,24);
+		$day = substr($trame,24,26);
+		$hour = substr($trame,26,28);
+		$min = substr($trame,28,30);
+		$sec = substr($trame,30,32);
+		list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+		$date = "$year-$month-$day";
+		$value = $v="1111" ? "1":"0";
+		$id_sensor = "19";
+		$sql_query = "INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor) SELECT MAX(id_datasensor)+1,?,?,? FROM datasensors	";
+
+	    // Execute the query
+	    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [ $date, $value, $id_sensor]);
+
+		?>
 		<!-- Set the parameters of sensors.  -->
 		<div class="navigationSensor" style="display: none">
 			<nav>
