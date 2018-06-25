@@ -101,12 +101,13 @@ if(empty($_SESSION['email'])) {
 		$sec = substr($trame,30,32);
 		list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
 		$date = "$year-$month-$day";
-		$value = $v="1111" ? "1":"0";
-		$id_sensor = "19";
-		$sql_query = "INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor) SELECT MAX(id_datasensor)+1,?,?,? FROM datasensors	";
-
+		$value = substr($v,1,2);
+		$id_sensor = "15";
+		$sql_query = "INSERT INTO datasensors(id_datasensor, date_time, value, id_sensor) SELECT MAX(id_datasensor)+1,?,?,? FROM datasensors";
+		$sql_query_2 = "DELETE FROM datasensors WHERE id_sensor = ? and date = ?"
 	    // Execute the query
 	    $query = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query, [ $date, $value, $id_sensor]);
+	    $query2 = DataBaseManager::getInstance()->prepareAndLaunchQuery($sql_query_2, [$id_sensor, $date]);
 
 		?>
 		<!-- Set the parameters of sensors.  -->

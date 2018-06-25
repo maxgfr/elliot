@@ -73,8 +73,8 @@ def setDataInDatasensors(type_of_sensor):
 def query():
     sql_query = ""
     date_list = []
-    date_start = date(2016, 12, 1)
-    date_end = date(2018, 2, 28)
+    date_start = date(2017, 1, 1)
+    date_end = date(2018, 12, 28)
 
     for dt in daterange(date_start, date_end):
         date_list.append(dt.strftime("%Y-%m-%d"))
